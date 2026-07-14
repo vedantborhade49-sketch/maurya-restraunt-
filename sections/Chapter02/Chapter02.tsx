@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import EditorialImageLayer from "./EditorialImageLayer";
 
 export default function Chapter02() {
   const containerRef = useRef<HTMLElement>(null);
@@ -41,21 +42,26 @@ export default function Chapter02() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full h-screen bg-ivory text-charcoal overflow-hidden"
+      className="relative w-full h-screen bg-ch2-bg text-ch2-text overflow-hidden"
     >
-      {/* Subtle Paper Grain */}
-      <div className="absolute inset-0 paper-grain opacity-20 pointer-events-none mix-blend-multiply z-50" />
+      {/* ─── Layer 0: Background ─────────────────────────── */}
+      <div className="texture-ch2" />
+      <div className="absolute inset-0 pointer-events-none z-[2]" style={{ background: "radial-gradient(circle at 50% 40%, rgba(245,242,238,0.2) 0%, transparent 70%)" }} />
+      <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(36,32,28,0.06)] pointer-events-none z-[2]" />
 
-      {/* The Grid / Lines (Hidden initially) */}
-      <div id="ch2-line-h" className="absolute top-1/2 left-0 right-0 h-[1px] bg-maroon/20 origin-left scale-x-0" />
-      <div id="ch2-line-v" className="absolute top-0 bottom-0 left-[35vw] w-[1px] bg-maroon/20 origin-top scale-y-0" />
+      {/* ─── Layer 1: Lines / Grid (existing — unchanged) ── */}
+      <div id="ch2-line-h" className="absolute top-1/2 left-0 right-0 h-[1px] bg-ch2-accent/20 origin-left scale-x-0" style={{ zIndex: 5 }} />
+      <div id="ch2-line-v" className="absolute top-0 bottom-0 left-[35vw] w-[1px] bg-ch2-accent/20 origin-top scale-y-0" style={{ zIndex: 5 }} />
 
-      {/* The Central Statement (Will separate) */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6">
+      {/* ─── Layer 2: Editorial Images — always behind text (z-8) ── */}
+      <EditorialImageLayer />
+
+      {/* ─── Layer 3: Typography ──── */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6" style={{ zIndex: 20 }}>
         
-        <h2 className="font-heading text-5xl md:text-7xl lg:text-[110px] leading-[1.1] tracking-tight text-center text-charcoal max-w-[1200px]">
+        <h2 className="font-heading text-5xl md:text-7xl lg:text-[110px] leading-[1.1] tracking-tight text-center text-ch2-text max-w-[1200px]">
           <div id="ch2-part-1" className="inline-block origin-bottom">
-            Established in <span className="italic font-light text-maroon">1999.</span>
+            Established in <span className="italic font-light text-ch2-accent">1999.</span>
           </div>
           <br className="hidden md:block" />
           <div id="ch2-part-2" className="inline-block mt-4 md:mt-8 origin-top">
@@ -65,21 +71,21 @@ export default function Chapter02() {
 
       </div>
 
-      {/* The Annotations (Fade in at end of scrub) */}
+      {/* ─── Layer 4: Annotations (existing — unchanged) ── */}
       
       {/* Top Left Label */}
-      <div className="absolute top-12 left-12 md:left-24 font-label text-[10px] tracking-[0.3em] uppercase text-muted ch2-annotation opacity-0">
+      <div className="absolute top-12 left-12 md:left-24 font-label text-[10px] tracking-[0.3em] uppercase text-ch2-text/60 ch2-annotation opacity-0" style={{ zIndex: 25 }}>
         02 — The Foundation
       </div>
 
       {/* Bottom Right Label */}
-      <div className="absolute bottom-12 right-12 md:right-24 font-serif italic text-sm text-maroon ch2-annotation opacity-0 text-right">
+      <div className="absolute bottom-12 right-12 md:right-24 font-serif italic text-sm text-ch2-accent ch2-annotation opacity-0 text-right" style={{ zIndex: 25 }}>
         "Rooted in Pune."<br/>
-        <span className="font-sans text-[10px] uppercase tracking-widest text-muted not-italic mt-2 block">Our Heritage</span>
+        <span className="font-sans text-[10px] uppercase tracking-widest text-ch2-text/60 not-italic mt-2 block">Our Heritage</span>
       </div>
 
       {/* Vertical Spine Text */}
-      <div className="absolute top-[60vh] left-6 md:left-[32vw] font-label text-[10px] tracking-[0.2em] uppercase text-charcoal/40 rotate-180 ch2-annotation opacity-0 hidden md:block" style={{ writingMode: 'vertical-rl' }}>
+      <div className="absolute top-[60vh] left-6 md:left-[32vw] font-label text-[10px] tracking-[0.2em] uppercase text-ch2-text/40 rotate-180 ch2-annotation opacity-0 hidden md:block" style={{ writingMode: 'vertical-rl', zIndex: 25 }}>
         Tradition over Trend
       </div>
 

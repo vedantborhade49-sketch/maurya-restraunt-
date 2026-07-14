@@ -2,25 +2,32 @@ import gsap from "gsap";
 
 export const playAfterVideoTimeline = () => {
   const tl = gsap.timeline({
-    defaults: { ease: "power2.out" },
+    defaults: { ease: "power3.inOut" },
   });
 
-  // Scale the video slightly to 1.02 to feel the world changing (starts at 0 in timeline)
-  tl.to("#hero-main-video", { scale: 1.02, duration: 4, ease: "power2.out" }, 0);
-
+  // Slow cinematic camera drift
+  tl.to("#hero-main-video", { scale: 1.06, yPercent: 2, duration: 30, ease: "sine.inOut" }, 0);
+  tl.to("#hero-mandala", { scale: 1.1, rotation: 5, duration: 40, ease: "none" }, 0);
+  
   // Background transformation (Target: 7.0s, which is 0.5s after the 6.5s video ends)
-  // Decreased fade by 80% (making video heavily visible)
-  tl.to("#hero-overlay-black", { opacity: 0.08, duration: 2, ease: "power2.out" }, 0.5);
-  tl.to("#hero-overlay-gradient", { opacity: 0.2, duration: 2, ease: "power2.out" }, 0.5);
-  tl.to("#hero-overlay-ivory", { opacity: 0.08, duration: 2, ease: "power2.out" }, 0.5);
+  // Bring up deep espresso and burnt umber gradients
+  tl.to("#hero-overlay-black", { opacity: 0.25, duration: 2.5, ease: "power3.inOut" }, 0.5);
+  tl.to("#hero-overlay-gradient", { opacity: 0.4, duration: 2.5, ease: "power3.inOut" }, 0.5);
+  
+  // Reveal Mandala slowly
+  tl.to("#hero-mandala", { opacity: 0.4, duration: 3.5, ease: "power3.inOut" }, 0.5);
+  
+  // Fade in Volumetric Smoke and Embers
+  tl.to("#hero-volumetric-smoke", { opacity: 0.8, duration: 4, ease: "power2.inOut" }, 0.5);
+  tl.to("#hero-embers-canvas", { opacity: 1, duration: 3, ease: "power2.inOut" }, 1.5);
   
   tl.to(
     "#hero-main-video",
     { 
-      opacity: 0.80,
-      filter: "blur(2px) saturate(0.65) brightness(0.7) contrast(0.9)", 
-      duration: 2,
-      ease: "power2.out"
+      opacity: 0.85,
+      filter: "blur(4px) saturate(0.8) brightness(0.65) contrast(1.1)", 
+      duration: 3,
+      ease: "power3.inOut"
     },
     0.5
   );
@@ -28,48 +35,48 @@ export const playAfterVideoTimeline = () => {
   // Label reveals (Target: 7.4s, so 0.9s from tl start)
   tl.fromTo(
     "#hero-label-container",
-    { y: 20, opacity: 0 },
-    { y: 0, opacity: 1, duration: 1.2, ease: "power3.out" },
-    0.9
+    { y: 30, opacity: 0 },
+    { y: 0, opacity: 1, duration: 1.8, ease: "power3.out" },
+    1.2
   );
 
-  // Headline reveals (Target: 7.8s, so 1.3s from tl start)
+  // Headline reveals
   tl.fromTo(
     ".hero-headline-line",
     { y: "100%", opacity: 0 },
-    { y: "0%", opacity: 1, duration: 1.2, stagger: 0.15, ease: "power3.out" },
-    1.3
+    { y: "0%", opacity: 1, duration: 1.6, stagger: 0.2, ease: "power4.out" },
+    1.6
   );
   
-  // Paragraph appears (Target: 8.2s, so 1.7s from tl start)
+  // Paragraph appears
   tl.fromTo(
     "#hero-paragraph",
-    { opacity: 0, y: 20 },
-    { opacity: 1, y: 0, duration: 1.2, ease: "power2.out" },
-    1.7
+    { opacity: 0, y: 30 },
+    { opacity: 1, y: 0, duration: 1.5, ease: "power3.out" },
+    2.2
   );
 
-  // CTA appears (Target: 8.6s, so 2.1s from tl start)
+  // CTA appears
   tl.fromTo(
     ".hero-button",
-    { opacity: 0, y: 20 },
-    { opacity: 1, y: 0, duration: 1.2, ease: "power2.out" },
-    2.1
+    { opacity: 0, y: 30 },
+    { opacity: 1, y: 0, duration: 1.5, ease: "power3.out" },
+    2.6
   );
 
-  // Navbar slides from top (Target: 9.0s, so 2.5s from tl start)
+  // Navbar slides from top
   tl.fromTo("#main-navbar", 
-    { opacity: 0, y: -30 },
-    { opacity: 1, y: 0, duration: 1.5, ease: "power3.out" }, 
-    2.5
+    { opacity: 0, y: -40 },
+    { opacity: 0.95, y: 0, duration: 1.8, ease: "power3.out" }, 
+    3.0
   );
 
-  // Scroll indicator appears (Target: 9.4s, so 2.9s from tl start)
+  // Scroll indicator appears
   tl.fromTo(
     "#hero-scroll-hint",
-    { opacity: 0, y: -10 },
-    { opacity: 1, y: 0, duration: 1.2, ease: "power2.out" },
-    2.9
+    { opacity: 0, y: -15 },
+    { opacity: 1, y: 0, duration: 1.5, ease: "power3.out" },
+    3.4
   );
 
   return tl;

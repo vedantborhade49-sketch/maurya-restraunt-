@@ -7,6 +7,7 @@ import HeroHeadline from "./HeroHeadline";
 import HeroMedia from "./HeroMedia";
 import HeroButtons from "./HeroButtons";
 import HeroScrollHint from "./HeroScrollHint";
+import HeroParticles from "@/components/HeroParticles";
 import Navbar from "@/components/Navbar";
 import { playAfterVideoTimeline } from "@/lib/animations/masterTimeline";
 
@@ -68,6 +69,7 @@ export default function Hero() {
         </div>
       </div>
       
+      <HeroParticles />
       <HeroScrollHint />
     </section>
   );

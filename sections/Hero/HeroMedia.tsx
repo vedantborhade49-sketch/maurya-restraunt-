@@ -39,14 +39,42 @@ export default function HeroMedia({ onVideoEnd }: HeroMediaProps) {
 
       {/* OVERLAYS (Cinematic Grading Stack) */}
       
-      {/* Base black overlay */}
-      <div id="hero-overlay-black" className="absolute inset-0 bg-[#000000] opacity-0" />
+      {/* 1. Deep Espresso base overlay for rich shadows instead of pure black */}
+      <div id="hero-overlay-black" className="absolute inset-0 bg-[#1A100C] opacity-0" />
       
-      {/* Deep cinematic gradient */}
+      {/* 2. Abstract Mandala Layer (Revealed by spotlight mask and smoke) */}
+      <div 
+        id="hero-mandala"
+        className="absolute inset-0 opacity-0 mix-blend-color-dodge flex items-center justify-center pointer-events-none"
+        style={{
+          WebkitMaskImage: 'radial-gradient(circle at 50% 50%, black 0%, transparent 40%)',
+          maskImage: 'radial-gradient(circle at 50% 50%, black 0%, transparent 40%)'
+        }}
+      >
+        <svg viewBox="0 0 800 800" className="w-[120%] h-[120%] md:w-[80%] md:h-[80%] max-w-none opacity-[0.15] animate-[spin_120s_linear_infinite]" style={{ transformOrigin: "center" }}>
+          {/* Subtle geometric mandala pattern */}
+          <g stroke="rgba(196,154,72,0.8)" strokeWidth="1" fill="none">
+            {Array.from({ length: 12 }).map((_, i) => (
+              <g key={i} transform={`rotate(${i * 30} 400 400)`}>
+                <path d="M400,200 Q450,300 400,400 Q350,300 400,200" />
+                <circle cx="400" cy="150" r="10" />
+                <path d="M400,100 L420,120 L400,140 L380,120 Z" />
+              </g>
+            ))}
+            {Array.from({ length: 24 }).map((_, i) => (
+              <path key={i} d="M400,300 Q420,350 400,400" transform={`rotate(${i * 15} 400 400)`} />
+            ))}
+            <circle cx="400" cy="400" r="250" strokeWidth="0.5" strokeDasharray="4 4" />
+            <circle cx="400" cy="400" r="150" strokeWidth="0.5" />
+          </g>
+        </svg>
+      </div>
+
+      {/* 3. Deep cinematic gradient (Burnt Umber to Espresso) */}
       <div 
         id="hero-overlay-gradient" 
         className="absolute inset-0 opacity-0 mix-blend-multiply"
-        style={{ background: "linear-gradient(180deg, rgba(46,20,18,0.55) 0%, rgba(18,18,18,0.65) 100%)" }}
+        style={{ background: "linear-gradient(180deg, rgba(56,25,18,0.65) 0%, rgba(20,10,8,0.85) 100%)" }}
       />
       
       {/* Warm ivory tint for highlights */}
