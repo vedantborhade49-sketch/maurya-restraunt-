@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter, Space_Grotesk } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
+import Navbar from "../components/Navbar";
+import SmoothScroll from "../components/SmoothScroll";
+import YourTableDrawer from "../components/cart/YourTableDrawer";
+import { PreloaderProvider } from "../components/preloader";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -8,19 +12,16 @@ const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
 });
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-manrope",
 });
 
 export const metadata: Metadata = {
-  title: "Maurya Veg | Pure Taste. Timeless Hospitality.",
-  description: "A premium family dining experience.",
+  title: "Maurya | Pure Veg, Pure Indulgence",
+  description: "Experience premium vegetarian dining at Maurya in Kondhwa, Pune. Explore North Indian, South Indian, Maharashtrian and Chinese favourites. Order directly for home delivery.",
+  keywords: ["pure veg restaurant in Kondhwa", "veg restaurant Kondhwa Pune", "family restaurant Kondhwa", "pure vegetarian restaurant Pune", "Maurya Veg", "Maurya Pune"],
 };
 
 export default function RootLayout({
@@ -29,11 +30,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${cormorant.variable} ${inter.variable} ${spaceGrotesk.variable} antialiased bg-background text-ink`}
-      >
-        {children}
+    <html lang="en" className={`${cormorant.variable} ${manrope.variable}`}>
+      <body className="antialiased bg-midnight text-soft-ivory font-sans">
+        <PreloaderProvider>
+          <SmoothScroll>
+            <Navbar />
+            <YourTableDrawer />
+            <div className="noise-bg" />
+            <main>{children}</main>
+          </SmoothScroll>
+        </PreloaderProvider>
       </body>
     </html>
   );

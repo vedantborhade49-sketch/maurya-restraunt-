@@ -1,16 +1,30 @@
+import Link from "next/link";
+
 export default function HeroButtons() {
   return (
-    <div className="relative z-10 mt-16 md:ml-12 flex items-center">
-      <button className="hero-button group relative overflow-hidden font-label text-sm uppercase tracking-widest text-[#F8F5F0] flex items-center gap-2 opacity-0">
-        <span className="relative z-10 transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-full">
-          Explore Maurya
+    <div className="relative z-10 mt-12 md:ml-12 flex flex-wrap items-center gap-6">
+      {/* Primary Menu Button */}
+      <Link
+        href="/menu"
+        className="hero-button group relative overflow-hidden font-sans text-xs font-bold uppercase tracking-widest px-8 py-4 bg-crimson text-white rounded-full transition-all duration-300 hover:shadow-[0_8px_30px_rgb(165,15,18,0.3)] active:translate-y-px opacity-0"
+        data-cursor="GO"
+      >
+        <span className="relative z-10">
+          Explore the Menu
         </span>
-        <span className="absolute inset-0 z-10 transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] translate-y-full group-hover:translate-y-0 text-[#C69A3B]">
-          Explore Maurya
+      </Link>
+
+      {/* Secondary Order Button */}
+      <Link
+        href="/menu?order=true"
+        className="hero-button group relative overflow-hidden font-sans text-xs font-bold uppercase tracking-widest px-8 py-4 border border-gold/45 text-gold hover:text-midnight rounded-full transition-all duration-300 active:translate-y-px opacity-0"
+        data-cursor="GO"
+      >
+        <span className="relative z-10">
+          Feast at Home
         </span>
-        <span className="transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-2 text-[#C69A3B]">→</span>
-        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#F8F5F0]/20 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:bg-[#C69A3B]" />
-      </button>
+        <span className="absolute inset-0 bg-gold translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
+      </Link>
     </div>
   );
 }
