@@ -1,20 +1,22 @@
 export default function HeroHeadline() {
   return (
-    <div className="relative z-10 w-full max-w-[850px] mt-[20vh] ml-0 md:ml-12 lg:ml-24">
-      {/* Editorial Label & Divider */}
-      <div className="mb-8 overflow-hidden">
-        <div id="hero-label-container" className="flex flex-row items-center gap-4 opacity-0 translate-y-4">
-          <span className="font-sans text-xs tracking-[0.3em] uppercase text-gold">
-            Maurya
+    <div className="relative z-10 w-full max-w-[700px] mt-[25vh] ml-0 md:ml-12 lg:ml-24">
+      {/* Editorial Label & Divider (Forged Logo Effect) */}
+      <div className="mb-12 overflow-hidden relative">
+        <div id="hero-label-container" className="flex flex-col items-start gap-4 opacity-0 translate-y-4">
+          <span className="relative font-label text-sm tracking-[0.3em] uppercase text-[#F8F5F0]/80 overflow-hidden">
+            <span className="relative z-10 mix-blend-overlay">Maurya</span>
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-[#C49A48] to-transparent opacity-0 animate-[shimmer_4s_cubic-bezier(0.4,0,0.2,1)_infinite]" style={{ WebkitBackgroundClip: 'text', color: 'transparent' }}>
+              Maurya
+            </span>
           </span>
-          <div className="w-12 h-[1px] bg-gold/40" />
-          <span className="font-sans text-[10px] tracking-[0.35em] uppercase text-soft-ivory/60">
-            Kondhwa, Pune
-          </span>
+          <div className="relative w-16 h-[1px] bg-[#F8F5F0]/40 overflow-hidden">
+            <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-[#C49A48] to-transparent -translate-x-full animate-[shimmer_4s_cubic-bezier(0.4,0,0.2,1)_infinite_0.5s]" />
+          </div>
         </div>
       </div>
 
-      <h1 className="font-heading text-5xl md:text-[6.5rem] lg:text-[100px] leading-[1.05] tracking-tight mb-10 text-soft-ivory">
+      <h1 className="font-heading text-6xl md:text-[7rem] lg:text-[110px] leading-[1.1] tracking-tight mb-16 text-[#F8F5F0] drop-shadow-lg">
         <div className="overflow-hidden pb-2">
           <div className="hero-headline-line opacity-0 translate-y-full font-bold">
             PURE VEG.
