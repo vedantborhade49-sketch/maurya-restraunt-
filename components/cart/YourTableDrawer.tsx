@@ -1,12 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useTableStore } from "../../stores/table-store";
 import { X, Plus, Minus, Trash2, ShoppingBag } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
 export default function YourTableDrawer() {
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
   const { 
     items, 
     isOpen, 
@@ -89,11 +90,14 @@ export default function YourTableDrawer() {
                       transition={{ delay: idx * 0.04 }}
                       className="p-4 rounded-xl border border-white/5 bg-wine/5 flex gap-4 items-center justify-between"
                     >
-                      {cartItem.item.image_url ? (
+                      {cartItem.item.image_url && !imageErrors[cartItem.item.id] ? (
                         <img
                           src={cartItem.item.image_url}
                           alt={cartItem.item.name}
                           className="w-16 h-16 rounded-lg object-cover border border-white/10 shrink-0"
+                          onError={() => {
+                            setImageErrors((prev) => ({ ...prev, [cartItem.item.id]: true }));
+                          }}
                         />
                       ) : (
                         <div className="w-16 h-16 rounded-lg bg-wine/20 flex items-center justify-center border border-white/10 text-gold font-heading text-lg shrink-0">

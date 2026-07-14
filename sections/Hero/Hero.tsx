@@ -96,7 +96,7 @@ export default function Hero() {
       >
         <div className="relative w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] border-4 border-gold/30">
           <img 
-            src="https://cdn.hashtagloyalty.com/items/images/012/147/233/original/thumb_2023_01_18_12_18_15_Veg_Maratha.jpg?w=500&h=500&image_name=thumb_2023_01_18_12_18_15_Veg_Maratha.jpg" 
+            src="/editorial-food-4.png" 
             alt="Veg Maratha Signature Dish" 
             className="w-full h-full object-cover"
           />

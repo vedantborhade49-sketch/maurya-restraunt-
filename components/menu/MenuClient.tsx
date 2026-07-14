@@ -15,6 +15,7 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
   const [items, setItems] = useState<MenuItem[]>(initialItems);
   const [selectedCategory, setSelectedCategory] = useState("ALL");
   const [searchQuery, setSearchQuery] = useState("");
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
   const [isPending, startTransition] = useTransition();
 
   const { items: cartItems, addItem, decreaseQuantity } = useTableStore();
@@ -131,12 +132,15 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
                     <div>
                       {/* Image header */}
                       <div className="relative w-full h-40 rounded-xl overflow-hidden mb-4 border border-white/10 bg-wine/20">
-                        {item.image_url ? (
+                        {item.image_url && !imageErrors[item.id] ? (
                           <img
                             src={item.image_url}
                             alt={item.name}
                             className="w-full h-full object-cover"
                             loading="lazy"
+                            onError={() => {
+                              setImageErrors((prev) => ({ ...prev, [item.id]: true }));
+                            }}
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-gold font-heading text-3xl">

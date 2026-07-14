@@ -36,6 +36,7 @@ export default function AdminPage() {
   const [reservations, setReservations] = useState<any[]>([]);
   const [categories, setCategories] = useState<any[]>([]);
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
   
   // UI Modals / Form States
   const [editingItem, setEditingItem] = useState<any | null>(null);
@@ -586,8 +587,15 @@ export default function AdminPage() {
                     {menuItems.map((item) => (
                       <tr key={`${item.id}-${item.category}`} className="hover:bg-white/5 transition-colors">
                         <td className="p-4 shrink-0">
-                          {item.image_url ? (
-                            <img src={item.image_url} alt={item.name} className="w-12 h-12 object-cover rounded-lg border border-white/10" />
+                          {item.image_url && !imageErrors[item.id] ? (
+                            <img 
+                              src={item.image_url} 
+                              alt={item.name} 
+                              className="w-12 h-12 object-cover rounded-lg border border-white/10" 
+                              onError={() => {
+                                setImageErrors((prev) => ({ ...prev, [item.id]: true }));
+                              }}
+                            />
                           ) : (
                             <div className="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center font-heading text-gold text-lg border border-white/10">{item.name[0]}</div>
                           )}
