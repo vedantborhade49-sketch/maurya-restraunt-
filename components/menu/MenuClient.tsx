@@ -264,11 +264,12 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
         )}
       </AnimatePresence>
 
-      {/* Background Picture with 20% fade (80% opacity) */}
+      {/* Repeating Luxury Indian Diamond Pattern Background */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none opacity-80"
+        className="absolute inset-0 z-0 pointer-events-none opacity-100"
         style={{
-          backgroundImage: `url("/editorial-texture.png")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%23B98532' stroke-width='0.75' opacity='0.08'/%3E%3Cpath d='M30 24 L32 30 L30 36 L28 30 Z' fill='%23B98532' opacity='0.12'/%3E%3Cpath d='M24 30 L30 28 L36 30 L30 32 Z' fill='%23B98532' opacity='0.12'/%3E%3Ccircle cx='0' cy='0' r='1.5' fill='%23B98532' opacity='0.15'/%3E%3Ccircle cx='60' cy='0' r='1.5' fill='%23B98532' opacity='0.15'/%3E%3Ccircle cx='0' cy='60' r='1.5' fill='%23B98532' opacity='0.15'/%3E%3Ccircle cx='60' cy='60' r='1.5' fill='%23B98532' opacity='0.15'/%3E%3C/svg%3E")`,
+          backgroundRepeat: "repeat",
         }}
       />
 
