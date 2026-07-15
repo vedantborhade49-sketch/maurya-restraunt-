@@ -264,11 +264,11 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
         )}
       </AnimatePresence>
 
-      {/* Background Picture with 40% fade (opacity: 0.4) blended into the ivory paper */}
+      {/* Background Picture with 0% fade (100% opacity) */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none opacity-40 mix-blend-multiply"
+        className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none opacity-100"
         style={{
-          backgroundImage: `url("/restaurant-interior.png")`,
+          backgroundImage: `url("/editorial-texture.png")`,
         }}
       />
 
