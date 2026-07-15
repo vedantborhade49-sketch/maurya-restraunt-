@@ -3,7 +3,7 @@
 import { useState } from "react";
 import BrandIntro from "@/components/brand/BrandIntro";
 import BrandGrain from "@/components/brand/BrandGrain";
-import SectionIndex from "@/components/brand/SectionIndex";
+
 import HeroTable from "@/sections/HeroTable/HeroTable";
 import ChapterTransition from "@/components/ChapterTransition";
 import Chapter02 from "@/sections/Chapter02/Chapter02";
@@ -23,8 +23,7 @@ export default function Home() {
       {/* Global Tactile Paper Grain */}
       <BrandGrain />
 
-      {/* Fixed Desktop Section Progress Index */}
-      <SectionIndex />
+
 
       {/* Main Brand Sections */}
       <main 
