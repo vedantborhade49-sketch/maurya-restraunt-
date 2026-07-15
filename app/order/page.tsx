@@ -204,46 +204,46 @@ Please confirm my order.`;
 
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-10">
         {/* Left Side: Order Form */}
-        <div className="lg:col-span-7 bg-wine/5 border border-white/5 p-6 md:p-8 rounded-2xl backdrop-blur-md">
-          <h2 className="font-heading text-2xl md:text-3xl text-gold mb-6 tracking-wide">Checkout Details</h2>
+        <div className="lg:col-span-7 bg-[#350709]/10 border border-[#B98532]/25 p-6 md:p-8 rounded-2xl backdrop-blur-md shadow-2xl">
+          <h2 className="font-heading text-3xl text-[#F3E8D4] mb-6 tracking-wide">Checkout Details</h2>
           
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 font-sans">
             {/* Name */}
             <div>
-              <label className="block text-xs uppercase tracking-widest text-soft-ivory/60 mb-2">Full Name</label>
+              <label className="block text-[10px] uppercase tracking-[0.2em] text-[#F3E8D4]/60 mb-2 font-bold">Full Name</label>
               <input
                 type="text"
                 {...register("customerName")}
-                className="w-full px-4 py-3 rounded-xl bg-midnight border border-white/10 text-soft-ivory focus:outline-none focus:border-gold/40 text-sm transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-[#0B0908] border border-[#B98532]/20 text-[#F3E8D4] focus:outline-none focus:border-[#B98532]/60 focus:shadow-[0_0_12px_rgba(185,133,50,0.1)] text-sm transition-all duration-300"
                 placeholder="e.g. Bhumit Gupta"
               />
               {errors.customerName && (
-                <span className="text-xs text-crimson mt-1 block">{errors.customerName.message}</span>
+                <span className="text-xs text-[#8F1115] mt-1 block">{errors.customerName.message}</span>
               )}
             </div>
 
             {/* Phone */}
             <div>
-              <label className="block text-xs uppercase tracking-widest text-soft-ivory/60 mb-2">Phone Number</label>
+              <label className="block text-[10px] uppercase tracking-[0.2em] text-[#F3E8D4]/60 mb-2 font-bold">Phone Number</label>
               <input
                 type="tel"
                 {...register("customerPhone")}
-                className="w-full px-4 py-3 rounded-xl bg-midnight border border-white/10 text-soft-ivory focus:outline-none focus:border-gold/40 text-sm transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-[#0B0908] border border-[#B98532]/20 text-[#F3E8D4] focus:outline-none focus:border-[#B98532]/60 focus:shadow-[0_0_12px_rgba(185,133,50,0.1)] text-sm transition-all duration-300"
                 placeholder="e.g. 98XXXXXXXX"
               />
               {errors.customerPhone && (
-                <span className="text-xs text-crimson mt-1 block">{errors.customerPhone.message}</span>
+                <span className="text-xs text-[#8F1115] mt-1 block">{errors.customerPhone.message}</span>
               )}
             </div>
 
             {/* Delivery vs Pickup Toggle */}
             <div>
-              <label className="block text-xs uppercase tracking-widest text-soft-ivory/60 mb-2">Order Method</label>
+              <label className="block text-[10px] uppercase tracking-[0.2em] text-[#F3E8D4]/60 mb-2 font-bold">Order Method</label>
               <div className="grid grid-cols-2 gap-4">
                 <label className={`flex items-center justify-center gap-2 p-3 rounded-xl border cursor-pointer transition-all ${
                   orderType === "DELIVERY"
-                    ? "border-gold bg-gold/10 text-gold"
-                    : "border-white/10 bg-midnight text-soft-ivory/60"
+                    ? "border-[#B98532] bg-[#B98532]/10 text-[#B98532]"
+                    : "border-white/10 bg-[#0B0908] text-[#F3E8D4]/60"
                 }`}>
                   <input type="radio" value="DELIVERY" {...register("orderType")} className="hidden" />
                   <MapPin className="w-4 h-4" />
@@ -251,8 +251,8 @@ Please confirm my order.`;
                 </label>
                 <label className={`flex items-center justify-center gap-2 p-3 rounded-xl border cursor-pointer transition-all ${
                   orderType === "PICKUP"
-                    ? "border-gold bg-gold/10 text-gold"
-                    : "border-white/10 bg-midnight text-soft-ivory/60"
+                    ? "border-[#B98532] bg-[#B98532]/10 text-[#B98532]"
+                    : "border-white/10 bg-[#0B0908] text-[#F3E8D4]/60"
                 }`}>
                   <input type="radio" value="PICKUP" {...register("orderType")} className="hidden" />
                   <ShoppingBag className="w-4 h-4" />
@@ -265,38 +265,38 @@ Please confirm my order.`;
             {orderType === "DELIVERY" && (
               <div className="space-y-4 pt-2">
                 <div>
-                  <label className="block text-xs uppercase tracking-widest text-soft-ivory/60 mb-2">Delivery Address</label>
+                  <label className="block text-[10px] uppercase tracking-[0.2em] text-[#F3E8D4]/60 mb-2 font-bold">Delivery Address</label>
                   <textarea
                     rows={3}
                     {...register("address")}
-                    className="w-full px-4 py-3 rounded-xl bg-midnight border border-white/10 text-soft-ivory focus:outline-none focus:border-gold/40 text-sm transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-[#0B0908] border border-[#B98532]/20 text-[#F3E8D4] focus:outline-none focus:border-[#B98532]/60 focus:shadow-[0_0_12px_rgba(185,133,50,0.1)] text-sm transition-all duration-300 resize-none"
                     placeholder="Street name, building number, locality..."
                   />
                   {errors.address && (
-                    <span className="text-xs text-crimson mt-1 block">{errors.address.message}</span>
+                    <span className="text-xs text-[#8F1115] mt-1 block">{errors.address.message}</span>
                   )}
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs uppercase tracking-widest text-soft-ivory/60 mb-2">Landmark</label>
+                    <label className="block text-[10px] uppercase tracking-[0.2em] text-[#F3E8D4]/60 mb-2 font-bold">Landmark</label>
                     <input
                       type="text"
                       {...register("landmark")}
-                      className="w-full px-4 py-3 rounded-xl bg-midnight border border-white/10 text-soft-ivory focus:outline-none focus:border-gold/40 text-sm transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-[#0B0908] border border-[#B98532]/20 text-[#F3E8D4] focus:outline-none focus:border-[#B98532]/60 focus:shadow-[0_0_12px_rgba(185,133,50,0.1)] text-sm transition-all duration-300"
                       placeholder="e.g. Near X School"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs uppercase tracking-widest text-soft-ivory/60 mb-2">Pincode</label>
+                    <label className="block text-[10px] uppercase tracking-[0.2em] text-[#F3E8D4]/60 mb-2 font-bold">Pincode</label>
                     <input
                       type="text"
                       {...register("pincode")}
-                      className="w-full px-4 py-3 rounded-xl bg-midnight border border-white/10 text-soft-ivory focus:outline-none focus:border-gold/40 text-sm transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-[#0B0908] border border-[#B98532]/20 text-[#F3E8D4] focus:outline-none focus:border-[#B98532]/60 focus:shadow-[0_0_12px_rgba(185,133,50,0.1)] text-sm transition-all duration-300"
                       placeholder="e.g. 411048"
                     />
                     {errors.pincode && (
-                      <span className="text-xs text-crimson mt-1 block">{errors.pincode.message}</span>
+                      <span className="text-xs text-[#8F1115] mt-1 block">{errors.pincode.message}</span>
                     )}
                   </div>
                 </div>
@@ -305,36 +305,36 @@ Please confirm my order.`;
 
             {/* Payment options */}
             <div>
-              <label className="block text-xs uppercase tracking-widest text-soft-ivory/60 mb-2">Payment Option</label>
+              <label className="block text-[10px] uppercase tracking-[0.2em] text-[#F3E8D4]/60 mb-2 font-bold">Payment Option</label>
               <div className="grid grid-cols-2 gap-4">
                 <label className={`flex items-center justify-center gap-2 p-3 rounded-xl border cursor-pointer transition-all ${
                   watch("paymentPreference") === "COD"
-                    ? "border-gold bg-gold/10 text-gold"
-                    : "border-white/10 bg-midnight text-soft-ivory/60"
+                    ? "border-[#B98532] bg-[#B98532]/10 text-[#B98532]"
+                    : "border-white/10 bg-[#0B0908] text-[#F3E8D4]/60"
                 }`}>
                   <input type="radio" value="COD" {...register("paymentPreference")} className="hidden" />
                   <CreditCard className="w-4 h-4" />
-                  <span className="text-xs font-bold uppercase tracking-widest">Cash on Delivery</span>
+                  <span className="text-xs font-bold uppercase tracking-widest font-sans">Cash on Delivery</span>
                 </label>
                 <label className={`flex items-center justify-center gap-2 p-3 rounded-xl border cursor-pointer transition-all ${
                   watch("paymentPreference") === "UPI"
-                    ? "border-gold bg-gold/10 text-gold"
-                    : "border-white/10 bg-midnight text-soft-ivory/60"
+                    ? "border-[#B98532] bg-[#B98532]/10 text-[#B98532]"
+                    : "border-white/10 bg-[#0B0908] text-[#F3E8D4]/60"
                 }`}>
                   <input type="radio" value="UPI" {...register("paymentPreference")} className="hidden" />
                   <CreditCard className="w-4 h-4" />
-                  <span className="text-xs font-bold uppercase tracking-widest">UPI on Confirm</span>
+                  <span className="text-xs font-bold uppercase tracking-widest font-sans">UPI on Confirm</span>
                 </label>
               </div>
             </div>
 
             {/* Special instructions */}
             <div>
-              <label className="block text-xs uppercase tracking-widest text-soft-ivory/60 mb-2">Special Instructions</label>
+              <label className="block text-[10px] uppercase tracking-[0.2em] text-[#F3E8D4]/60 mb-2 font-bold">Special Instructions</label>
               <textarea
                 rows={2}
                 {...register("specialInstructions")}
-                className="w-full px-4 py-3 rounded-xl bg-midnight border border-white/10 text-soft-ivory focus:outline-none focus:border-gold/40 text-sm transition-colors resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-[#0B0908] border border-[#B98532]/20 text-[#F3E8D4] focus:outline-none focus:border-[#B98532]/60 focus:shadow-[0_0_12px_rgba(185,133,50,0.1)] text-sm transition-all duration-300 resize-none"
                 placeholder="e.g. Less spicy, keep napkins..."
               />
             </div>
@@ -343,7 +343,7 @@ Please confirm my order.`;
             <button
               type="submit"
               disabled={loading || items.length === 0}
-              className="w-full py-4 bg-crimson hover:bg-crimson/90 text-white rounded-xl font-bold text-xs uppercase tracking-widest transition-all shadow-lg shadow-crimson/20 flex items-center justify-center gap-2 active:translate-y-px disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-4 bg-[#8F1115] hover:bg-[#8F1115]/90 text-[#F3E8D4] rounded-xl font-bold text-xs uppercase tracking-[0.15em] transition-all shadow-lg shadow-[#8F1115]/20 flex items-center justify-center gap-2 active:translate-y-px disabled:opacity-50 disabled:cursor-not-allowed font-sans"
             >
               {loading ? (
                 <>
@@ -358,14 +358,27 @@ Please confirm my order.`;
           </form>
         </div>
 
-        {/* Right Side: Table Cart Summary (5 columns) */}
-        <div className="lg:col-span-5 bg-wine/5 border border-white/5 p-6 rounded-2xl h-fit backdrop-blur-md">
-          <h3 className="font-heading text-xl text-gold mb-6 tracking-wide">Your Selections</h3>
+        {/* Right Side: Table Cart Summary (5 columns) - Styled as a tactile ivory receipt */}
+        <div 
+          className="lg:col-span-5 bg-[#F3E8D4] text-[#350709] border border-[#B98532]/35 p-6 md:p-8 rounded-2xl h-fit shadow-[0_15px_45px_rgba(0,0,0,0.45)] relative overflow-hidden font-sans"
+          style={{ 
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'0.03\'/%3E%3C/svg%3E")' 
+          }}
+        >
+          <div className="border-b border-dashed border-[#350709]/15 pb-4 mb-6">
+            <span className="block text-[9px] tracking-[0.25em] text-[#8F1115] font-extrabold uppercase">
+              EST. 2026 / KONDHWA
+            </span>
+            <h3 className="font-heading text-3xl text-[#350709] mt-1 tracking-tight">Your Selections</h3>
+          </div>
           
           {items.length === 0 ? (
             <div className="py-8 text-center">
-              <p className="text-sm text-soft-ivory/50">Your table has no items. Go add some dishes!</p>
-              <Link href="/menu" className="mt-4 inline-block px-6 py-2 border border-gold text-gold rounded-full text-xs font-bold uppercase tracking-widest">
+              <p className="text-sm text-[#350709]/50">Your table has no items. Go add some dishes!</p>
+              <Link 
+                href="/menu" 
+                className="mt-4 inline-block px-6 py-2 bg-[#8F1115] hover:bg-[#8F1115]/95 text-[#F3E8D4] rounded-xl text-xs font-bold uppercase tracking-widest transition-all shadow-md"
+              >
                 Go to Menu
               </Link>
             </div>
@@ -373,41 +386,48 @@ Please confirm my order.`;
             <div className="space-y-4">
               <div className="max-h-64 overflow-y-auto space-y-3 pr-2 no-scrollbar">
                 {items.map((cartItem) => (
-                  <div key={cartItem.item.id} className="flex justify-between items-center gap-4 py-2 border-b border-white/5">
+                  <div key={cartItem.item.id} className="flex justify-between items-center gap-4 py-2 border-b border-dashed border-[#350709]/10">
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-1.5">
                         {cartItem.item.is_veg && (
-                          <span className="w-2 h-2 border border-veg-green flex items-center justify-center p-0.5 shrink-0">
-                            <span className="w-0.5 h-0.5 bg-veg-green rounded-full"></span>
+                          <span className="w-2.5 h-2.5 border border-[#164C2B] flex items-center justify-center p-0.5 shrink-0">
+                            <span className="w-1.5 h-1.5 bg-[#164C2B] rounded-full"></span>
                           </span>
                         )}
-                        <span className="text-xs font-semibold text-soft-ivory truncate">{cartItem.item.name}</span>
+                        <span className="text-xs font-bold text-[#350709] truncate">{cartItem.item.name}</span>
                       </div>
-                      <span className="text-[10px] text-soft-ivory/50 font-mono mt-0.5 block">{cartItem.quantity} × ₹{cartItem.item.price}</span>
+                      <span className="text-[10px] text-[#350709]/60 font-mono mt-0.5 block">{cartItem.quantity} × ₹{cartItem.item.price}</span>
                     </div>
-                    <span className="text-xs font-bold font-mono text-gold shrink-0">₹{cartItem.item.price * cartItem.quantity}</span>
+                    <span className="text-xs font-bold font-mono text-[#350709] shrink-0">₹{cartItem.item.price * cartItem.quantity}</span>
                   </div>
                 ))}
               </div>
 
               {/* Price Details */}
               <div className="pt-4 space-y-2 text-xs">
-                <div className="flex justify-between text-soft-ivory/60">
-                  <span>Subtotal</span>
-                  <span className="font-mono text-soft-ivory">₹{subtotal}</span>
+                <div className="flex justify-between text-[#350709]/70">
+                  <span className="font-bold">Subtotal</span>
+                  <span className="font-mono text-[#350709] font-bold">₹{subtotal}</span>
                 </div>
                 {orderType === "DELIVERY" && (
-                  <div className="flex justify-between text-soft-ivory/60">
-                    <span>Delivery Charge</span>
-                    <span className="font-mono text-soft-ivory">₹{deliveryCharge}</span>
+                  <div className="flex justify-between text-[#350709]/70">
+                    <span className="font-bold">Delivery Charge</span>
+                    <span className="font-mono text-[#350709] font-bold">₹{deliveryCharge}</span>
                   </div>
                 )}
-                <div className="pt-4 border-t border-white/10 flex justify-between text-sm font-bold">
-                  <span className="text-soft-ivory">Total</span>
-                  <span className="font-mono text-gold text-base">
+                <div className="pt-4 border-t border-dashed border-[#350709]/20 flex justify-between text-sm font-bold">
+                  <span className="text-[#350709]">Total</span>
+                  <span className="font-mono text-[#8F1115] text-lg font-extrabold">
                     ₹{orderType === "DELIVERY" ? total : subtotal}
                   </span>
                 </div>
+              </div>
+
+              {/* Vintage receipt footer message */}
+              <div className="border-t border-dashed border-[#350709]/15 pt-4 text-center mt-2">
+                <p className="text-[9px] tracking-wide text-[#350709]/50 font-serif italic">
+                  "Good choice. The kitchen will love this."
+                </p>
               </div>
             </div>
           )}

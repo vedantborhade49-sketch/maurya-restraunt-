@@ -70,7 +70,10 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
   const isClickScrolling = useRef(false);
   const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
     // Menu entrance animation timeout
     const timer = setTimeout(() => {
       setShowEntrance(false);
@@ -261,8 +264,16 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
         )}
       </AnimatePresence>
 
+      {/* Background Picture with 40% fade (opacity: 0.4) blended into the ivory paper */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none opacity-40 mix-blend-multiply"
+        style={{
+          backgroundImage: `url("/restaurant-interior.png")`,
+        }}
+      />
+
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         
         {/* Header Block */}
         <div className="mb-10 text-center md:text-left mt-8">
@@ -789,7 +800,7 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
 
       {/* 9. Mobile Sticky "Your Table" Bar */}
       <AnimatePresence>
-        {totalItemsCount > 0 && !isCartOpen && (
+        {mounted && totalItemsCount > 0 && !isCartOpen && (
           <motion.div
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -817,7 +828,7 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
 
       {/* 10. Desktop Persistent Summary Tab */}
       <AnimatePresence>
-        {totalItemsCount > 0 && !isCartOpen && (
+        {mounted && totalItemsCount > 0 && !isCartOpen && (
           <motion.div
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
