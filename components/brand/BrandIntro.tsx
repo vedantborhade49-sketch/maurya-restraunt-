@@ -45,23 +45,24 @@ export default function BrandIntro({ onComplete }: BrandIntroProps) {
         tl.set(containerRef.current, { backgroundColor: "#0b0908" });
         tl.fromTo(textRef.current, 
           { opacity: 0, y: 10 },
-          { opacity: 1, y: 0, duration: 0.8, ease: MAURYA_EASE.heavy }
+          { opacity: 1, y: 0, duration: 0.3, ease: MAURYA_EASE.heavy }
         );
 
-        // 2. Pause
-        tl.to({}, { duration: 1.0 });
+        // 2. Hold for 300ms (total 600ms with text fade)
+        tl.to({}, { duration: 0.3 });
 
         // 3. Plate drop impact (THUD)
-        tl.to(textRef.current, { opacity: 0, duration: 0.3, ease: MAURYA_EASE.soft });
+        tl.to(textRef.current, { opacity: 0, duration: 0.2, ease: MAURYA_EASE.soft });
         
         // Bring in plate with a massive scale impact
         tl.fromTo(plateRef.current,
-          { scale: 3, opacity: 0 },
+          { scale: 1.35, y: -30, opacity: 0 },
           { 
             scale: 1, 
+            y: 0,
             opacity: 1, 
-            duration: 0.4, 
-            ease: "power4.in"
+            duration: 0.35, 
+            ease: "expo.out"
           },
           "-=0.1"
         );
@@ -71,22 +72,22 @@ export default function BrandIntro({ onComplete }: BrandIntroProps) {
         tl.to(flashRef.current, { opacity: 0, duration: 0.08, ease: "none" });
 
         // 5. Short pause on the plate
-        tl.to({}, { duration: 0.6 });
+        tl.to({}, { duration: 0.4 });
 
         // 6. Outro fade
-        tl.to(containerRef.current, { opacity: 0, duration: 0.5, ease: MAURYA_EASE.soft });
+        tl.to(containerRef.current, { opacity: 0, duration: 0.35, ease: MAURYA_EASE.soft });
 
       } else {
-        // Short intro (refresh / returning navigate)
+        // Short intro (refresh / returning navigate) - exactly 400ms
         tl.set(containerRef.current, { backgroundColor: "#0b0908" });
         
         // Draw the curve
         tl.fromTo(curveRef.current,
           { opacity: 0, scale: 0.9 },
-          { opacity: 1, scale: 1, duration: 0.3, ease: MAURYA_EASE.heavy }
+          { opacity: 1, scale: 1, duration: 0.15, ease: MAURYA_EASE.heavy }
         );
-        tl.to(curveRef.current, { opacity: 0, duration: 0.2, delay: 0.2 });
-        tl.to(containerRef.current, { opacity: 0, duration: 0.3, ease: MAURYA_EASE.soft });
+        tl.to(curveRef.current, { opacity: 0, duration: 0.1, delay: 0.05 });
+        tl.to(containerRef.current, { opacity: 0, duration: 0.1, ease: MAURYA_EASE.soft });
       }
 
     }, containerRef);

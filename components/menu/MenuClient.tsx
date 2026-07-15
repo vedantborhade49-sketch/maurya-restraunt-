@@ -83,12 +83,12 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
 
   // Placeholder rotation interval
   useEffect(() => {
-    if (isSearchFocused) return;
+    if (isSearchFocused || searchQuery.trim() !== "") return;
     const interval = setInterval(() => {
       setPlaceholderIndex((prev) => (prev + 1) % PLACEHOLDERS.length);
     }, 2500);
     return () => clearInterval(interval);
-  }, [isSearchFocused]);
+  }, [isSearchFocused, searchQuery]);
 
   // Track mouse coordinates on desktop
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -286,9 +286,14 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
           </h1>
         </div>
 
+        {/* Dimmer overlay for search focus */}
+        {searchQuery.trim() !== "" && (
+          <div className="fixed inset-0 bg-[#0B0908]/20 z-0 pointer-events-none transition-opacity duration-300" />
+        )}
+
         {/* 2. Search & Filters Zone */}
-        <div className="max-w-3xl mx-auto mb-10 space-y-6">
-          <div className="relative">
+        <div className="max-w-3xl mx-auto mb-10 space-y-6 relative z-10">
+          <div className={`relative transition-all duration-300 ${isSearchFocused ? "scale-[1.02]" : "scale-100"}`}>
             <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-[#350709]/40" />
             <input
               type="text"
@@ -302,76 +307,82 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
               }}
               className="w-full pl-14 pr-6 py-4 rounded-full bg-white border border-[#350709]/15 text-[#350709] placeholder:text-[#350709]/40 focus:outline-none focus:border-[#8F1115]/50 focus:shadow-[0_0_20px_rgba(143,17,21,0.06)] transition-all duration-300 text-base"
             />
+            {/* Animated bottom brass line */}
+            <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] bg-[#B98532] transition-all duration-500 rounded-full ${isSearchFocused ? "w-[90%]" : "w-0"}`} />
           </div>
 
-          {/* Mood Filters */}
-          <div className="space-y-2">
-            <span className="block text-[9px] uppercase tracking-[0.2em] text-[#350709]/60 font-bold text-center md:text-left">
-              I'm in the mood for...
-            </span>
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5">
-              {MOODS.map((mood) => {
-                const isSelected = selectedMood === mood.tag;
+          {/* Mood Filters (Collapsed when search is active) */}
+          {!searchQuery.trim() && (
+            <div className="space-y-2">
+              <span className="block text-[9px] uppercase tracking-[0.2em] text-[#350709]/60 font-bold text-center md:text-left">
+                I'm in the mood for...
+              </span>
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5">
+                {MOODS.map((mood) => {
+                  const isSelected = selectedMood === mood.tag;
+                  return (
+                    <button
+                      key={mood.tag}
+                      onClick={() => setSelectedMood(isSelected ? null : mood.tag)}
+                      className={`px-4 py-2 border rounded-full text-[10px] font-bold tracking-wider uppercase transition-all duration-200 ${
+                        isSelected 
+                          ? "bg-[#350709] border-[#350709] text-[#F3E8D4]" 
+                          : `bg-white hover:bg-[#350709]/5 border-[#350709]/15 text-[#350709]`
+                      }`}
+                    >
+                      {mood.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* 3. Horizontal Sticky Category Rail */}
+        {!searchQuery.trim() && (
+          <div className="sticky top-20 z-40 w-full bg-[#F3E8D4]/95 backdrop-blur-md border-b border-[#350709]/10 py-3 mb-10 overflow-x-auto no-scrollbar -mx-4 px-4 md:-mx-8 md:px-8">
+            <div className="flex items-center gap-6 md:gap-8 font-sans text-xs font-bold uppercase tracking-[0.2em]">
+              <button
+                id="rail-btn-ALL"
+                onClick={() => handleRailClick("ALL")}
+                className={`relative py-2 shrink-0 transition-colors ${
+                  selectedCategory === "ALL" ? "text-[#8F1115]" : "text-[#350709]/60 hover:text-[#350709]"
+                }`}
+              >
+                <span>01 ALL</span>
+                {selectedCategory === "ALL" && (
+                  <motion.svg className="absolute bottom-0 left-0 w-full h-1 text-[#8F1115]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <motion.path d="M0,5 C30,2 70,8 100,5" fill="none" stroke="currentColor" strokeWidth="3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.3 }} />
+                  </motion.svg>
+                )}
+              </button>
+
+              {categories.map((cat, index) => {
+                const displayIndex = String(index + 2).padStart(2, "0");
+                const isSelected = selectedCategory === cat.name;
+                const slug = cat.name.replace(/[^a-z0-9]+/g, "-");
                 return (
                   <button
-                    key={mood.tag}
-                    onClick={() => setSelectedMood(isSelected ? null : mood.tag)}
-                    className={`px-4 py-2 border rounded-full text-[10px] font-bold tracking-wider uppercase transition-all duration-200 ${
-                      isSelected 
-                        ? "bg-[#350709] border-[#350709] text-[#F3E8D4]" 
-                        : `bg-white hover:bg-[#350709]/5 border-[#350709]/15 text-[#350709]`
+                    key={cat.id}
+                    id={`rail-btn-${slug}`}
+                    onClick={() => handleRailClick(cat.name)}
+                    className={`relative py-2 shrink-0 transition-colors ${
+                      isSelected ? "text-[#8F1115]" : "text-[#350709]/60 hover:text-[#350709]"
                     }`}
                   >
-                    {mood.label}
+                    <span>{displayIndex} {cat.name}</span>
+                    {isSelected && (
+                      <motion.svg className="absolute bottom-0 left-0 w-full h-1 text-[#8F1115]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                        <motion.path d="M0,5 C30,2 70,8 100,5" fill="none" stroke="currentColor" strokeWidth="3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.3 }} />
+                      </motion.svg>
+                    )}
                   </button>
                 );
               })}
             </div>
           </div>
-        </div>
-
-        {/* 3. Horizontal Sticky Category Rail */}
-        <div className="sticky top-20 z-40 w-full bg-[#F3E8D4]/95 backdrop-blur-md border-b border-[#350709]/10 py-3 mb-10 overflow-x-auto no-scrollbar -mx-4 px-4 md:-mx-8 md:px-8">
-          <div className="flex items-center gap-6 md:gap-8 font-sans text-xs font-bold uppercase tracking-[0.2em]">
-            <button
-              id="rail-btn-ALL"
-              onClick={() => handleRailClick("ALL")}
-              className={`relative py-2 shrink-0 transition-colors ${
-                selectedCategory === "ALL" ? "text-[#8F1115]" : "text-[#350709]/60 hover:text-[#350709]"
-              }`}
-            >
-              <span>01 ALL</span>
-              {selectedCategory === "ALL" && (
-                <motion.svg className="absolute bottom-0 left-0 w-full h-1 text-[#8F1115]" viewBox="0 0 100 10" preserveAspectRatio="none">
-                  <motion.path d="M0,5 C30,2 70,8 100,5" fill="none" stroke="currentColor" strokeWidth="3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.3 }} />
-                </motion.svg>
-              )}
-            </button>
-
-            {categories.map((cat, index) => {
-              const displayIndex = String(index + 2).padStart(2, "0");
-              const isSelected = selectedCategory === cat.name;
-              const slug = cat.name.replace(/[^a-z0-9]+/g, "-");
-              return (
-                <button
-                  key={cat.id}
-                  id={`rail-btn-${slug}`}
-                  onClick={() => handleRailClick(cat.name)}
-                  className={`relative py-2 shrink-0 transition-colors ${
-                    isSelected ? "text-[#8F1115]" : "text-[#350709]/60 hover:text-[#350709]"
-                  }`}
-                >
-                  <span>{displayIndex} {cat.name}</span>
-                  {isSelected && (
-                    <motion.svg className="absolute bottom-0 left-0 w-full h-1 text-[#8F1115]" viewBox="0 0 100 10" preserveAspectRatio="none">
-                      <motion.path d="M0,5 C30,2 70,8 100,5" fill="none" stroke="currentColor" strokeWidth="3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.3 }} />
-                    </motion.svg>
-                  )}
-                </button>
-              );
-            })}
-          </div>
-        </div>
+        )}
 
         {/* 4. Curated Recommendations: Maurya Favourites */}
         {!searchQuery && !selectedMood && selectedCategory === "ALL" && (
@@ -389,25 +400,34 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
                 return (
                   <div 
                     key={item.id}
-                    className="bg-white rounded-2xl p-5 border border-[#350709]/10 shadow-[0_10px_30px_rgba(53,7,9,0.03)] hover:shadow-[0_15px_40px_rgba(53,7,9,0.06)] transition-all duration-300 flex flex-col justify-between"
+                    className="bg-white rounded-2xl p-6 border border-[#350709]/10 shadow-[0_12px_35px_rgba(53,7,9,0.04)] hover:shadow-[0_20px_50px_rgba(53,7,9,0.08)] transition-all duration-300 flex flex-col justify-between min-h-[540px]"
                   >
                     <div>
-                      {/* Image header */}
-                      <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 border border-[#350709]/5 bg-[#350709]/5">
+                      {/* Image header with crop-scaling and fallback plate */}
+                      <div className="relative w-full h-[280px] rounded-xl overflow-hidden mb-5 border border-[#B98532]/20 bg-gradient-to-br from-[#350709] to-[#0B0908] flex items-center justify-center">
                         {item.image_url ? (
                           <img
                             src={item.image_url}
                             alt={item.name}
-                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                            className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] hover:scale-105"
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                              const f = e.currentTarget.parentElement?.querySelector(".fallback-card-plate");
+                              if (f) f.classList.remove("hidden");
+                            }}
                           />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center text-4xl font-heading text-[#350709]/20 bg-[#350709]/5">
-                            {item.name[0]}
+                        ) : null}
+                        
+                        <div className={`fallback-card-plate ${item.image_url ? 'hidden' : ''} absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-gradient-to-br from-[#350709] to-[#0B0908]`}>
+                          <div className="w-20 h-20 rounded-full border border-[#B98532]/25 flex items-center justify-center mb-3 bg-[#0B0908]/40 shadow-inner">
+                            <span className="font-serif italic text-4xl text-[#B98532] font-bold">{item.name[0]}</span>
                           </div>
-                        )}
+                          <span className="font-sans text-[8px] tracking-[0.25em] text-[#B98532] font-extrabold uppercase">Maurya Kitchen</span>
+                        </div>
+
                         {/* Spice Tag */}
                         {item.is_spicy && (
-                          <span className="absolute top-3 right-3 bg-[#8F1115] text-[#F3E8D4] text-[8px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
+                          <span className="absolute top-4 right-4 bg-[#8F1115] text-[#F3E8D4] text-[8px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full z-10 shadow-md">
                             SPICY
                           </span>
                         )}
@@ -416,10 +436,10 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
                       <span className="text-[9px] tracking-[0.2em] text-[#B98532] font-bold uppercase">
                         MAURYA FAVOURITE
                       </span>
-                      <h3 className="font-heading text-2xl text-[#350709] mt-1 mb-2">
+                      <h3 className="font-heading text-2.5xl text-[#350709] mt-1 mb-2 leading-tight">
                         {item.name}
                       </h3>
-                      <p className="font-sans text-xs text-[#350709]/70 leading-relaxed mb-6 line-clamp-2">
+                      <p className="font-sans text-xs text-[#350709]/70 leading-relaxed mb-6">
                         {item.description}
                       </p>
                     </div>
@@ -449,7 +469,7 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
                       ) : (
                         <button
                           onClick={(e) => handleAdd(item, e)}
-                          className="w-8 h-8 rounded-full bg-[#8F1115] hover:bg-[#8F1115]/90 text-[#F3E8D4] flex items-center justify-center shadow-md active:scale-90 transition-all duration-200"
+                          className="w-9 h-9 rounded-full bg-[#8F1115] hover:bg-[#8F1115]/90 text-[#F3E8D4] flex items-center justify-center shadow-md active:scale-90 transition-all duration-200"
                         >
                           <Plus className="w-4 h-4" />
                         </button>
@@ -525,7 +545,7 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
                         key={item.id}
                         onMouseEnter={() => setHoveredItem(item)}
                         onMouseLeave={() => setHoveredItem(null)}
-                        className={`flex items-start justify-between py-4 border-b border-[#350709]/5 transition-opacity duration-300 ${
+                        className={`flex items-center justify-between min-h-[96px] py-3 border-b border-[#350709]/5 transition-opacity duration-300 ${
                           !item.is_available ? "opacity-50" : ""
                         }`}
                       >
