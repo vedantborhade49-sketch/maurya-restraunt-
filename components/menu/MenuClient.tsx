@@ -264,9 +264,9 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
         )}
       </AnimatePresence>
 
-      {/* Background Picture with 0% fade (100% opacity) */}
+      {/* Background Picture with 20% fade (80% opacity) */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none opacity-100"
+        className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none opacity-80"
         style={{
           backgroundImage: `url("/editorial-texture.png")`,
         }}
