@@ -222,7 +222,7 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
       className="min-h-screen bg-[#F3E8D4] text-[#350709] pt-24 pb-20 relative overflow-x-hidden font-sans"
       onMouseMove={handleMouseMove}
       style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E")`,
+        backgroundImage: `url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjAwIDIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48ZmlsdGVyIGlkPSdub2lzZSc+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuNjUnIG51bU9jdGF2ZXM9JzMnIHN0aXRjaFRpbGVzPSdzdGl0Y2gnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9J3VybCgjbm9pc2UpJyBvcGFjaXR5PScwLjAyJy8+PC9zdmc+")`,
       }}
     >
       {/* 1. Cinematic Entrance Preloader */}
@@ -268,7 +268,7 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
       <div 
         className="absolute inset-0 z-0 pointer-events-none opacity-100"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%23B98532' stroke-width='0.75' opacity='0.08'/%3E%3Cpath d='M30 24 L32 30 L30 36 L28 30 Z' fill='%23B98532' opacity='0.12'/%3E%3Cpath d='M24 30 L30 28 L36 30 L30 32 Z' fill='%23B98532' opacity='0.12'/%3E%3Ccircle cx='0' cy='0' r='1.5' fill='%23B98532' opacity='0.15'/%3E%3Ccircle cx='60' cy='0' r='1.5' fill='%23B98532' opacity='0.15'/%3E%3Ccircle cx='0' cy='60' r='1.5' fill='%23B98532' opacity='0.15'/%3E%3Ccircle cx='60' cy='60' r='1.5' fill='%23B98532' opacity='0.15'/%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nNjAnIGhlaWdodD0nNjAnIHZpZXdCb3g9JzAgMCA2MCA2MCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cGF0aCBkPSdNMzAgMCBMNjAgMzAgTDMwIDYwIEwwIDMwIFonIGZpbGw9J25vbmUnIHN0cm9rZT0nI0I5ODUzMicgc3Ryb2tlLXdpZHRoPScwLjc1JyBvcGFjaXR5PScwLjA4Jy8+PHBhdGggZD0nTTMwIDI0IEwzMiAzMCBMMzAgMzYgTDI4IDMwIFonIGZpbGw9JyNCOTg1MzInIG9wYWNpdHk9JzAuMTInLz48cGF0aCBkPSdNMjQgMzAgTDMwIDI4IEwzNiAzMCBMMzAgMzIgWicgZmlsbD0nI0I5ODUzMicgb3BhY2l0eT0nMC4xMicvPjxjaXJjbGUgY3g9JzAnIGN5PScwJyByPScxLjUnIGZpbGw9JyNCOTg1MzInIG9wYWNpdHk9JzAuMTUnLz48Y2lyY2xlIGN4PSc2MCcgY3k9JzAnIHI9JzEuNScgZmlsbD0nI0I5ODUzMicgb3BhY2l0eT0nMC4xNScvPjxjaXJjbGUgY3g9JzAnIGN5PSc2MCcgcj0nMS41JyBmaWxsPScjQjk4NTMyJyBvcGFjaXR5PScwLjE1Jy8+PGNpcmNsZSBjeD0nNjAnIGN5PSc2MCcgcj0nMS41JyBmaWxsPScjQjk4NTMyJyBvcGFjaXR5PScwLjE1Jy8+PC9zdmc+")`,
           backgroundRepeat: "repeat",
         }}
       />
