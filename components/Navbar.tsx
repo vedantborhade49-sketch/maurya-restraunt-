@@ -50,20 +50,24 @@ export default function Navbar() {
     <>
       <header
         ref={navRef}
-        className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between rounded-full border border-white/10 bg-[#0b0908]/85 backdrop-blur-[16px] shadow-[0_10px_40px_rgba(0,0,0,0.5)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] h-16 ${
+        className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between rounded-full border transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] h-16 ${
           isScrolled 
-            ? "w-[92%] max-w-5xl px-8" 
-            : "w-[180px] md:w-[220px] px-6"
+            ? "w-[92%] max-w-5xl px-8 border-[#B98532]/25 bg-[#0b0908]/90 shadow-[0_10px_40px_rgba(185,133,50,0.12)]" 
+            : "w-[180px] md:w-[220px] px-5 border-[#B98532]/35 bg-[#0b0908]/95 shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
         }`}
         id="main-navbar"
       >
-        {/* Logo */}
+        {/* Logo wrapped in an ivory backing card for high visibility & contrast */}
         <Link href="/" className="flex items-center shrink-0">
-          <img
-            src="/morya-logo.png"
-            alt="Maurya"
-            className="h-7 w-auto object-contain transition-transform duration-500 hover:scale-105"
-          />
+          <div className="bg-[#F3E8D4]/90 p-1.5 rounded-xl border border-[#B98532]/40 flex items-center justify-center shadow-md transition-transform duration-300 hover:scale-105">
+            <img
+              src="/morya-logo.png"
+              alt="Maurya"
+              className={`w-auto object-contain transition-all duration-500 ${
+                isScrolled ? "h-9" : "h-8"
+              }`}
+            />
+          </div>
         </Link>
 
         {/* Center Nav items (Desktop only) - Animate width and opacity */}

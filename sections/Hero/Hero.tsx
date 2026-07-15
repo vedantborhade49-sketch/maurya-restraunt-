@@ -97,7 +97,7 @@ export default function Hero() {
         <div className="relative w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] border-4 border-gold/30">
           <img 
             src="/editorial-food-4.png" 
-            alt="Veg Maratha Signature Dish" 
+            alt="Veg Paratha Signature Dish" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-midnight/40 to-transparent" />

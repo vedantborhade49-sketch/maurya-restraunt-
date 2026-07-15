@@ -154,7 +154,7 @@ export default function FoodStory() {
             A MAURYA FAVOURITE
           </span>
           <h4 className="font-display uppercase text-3xl md:text-5xl text-[#F3E8D4] tracking-wide">
-            VEG MARATHA
+            VEG PARATHA
           </h4>
         </div>
       </div>
