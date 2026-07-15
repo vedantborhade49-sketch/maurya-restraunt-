@@ -41,7 +41,11 @@ export default function Navbar() {
     >
       {/* Logo */}
       <Link href="/" className="flex items-center gap-2">
-        <span className="font-heading text-lg text-gold font-bold tracking-widest">MAURYA</span>
+        <img
+          src="/morya-logo.png"
+          alt="Maurya"
+          className="h-10 w-auto object-contain"
+        />
       </Link>
 
       {/* Nav items */}
