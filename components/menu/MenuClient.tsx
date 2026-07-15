@@ -45,7 +45,7 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
     addItem(item);
     
     // Custom micro-animation trigger (Card scale squeeze / particle trail)
-    const cardEl = document.getElementById(`dish-card-${item.id}-${item.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`);
+    const cardEl = document.getElementById(`dish-card-${item.id}-${(item.category || "general").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`);
     if (cardEl) {
       cardEl.classList.add("scale-[0.97]", "border-gold/50");
       setTimeout(() => {
@@ -124,7 +124,7 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.3 }}
-                    id={`dish-card-${item.id}-${item.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                    id={`dish-card-${item.id}-${(item.category || "general").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
                     key={`${item.id}-${item.category}`}
                     className="p-5 rounded-2xl border border-white/5 bg-wine/5 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:bg-wine/10"
                     data-cursor="EXPLORE"

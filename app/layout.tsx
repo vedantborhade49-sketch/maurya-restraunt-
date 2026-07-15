@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Cormorant_Garamond, Manrope, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import SmoothScroll from "../components/SmoothScroll";
@@ -18,6 +18,13 @@ const manrope = Manrope({
   variable: "--font-manrope",
 });
 
+const instrument = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  variable: "--font-instrument",
+});
+
 export const metadata: Metadata = {
   title: "Maurya | Pure Veg, Pure Indulgence",
   description: "Experience premium vegetarian dining at Maurya in Kondhwa, Pune. Explore North Indian, South Indian, Maharashtrian and Chinese favourites. Order directly for home delivery.",
@@ -30,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${manrope.variable} ${instrument.variable}`}>
       <body className="antialiased bg-midnight text-soft-ivory font-sans">
         <PreloaderProvider>
           <SmoothScroll>

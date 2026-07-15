@@ -3,10 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --background: #0D0B09; /* Midnight */
-  --foreground: #FFF9EF; /* Soft Ivory */
+  --background: #0b0908; /* After Dark */
+  --foreground: #f3e8d4; /* Table Ivory */
   --font-cormorant: 'Cormorant Garamond', serif;
   --font-manrope: 'Manrope', sans-serif;
+  --font-instrument: 'Instrument Serif', serif;
+
+  --maurya-blood: #8f1115;
+  --maurya-wine: #350709;
+  --maurya-dark: #0b0908;
+  --maurya-ivory: #f3e8d4;
+  --maurya-brass: #b98532;
+  --maurya-leaf: #164c2b;
+  --maurya-chilli: #c9371d;
 }
 
 @layer base {
@@ -96,6 +105,12 @@
     /* Deeper blacks, richer shadows, slightly warmer midtones */
     filter: contrast(1.15) sepia(0.15) brightness(0.9) saturate(0.95);
   }
+  .font-display {
+    font-family: var(--font-instrument), var(--font-cormorant), serif;
+    font-size: clamp(5rem, 11vw, 11rem);
+    line-height: 0.78;
+    letter-spacing: -0.055em;
+  }
 }
 
 /* Custom Scrollbar */
@@ -104,14 +119,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0D0B09;
+  background: var(--maurya-dark);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #52090B;
+  background: var(--maurya-wine);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #A50F12;
+  background: var(--maurya-blood);
 }

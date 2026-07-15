@@ -1,91 +1,195 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTableStore } from "../stores/table-store";
-import { ShoppingBag } from "lucide-react";
+import TableIcon from "./navigation/TableIcon";
+import { Menu, X } from "lucide-react";
+import { soundManager } from "../lib/sound/sound-manager";
 
 export default function Navbar() {
   const navRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-  const { items, setIsOpen, getItemCount } = useTableStore();
+  const { setIsOpen } = useTableStore();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [soundEnabled, setSoundEnabled] = useState(false);
+
+  const toggleSound = () => {
+    if (soundManager) {
+      if (soundEnabled) {
+        soundManager.disable();
+        setSoundEnabled(false);
+      } else {
+        soundManager.enable();
+        setSoundEnabled(true);
+        soundManager.playRustle();
+      }
+    }
+  };
+
+  const handleOpenTable = () => {
+    setIsOpen(true);
+    if (soundEnabled && soundManager) {
+      soundManager.playRustle();
+    }
+  };
 
   const isAdmin = pathname?.startsWith("/admin");
-  const itemCount = getItemCount();
 
   useEffect(() => {
-    // Fade in navbar after preloader has finished
+    // Scroll listener to toggle minimal vs expanded navbar
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    
+    // Initial entrance animation
     gsap.fromTo(
       navRef.current,
-      { y: -50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.2, delay: 0.5, ease: "power3.out" }
+      { y: -80, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.2, delay: 0.8, ease: "power4.out" }
     );
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   if (isAdmin) return null;
 
   const navItems = [
-    { label: "Home", href: "/" },
-    { label: "Menu", href: "/menu" },
+    { label: "The Menu", href: "/menu" },
     { label: "Our Story", href: "/#story" },
-    { label: "Gallery", href: "/#gallery" },
+    { label: "Visit", href: "/book-a-table" },
   ];
 
   return (
-    <div
-      ref={navRef}
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-6 md:px-8 h-16 w-[92%] max-w-5xl rounded-full border border-white/10 bg-[#0d0b09]/60 backdrop-blur-[16px] shadow-[0_10px_40px_rgba(0,0,0,0.3)]"
-      id="main-navbar"
-    >
-      {/* Logo */}
-      <Link href="/" className="flex items-center gap-2">
-        <img
-          src="/morya-logo.png"
-          alt="Maurya"
-          className="h-10 w-auto object-contain"
-        />
-      </Link>
-
-      {/* Nav items */}
-      <div className="hidden md:flex items-center gap-8 font-sans text-xs uppercase tracking-widest text-[#FFF9EF]/80">
-        {navItems.map((item, i) => (
-          <Link
-            key={i}
-            href={item.href}
-            className="group relative cursor-pointer overflow-hidden pb-1"
-          >
-            <span className="inline-block transition-all duration-300 group-hover:text-gold">
-              {item.label}
-            </span>
-            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gold scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
-          </Link>
-        ))}
-      </div>
-
-      {/* Actions */}
-      <div className="flex items-center gap-4">
-        {/* Table/Cart Button */}
-        <button
-          onClick={() => setIsOpen(true)}
-          className="relative flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 hover:border-gold/30 hover:bg-wine/10 text-soft-ivory hover:text-gold transition-all duration-200"
-          data-cursor="GO"
-        >
-          <ShoppingBag className="w-4 h-4" />
-          <span className="text-xs font-mono font-bold">{itemCount}</span>
-        </button>
-
-        <div className="h-4 w-[1px] bg-white/15 hidden md:block" />
-
-        {/* Reserve CTA */}
-        <Link
-          href="/book-a-table"
-          className="group relative overflow-hidden font-sans text-xs uppercase tracking-widest px-4 py-2 border border-gold text-gold rounded-full hover:bg-gold hover:text-midnight transition-colors duration-300"
-        >
-          Reserve
+    <>
+      <header
+        ref={navRef}
+        className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between rounded-full border border-white/10 bg-[#0b0908]/85 backdrop-blur-[16px] shadow-[0_10px_40px_rgba(0,0,0,0.5)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] h-16 ${
+          isScrolled 
+            ? "w-[92%] max-w-5xl px-8" 
+            : "w-[180px] md:w-[220px] px-6"
+        }`}
+        id="main-navbar"
+      >
+        {/* Logo */}
+        <Link href="/" className="flex items-center shrink-0">
+          <img
+            src="/morya-logo.png"
+            alt="Maurya"
+            className="h-7 w-auto object-contain transition-transform duration-500 hover:scale-105"
+          />
         </Link>
+
+        {/* Center Nav items (Desktop only) - Animate width and opacity */}
+        <div 
+          className={`hidden md:flex items-center justify-center gap-8 font-sans text-[10px] uppercase tracking-[0.18em] text-[#F3E8D4]/80 transition-all duration-500 overflow-hidden ${
+            isScrolled 
+              ? "opacity-100 max-w-lg pointer-events-auto mx-4" 
+              : "opacity-0 max-w-0 pointer-events-none"
+          }`}
+        >
+          {navItems.map((item, i) => (
+            <Link
+              key={i}
+              href={item.href}
+              className="group relative cursor-pointer py-1"
+            >
+              <span className="inline-block transition-all duration-300 group-hover:text-gold">
+                {item.label}
+              </span>
+              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gold scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
+            </Link>
+          ))}
+        </div>
+
+        {/* Actions / Right end */}
+        <div className="flex items-center gap-4">
+          {/* Sound Toggle */}
+          <button
+            onClick={toggleSound}
+            className="hidden sm:flex items-center gap-1.5 text-[9px] uppercase tracking-[0.2em] text-[#F3E8D4]/60 hover:text-gold transition-colors font-sans mr-2"
+          >
+            Sound {soundEnabled ? "●" : "○"}
+          </button>
+
+          {/* Table Cart trigger */}
+          <button
+            onClick={handleOpenTable}
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+            aria-label="Your Table"
+          >
+            <TableIcon />
+            {isScrolled && (
+              <span className="hidden md:inline font-sans text-[9px] uppercase tracking-[0.2em] text-gold font-bold transition-all duration-300 animate-[fadeIn_0.5s_ease-out]">
+                Your Table
+              </span>
+            )}
+          </button>
+
+          {/* Mobile hamburger menu (shows only when collapsed/not scrolled on mobile) */}
+          <button
+            onClick={() => setMobileMenuOpen(true)}
+            className="md:hidden text-[#F3E8D4] hover:text-gold transition-colors"
+            aria-label="Open Menu"
+          >
+            <Menu className="w-5 h-5" />
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile Drawer Navigation Menu */}
+      <div 
+        className={`fixed inset-0 z-[100] bg-[#0b0908] flex flex-col justify-between p-8 transition-transform duration-500 ease-in-out md:hidden ${
+          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div>
+          <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-12">
+            <img src="/morya-logo.png" alt="Maurya" className="h-8 w-auto object-contain" />
+            <button 
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-[#F3E8D4] hover:text-gold transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+
+          <nav className="flex flex-col gap-8 font-heading italic text-4xl text-[#F3E8D4]">
+            {navItems.map((item, i) => (
+              <Link 
+                key={i} 
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="hover:text-gold transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <button 
+              onClick={() => {
+                setMobileMenuOpen(false);
+                setIsOpen(true);
+              }}
+              className="text-left hover:text-gold transition-colors"
+            >
+              Your Table
+            </button>
+          </nav>
+        </div>
+
+        <div className="border-t border-white/5 pt-6 text-[10px] tracking-[0.18em] uppercase text-[#F3E8D4]/40 font-sans">
+          KONDHWA · PUNE
+        </div>
       </div>
-    </div>
+    </>
   );
 }
