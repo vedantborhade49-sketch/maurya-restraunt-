@@ -1,241 +1,878 @@
 "use client";
 
-import React, { useState, useTransition, useMemo } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { useTableStore, MenuItem } from "../../stores/table-store";
-import { Search, Sparkles, AlertCircle, ShoppingBag, Plus, Minus } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Search, Plus, Minus, ArrowRight, X } from "lucide-react";
+import { motion, AnimatePresence, useSpring } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 
 interface MenuClientProps {
   initialCategories: any[];
   initialItems: MenuItem[];
 }
 
+const PLACEHOLDERS = [
+  'Try "Paneer"',
+  'Try "Dosa"',
+  'Try "Manchurian"',
+  'Try "Biryani"',
+  'Try "Veg Paratha"'
+];
+
+const MOODS = [
+  { label: "SPICY", tag: "spicy", border: "border-red-900/30 text-red-400" },
+  { label: "RICH & CREAMY", tag: "rich", border: "border-amber-900/30 text-amber-400" },
+  { label: "QUICK BITES", tag: "quick", border: "border-blue-900/30 text-blue-400" },
+  { label: "MADE TO SHARE", tag: "sharing", border: "border-emerald-900/30 text-emerald-400" },
+  { label: "MAURYA FAVOURITES", tag: "maurya_favourite", border: "border-purple-900/30 text-purple-400" },
+  { label: "LIGHT", tag: "light", border: "border-orange-900/30 text-orange-400" }
+];
+
 export default function MenuClient({ initialCategories, initialItems }: MenuClientProps) {
   const [categories] = useState(initialCategories);
-  const [items, setItems] = useState<MenuItem[]>(initialItems);
+  const [items] = useState<MenuItem[]>(initialItems);
   const [selectedCategory, setSelectedCategory] = useState("ALL");
   const [searchQuery, setSearchQuery] = useState("");
-  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
-  const [isPending, startTransition] = useTransition();
+  const [selectedMood, setSelectedMood] = useState<string | null>(null);
+  
+  // Rotating search placeholder
+  const [placeholderIndex, setPlaceholderIndex] = useState(0);
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  
+  // Menu entrance preloader state
+  const [showEntrance, setShowEntrance] = useState(true);
+  
+  // Mobile Dish Peek Bottom Sheet
+  const [peekItem, setPeekItem] = useState<MenuItem | null>(null);
+  
+  // "Can't Decide" Selection
+  const [decideMood, setDecideMood] = useState<"one" | "two" | "table" | null>(null);
 
-  const { items: cartItems, addItem, decreaseQuantity } = useTableStore();
+  // Cart operations
+  const { items: cartItems, addItem, decreaseQuantity, setIsOpen: setCartOpen, isOpen: isCartOpen } = useTableStore();
 
-  // Local filter
+  const totalItemsCount = useMemo(() => {
+    return cartItems.reduce((acc, i) => acc + i.quantity, 0);
+  }, [cartItems]);
+
+  const cartTotal = useMemo(() => {
+    return cartItems.reduce((acc, i) => acc + (i.item.price * i.quantity), 0);
+  }, [cartItems]);
+
+  // Contextual Hover Preview Coordinates (Desktop)
+  const [hoveredItem, setHoveredItem] = useState<MenuItem | null>(null);
+  const mouseX = useSpring(0, { stiffness: 180, damping: 22 });
+  const mouseY = useSpring(0, { stiffness: 180, damping: 22 });
+  const previewRef = useRef<HTMLDivElement>(null);
+
+  // IntersectionObserver variables
+  const isClickScrolling = useRef(false);
+  const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+  useEffect(() => {
+    // Menu entrance animation timeout
+    const timer = setTimeout(() => {
+      setShowEntrance(false);
+    }, 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Placeholder rotation interval
+  useEffect(() => {
+    if (isSearchFocused) return;
+    const interval = setInterval(() => {
+      setPlaceholderIndex((prev) => (prev + 1) % PLACEHOLDERS.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [isSearchFocused]);
+
+  // Track mouse coordinates on desktop
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!hoveredItem) return;
+    mouseX.set(e.clientX + 20);
+    mouseY.set(e.clientY + 20);
+  };
+
+  // Scroll sync: Set rail category on scroll
+  useEffect(() => {
+    if (typeof window === "undefined" || showEntrance) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (isClickScrolling.current) return;
+        
+        // Find the section that has the largest visible area near the top
+        const visibleSection = entries.find((entry) => entry.isIntersecting);
+        if (visibleSection) {
+          const categoryName = visibleSection.target.getAttribute("data-category");
+          if (categoryName) {
+            setSelectedCategory(categoryName);
+            // Auto scroll rail element
+            const railBtn = document.getElementById(`rail-btn-${categoryName.replace(/[^a-z0-9]+/g, "-")}`);
+            if (railBtn) {
+              railBtn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+            }
+          }
+        }
+      },
+      {
+        rootMargin: "-100px 0px -60% 0px",
+        threshold: 0.1
+      }
+    );
+
+    Object.values(sectionRefs.current).forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, [showEntrance]);
+
+  const handleRailClick = (categoryName: string) => {
+    setSelectedCategory(categoryName);
+    isClickScrolling.current = true;
+
+    if (categoryName === "ALL") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const section = sectionRefs.current[categoryName];
+      if (section) {
+        const offset = section.offsetTop - 180;
+        window.scrollTo({ top: offset, behavior: "smooth" });
+      }
+    }
+
+    setTimeout(() => {
+      isClickScrolling.current = false;
+    }, 700);
+  };
+
+  // Filter items
   const filteredItems = useMemo(() => {
     return items.filter((item) => {
-      const matchesCategory =
-        selectedCategory === "ALL" ||
-        item.category?.toUpperCase() === selectedCategory.toUpperCase();
+      // Mood tag match
+      if (selectedMood && (!item.tags || !item.tags.includes(selectedMood))) {
+        return false;
+      }
       
-      const matchesSearch =
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase());
+      // Search matching
+      if (searchQuery.trim()) {
+        const query = searchQuery.toLowerCase();
+        const matchesName = item.name.toLowerCase().includes(query);
+        const matchesDesc = (item.description || "").toLowerCase().includes(query);
+        const matchesCat = item.category?.toLowerCase().includes(query);
+        const matchesTags = item.tags?.some(t => t.toLowerCase().includes(query));
+        return matchesName || matchesDesc || matchesCat || matchesTags;
+      }
 
-      return matchesCategory && matchesSearch;
+      return true;
     });
-  }, [items, selectedCategory, searchQuery]);
+  }, [items, selectedMood, searchQuery]);
 
-  // Track quantities in cart
+  // Curated Favourites
+  const favourites = useMemo(() => {
+    return items.filter(item => item.tags?.includes("maurya_favourite") || item.is_signature).slice(0, 6);
+  }, [items]);
+
+  // Group filtered items by category for high-density listing
+  const groupedItems = useMemo(() => {
+    const groups: Record<string, MenuItem[]> = {};
+    filteredItems.forEach((item) => {
+      const cat = item.category || "GENERAL";
+      if (!groups[cat]) {
+        groups[cat] = [];
+      }
+      groups[cat].push(item);
+    });
+    return groups;
+  }, [filteredItems]);
+
   const getItemQuantity = (itemId: string) => {
     return cartItems.find((i) => i.item.id === itemId)?.quantity || 0;
   };
 
-  // Add to table animation triggers
-  const handleAddToTable = (item: MenuItem) => {
-    addItem(item);
-    
-    // Custom micro-animation trigger (Card scale squeeze / particle trail)
-    const cardEl = document.getElementById(`dish-card-${item.id}-${(item.category || "general").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`);
-    if (cardEl) {
-      cardEl.classList.add("scale-[0.97]", "border-gold/50");
-      setTimeout(() => {
-        cardEl.classList.remove("scale-[0.97]", "border-gold/50");
-      }, 300);
+  // Custom animation trigger on tap + button
+  const handleAdd = (item: MenuItem, e?: React.MouseEvent) => {
+    if (e) {
+      const btn = e.currentTarget;
+      btn.classList.add("scale-85");
+      setTimeout(() => btn.classList.remove("scale-85"), 150);
     }
+    addItem(item);
   };
 
+  // Can't Decide items recommendations
+  const recommendedDecideItems = useMemo(() => {
+    if (!decideMood) return [];
+    if (decideMood === "one") {
+      return items.filter(i => i.price < 180).slice(0, 4);
+    } else if (decideMood === "two") {
+      return items.filter(i => i.tags?.includes("sharing") && i.price < 280).slice(0, 4);
+    } else {
+      return items.filter(i => i.tags?.includes("sharing")).slice(0, 6);
+    }
+  }, [items, decideMood]);
+
   return (
-    <div className="min-h-screen bg-midnight pt-28 pb-16 px-4 sm:px-6 md:px-12 relative overflow-hidden">
-      <div className="absolute inset-0 noise-bg" />
-
-      {/* Page Header */}
-      <div className="max-w-7xl mx-auto mb-12 text-center relative z-10">
-        <span className="text-[10px] uppercase tracking-[0.3em] text-gold">04 — Culinary Feast</span>
-        <h1 className="font-heading text-4xl md:text-6xl text-soft-ivory tracking-wide mt-2">The Living Menu</h1>
-        <p className="text-xs text-soft-ivory/60 uppercase tracking-widest mt-2">
-          Pure Veg • Prepared Fresh Daily
-        </p>
-      </div>
-
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 relative z-10">
-        {/* Sticky Sidebar Category Rail (Desktop) / Horizontal Rail (Mobile) */}
-        <aside className="w-full lg:w-64 shrink-0 lg:sticky lg:top-24 h-fit bg-wine/5 border border-white/5 p-4 rounded-2xl backdrop-blur-md">
-          <h3 className="hidden lg:block font-heading text-lg text-gold tracking-wide mb-4">Categories</h3>
-          <div className="flex lg:flex-col overflow-x-auto lg:overflow-x-visible gap-2 no-scrollbar pb-2 lg:pb-0">
-            <button
-              onClick={() => setSelectedCategory("ALL")}
-              className={`px-4 py-2 text-xs font-bold uppercase tracking-widest rounded-lg transition-all duration-200 text-left shrink-0 ${
-                selectedCategory === "ALL"
-                  ? "bg-gold text-midnight"
-                  : "bg-white/5 text-soft-ivory/70 hover:bg-white/10 hover:text-soft-ivory"
-              }`}
+    <div 
+      className="min-h-screen bg-[#F3E8D4] text-[#350709] pt-24 pb-20 relative overflow-x-hidden font-sans"
+      onMouseMove={handleMouseMove}
+      style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E")`,
+      }}
+    >
+      {/* 1. Cinematic Entrance Preloader */}
+      <AnimatePresence>
+        {showEntrance && (
+          <motion.div 
+            className="fixed inset-0 bg-[#350709] z-[120] flex flex-col items-center justify-center text-center px-6"
+            exit={{ y: "-100%", transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } }}
+          >
+            <motion.span 
+              className="font-sans text-[10px] tracking-[0.3em] text-[#B98532] font-bold uppercase mb-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { delay: 0.2 } }}
             >
-              All Dishes
-            </button>
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setSelectedCategory(cat.name)}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-widest rounded-lg transition-all duration-200 text-left shrink-0 ${
-                  selectedCategory.toUpperCase() === cat.name.toUpperCase()
-                    ? "bg-gold text-midnight"
-                    : "bg-white/5 text-soft-ivory/70 hover:bg-white/10 hover:text-soft-ivory"
-                }`}
-              >
-                {cat.name}
-              </button>
-            ))}
-          </div>
-        </aside>
+              THE MAURYA KITCHEN
+            </motion.span>
+            <motion.h2 
+              className="font-heading text-4xl md:text-5xl text-[#F3E8D4] max-w-md mb-6 leading-tight"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0, transition: { delay: 0.4, duration: 0.6 } }}
+            >
+              What are you craving today?
+            </motion.h2>
+            
+            {/* Draw curve sweep */}
+            <div className="w-24 h-4 relative">
+              <svg viewBox="0 0 100 10" className="w-full h-full text-[#B98532] fill-none">
+                <motion.path
+                  d="M0,5 C30,2 70,8 100,5"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 0.7, delay: 0.5, ease: "easeInOut" }}
+                />
+              </svg>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-        {/* Main Content Area */}
-        <div className="flex-1 space-y-6">
-          {/* Search Bar */}
+      {/* Main Container */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        
+        {/* Header Block */}
+        <div className="mb-10 text-center md:text-left mt-8">
+          <span className="font-sans text-[10px] tracking-[0.25em] text-[#8F1115] font-bold uppercase">
+            THE MAURYA KITCHEN
+          </span>
+          <h1 className="font-heading text-5xl md:text-6xl text-[#350709] tracking-tight mt-1">
+            What are you<br className="md:hidden" /> craving today?
+          </h1>
+        </div>
+
+        {/* 2. Search & Filters Zone */}
+        <div className="max-w-3xl mx-auto mb-10 space-y-6">
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-soft-ivory/40" />
+            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-[#350709]/40" />
             <input
               type="text"
-              placeholder="Search dishes (e.g. paneer, dosa, maratha)..."
+              placeholder={isSearchFocused ? "Search paneer, dosa, noodles..." : PLACEHOLDERS[placeholderIndex]}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 rounded-2xl bg-wine/5 border border-white/10 text-soft-ivory placeholder:text-soft-ivory/40 focus:outline-none focus:border-gold/40 transition-colors text-sm"
+              onFocus={() => setIsSearchFocused(true)}
+              onBlur={() => {
+                setIsSearchFocused(false);
+                if (searchQuery === "") setPlaceholderIndex(0);
+              }}
+              className="w-full pl-14 pr-6 py-4 rounded-full bg-white border border-[#350709]/15 text-[#350709] placeholder:text-[#350709]/40 focus:outline-none focus:border-[#8F1115]/50 focus:shadow-[0_0_20px_rgba(143,17,21,0.06)] transition-all duration-300 text-base"
             />
           </div>
 
-          {/* Dishes Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            <AnimatePresence mode="popLayout">
-              {filteredItems.map((item) => {
+          {/* Mood Filters */}
+          <div className="space-y-2">
+            <span className="block text-[9px] uppercase tracking-[0.2em] text-[#350709]/60 font-bold text-center md:text-left">
+              I'm in the mood for...
+            </span>
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5">
+              {MOODS.map((mood) => {
+                const isSelected = selectedMood === mood.tag;
+                return (
+                  <button
+                    key={mood.tag}
+                    onClick={() => setSelectedMood(isSelected ? null : mood.tag)}
+                    className={`px-4 py-2 border rounded-full text-[10px] font-bold tracking-wider uppercase transition-all duration-200 ${
+                      isSelected 
+                        ? "bg-[#350709] border-[#350709] text-[#F3E8D4]" 
+                        : `bg-white hover:bg-[#350709]/5 border-[#350709]/15 text-[#350709]`
+                    }`}
+                  >
+                    {mood.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* 3. Horizontal Sticky Category Rail */}
+        <div className="sticky top-20 z-40 w-full bg-[#F3E8D4]/95 backdrop-blur-md border-b border-[#350709]/10 py-3 mb-10 overflow-x-auto no-scrollbar -mx-4 px-4 md:-mx-8 md:px-8">
+          <div className="flex items-center gap-6 md:gap-8 font-sans text-xs font-bold uppercase tracking-[0.2em]">
+            <button
+              id="rail-btn-ALL"
+              onClick={() => handleRailClick("ALL")}
+              className={`relative py-2 shrink-0 transition-colors ${
+                selectedCategory === "ALL" ? "text-[#8F1115]" : "text-[#350709]/60 hover:text-[#350709]"
+              }`}
+            >
+              <span>01 ALL</span>
+              {selectedCategory === "ALL" && (
+                <motion.svg className="absolute bottom-0 left-0 w-full h-1 text-[#8F1115]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                  <motion.path d="M0,5 C30,2 70,8 100,5" fill="none" stroke="currentColor" strokeWidth="3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.3 }} />
+                </motion.svg>
+              )}
+            </button>
+
+            {categories.map((cat, index) => {
+              const displayIndex = String(index + 2).padStart(2, "0");
+              const isSelected = selectedCategory === cat.name;
+              const slug = cat.name.replace(/[^a-z0-9]+/g, "-");
+              return (
+                <button
+                  key={cat.id}
+                  id={`rail-btn-${slug}`}
+                  onClick={() => handleRailClick(cat.name)}
+                  className={`relative py-2 shrink-0 transition-colors ${
+                    isSelected ? "text-[#8F1115]" : "text-[#350709]/60 hover:text-[#350709]"
+                  }`}
+                >
+                  <span>{displayIndex} {cat.name}</span>
+                  {isSelected && (
+                    <motion.svg className="absolute bottom-0 left-0 w-full h-1 text-[#8F1115]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                      <motion.path d="M0,5 C30,2 70,8 100,5" fill="none" stroke="currentColor" strokeWidth="3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.3 }} />
+                    </motion.svg>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* 4. Curated Recommendations: Maurya Favourites */}
+        {!searchQuery && !selectedMood && selectedCategory === "ALL" && (
+          <div className="mb-16">
+            <span className="block text-[10px] tracking-[0.25em] text-[#8F1115] font-bold uppercase mb-2">
+              START WITH
+            </span>
+            <h2 className="font-heading text-3xl md:text-4xl text-[#350709] tracking-tight mb-8">
+              A Maurya Favourite.
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {favourites.map((item) => {
                 const qty = getItemQuantity(item.id);
                 return (
-                  <motion.div
-                    layout
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.3 }}
-                    id={`dish-card-${item.id}-${(item.category || "general").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                    key={`${item.id}-${item.category}`}
-                    className="p-5 rounded-2xl border border-white/5 bg-wine/5 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:bg-wine/10"
-                    data-cursor="EXPLORE"
+                  <div 
+                    key={item.id}
+                    className="bg-white rounded-2xl p-5 border border-[#350709]/10 shadow-[0_10px_30px_rgba(53,7,9,0.03)] hover:shadow-[0_15px_40px_rgba(53,7,9,0.06)] transition-all duration-300 flex flex-col justify-between"
                   >
                     <div>
                       {/* Image header */}
-                      <div className="relative w-full h-40 rounded-xl overflow-hidden mb-4 border border-white/10 bg-wine/20">
-                        {item.image_url && !imageErrors[item.id] ? (
+                      <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 border border-[#350709]/5 bg-[#350709]/5">
+                        {item.image_url ? (
                           <img
                             src={item.image_url}
                             alt={item.name}
-                            className="w-full h-full object-cover"
-                            loading="lazy"
-                            onError={() => {
-                              setImageErrors((prev) => ({ ...prev, [item.id]: true }));
-                            }}
+                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                           />
                         ) : (
-                          <div className="w-full h-full flex items-center justify-center text-gold font-heading text-3xl">
+                          <div className="w-full h-full flex items-center justify-center text-4xl font-heading text-[#350709]/20 bg-[#350709]/5">
                             {item.name[0]}
                           </div>
                         )}
-                        
-                        {/* Badges overlay */}
-                        <div className="absolute top-3 left-3 flex flex-col gap-1">
-                          {item.is_veg && (
-                            <span className="w-5 h-5 border-2 border-veg-green bg-midnight flex items-center justify-center p-1 rounded-sm shadow-md">
-                              <span className="w-2 h-2 bg-veg-green rounded-full"></span>
-                            </span>
-                          )}
-                        </div>
-
-                        <div className="absolute top-3 right-3 flex flex-col gap-1.5 items-end">
-                          {item.is_signature && (
-                            <span className="px-2.5 py-0.5 rounded-full bg-gold text-midnight text-[8px] font-bold uppercase tracking-widest flex items-center gap-1 shadow-md">
-                              <Sparkles className="w-2 h-2" /> Signature
-                            </span>
-                          )}
-                          {item.is_bestseller && (
-                            <span className="px-2.5 py-0.5 rounded-full bg-crimson text-white text-[8px] font-bold uppercase tracking-widest shadow-md">
-                              Bestseller
-                            </span>
-                          )}
-                        </div>
+                        {/* Spice Tag */}
+                        {item.is_spicy && (
+                          <span className="absolute top-3 right-3 bg-[#8F1115] text-[#F3E8D4] text-[8px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
+                            SPICY
+                          </span>
+                        )}
                       </div>
 
-                      {/* Title & Desc */}
-                      <div className="flex items-start justify-between gap-4">
-                        <h3 className="font-heading text-lg font-bold tracking-wide text-soft-ivory">
-                          {item.name}
-                        </h3>
-                        <span className="font-mono text-base font-bold text-gold shrink-0">
-                          ₹{item.price}
-                        </span>
-                      </div>
-                      
-                      <p className="text-xs text-soft-ivory/60 mt-2 line-clamp-2 leading-relaxed">
+                      <span className="text-[9px] tracking-[0.2em] text-[#B98532] font-bold uppercase">
+                        MAURYA FAVOURITE
+                      </span>
+                      <h3 className="font-heading text-2xl text-[#350709] mt-1 mb-2">
+                        {item.name}
+                      </h3>
+                      <p className="font-sans text-xs text-[#350709]/70 leading-relaxed mb-6 line-clamp-2">
                         {item.description}
                       </p>
                     </div>
 
-                    {/* Actions footer */}
-                    <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-                      <span className="text-[10px] text-soft-ivory/40 uppercase tracking-widest font-mono">
-                        {item.category}
+                    <div className="flex items-center justify-between border-t border-[#350709]/10 pt-4 mt-auto">
+                      <span className="font-mono text-base font-bold text-[#350709]">
+                        ₹{item.price}
                       </span>
 
-                      {item.is_available === false ? (
-                        <span className="px-3 py-1.5 rounded-lg border border-red-500/20 bg-red-500/10 text-red-500 text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
-                          <AlertCircle className="w-3.5 h-3.5" /> Unavailable
-                        </span>
-                      ) : qty > 0 ? (
-                        <div className="flex items-center gap-2">
-                          <button
+                      {/* Tap add target */}
+                      {qty > 0 ? (
+                        <div className="flex items-center gap-3 bg-[#8F1115] text-[#F3E8D4] rounded-full px-3 py-1.5 shadow-md">
+                          <button 
                             onClick={() => decreaseQuantity(item.id)}
-                            className="w-8 h-8 rounded-lg bg-white/5 hover:bg-wine/30 border border-white/10 flex items-center justify-center text-soft-ivory hover:text-gold transition-colors"
+                            className="hover:scale-110 active:scale-95 transition-transform"
                           >
-                            <Minus className="w-3 h-3" />
+                            <Minus className="w-3.5 h-3.5" />
                           </button>
-                          <span className="text-sm font-mono font-bold w-6 text-center">
-                            {qty}
-                          </span>
-                          <button
-                            onClick={() => handleAddToTable(item)}
-                            className="w-8 h-8 rounded-lg bg-white/5 hover:bg-wine/30 border border-white/10 flex items-center justify-center text-soft-ivory hover:text-gold transition-colors"
+                          <span className="font-mono text-xs font-bold min-w-4 text-center">{qty}</span>
+                          <button 
+                            onClick={(e) => handleAdd(item, e)}
+                            className="hover:scale-110 active:scale-95 transition-transform"
                           >
-                            <Plus className="w-3 h-3" />
+                            <Plus className="w-3.5 h-3.5" />
                           </button>
                         </div>
                       ) : (
                         <button
-                          onClick={() => handleAddToTable(item)}
-                          className="px-4 py-2 rounded-lg bg-crimson hover:bg-crimson/90 text-white text-xs font-bold uppercase tracking-widest transition-colors flex items-center gap-2"
+                          onClick={(e) => handleAdd(item, e)}
+                          className="w-8 h-8 rounded-full bg-[#8F1115] hover:bg-[#8F1115]/90 text-[#F3E8D4] flex items-center justify-center shadow-md active:scale-90 transition-all duration-200"
                         >
-                          <ShoppingBag className="w-3.5 h-3.5" /> Add to Table
+                          <Plus className="w-4 h-4" />
                         </button>
                       )}
                     </div>
-                  </motion.div>
+                  </div>
                 );
               })}
-            </AnimatePresence>
-
-            {filteredItems.length === 0 && (
-              <div className="col-span-full py-16 text-center">
-                <p className="text-soft-ivory/50 text-sm">No dishes found matching your criteria.</p>
-              </div>
-            )}
+            </div>
           </div>
+        )}
+
+        {/* 5. Search Results / Availability Checks */}
+        {searchQuery && (
+          <div className="mb-10 text-center md:text-left">
+            <span className="font-sans text-xs text-[#350709]/60 font-semibold">
+              {filteredItems.length} {filteredItems.length === 1 ? "DISH" : "DISHES"} FOUND FOR "{searchQuery.toUpperCase()}"
+            </span>
+          </div>
+        )}
+
+        {filteredItems.length === 0 && (
+          <div className="py-20 text-center">
+            <h3 className="font-heading text-3xl text-[#350709]/80 mb-3">
+              NOTHING ON THE TABLE YET.
+            </h3>
+            <p className="font-sans text-xs text-[#350709]/50 uppercase tracking-widest mb-6">
+              Try another craving.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3 max-w-md mx-auto">
+              {["PANEER", "DOSA", "CHINESE", "RICE"].map((s) => (
+                <button
+                  key={s}
+                  onClick={() => setSearchQuery(s)}
+                  className="px-4 py-2 bg-white hover:bg-[#350709]/5 border border-[#350709]/15 rounded-full text-[10px] font-bold tracking-widest text-[#350709] transition-all"
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* 6. High-Density Menu Category Listings */}
+        <div className="space-y-16">
+          {Object.entries(groupedItems).map(([catName, dishList], groupIndex) => {
+            const slug = catName.replace(/[^a-z0-9]+/g, "-");
+            return (
+              <div
+                key={catName}
+                data-category={catName}
+                ref={(el) => {
+                  sectionRefs.current[catName] = el;
+                }}
+                className="scroll-mt-32"
+              >
+                {/* Category Header */}
+                <div className="border-b border-[#350709]/10 pb-4 mb-8 flex items-baseline justify-between">
+                  <h3 className="font-heading text-3xl md:text-4xl text-[#350709]">
+                    {catName}
+                  </h3>
+                  <span className="font-mono text-xs text-[#350709]/50">
+                    {dishList.length} DISHES
+                  </span>
+                </div>
+
+                {/* Two-Column high density Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                  {dishList.map((item) => {
+                    const qty = getItemQuantity(item.id);
+                    return (
+                      <div 
+                        key={item.id}
+                        onMouseEnter={() => setHoveredItem(item)}
+                        onMouseLeave={() => setHoveredItem(null)}
+                        className={`flex items-start justify-between py-4 border-b border-[#350709]/5 transition-opacity duration-300 ${
+                          !item.is_available ? "opacity-50" : ""
+                        }`}
+                      >
+                        {/* Left Details */}
+                        <div className="space-y-1 pr-6 flex-1">
+                          <div className="flex items-center gap-2.5">
+                            {/* Tap target to open peek sheet on mobile */}
+                            <button
+                              onClick={() => {
+                                if (window.innerWidth < 768) {
+                                  setPeekItem(item);
+                                }
+                              }}
+                              className="text-left font-sans text-[#350709] font-bold text-sm hover:text-[#8F1115] transition-colors"
+                            >
+                              {item.name}
+                            </button>
+                            {item.is_spicy && (
+                              <span className="text-[8px] font-bold text-[#8F1115] tracking-widest uppercase">
+                                SPICY
+                              </span>
+                            )}
+                          </div>
+                          <p className="font-sans text-xs text-[#350709]/60 line-clamp-1">
+                            {item.description}
+                          </p>
+                          {!item.is_available && (
+                            <span className="inline-block text-[8px] font-bold text-[#8F1115] tracking-wider uppercase mt-1">
+                              CURRENTLY OFF THE TABLE
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Right Price & Controls */}
+                        <div className="flex items-center gap-6 shrink-0">
+                          <span className="font-mono text-xs font-bold text-[#350709]">
+                            ₹{item.price}
+                          </span>
+
+                          {item.is_available && (
+                            <>
+                              {qty > 0 ? (
+                                <div className="flex items-center gap-2.5 bg-[#8F1115] text-[#F3E8D4] rounded-full px-2.5 py-1 shadow-md">
+                                  <button 
+                                    onClick={() => decreaseQuantity(item.id)}
+                                    className="hover:scale-110 active:scale-95 transition-transform"
+                                  >
+                                    <Minus className="w-3 h-3" />
+                                  </button>
+                                  <span className="font-mono text-[10px] font-bold min-w-3 text-center">{qty}</span>
+                                  <button 
+                                    onClick={(e) => handleAdd(item, e)}
+                                    className="hover:scale-110 active:scale-95 transition-transform"
+                                  >
+                                    <Plus className="w-3 h-3" />
+                                  </button>
+                                </div>
+                              ) : (
+                                <button
+                                  onClick={(e) => handleAdd(item, e)}
+                                  className="w-7 h-7 rounded-full bg-[#8F1115] hover:bg-[#8F1115]/90 text-[#F3E8D4] flex items-center justify-center shadow-md active:scale-90 transition-all"
+                                >
+                                  <Plus className="w-3.5 h-3.5" />
+                                </button>
+                              )}
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* 12. Recommendation Break ("Can't Decide?") */}
+                {groupIndex === 1 && (
+                  <div 
+                    className="w-full bg-[#350709] rounded-3xl p-8 md:p-12 text-center my-16 text-[#F3E8D4]"
+                    style={{
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E")`,
+                    }}
+                  >
+                    <span className="font-sans text-[10px] tracking-[0.25em] text-[#B98532] font-bold uppercase block mb-3">
+                      CAN'T DECIDE?
+                    </span>
+                    <h4 className="font-heading text-3xl md:text-5xl text-[#F3E8D4] mb-8 leading-tight">
+                      Let Maurya start the table.
+                    </h4>
+
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto mb-8">
+                      <button
+                        onClick={() => setDecideMood(decideMood === "one" ? null : "one")}
+                        className={`w-full py-3 rounded-xl text-xs font-bold uppercase tracking-widest border transition-all ${
+                          decideMood === "one" 
+                            ? "bg-[#B98532] border-[#B98532] text-[#350709]" 
+                            : "bg-transparent border-[#F3E8D4]/25 text-[#F3E8D4] hover:bg-[#F3E8D4]/5"
+                        }`}
+                      >
+                        FOR ONE
+                      </button>
+                      <button
+                        onClick={() => setDecideMood(decideMood === "two" ? null : "two")}
+                        className={`w-full py-3 rounded-xl text-xs font-bold uppercase tracking-widest border transition-all ${
+                          decideMood === "two" 
+                            ? "bg-[#B98532] border-[#B98532] text-[#350709]" 
+                            : "bg-transparent border-[#F3E8D4]/25 text-[#F3E8D4] hover:bg-[#F3E8D4]/5"
+                        }`}
+                      >
+                        FOR TWO
+                      </button>
+                      <button
+                        onClick={() => setDecideMood(decideMood === "table" ? null : "table")}
+                        className={`w-full py-3 rounded-xl text-xs font-bold uppercase tracking-widest border transition-all ${
+                          decideMood === "table" 
+                            ? "bg-[#B98532] border-[#B98532] text-[#350709]" 
+                            : "bg-transparent border-[#F3E8D4]/25 text-[#F3E8D4] hover:bg-[#F3E8D4]/5"
+                        }`}
+                      >
+                        FOR THE TABLE
+                      </button>
+                    </div>
+
+                    {/* Can't decide recommendations drawer */}
+                    <AnimatePresence>
+                      {decideMood && (
+                        <motion.div 
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="bg-white/5 rounded-2xl p-5 border border-white/10 overflow-hidden text-left"
+                        >
+                          <div className="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
+                            <span className="text-[10px] tracking-widest uppercase text-[#B98532] font-bold">
+                              RECOMMENDED FEAST ITEMS
+                            </span>
+                            <button onClick={() => setDecideMood(null)}>
+                              <X className="w-4 h-4 text-white/50" />
+                            </button>
+                          </div>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {recommendedDecideItems.map(item => {
+                              const qty = getItemQuantity(item.id);
+                              return (
+                                <div key={item.id} className="flex items-center justify-between py-2 border-b border-white/5 last:border-0">
+                                  <div>
+                                    <span className="text-xs text-[#F3E8D4] font-bold">{item.name}</span>
+                                    <span className="block font-mono text-[10px] text-[#F3E8D4]/50">₹{item.price}</span>
+                                  </div>
+                                  <button
+                                    onClick={(e) => handleAdd(item, e)}
+                                    className="px-3 py-1 bg-[#8F1115] hover:bg-[#8F1115]/90 rounded text-[9px] font-bold uppercase tracking-widest text-[#F3E8D4]"
+                                  >
+                                    {qty > 0 ? `ADD MORE (${qty})` : "ADD"}
+                                  </button>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
+
+      {/* 7. Contextual Hover Image Preview (Desktop) */}
+      <AnimatePresence>
+        {hoveredItem && hoveredItem.image_url && (
+          <motion.div
+            ref={previewRef}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.15 }}
+            className="hidden md:block fixed z-50 pointer-events-none w-56 aspect-[4/3] rounded-xl overflow-hidden border-2 border-[#B98532]/40 bg-[#350709] shadow-2xl"
+            style={{
+              x: mouseX,
+              y: mouseY,
+            }}
+          >
+            <img
+              src={hoveredItem.image_url}
+              alt={hoveredItem.name}
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* 8. Dish Peek Bottom Sheet (Mobile) */}
+      <AnimatePresence>
+        {peekItem && (
+          <div className="fixed inset-0 z-[110] flex items-end justify-center md:hidden">
+            {/* Overlay */}
+            <motion.div 
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setPeekItem(null)}
+            />
+            {/* Sheet */}
+            <motion.div 
+              className="relative w-full bg-[#F3E8D4] rounded-t-3xl border-t border-[#350709]/10 p-6 flex flex-col gap-6 shadow-2xl z-10"
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 220 }}
+            >
+              {/* Drag bar indicator */}
+              <div className="w-12 h-1.5 bg-[#350709]/10 rounded-full mx-auto" />
+              
+              {/* Peek Content */}
+              <div>
+                <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 border border-[#350709]/10 bg-[#350709]/5">
+                  {peekItem.image_url ? (
+                    <img
+                      src={peekItem.image_url}
+                      alt={peekItem.name}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-5xl font-heading text-[#350709]/20">
+                      {peekItem.name[0]}
+                    </div>
+                  )}
+                </div>
+                <h3 className="font-heading text-3xl text-[#350709] mb-1">{peekItem.name}</h3>
+                <p className="font-sans text-xs text-[#350709]/70 leading-relaxed mb-4">{peekItem.description}</p>
+                <div className="font-mono text-lg font-bold text-[#350709]">₹{peekItem.price}</div>
+              </div>
+
+              {/* Add / Qty block */}
+              <div className="flex items-center gap-4 mt-auto">
+                {getItemQuantity(peekItem.id) > 0 ? (
+                  <div className="flex-1 flex items-center justify-between bg-[#8F1115] text-[#F3E8D4] rounded-xl px-5 py-3 shadow-md">
+                    <button 
+                      onClick={() => decreaseQuantity(peekItem.id)}
+                      className="text-lg p-1"
+                    >
+                      <Minus className="w-5 h-5" />
+                    </button>
+                    <span className="font-mono text-sm font-bold">{getItemQuantity(peekItem.id)}</span>
+                    <button 
+                      onClick={() => addItem(peekItem)}
+                      className="text-lg p-1"
+                    >
+                      <Plus className="w-5 h-5" />
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => addItem(peekItem)}
+                    className="flex-1 py-4 bg-[#8F1115] text-[#F3E8D4] text-xs font-bold uppercase tracking-widest rounded-xl shadow-md"
+                  >
+                    ADD TO TABLE
+                  </button>
+                )}
+                <button
+                  onClick={() => setPeekItem(null)}
+                  className="px-5 py-4 border border-[#350709]/20 text-[#350709] text-xs font-bold uppercase tracking-widest rounded-xl"
+                >
+                  CLOSE
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* 9. Mobile Sticky "Your Table" Bar */}
+      <AnimatePresence>
+        {totalItemsCount > 0 && !isCartOpen && (
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 100, opacity: 0 }}
+            className="fixed bottom-0 left-0 w-full bg-[#350709] text-[#F3E8D4] z-40 border-t border-[#B98532]/25 pb-safe md:hidden"
+            onClick={() => setCartOpen(true)}
+          >
+            <div className="px-6 py-4 flex items-center justify-between">
+              <div>
+                <span className="block text-[8px] tracking-[0.2em] text-[#B98532] font-bold uppercase">
+                  {String(totalItemsCount).padStart(2, "0")} ON YOUR TABLE
+                </span>
+                <span className="font-mono text-base font-bold text-[#F3E8D4]">
+                  ₹{cartTotal}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#F3E8D4]">
+                <span>VIEW YOUR TABLE</span>
+                <ArrowRight className="w-4 h-4 text-[#B98532]" />
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* 10. Desktop Persistent Summary Tab */}
+      <AnimatePresence>
+        {totalItemsCount > 0 && !isCartOpen && (
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 100, opacity: 0 }}
+            className="hidden md:flex fixed right-0 top-1/3 z-40 group"
+          >
+            {/* Small tab */}
+            <div className="bg-[#350709] text-[#F3E8D4] border-l-2 border-y border-[#B98532]/35 py-6 px-3.5 rounded-l-2xl shadow-xl flex flex-col items-center gap-4 cursor-pointer group-hover:hidden transition-all duration-300">
+              <span className="font-mono text-lg font-bold text-[#B98532]">
+                {String(totalItemsCount).padStart(2, "0")}
+              </span>
+              <span className="font-sans text-[8px] font-bold tracking-[0.25em] vertical-text uppercase">
+                YOUR TABLE
+              </span>
+              <span className="font-mono text-xs font-bold">
+                ₹{cartTotal}
+              </span>
+            </div>
+
+            {/* Hover Expansion summary card */}
+            <div 
+              onClick={() => setCartOpen(true)}
+              className="hidden group-hover:flex flex-col bg-[#350709] text-[#F3E8D4] border-l-2 border-y border-[#B98532]/30 p-5 rounded-l-2xl shadow-2xl w-64 gap-4 cursor-pointer transition-all duration-300"
+            >
+              <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                <span className="text-[10px] tracking-widest uppercase font-bold text-[#B98532]">
+                  YOUR TABLE
+                </span>
+                <span className="font-mono text-xs font-bold bg-[#8F1115] px-2 py-0.5 rounded-full">
+                  {totalItemsCount}
+                </span>
+              </div>
+              
+              <div className="max-h-48 overflow-y-auto space-y-2 pr-2 custom-scrollbar">
+                {cartItems.map((i) => (
+                  <div key={i.item.id} className="flex justify-between text-xs font-sans text-white/80">
+                    <span className="truncate max-w-[140px]">{i.item.name}</span>
+                    <span className="font-mono text-[10px]">{i.quantity} × ₹{i.item.price}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="border-t border-white/10 pt-3 flex items-center justify-between">
+                <span className="text-xs font-bold text-white/50">SUBTOTAL</span>
+                <span className="font-mono text-sm font-bold text-[#F3E8D4]">₹{cartTotal}</span>
+              </div>
+
+              <div className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-[#B98532] mt-2 group/btn">
+                <span>VIEW TABLE</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

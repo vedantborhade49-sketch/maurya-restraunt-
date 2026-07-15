@@ -133,3 +133,15 @@ CREATE POLICY "Admin Full Access Reservations" ON reservations FOR ALL TO authen
 CREATE POLICY "Admin Full Access Offers" ON offers FOR ALL TO authenticated USING (true);
 CREATE POLICY "Admin Full Access Site Settings" ON site_settings FOR ALL TO authenticated USING (true);
 CREATE POLICY "Admin Full Access Media" ON media FOR ALL TO authenticated USING (true);
+
+-- Menu Item Tags mapping
+CREATE TABLE IF NOT EXISTS menu_item_tags (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    menu_item_id UUID REFERENCES menu_items(id) ON DELETE CASCADE,
+    tag_id TEXT NOT NULL,
+    UNIQUE(menu_item_id, tag_id)
+);
+
+ALTER TABLE menu_item_tags ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Public Read Menu Item Tags" ON menu_item_tags FOR SELECT USING (true);
+CREATE POLICY "Admin Full Access Menu Item Tags" ON menu_item_tags FOR ALL TO authenticated USING (true);

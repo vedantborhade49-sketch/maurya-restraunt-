@@ -29,6 +29,7 @@ interface MenuItem {
   is_bestseller: boolean;
   is_signature: boolean;
   is_spicy: boolean;
+  tags?: string[];
 }
 
 interface Order {
@@ -85,6 +86,64 @@ const getInitialMockData = () => {
                       dish.name.toLowerCase().includes("spring") ||
                       dish.name.toLowerCase().includes("maratha");
 
+      const itemTags: string[] = [];
+      if (isSpicy) itemTags.push("spicy");
+      if (isSignature || isBestseller) itemTags.push("maurya_favourite");
+      
+      const lowerName = dish.name.toLowerCase();
+      const lowerDesc = (dish.description || "").toLowerCase();
+      
+      if (
+        lowerName.includes("paneer") || 
+        lowerName.includes("butter") || 
+        lowerName.includes("cheese") || 
+        lowerName.includes("kofta") || 
+        lowerName.includes("kadhai") ||
+        lowerDesc.includes("cream") ||
+        lowerDesc.includes("rich")
+      ) {
+        itemTags.push("rich");
+      }
+      
+      if (
+        catName.toLowerCase().includes("starter") || 
+        catName.toLowerCase().includes("soup") || 
+        catName.toLowerCase().includes("beverage") ||
+        lowerName.includes("soup") ||
+        lowerName.includes("fry") ||
+        lowerName.includes("chilli")
+      ) {
+        itemTags.push("quick");
+      }
+      
+      if (
+        catName.toLowerCase().includes("biryani") || 
+        catName.toLowerCase().includes("main") ||
+        lowerName.includes("platter") || 
+        lowerName.includes("thali") ||
+        lowerName.includes("family") ||
+        lowerDesc.includes("share") ||
+        lowerDesc.includes("sharing")
+      ) {
+        itemTags.push("sharing");
+      }
+      
+      if (
+        catName.toLowerCase().includes("beverage") || 
+        catName.toLowerCase().includes("soup") || 
+        lowerName.includes("salad") || 
+        lowerName.includes("roti") || 
+        lowerName.includes("phulka") ||
+        lowerDesc.includes("light") ||
+        lowerDesc.includes("healthy")
+      ) {
+        itemTags.push("light");
+      }
+
+      if (itemTags.length === 0) {
+        itemTags.push("quick");
+      }
+
       items.push({
         id: dish.id || `item-${itemCounter++}`,
         name: dish.name,
@@ -92,11 +151,12 @@ const getInitialMockData = () => {
         description: dish.description || `${dish.name} - Freshly prepared using signature Maurya ingredients.`,
         image_url: dish.image_url || "",
         category: catName,
-        is_veg: true, // Maurya is pure veg
+        is_veg: true,
         is_available: true,
         is_bestseller: isBestseller,
         is_signature: isSignature,
         is_spicy: isSpicy,
+        tags: itemTags,
       });
     });
   });

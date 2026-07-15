@@ -15,6 +15,7 @@ export interface MenuItem {
   is_bestseller?: boolean;
   is_signature?: boolean;
   is_spicy?: boolean;
+  tags?: string[];
 }
 
 export interface CartItem {
