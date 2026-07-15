@@ -4,7 +4,6 @@ import React, { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import MauryaCurve from "./MauryaCurve";
 import { MAURYA_EASE } from "../../lib/motion/maurya-motion";
-import { soundManager } from "../../lib/sound/sound-manager";
 
 interface BrandIntroProps {
   onComplete: () => void;
@@ -62,12 +61,7 @@ export default function BrandIntro({ onComplete }: BrandIntroProps) {
             scale: 1, 
             opacity: 1, 
             duration: 0.4, 
-            ease: "power4.in",
-            onComplete: () => {
-              if (soundManager && soundManager.isEnabled()) {
-                soundManager.playThud();
-              }
-            }
+            ease: "power4.in"
           },
           "-=0.1"
         );

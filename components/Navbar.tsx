@@ -7,35 +7,12 @@ import { usePathname } from "next/navigation";
 import { useTableStore } from "../stores/table-store";
 import TableIcon from "./navigation/TableIcon";
 import { Menu, X } from "lucide-react";
-import { soundManager } from "../lib/sound/sound-manager";
-
 export default function Navbar() {
   const navRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const { setIsOpen } = useTableStore();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [soundEnabled, setSoundEnabled] = useState(false);
-
-  const toggleSound = () => {
-    if (soundManager) {
-      if (soundEnabled) {
-        soundManager.disable();
-        setSoundEnabled(false);
-      } else {
-        soundManager.enable();
-        setSoundEnabled(true);
-        soundManager.playRustle();
-      }
-    }
-  };
-
-  const handleOpenTable = () => {
-    setIsOpen(true);
-    if (soundEnabled && soundManager) {
-      soundManager.playRustle();
-    }
-  };
 
   const isAdmin = pathname?.startsWith("/admin");
 
@@ -113,17 +90,9 @@ export default function Navbar() {
 
         {/* Actions / Right end */}
         <div className="flex items-center gap-4">
-          {/* Sound Toggle */}
-          <button
-            onClick={toggleSound}
-            className="hidden sm:flex items-center gap-1.5 text-[9px] uppercase tracking-[0.2em] text-[#F3E8D4]/60 hover:text-gold transition-colors font-sans mr-2"
-          >
-            Sound {soundEnabled ? "●" : "○"}
-          </button>
-
           {/* Table Cart trigger */}
           <button
-            onClick={handleOpenTable}
+            onClick={() => setIsOpen(true)}
             className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             aria-label="Your Table"
           >
