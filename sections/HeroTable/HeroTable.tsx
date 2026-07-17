@@ -120,8 +120,8 @@ export default function HeroTable() {
 
       // Maurya Curve begins drawing
       tl.fromTo("#hero-curve-path",
-        { strokeDashoffset: 100, opacity: 0 },
-        { strokeDashoffset: 0, opacity: 1, duration: 0.6, ease: "power2.inOut" },
+        { pathLength: 0, opacity: 0 },
+        { pathLength: 1, opacity: 1, duration: 0.6, ease: "power2.inOut" },
         0.72
       );
 
@@ -235,8 +235,6 @@ export default function HeroTable() {
               stroke="currentColor"
               strokeWidth="2.5"
               strokeLinecap="round"
-              strokeDasharray="100"
-              strokeDashoffset="100"
               className="opacity-0"
             />
           </svg>
