@@ -98,7 +98,7 @@ export default function Navbar() {
   const { startTransition } = useTransition();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(pathname !== "/");
 
   const isAdmin = pathname?.startsWith("/admin");
 
@@ -114,6 +114,10 @@ export default function Navbar() {
 
     // Scroll listener for V3 visual transformations
     const handleScroll = () => {
+      if (pathname !== "/") {
+        setIsScrolled(true);
+        return;
+      }
       if (window.scrollY > 80) {
         setIsScrolled(true);
       } else {
@@ -121,9 +125,12 @@ export default function Navbar() {
       }
     };
 
+    // Run layout initializer on mount/dependency updates
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   if (isAdmin) return null;
 
