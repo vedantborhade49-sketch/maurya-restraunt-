@@ -155,9 +155,30 @@ export default function HeroTable() {
       <div className="absolute inset-0 bg-noise opacity-[0.03] z-0 pointer-events-none" />
       <div className="absolute inset-0 shadow-[inset_0_0_120px_rgba(0,0,0,0.85)] z-10 pointer-events-none" />
 
-      {/* Subtle steam animations (atmospheric detail) */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-10 opacity-30 select-none">
-        <div className="absolute w-[50%] h-[50%] left-[25%] top-[25%] bg-[radial-gradient(circle_at_center,rgba(243,232,212,0.06)_0%,transparent_60%)] blur-[40px] animate-[pulse_6s_infinite]" />
+      {/* Subtle steam animations & Spice float keyframes (atmospheric detail) */}
+      <style>{`
+        @keyframes floatSpice {
+          0% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0; }
+          15% { opacity: 0.5; }
+          85% { opacity: 0.5; }
+          100% { transform: translateY(-120px) translateX(25px) rotate(360deg); opacity: 0; }
+        }
+        .spice-float {
+          animation: floatSpice infinite linear;
+        }
+      `}</style>
+
+      {/* Steam & Spice particles container */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-10 select-none">
+        <div className="absolute w-[50%] h-[50%] left-[25%] top-[25%] bg-[radial-gradient(circle_at_center,rgba(243,232,212,0.06)_0%,transparent_60%)] blur-[40px] animate-[pulse_6s_infinite] opacity-30" />
+        
+        {/* Floating Spices */}
+        <div className="absolute w-1 h-1 bg-[#B98532] rounded-full top-[30%] left-[20%] spice-float" style={{ animationDuration: "14s", animationDelay: "0s" }} />
+        <div className="absolute w-1.5 h-1.5 bg-[#B98532] rounded-full top-[65%] left-[80%] spice-float" style={{ animationDuration: "18s", animationDelay: "3s" }} />
+        <div className="absolute w-1 h-1 bg-[#B98532] rounded-full top-[85%] left-[35%] spice-float" style={{ animationDuration: "16s", animationDelay: "6s" }} />
+        <div className="absolute w-1.5 h-1.5 bg-[#B98532] rounded-full top-[25%] left-[75%] spice-float" style={{ animationDuration: "20s", animationDelay: "1s" }} />
+        <div className="absolute w-1 h-1 bg-[#B98532] rounded-full top-[50%] left-[15%] spice-float" style={{ animationDuration: "15s", animationDelay: "8s" }} />
+        <div className="absolute w-1.5 h-1.5 bg-[#B98532] rounded-full top-[75%] left-[60%] spice-float" style={{ animationDuration: "22s", animationDelay: "4s" }} />
       </div>
 
       {/* ─── Frame 01: Typographical Center Stage ─── */}

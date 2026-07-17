@@ -7,44 +7,87 @@ import { usePathname } from "next/navigation";
 import { useTableStore } from "../stores/table-store";
 import TableIcon from "./navigation/TableIcon";
 import { Menu, X } from "lucide-react";
+import { useTransition } from "./PageTransition";
 
-// Magnetic Link Wrapper
+// Magnetic Link Wrapper Component
 interface MagneticLinkProps {
   href: string;
   isActive: boolean;
-  onClick?: (e: React.MouseEvent) => void;
-  children: React.ReactNode;
+  prefix: string;
+  label: string;
+  onClick: (e: React.MouseEvent, href: string) => void;
 }
 
-function MagneticLink({ href, isActive, onClick, children }: MagneticLinkProps) {
+function MagneticLink({ href, isActive, prefix, label, onClick }: MagneticLinkProps) {
   const [drift, setDrift] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    // subtle pull strength (max 8px)
-    const x = (e.clientX - (rect.left + rect.width / 2)) * 0.22;
-    const y = (e.clientY - (rect.top + rect.height / 2)) * 0.22;
+    // drift up to 6px toward cursor
+    const x = (e.clientX - (rect.left + rect.width / 2)) * 0.2;
+    const y = (e.clientY - (rect.top + rect.height / 2)) * 0.2 - 2; // lifts by 2px on hover
     setDrift({ x, y });
   };
 
   const handleMouseLeave = () => {
     setDrift({ x: 0, y: 0 });
+    setIsHovered(false);
   };
 
   return (
-    <Link
+    <a
       href={href}
-      onClick={onClick}
+      onClick={(e) => onClick(e, href)}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onMouseEnter={() => setIsHovered(true)}
       style={{
         transform: `translate3d(${drift.x}px, ${drift.y}px, 0)`,
-        transition: drift.x === 0 ? "transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)" : "none",
+        transition: drift.x === 0 ? "transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)" : "none",
       }}
-      className="group relative cursor-pointer py-1.5 transition-colors hover:text-[#F3E8D4] block"
+      className="group relative cursor-pointer py-2 transition-colors duration-300 block text-[#350709]/80 hover:text-[#350709] select-none"
     >
-      {children}
-    </Link>
+      <div className="flex items-center gap-1.5 font-sans font-medium text-[10px] tracking-[0.18em] uppercase">
+        <span className="text-[#B98532] font-semibold text-[8px]">{prefix}</span>
+        <span>{label}</span>
+      </div>
+
+      {/* Underline Calligraphy Ribbon on Hover (draws itself) */}
+      <svg 
+        className="absolute bottom-[-6px] left-0 w-full h-[6px] text-[#8F1115] fill-none overflow-visible pointer-events-none" 
+        viewBox="0 0 100 10" 
+        preserveAspectRatio="none"
+      >
+        <path 
+          d="M0,5 Q25,1 50,7 T100,5" 
+          stroke="currentColor" 
+          strokeWidth="2.5" 
+          strokeLinecap="round" 
+          className="transition-all duration-500 ease-out"
+          style={{
+            strokeDasharray: "120",
+            strokeDashoffset: isHovered ? "0" : "120",
+          }}
+        />
+      </svg>
+
+      {/* Active Page Indicator: Thin aged brass line + crimson curve + tiny glowing dot */}
+      {isActive && (
+        <svg 
+          className="absolute bottom-[-6px] left-0 w-full h-[6px] fill-none overflow-visible pointer-events-none" 
+          viewBox="0 0 100 10" 
+          preserveAspectRatio="none"
+        >
+          {/* Thin aged brass line */}
+          <line x1="0" y1="5" x2="100" y2="5" stroke="#B98532" strokeWidth="0.8" opacity="0.35" />
+          {/* Crimson curve */}
+          <path d="M 15 5 Q 50 2 85 5" stroke="#8F1115" strokeWidth="1.2" strokeLinecap="round" />
+          {/* Tiny glowing brass dot in center */}
+          <circle cx="50" cy="5" r="1.5" fill="#B98532" className="animate-pulse" />
+        </svg>
+      )}
+    </a>
   );
 }
 
@@ -52,9 +95,10 @@ export default function Navbar() {
   const navRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const { setIsOpen } = useTableStore();
+  const { startTransition } = useTransition();
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [spotlightPos, setSpotlightPos] = useState({ x: -200 });
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const isAdmin = pathname?.startsWith("/admin");
 
@@ -68,28 +112,18 @@ export default function Navbar() {
       );
     }
 
-    // Scroll listener for desktop navbar expansion
+    // Scroll listener for V3 visual transformations
     const handleScroll = () => {
-      if (window.scrollY > 150) {
-        setIsExpanded(true);
+      if (window.scrollY > 80) {
+        setIsScrolled(true);
       } else {
-        setIsExpanded(false);
+        setIsScrolled(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const handleHeaderMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    setSpotlightPos({ x });
-  };
-
-  const handleHeaderMouseLeave = () => {
-    setSpotlightPos({ x: -200 });
-  };
 
   if (isAdmin) return null;
 
@@ -102,137 +136,94 @@ export default function Navbar() {
     { label: "VISIT", href: "/visit", prefix: "06" },
   ];
 
+  const handleLinkClick = (e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    const rect = e.currentTarget.getBoundingClientRect();
+    startTransition(href, rect);
+  };
+
   return (
     <>
-      <style>{`
-        @keyframes waveFlow {
-          0% { stroke-dashoffset: 0; }
-          100% { stroke-dashoffset: -12; }
-        }
-        .animate-wave-path {
-          stroke-dasharray: 6 6;
-          animation: waveFlow 1.2s infinite linear;
-        }
-      `}</style>
-
       <header
         ref={navRef}
-        onMouseMove={handleHeaderMouseMove}
-        onMouseLeave={handleHeaderMouseLeave}
-        className="fixed top-0 left-0 w-full z-50 flex items-center justify-between h-20 px-6 md:px-12 lg:px-20 border-b border-white/10 bg-[#0B0908]/90 backdrop-blur-md transition-all duration-300 overflow-hidden"
+        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between w-[95%] max-w-7xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          isScrolled 
+            ? "h-[68px] px-8 py-2.5 bg-[#F3E8D4]/92 backdrop-blur-md border border-[#B98532]/25 rounded-[28px] shadow-[0_12px_40px_rgba(53,7,9,0.06)]"
+            : "h-[88px] px-6 py-4 bg-transparent border-transparent rounded-none shadow-none"
+        }`}
         id="main-navbar"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E")`,
-        }}
       >
-        {/* Cursor spotlight backdrop tracker */}
-        <div 
-          className="absolute top-0 bottom-0 w-64 bg-[radial-gradient(circle,rgba(185,133,50,0.12)_0%,transparent_70%)] pointer-events-none transition-transform duration-500 ease-out z-0"
-          style={{
-            transform: `translate3d(${spotlightPos.x - 128}px, 0, 0)`,
-          }}
-        />
-
-        {/* Flat Remastered Logo on Left */}
-        <Link href="/" className="flex items-center shrink-0 z-10">
-          <img
-            src="/morya-logo.png"
-            alt="Maurya"
-            className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
+        {/* Subtle Paper Grain overlay inside solid navbar */}
+        {isScrolled && (
+          <div 
+            className="absolute inset-0 rounded-[28px] opacity-[0.02] pointer-events-none z-0"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+            }}
           />
+        )}
+
+        {/* Brand Wordmark Logo on Left */}
+        <Link 
+          href="/" 
+          onClick={(e) => handleLinkClick(e, "/")}
+          className="flex items-center shrink-0 z-10 transition-transform duration-300 hover:scale-105"
+        >
+          {isScrolled ? (
+            // Small scroll state Logo
+            <span className="font-heading text-lg tracking-[0.25em] text-[#350709] font-bold">
+              MAURYA
+            </span>
+          ) : (
+            // Normal Logo
+            <img
+              src="/morya-logo.png"
+              alt="Maurya"
+              className="h-10 md:h-12 w-auto object-contain transition-all duration-500"
+            />
+          )}
         </Link>
 
-        {/* Center Nav links (Expands after scroll threshold) */}
-        <div className="hidden md:flex items-center justify-center flex-1 px-8 overflow-hidden z-10">
-          <nav 
-            className={`flex items-center gap-8 lg:gap-10 font-sans text-xs uppercase tracking-[0.2em] font-semibold text-[#F3E8D4]/80 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              isExpanded ? "max-w-[1000px] opacity-100" : "max-w-0 opacity-0 pointer-events-none"
-            }`}
-          >
-            {navItems.map((item, i) => {
-              const isActive = pathname === item.href;
-              return (
-                <MagneticLink key={i} href={item.href} isActive={isActive}>
-                  {/* Staggered mechanical letter rotation */}
-                  <span className="relative overflow-hidden block h-4 leading-none">
-                    <span className="block transition-transform duration-300">
-                      {item.label.split("").map((char, idx) => (
-                        <span 
-                          key={idx} 
-                          className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full"
-                          style={{ transitionDelay: `${idx * 25}ms` }}
-                        >
-                          {char === " " ? "\u00A0" : char}
-                        </span>
-                      ))}
-                    </span>
-                    <span className="absolute inset-0 block translate-y-full text-[#B98532]">
-                      {item.label.split("").map((char, idx) => (
-                        <span 
-                          key={idx} 
-                          className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full"
-                          style={{ transitionDelay: `${idx * 25}ms` }}
-                        >
-                          {char === " " ? "\u00A0" : char}
-                        </span>
-                      ))}
-                    </span>
-                  </span>
-
-                  {/* Morphing hand-drawn wave underline */}
-                  <svg 
-                    className={`absolute bottom-[-8px] left-0 w-full h-[6px] text-[#B98532] fill-none transition-transform duration-300 origin-left ${
-                      isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                    }`} 
-                    viewBox="0 0 100 10" 
-                    preserveAspectRatio="none"
-                  >
-                    <path 
-                      d="M0,5 Q25,1 50,5 T100,5" 
-                      stroke="currentColor" 
-                      strokeWidth="2.5" 
-                      strokeLinecap="round" 
-                      className={isActive ? "animate-wave-path" : ""}
-                    />
-                  </svg>
-                </MagneticLink>
-              );
-            })}
+        {/* Center Nav links (Smoothly expands past the hero hero like an unfolding menu book) */}
+        <div 
+          className={`hidden md:flex items-center justify-center flex-1 px-8 overflow-hidden z-10 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            isScrolled ? "max-w-[1000px] opacity-100" : "max-w-0 opacity-0 pointer-events-none"
+          }`}
+          style={{
+            clipPath: isScrolled ? "polygon(0 0, 100% 0, 100% 100%, 0 100%)" : "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)"
+          }}
+        >
+          <nav className="flex items-center gap-7 lg:gap-9">
+            {navItems.map((item, i) => (
+              <MagneticLink
+                key={i}
+                href={item.href}
+                isActive={pathname === item.href}
+                prefix={item.prefix}
+                label={item.label}
+                onClick={handleLinkClick}
+              />
+            ))}
           </nav>
         </div>
 
         {/* Right side Table Cart Trigger */}
-        <div className="flex items-center gap-4 z-10">
-          <div className="relative group/table p-1.5">
-            {/* Dashed Rotating Plate Ring around TableIcon */}
-            <svg 
-              className="absolute inset-0 w-full h-full text-[#B98532]/70 animate-[spin_12s_infinite_linear] group-hover/table:animate-[spin_4s_infinite_linear] transition-all duration-300 scale-95 group-hover/table:scale-105 pointer-events-none" 
-              viewBox="0 0 100 100"
-            >
-              <circle 
-                cx="50" 
-                cy="50" 
-                r="45" 
-                stroke="currentColor" 
-                strokeWidth="1.2" 
-                strokeDasharray="6 8" 
-                fill="none" 
-              />
-            </svg>
-
-            <button
-              onClick={() => setIsOpen(true)}
-              className="flex items-center justify-center w-11 h-11 rounded-full hover:opacity-85 transition-opacity"
-              aria-label="Your Table"
-            >
-              <TableIcon />
-            </button>
-          </div>
+        <div className="flex items-center gap-3 z-10">
+          <button
+            onClick={() => setIsOpen(true)}
+            className="flex items-center justify-center w-10 h-10 rounded-full hover:opacity-85 transition-opacity"
+            aria-label="Your Table"
+          >
+            <TableIcon />
+          </button>
 
           {/* Mobile Hamburger Trigger */}
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="text-[#F3E8D4] hover:text-[#B98532] transition-colors md:hidden"
+            className={`text-[#F3E8D4] hover:text-[#B98532] transition-colors md:hidden ${
+              isScrolled ? "text-[#350709]" : "text-[#F3E8D4]"
+            }`}
             aria-label="Open Menu"
           >
             <Menu className="w-6 h-6" />
@@ -240,9 +231,9 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Drawer Menu (Wine Red full screen panel) */}
+      {/* Mobile Drawer Menu (Transforming into an Editorial Menu Book) */}
       <div 
-        className={`fixed inset-0 z-[100] bg-[#350709] flex flex-col justify-between p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden ${
+        className={`fixed inset-0 z-[100] bg-[#350709] flex flex-col justify-between p-8 md:hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           mobileMenuOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-full pointer-events-none"
         }`}
         style={{
@@ -250,8 +241,11 @@ export default function Navbar() {
         }}
       >
         <div>
-          <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-12">
-            <img src="/morya-logo.png" alt="Maurya" className="h-10 w-auto object-contain brightness-0 invert" />
+          {/* Header segment */}
+          <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-10">
+            <span className="font-heading text-xl tracking-[0.25em] text-[#F3E8D4] font-bold">
+              MAURYA
+            </span>
             <button 
               onClick={() => setMobileMenuOpen(false)}
               className="text-[#F3E8D4] hover:text-[#B98532] transition-colors"
@@ -260,34 +254,36 @@ export default function Navbar() {
             </button>
           </div>
 
-          <nav className="flex flex-col gap-6">
+          {/* Book menu items */}
+          <nav className="flex flex-col gap-8">
             {navItems.map((item, i) => (
               <div 
                 key={i} 
-                className="overflow-hidden"
+                className="overflow-hidden border-b border-white/5 pb-4"
               >
-                <Link 
+                <a 
                   href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-baseline gap-4 hover:text-[#B98532] text-[#F3E8D4] transition-all duration-500 transform ${
-                    mobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+                  onClick={(e) => handleLinkClick(e, item.href)}
+                  className={`flex flex-col items-start gap-1 hover:text-[#B98532] text-[#F3E8D4] transition-all duration-600 transform ${
+                    mobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
                   }`}
                   style={{ 
-                    transitionDelay: mobileMenuOpen ? `${i * 80}ms` : "0ms",
+                    transitionDelay: mobileMenuOpen ? `${i * 90}ms` : "0ms",
                   }}
                 >
-                  <span className="font-sans text-xs tracking-widest text-[#B98532] font-bold">
+                  <span className="font-sans text-[10px] tracking-[0.2em] text-[#B98532] font-semibold">
                     {item.prefix}
                   </span>
-                  <span className="font-serif font-bold italic text-4xl sm:text-5xl tracking-tight">
+                  <span className="font-serif font-medium italic text-4xl tracking-wide leading-none mt-1">
                     {item.label}
                   </span>
-                </Link>
+                </a>
               </div>
             ))}
           </nav>
         </div>
 
+        {/* Footer of Menu Book */}
         <div className="border-t border-white/5 pt-6 text-[10px] tracking-[0.18em] uppercase text-[#F3E8D4]/40 font-sans">
           KONDHWA · PUNE
         </div>
