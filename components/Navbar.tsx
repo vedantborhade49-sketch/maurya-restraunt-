@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import { useTableStore } from "../stores/table-store";
 import TableIcon from "./navigation/TableIcon";
 import { Menu, X } from "lucide-react";
-import { useTransition } from "./PageTransition";
 
 // Magnetic Link Wrapper Component
 interface MagneticLinkProps {
@@ -15,7 +14,7 @@ interface MagneticLinkProps {
   isActive: boolean;
   prefix: string;
   label: string;
-  onClick: (e: React.MouseEvent, href: string) => void;
+  onClick?: () => void;
 }
 
 function MagneticLink({ href, isActive, prefix, label, onClick }: MagneticLinkProps) {
@@ -36,9 +35,9 @@ function MagneticLink({ href, isActive, prefix, label, onClick }: MagneticLinkPr
   };
 
   return (
-    <a
+    <Link
       href={href}
-      onClick={(e) => onClick(e, href)}
+      onClick={onClick}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={() => setIsHovered(true)}
@@ -87,7 +86,7 @@ function MagneticLink({ href, isActive, prefix, label, onClick }: MagneticLinkPr
           <circle cx="50" cy="5" r="1.5" fill="#B98532" className="animate-pulse" />
         </svg>
       )}
-    </a>
+    </Link>
   );
 }
 
@@ -95,7 +94,6 @@ export default function Navbar() {
   const navRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const { setIsOpen } = useTableStore();
-  const { startTransition } = useTransition();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(pathname !== "/");
@@ -143,13 +141,6 @@ export default function Navbar() {
     { label: "VISIT", href: "/visit", prefix: "06" },
   ];
 
-  const handleLinkClick = (e: React.MouseEvent, href: string) => {
-    e.preventDefault();
-    setMobileMenuOpen(false);
-    const rect = e.currentTarget.getBoundingClientRect();
-    startTransition(href, rect);
-  };
-
   return (
     <>
       <header
@@ -174,7 +165,7 @@ export default function Navbar() {
         {/* Brand Wordmark Logo on Left */}
         <Link 
           href="/" 
-          onClick={(e) => handleLinkClick(e, "/")}
+          onClick={() => setMobileMenuOpen(false)}
           className="flex items-center shrink-0 z-10 transition-transform duration-300 hover:scale-105"
         >
           {isScrolled ? (
@@ -209,7 +200,6 @@ export default function Navbar() {
                 isActive={pathname === item.href}
                 prefix={item.prefix}
                 label={item.label}
-                onClick={handleLinkClick}
               />
             ))}
           </nav>
@@ -268,9 +258,9 @@ export default function Navbar() {
                 key={i} 
                 className="overflow-hidden border-b border-white/5 pb-4"
               >
-                <a 
+                <Link 
                   href={item.href}
-                  onClick={(e) => handleLinkClick(e, item.href)}
+                  onClick={() => setMobileMenuOpen(false)}
                   className={`flex flex-col items-start gap-1 hover:text-[#B98532] text-[#F3E8D4] transition-all duration-600 transform ${
                     mobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
                   }`}
@@ -284,7 +274,7 @@ export default function Navbar() {
                   <span className="font-serif font-medium italic text-4xl tracking-wide leading-none mt-1">
                     {item.label}
                   </span>
-                </a>
+                </Link>
               </div>
             ))}
           </nav>

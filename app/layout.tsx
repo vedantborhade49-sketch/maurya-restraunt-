@@ -5,10 +5,8 @@ import Navbar from "../components/Navbar";
 import SmoothScroll from "../components/SmoothScroll";
 import YourTableDrawer from "../components/cart/YourTableDrawer";
 import { PreloaderProvider } from "../components/preloader";
-import { PageTransitionProvider } from "../components/PageTransition";
 
 const cormorant = Cormorant_Garamond({
-// ... (skip down to layout children wrapper)
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-cormorant",
@@ -42,14 +40,12 @@ export default function RootLayout({
     <html lang="en" className={`${cormorant.variable} ${manrope.variable} ${instrument.variable}`}>
       <body className="antialiased bg-midnight text-soft-ivory font-sans">
         <PreloaderProvider>
-          <PageTransitionProvider>
-            <SmoothScroll>
-              <Navbar />
-              <YourTableDrawer />
-              <div className="noise-bg" />
-              <main>{children}</main>
-            </SmoothScroll>
-          </PageTransitionProvider>
+          <SmoothScroll>
+            <Navbar />
+            <YourTableDrawer />
+            <div className="noise-bg" />
+            <main>{children}</main>
+          </SmoothScroll>
         </PreloaderProvider>
       </body>
     </html>
