@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 
 const PreloaderContext = createContext({ loading: true });
@@ -12,81 +12,95 @@ export function PreloaderProvider({ children }: { children: React.ReactNode }) {
   const [progress, setProgress] = useState(1);
   const [isReturning, setIsReturning] = useState(false);
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
+    // Only determine state on first mount
     const seen = sessionStorage.getItem("maurya_intro_seen");
-    
     if (seen === "true") {
       setIsReturning(true);
-      // Micro loader for returning visitors
-      const tl = gsap.timeline({
-        onComplete: () => setLoading(false),
-      });
-      tl.to(".micro-loader-bar", {
-        width: "100%",
-        duration: 0.5,
-        ease: "power2.out",
-      }).to(".loader-bg", {
-        opacity: 0,
-        duration: 0.2,
-      });
     } else {
       sessionStorage.setItem("maurya_intro_seen", "true");
-      
-      const tl = gsap.timeline({
-        onComplete: () => {
-          // Final scale out zoom
-          gsap.timeline({
-            onComplete: () => setLoading(false)
-          })
-          .to(".loader-logo", { 
-            scale: 2.5, 
-            opacity: 0, 
-            duration: 0.8, 
-            ease: "power3.inOut" 
-          })
-          .to(".loader-bg", { 
-            opacity: 0, 
-            duration: 0.4, 
-            ease: "power2.out" 
-          }, "-=0.4");
-        }
-      });
-
-      // Animate line draw
-      tl.to(".loader-line-draw", {
-        x: "0%",
-        duration: 1.0,
-        ease: "power2.inOut",
-      });
-
-      // Animate M path drawing
-      tl.to(".loader-m-path", {
-        strokeDashoffset: 0,
-        duration: 1.5,
-        ease: "power2.inOut",
-      }, "-=0.5");
-
-      // Progress counter updates
-      const steps = [1, 12, 28, 47, 73, 100];
-      let stepIndex = 0;
-      
-      const interval = setInterval(() => {
-        if (stepIndex < steps.length - 1) {
-          stepIndex++;
-          setProgress(steps[stepIndex]);
-        } else {
-          clearInterval(interval);
-        }
-      }, 350);
-
-      return () => clearInterval(interval);
     }
   }, []);
 
+  useEffect(() => {
+    // Only run animations after we know the return state
+    let ctx = gsap.context(() => {
+      if (isReturning) {
+        // Micro loader for returning visitors
+        const tl = gsap.timeline({
+          onComplete: () => setLoading(false),
+        });
+        tl.to(".micro-loader-bar", {
+          width: "100%",
+          duration: 0.5,
+          ease: "power2.out",
+        }).to(".loader-bg", {
+          opacity: 0,
+          duration: 0.2,
+        });
+      } else {
+        const tl = gsap.timeline({
+          onComplete: () => {
+            gsap.timeline({
+              onComplete: () => setLoading(false)
+            })
+            .to(".loader-logo", { 
+              scale: 2.5, 
+              opacity: 0, 
+              duration: 0.8, 
+              ease: "power3.inOut" 
+            })
+            .to(".loader-bg", { 
+              opacity: 0, 
+              duration: 0.4, 
+              ease: "power2.out" 
+            }, "-=0.4");
+          }
+        });
+
+        tl.to(".loader-line-draw", {
+          x: "0%",
+          duration: 1.0,
+          ease: "power2.inOut",
+        });
+
+        tl.to(".loader-m-path", {
+          strokeDashoffset: 0,
+          duration: 1.5,
+          ease: "power2.inOut",
+        }, "-=0.5");
+      }
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, [isReturning]);
+
+  useEffect(() => {
+    if (isReturning) return;
+    
+    // Progress counter updates
+    const steps = [1, 12, 28, 47, 73, 100];
+    let stepIndex = 0;
+    
+    const interval = setInterval(() => {
+      if (stepIndex < steps.length - 1) {
+        stepIndex++;
+        setProgress(steps[stepIndex]);
+      } else {
+        clearInterval(interval);
+      }
+    }, 350);
+
+    return () => clearInterval(interval);
+  }, [isReturning]);
+
   return (
     <PreloaderContext.Provider value={{ loading }}>
-      {loading && (
-        <div className="loader-bg fixed inset-0 z-[9999] bg-midnight flex flex-col items-center justify-center select-none overflow-hidden">
+      <div ref={containerRef} className="contents">
+        {loading && (
+          <div className="loader-bg fixed inset-0 z-[9999] bg-midnight flex flex-col items-center justify-center select-none overflow-hidden">
           {isReturning ? (
             // Simple micro loader
             <div className="flex flex-col items-center">
@@ -131,8 +145,9 @@ export function PreloaderProvider({ children }: { children: React.ReactNode }) {
           )}
         </div>
       )}
-      <div className={loading ? "invisible opacity-0" : "visible opacity-100 transition-opacity duration-1000"}>
-        {children}
+        <div className={loading ? "invisible opacity-0" : "visible opacity-100 transition-opacity duration-1000"}>
+          {children}
+        </div>
       </div>
     </PreloaderContext.Provider>
   );

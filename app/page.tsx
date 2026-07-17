@@ -1,61 +1,144 @@
 "use client";
 
-import { useState } from "react";
-import BrandIntro from "@/components/brand/BrandIntro";
-import BrandGrain from "@/components/brand/BrandGrain";
-import HeroTable from "@/sections/HeroTable/HeroTable";
-import ChapterTransition from "@/components/ChapterTransition";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 import Chapter02 from "@/sections/Chapter02/Chapter02";
-import Chapter03 from "@/sections/Chapter03/Chapter03";
-import FoodStory from "@/sections/FoodStory/FoodStory";
-import PureVegBreak from "@/sections/PureVeg/PureVegBreak";
-import TheGathering from "@/sections/Gathering/TheGathering";
-import OurStory from "@/sections/OurStory/OurStory";
-import Footer from "@/components/brand/Footer";
+import Link from "next/link";
 
 export default function Home() {
-  const [introDone, setIntroDone] = useState(false);
+  const videoRef       = useRef<HTMLVideoElement>(null);
+  const overlayRef     = useRef<HTMLDivElement>(null);
+  const heroContentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.pause();
+    video.currentTime = 0;
+    video.loop = false;
+
+    const enterAmbient = () => {
+      video.pause();
+      video.currentTime = 0;
+      video.loop = true;
+      video.play().catch(() => {});
+
+      gsap.to(video, { opacity: 0.4, duration: 1.4, ease: "power2.inOut" });
+      gsap.to(video, { filter: "brightness(0.65) saturate(0.5)", duration: 1.4, ease: "power2.inOut" });
+      gsap.to(overlayRef.current, { opacity: 1, duration: 1.4, ease: "power2.inOut" });
+      gsap.fromTo(heroContentRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1.2, ease: "power2.out", delay: 0.15 }
+      );
+    };
+
+    const startIntro = async () => {
+      try { await video.play(); }
+      catch { enterAmbient(); }
+    };
+
+    video.addEventListener("ended", enterAmbient);
+    startIntro();
+
+    return () => { video.removeEventListener("ended", enterAmbient); };
+  }, []);
 
   return (
     <>
-      {/* Cinematic Preloader */}
-      <BrandIntro onComplete={() => setIntroDone(true)} />
+      {/* SVG film grain */}
+      <svg className="hidden" aria-hidden="true">
+        <filter id="grain">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+          <feColorMatrix type="saturate" values="0"/>
+        </filter>
+      </svg>
 
-      {/* Global Tactile Paper Grain */}
-      <BrandGrain />
+      <main className="relative w-full bg-[#F8F5EF] text-[#272322] selection:bg-[#6E3236] selection:text-[#F8F5EF]">
 
-      {/* Main Brand Sections */}
-      <main 
-        className={`relative min-h-screen transition-opacity duration-700 ${
-          introDone ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        {/* Section 01 & 02: Intro & Hero Table */}
-        <div id="intro" />
-        <HeroTable />
-        
-        {/* Section 03: Kitchen (Chapter02 & Chapter03 spreads) */}
-        <div id="kitchen" />
-        <ChapterTransition to="ch2" height={300} fromColor="#0b0908" overlap={false} />
+        {/* Film grain */}
+        <div
+          className="pointer-events-none fixed inset-0 z-[100] opacity-[0.04] mix-blend-multiply"
+          style={{ filter: "url(#grain)", backgroundColor: "#a09070" }}
+        />
+
+        {/* Navigation */}
+        <nav className="fixed top-0 left-0 w-full z-[200]">
+          <div className="max-w-[1400px] mx-auto px-8 md:px-12 h-16 flex items-center justify-between">
+            <Link
+              href="/"
+              className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#F8F5EF] hover:text-[#A56A43] transition-colors duration-500"
+            >
+              MAURYA
+            </Link>
+            <div className="hidden md:flex items-center gap-10 font-mono text-[9px] uppercase tracking-[0.25em] text-[#F8F5EF]/60">
+              <Link href="#story"   className="hover:text-[#F8F5EF] transition-colors duration-500">Story</Link>
+              <Link href="#menu"    className="hover:text-[#F8F5EF] transition-colors duration-500">Menu</Link>
+              <Link href="#reserve" className="hover:text-[#F8F5EF] transition-colors duration-500">Reserve</Link>
+            </div>
+          </div>
+        </nav>
+
+        {/* ── HERO ────────────────────────────────────────────────── */}
+        <section className="relative w-full h-[100dvh] overflow-hidden bg-black">
+
+          <video
+            ref={videoRef}
+            src="/morya-hero.mp4"
+            playsInline
+            muted
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ opacity: 1 }}
+          />
+
+          <div
+            ref={overlayRef}
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              opacity: 0,
+              background: "linear-gradient(160deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.65) 100%)",
+            }}
+          />
+
+          <div
+            ref={heroContentRef}
+            className="absolute inset-0 z-[20] flex flex-col justify-end"
+            style={{ opacity: 0 }}
+          >
+            <div className="max-w-[1400px] mx-auto w-full px-8 md:px-12 pb-16 md:pb-20">
+              <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#F8F5EF]/60 mb-8 leading-relaxed">
+                Issue 001 &nbsp;·&nbsp; Pune
+              </p>
+              <h1 className="font-heading text-[40px] md:text-[56px] leading-[1.0] tracking-tight text-[#F8F5EF] max-w-[380px]">
+                Where families<br />return.
+              </h1>
+              <p className="mt-5 font-heading italic text-[15px] md:text-[18px] leading-[1.5] text-[#F8F5EF]/65 max-w-[260px]">
+                A place where every meal<br />becomes a memory.
+              </p>
+              <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                <a
+                  href="#reserve"
+                  className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#F8F5EF] border border-[#F8F5EF]/40 px-6 py-3 hover:border-[#A56A43] hover:text-[#A56A43] transition-all duration-500"
+                >
+                  Reserve a Table
+                </a>
+                <div className="flex items-center gap-5 font-mono text-[8px] uppercase tracking-[0.2em] text-[#F8F5EF]/45">
+                  <span>Pure Veg</span>
+                  <span className="text-[#A56A43]">·</span>
+                  <span>Garden Dining</span>
+                  <span className="text-[#A56A43]">·</span>
+                  <span>Since 1998</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        {/* Chapter 02 — The Heart of Every Gathering */}
         <Chapter02 />
-        
-        <ChapterTransition to="ch3" height={400} overlap={true} />
-        <Chapter03 />
-        
-        {/* Section 04: Signature spotlight (FoodStory) */}
-        <FoodStory />
-        
-        {/* Section 05: Pure Veg Break slit transition */}
-        <PureVegBreak />
-        
-        {/* Section 06: Gathering (emotional heart) */}
-        <TheGathering />
 
-        {/* Section 07: Our Story */}
-        <OurStory />
-
-        {/* Section 08: Remastered Footer */}
-        <Footer />
       </main>
     </>
   );

@@ -38,9 +38,7 @@ const config: Config = {
         ch1: { bg: "var(--maurya-ivory)", text: "var(--maurya-wine)", accent: "var(--maurya-brass)" },
         ch2: { bg: "var(--maurya-ivory)", text: "var(--maurya-wine)", accent: "var(--maurya-brass)" },
         ch3: { bg: "var(--maurya-wine)", text: "var(--maurya-ivory)", accent: "var(--maurya-brass)", secondary: "rgba(243,232,212,0.7)", divider: "rgba(185,133,50,0.18)" },
-        ch4: { bg: "#3E4638", text: "var(--maurya-ivory)", accent: "var(--maurya-brass)" },
-        ch5: { bg: "var(--maurya-dark)", text: "var(--maurya-ivory)", accent: "var(--maurya-brass)" },
-        contact: { bg: "var(--maurya-ivory)", text: "var(--maurya-wine)", accent: "var(--maurya-brass)" },
+        ch4: { bg: "#F4F0E8", text: "#3D3530", accent: "#B09272" },
       },
       fontFamily: {
         heading: ["var(--font-cormorant)", "serif"],

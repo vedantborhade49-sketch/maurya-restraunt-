@@ -5,7 +5,7 @@ export default function ChapterTransition({
   toColor = "",
   overlap = false,
 }: { 
-  to: "ch2" | "ch3";
+  to: "ch2" | "ch3" | "ch4";
   height?: number;
   fromColor?: string;
   toColor?: string;
@@ -14,7 +14,10 @@ export default function ChapterTransition({
   const getTextureClass = () => `texture-${to}`;
   const getToColorClass = () => {
     if (toColor) return toColor;
-    return to === "ch2" ? "var(--color-ch2-bg, #ECE5DB)" : "var(--color-ch3-bg, #4A1F28)";
+    if (to === "ch2") return "var(--color-ch2-bg, #ECE5DB)";
+    if (to === "ch3") return "var(--color-ch3-bg, #4A1F28)";
+    if (to === "ch4") return "#F4F0E8";
+    return "transparent";
   };
 
   return (
