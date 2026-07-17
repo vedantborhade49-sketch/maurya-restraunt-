@@ -8,12 +8,53 @@ import { useTableStore } from "../stores/table-store";
 import TableIcon from "./navigation/TableIcon";
 import { Menu, X } from "lucide-react";
 
+// Magnetic Link Wrapper
+interface MagneticLinkProps {
+  href: string;
+  isActive: boolean;
+  onClick?: (e: React.MouseEvent) => void;
+  children: React.ReactNode;
+}
+
+function MagneticLink({ href, isActive, onClick, children }: MagneticLinkProps) {
+  const [drift, setDrift] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    // subtle pull strength (max 8px)
+    const x = (e.clientX - (rect.left + rect.width / 2)) * 0.22;
+    const y = (e.clientY - (rect.top + rect.height / 2)) * 0.22;
+    setDrift({ x, y });
+  };
+
+  const handleMouseLeave = () => {
+    setDrift({ x: 0, y: 0 });
+  };
+
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        transform: `translate3d(${drift.x}px, ${drift.y}px, 0)`,
+        transition: drift.x === 0 ? "transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)" : "none",
+      }}
+      className="group relative cursor-pointer py-1.5 transition-colors hover:text-[#F3E8D4] block"
+    >
+      {children}
+    </Link>
+  );
+}
+
 export default function Navbar() {
   const navRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const { setIsOpen } = useTableStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [spotlightPos, setSpotlightPos] = useState({ x: -200 });
 
   const isAdmin = pathname?.startsWith("/admin");
 
@@ -40,6 +81,16 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleHeaderMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    setSpotlightPos({ x });
+  };
+
+  const handleHeaderMouseLeave = () => {
+    setSpotlightPos({ x: -200 });
+  };
+
   if (isAdmin) return null;
 
   const navItems = [
@@ -53,16 +104,37 @@ export default function Navbar() {
 
   return (
     <>
+      <style>{`
+        @keyframes waveFlow {
+          0% { stroke-dashoffset: 0; }
+          100% { stroke-dashoffset: -12; }
+        }
+        .animate-wave-path {
+          stroke-dasharray: 6 6;
+          animation: waveFlow 1.2s infinite linear;
+        }
+      `}</style>
+
       <header
         ref={navRef}
-        className="fixed top-0 left-0 w-full z-50 flex items-center justify-between h-20 px-6 md:px-12 lg:px-20 border-b border-white/10 bg-[#0B0908]/90 backdrop-blur-md transition-all duration-300"
+        onMouseMove={handleHeaderMouseMove}
+        onMouseLeave={handleHeaderMouseLeave}
+        className="fixed top-0 left-0 w-full z-50 flex items-center justify-between h-20 px-6 md:px-12 lg:px-20 border-b border-white/10 bg-[#0B0908]/90 backdrop-blur-md transition-all duration-300 overflow-hidden"
         id="main-navbar"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E")`,
         }}
       >
+        {/* Cursor spotlight backdrop tracker */}
+        <div 
+          className="absolute top-0 bottom-0 w-64 bg-[radial-gradient(circle,rgba(185,133,50,0.12)_0%,transparent_70%)] pointer-events-none transition-transform duration-500 ease-out z-0"
+          style={{
+            transform: `translate3d(${spotlightPos.x - 128}px, 0, 0)`,
+          }}
+        />
+
         {/* Flat Remastered Logo on Left */}
-        <Link href="/" className="flex items-center shrink-0">
+        <Link href="/" className="flex items-center shrink-0 z-10">
           <img
             src="/morya-logo.png"
             alt="Maurya"
@@ -71,7 +143,7 @@ export default function Navbar() {
         </Link>
 
         {/* Center Nav links (Expands after scroll threshold) */}
-        <div className="hidden md:flex items-center justify-center flex-1 px-8 overflow-hidden">
+        <div className="hidden md:flex items-center justify-center flex-1 px-8 overflow-hidden z-10">
           <nav 
             className={`flex items-center gap-8 lg:gap-10 font-sans text-xs uppercase tracking-[0.2em] font-semibold text-[#F3E8D4]/80 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               isExpanded ? "max-w-[1000px] opacity-100" : "max-w-0 opacity-0 pointer-events-none"
@@ -80,35 +152,82 @@ export default function Navbar() {
             {navItems.map((item, i) => {
               const isActive = pathname === item.href;
               return (
-                <Link
-                  key={i}
-                  href={item.href}
-                  className="group relative cursor-pointer py-1.5 transition-colors hover:text-[#F3E8D4]"
-                >
-                  <span className="relative overflow-hidden block">
-                    <span className="block transition-transform duration-300 group-hover:-translate-y-full">{item.label}</span>
-                    <span className="absolute inset-0 block translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-[#B98532]">{item.label}</span>
+                <MagneticLink key={i} href={item.href} isActive={isActive}>
+                  {/* Staggered mechanical letter rotation */}
+                  <span className="relative overflow-hidden block h-4 leading-none">
+                    <span className="block transition-transform duration-300">
+                      {item.label.split("").map((char, idx) => (
+                        <span 
+                          key={idx} 
+                          className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full"
+                          style={{ transitionDelay: `${idx * 25}ms` }}
+                        >
+                          {char === " " ? "\u00A0" : char}
+                        </span>
+                      ))}
+                    </span>
+                    <span className="absolute inset-0 block translate-y-full text-[#B98532]">
+                      {item.label.split("").map((char, idx) => (
+                        <span 
+                          key={idx} 
+                          className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full"
+                          style={{ transitionDelay: `${idx * 25}ms` }}
+                        >
+                          {char === " " ? "\u00A0" : char}
+                        </span>
+                      ))}
+                    </span>
                   </span>
-                  <span 
-                    className={`absolute bottom-0 left-0 w-full h-[1.5px] bg-[#B98532] transition-transform duration-300 origin-left ${
+
+                  {/* Morphing hand-drawn wave underline */}
+                  <svg 
+                    className={`absolute bottom-[-8px] left-0 w-full h-[6px] text-[#B98532] fill-none transition-transform duration-300 origin-left ${
                       isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                     }`} 
-                  />
-                </Link>
+                    viewBox="0 0 100 10" 
+                    preserveAspectRatio="none"
+                  >
+                    <path 
+                      d="M0,5 Q25,1 50,5 T100,5" 
+                      stroke="currentColor" 
+                      strokeWidth="2.5" 
+                      strokeLinecap="round" 
+                      className={isActive ? "animate-wave-path" : ""}
+                    />
+                  </svg>
+                </MagneticLink>
               );
             })}
           </nav>
         </div>
 
         {/* Right side Table Cart Trigger */}
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => setIsOpen(true)}
-            className="flex items-center gap-2 pl-4 border-l border-white/10 hover:opacity-80 transition-opacity"
-            aria-label="Your Table"
-          >
-            <TableIcon />
-          </button>
+        <div className="flex items-center gap-4 z-10">
+          <div className="relative group/table p-1.5">
+            {/* Dashed Rotating Plate Ring around TableIcon */}
+            <svg 
+              className="absolute inset-0 w-full h-full text-[#B98532]/70 animate-[spin_12s_infinite_linear] group-hover/table:animate-[spin_4s_infinite_linear] transition-all duration-300 scale-95 group-hover/table:scale-105 pointer-events-none" 
+              viewBox="0 0 100 100"
+            >
+              <circle 
+                cx="50" 
+                cy="50" 
+                r="45" 
+                stroke="currentColor" 
+                strokeWidth="1.2" 
+                strokeDasharray="6 8" 
+                fill="none" 
+              />
+            </svg>
+
+            <button
+              onClick={() => setIsOpen(true)}
+              className="flex items-center justify-center w-11 h-11 rounded-full hover:opacity-85 transition-opacity"
+              aria-label="Your Table"
+            >
+              <TableIcon />
+            </button>
+          </div>
 
           {/* Mobile Hamburger Trigger */}
           <button
