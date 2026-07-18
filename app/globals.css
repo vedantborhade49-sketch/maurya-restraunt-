@@ -16,6 +16,13 @@
   --maurya-brass: #b98532;
   --maurya-leaf: #164c2b;
   --maurya-chilli: #c9371d;
+
+  /* Primary CTA */
+  --maurya-red: #B11616;
+  --maurya-red-hover: #C51B1B;
+  --maurya-red-active: #8F1111;
+  --maurya-red-border: #D56A2C;
+  --maurya-red-glow: rgba(177, 22, 22, 0.28);
 }
 
 @layer base {
@@ -123,6 +130,30 @@
     font-size: clamp(5rem, 11vw, 11rem);
     line-height: 0.78;
     letter-spacing: -0.055em;
+  }
+
+  .cta-button {
+    background: linear-gradient(
+      180deg,
+      #B81A1A 0%,
+      #A11414 100%
+    );
+    border: 2px solid #D56A2C;
+    color: #F7F2E8;
+    border-radius: 999px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.12),
+      0 8px 24px rgba(177,22,22,.22);
+    transition: all .3s ease;
+  }
+
+  .cta-button:hover {
+    background: linear-gradient(
+      180deg,
+      #C51B1B 0%,
+      #B11616 100%
+    );
+    transform: translateY(-2px);
   }
 }
 

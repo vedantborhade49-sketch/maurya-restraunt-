@@ -2,8 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import Chapter02 from "@/sections/Chapter02/Chapter02";
 import Link from "next/link";
+import EditorialSequence from "@/sections/EditorialSequence/EditorialSequence";
+import Chapter02 from "@/sections/Chapter02/Chapter02";
+import Chapter03 from "@/sections/Chapter03/Chapter03";
+import Chapter04 from "@/sections/Chapter04/Chapter04";
+import Chapter05 from "@/sections/Chapter05/Chapter05";
 
 export default function Home() {
   const videoRef       = useRef<HTMLVideoElement>(null);
@@ -80,7 +84,7 @@ export default function Home() {
         </nav>
 
         {/* ── HERO ────────────────────────────────────────────────── */}
-        <section className="relative w-full h-[100dvh] overflow-hidden bg-black">
+        <section className="sticky top-0 w-full h-[100dvh] overflow-hidden bg-black z-0">
 
           <video
             ref={videoRef}
@@ -119,7 +123,7 @@ export default function Home() {
               <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-6">
                 <a
                   href="#reserve"
-                  className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#F8F5EF] border border-[#F8F5EF]/40 px-6 py-3 hover:border-[#A56A43] hover:text-[#A56A43] transition-all duration-500"
+                  className="cta-button font-mono text-[10px] uppercase tracking-[0.25em] px-8 py-4 inline-flex items-center justify-center"
                 >
                   Reserve a Table
                 </a>
@@ -136,9 +140,11 @@ export default function Home() {
 
         </section>
 
-        {/* Chapter 02 — The Heart of Every Gathering */}
         <Chapter02 />
-
+        <EditorialSequence />
+        <Chapter03 />
+        <Chapter04 />
+        <Chapter05 />
       </main>
     </>
   );
