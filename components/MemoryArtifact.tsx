@@ -54,7 +54,9 @@ export function MemoryArtifact({
       delay: delay,
     });
 
-    return () => floatAnim.kill();
+    return () => {
+      floatAnim.kill();
+    };
   }, [rotate, delay]);
 
   const handleMouseEnter = () => {

@@ -8,7 +8,7 @@ import { CropMarks, BrassRule, MarginNote, HandwrittenUnderline, ArchitecturalGu
 import { MemoryArtifact } from "@/components/MemoryArtifact";
 
 export default function EditorialSequence() {
-  const containerRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   
   // Spread Refs
   const spread01Ref = useRef<HTMLDivElement>(null);

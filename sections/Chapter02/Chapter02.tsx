@@ -54,7 +54,7 @@ export default function Chapter02() {
         onUpdate: () => {
           if (imageWrapperRef.current) {
             imageWrapperRef.current.style.clipPath = `circle(${clipProxy.radius}% at 50% 50%)`;
-            imageWrapperRef.current.style.WebkitClipPath = `circle(${clipProxy.radius}% at 50% 50%)`;
+            imageWrapperRef.current.style.setProperty('-webkit-clip-path', `circle(${clipProxy.radius}% at 50% 50%)`);
           }
         }
       }, 3.5);
