@@ -49,9 +49,8 @@ export default function Navbar() {
     { label: "THE MENU", href: "/menu", prefix: "01" },
     { label: "OUR STORY", href: "/our-story", prefix: "02" },
     { label: "GALLERY", href: "/gallery", prefix: "03" },
-    { label: "GROUP DINING", href: "/group-dining", prefix: "04" },
-    { label: "SAVE YOUR TABLE", href: "/book-a-table", prefix: "05" },
-    { label: "VISIT", href: "/visit", prefix: "06" },
+    { label: "REVIEWS", href: "/reviews", prefix: "04" },
+    { label: "VISIT", href: "/visit", prefix: "05" },
   ];
 
   return (

@@ -66,22 +66,6 @@ export default function Home() {
           style={{ filter: "url(#grain)", backgroundColor: "#a09070" }}
         />
 
-        {/* Navigation */}
-        <nav className="fixed top-0 left-0 w-full z-[200]">
-          <div className="max-w-[1400px] mx-auto px-8 md:px-12 h-16 flex items-center justify-between">
-            <Link
-              href="/"
-              className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#F8F5EF] hover:text-[#A56A43] transition-colors duration-500"
-            >
-              MAURYA
-            </Link>
-            <div className="hidden md:flex items-center gap-10 font-mono text-[9px] uppercase tracking-[0.25em] text-[#F8F5EF]/60">
-              <Link href="#story"   className="hover:text-[#F8F5EF] transition-colors duration-500">Story</Link>
-              <Link href="#menu"    className="hover:text-[#F8F5EF] transition-colors duration-500">Menu</Link>
-              <Link href="#reserve" className="hover:text-[#F8F5EF] transition-colors duration-500">Reserve</Link>
-            </div>
-          </div>
-        </nav>
 
         {/* ── HERO ────────────────────────────────────────────────── */}
         <section className="sticky top-0 w-full h-[100dvh] overflow-hidden bg-black z-0">

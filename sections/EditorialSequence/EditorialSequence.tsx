@@ -3,9 +3,8 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SteamMotif from "@/components/SteamMotif";
-import { CropMarks, BrassRule, MarginNote, HandwrittenUnderline, ArchitecturalGuides, RestaurantSeal, FloatingHandwriting } from "@/components/MicroArtifacts";
-import { MemoryArtifact } from "@/components/MemoryArtifact";
+
+import { CropMarks, MarginNote } from "@/components/MicroArtifacts";
 
 export default function EditorialSequence() {
   const containerRef = useRef<HTMLDivElement>(null);

@@ -27,9 +27,9 @@ export default function Chapter02() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 1, // Luxury slow easing
+          start: "top 85%",
+          end: "bottom center",
+          scrub: true,
         }
       });
 
@@ -101,8 +101,8 @@ export default function Chapter02() {
         ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top top",
-          end: "bottom bottom",
+          start: "top 85%",
+          end: "bottom center",
           scrub: true
         }
       });
