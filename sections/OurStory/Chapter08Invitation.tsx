@@ -85,10 +85,10 @@ export default function Chapter08Invitation() {
 
         <Link 
           ref={buttonRef}
-          href="/book-a-table"
+          href="/menu"
           className="inline-flex items-center justify-center font-sans text-xs uppercase tracking-[0.3em] text-[#F6F1E8] font-bold border-b border-[#B98555] pb-2 hover:text-[#B98555] transition-colors"
         >
-          Join Us At The Table
+          Explore the Menu
         </Link>
         
       </div>

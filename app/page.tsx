@@ -105,12 +105,12 @@ export default function Home() {
                 A place where every meal<br />becomes a memory.
               </p>
               <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                <a
-                  href="#reserve"
+                <Link
+                  href="/menu"
                   className="cta-button font-mono text-[10px] uppercase tracking-[0.25em] px-8 py-4 inline-flex items-center justify-center"
                 >
-                  Reserve a Table
-                </a>
+                  Explore the Menu
+                </Link>
                 <div className="flex items-center gap-5 font-mono text-[8px] uppercase tracking-[0.2em] text-[#F8F5EF]/45">
                   <span>Pure Veg</span>
                   <span className="text-[#A56A43]">·</span>

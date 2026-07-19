@@ -138,10 +138,10 @@ export default function VisitPage() {
 
             <div className="p-6 bg-[#0B0908] border-t border-white/5 z-10 text-center">
               <Link
-                href="/book-a-table"
+                href="/menu"
                 className="block w-full py-3.5 bg-[#8F1115] hover:bg-[#8F1115]/90 text-[#F3E8D4] rounded-xl font-bold text-xs uppercase tracking-widest transition-all text-center"
               >
-                Request a Table
+                Explore the Menu
               </Link>
             </div>
           </div>
