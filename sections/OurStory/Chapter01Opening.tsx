@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import ch1Image from "C:/Users/SELVA/.gemini/antigravity/brain/dfc7ea73-439f-4aab-a57b-21b9458bdaaf/story_ch1_atmosphere_1784486736526.png";
+const ch1Image = "/editorial-entrance.png";
 
 export default function Chapter01Opening() {
   const containerRef = useRef<HTMLDivElement>(null);

@@ -4,11 +4,11 @@ import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import ch5Image from "C:/Users/SELVA/.gemini/antigravity/brain/dfc7ea73-439f-4aab-a57b-21b9458bdaaf/story_ch5_table_1784486792477.png";
+const ch5Image = "/editorial-food-3.png";
 
 export default function Chapter05TheTable() {
   const containerRef = useRef<HTMLElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
   const textLeftRef = useRef<HTMLDivElement>(null);
   const textRightRef = useRef<HTMLDivElement>(null);
 

@@ -4,12 +4,12 @@ import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import ch7Image from "C:/Users/SELVA/.gemini/antigravity/brain/dfc7ea73-439f-4aab-a57b-21b9458bdaaf/story_ch7_today_1784486815122.png";
+const ch7Image = "/editorial-food-5.png";
 
 export default function Chapter07Today() {
   const containerRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {

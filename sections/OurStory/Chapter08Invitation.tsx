@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import Image from "next/image";
-import ch8Image from "C:/Users/SELVA/.gemini/antigravity/brain/dfc7ea73-439f-4aab-a57b-21b9458bdaaf/story_ch8_invitation_1784486828731.png";
+const ch8Image = "/editorial-entrance.png";
 
 export default function Chapter08Invitation() {
   const containerRef = useRef<HTMLElement>(null);

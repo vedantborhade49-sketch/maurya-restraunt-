@@ -4,11 +4,11 @@ import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import ch3Image from "C:/Users/SELVA/.gemini/antigravity/brain/dfc7ea73-439f-4aab-a57b-21b9458bdaaf/story_ch3_founder_1784486760975.png";
+const ch3Image = "/editorial-food-1.png";
 
 export default function Chapter03Founder() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
 
