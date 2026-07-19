@@ -155,9 +155,14 @@ export default function Chapter05() {
   const activeIndexRef = useRef(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isClient, setIsClient] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
@@ -180,7 +185,10 @@ export default function Chapter05() {
       });
     }, containerRef);
 
-    return () => ctx.revert();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -189,16 +197,30 @@ export default function Chapter05() {
       {/* 3D WebGL Canvas */}
       <div className="absolute inset-0 z-0">
         {isClient && (
-          <Canvas shadows camera={{ fov: 45 }}>
+          <Canvas 
+            shadows={!isMobile} 
+            camera={{ fov: isMobile ? 55 : 45 }}
+            dpr={isMobile ? 1 : [1, 1.5]}
+          >
             <Suspense fallback={null}>
               {/* Premium cinematic lighting */}
-              <ambientLight intensity={0.4} />
-              <directionalLight 
-                position={[5, 10, 5]} 
-                intensity={1.5} 
-                castShadow 
-                color="#f9e0b8"
-              />
+              <ambientLight intensity={isMobile ? 0.6 : 0.4} />
+              
+              {!isMobile && (
+                <directionalLight 
+                  position={[5, 10, 5]} 
+                  intensity={1.5} 
+                  castShadow 
+                  color="#f9e0b8"
+                />
+              )}
+              {isMobile && (
+                <directionalLight 
+                  position={[5, 10, 5]} 
+                  intensity={1.8} 
+                  color="#f9e0b8"
+                />
+              )}
               <pointLight position={[-5, 5, -5]} intensity={0.5} color="#b11616" />
               
               <Environment preset="city" />
@@ -217,7 +239,7 @@ export default function Chapter05() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_#080302_100%)] pointer-events-none z-10" />
 
       {/* HTML Typography Overlay */}
-      <div className="absolute inset-0 flex items-end justify-center pb-24 md:pb-32 z-20 pointer-events-none">
+      <div className="absolute inset-0 flex items-end justify-center pb-20 md:pb-32 z-20 pointer-events-none">
         {DISHES.map((dish, i) => {
           const isActive = i === activeIndex;
           
@@ -235,7 +257,7 @@ export default function Chapter05() {
                 {dish.name}
               </h2>
               
-              <p className="font-sans text-[14px] md:text-[16px] text-[#F7F2E8]/80 leading-relaxed mb-6 max-w-[400px] drop-shadow-md">
+              <p className="font-sans text-[13px] md:text-[16px] text-[#F7F2E8]/80 leading-relaxed mb-4 md:mb-6 max-w-[400px] drop-shadow-md">
                 {dish.story}
               </p>
               

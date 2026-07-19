@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MarginNote } from "@/components/MicroArtifacts";
@@ -9,11 +9,65 @@ export default function Chapter04() {
   const containerRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
+      if (isMobile) {
+        // Mobile entrance reveals without pinning
+        gsap.fromTo(imageRef.current,
+          { clipPath: "inset(20% 20% 20% 20%)", scale: 1.1 },
+          { 
+            clipPath: "inset(0% 0% 0% 0%)", 
+            scale: 1, 
+            duration: 1.2, 
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: imageRef.current,
+              start: "top 80%"
+            }
+          }
+        );
+
+        const lines = gsap.utils.toArray<HTMLElement>(".reveal-line");
+        gsap.fromTo(lines,
+          { yPercent: 50, opacity: 0 },
+          { 
+            yPercent: 0, 
+            opacity: 1, 
+            stagger: 0.15, 
+            duration: 1.0, 
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: headlineRef.current,
+              start: "top 85%"
+            }
+          }
+        );
+
+        gsap.fromTo(".reveal-accent",
+          { opacity: 0, scale: 0.95 },
+          { 
+            opacity: 1, 
+            scale: 1, 
+            duration: 0.8, 
+            scrollTrigger: {
+              trigger: ".reveal-accent",
+              start: "top 90%"
+            }
+          }
+        );
+        return;
+      }
       
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -68,15 +122,15 @@ export default function Chapter04() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full h-screen bg-[#350d0d] text-[#F7F2E8] overflow-hidden z-20 flex items-center justify-center">
+    <section ref={containerRef} className={`relative w-full bg-[#350d0d] text-[#F7F2E8] overflow-hidden z-20 flex flex-col items-center justify-center ${isMobile ? "h-auto py-16" : "h-screen"}`}>
       
       {/* Premium Texture & Depth */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.05] mix-blend-overlay" style={{ backgroundImage: "url('/noise.png')", backgroundSize: "150px" }} />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#4d1616]/40 via-transparent to-[#1c0606]/90 pointer-events-none z-10" />
 
       {/* Hero Object / Visual */}
-      <div className="absolute inset-0 flex items-center justify-center z-0 overflow-hidden">
-        <div ref={imageRef} className="w-[100vw] h-[100vh] md:w-[60vw] md:h-[80vh] relative">
+      <div className={isMobile ? "relative w-[90vw] h-[40vh] mt-8 z-0 overflow-hidden" : "absolute inset-0 flex items-center justify-center z-0 overflow-hidden"}>
+        <div ref={imageRef} className={isMobile ? "w-full h-full relative" : "w-[100vw] h-[100vh] md:w-[60vw] md:h-[80vh] relative"}>
           <img 
             src="/editorial-spices.png" 
             alt="The Craft" 
@@ -88,20 +142,20 @@ export default function Chapter04() {
       </div>
 
       {/* Typography and Layout */}
-      <div className="relative z-20 w-full max-w-[1200px] px-6 md:px-12 flex flex-col items-center text-center mt-32 md:mt-48">
+      <div className={`relative z-20 w-full max-w-[1200px] px-6 flex flex-col items-center text-center ${isMobile ? "mt-8" : "md:px-12 mt-32 md:mt-48"}`}>
         
-        <div className="reveal-accent mb-8 md:mb-12">
+        <div className="reveal-accent mb-6 md:mb-12">
           <MarginNote text="Act II — The Craft" className="text-[#D56A2C]" rotate="0deg" />
           <div className="w-[1px] h-12 bg-[#D56A2C]/40 mx-auto mt-4"></div>
         </div>
 
-        <h2 ref={headlineRef} className="font-heading text-[12vw] md:text-[8vw] leading-[0.85] tracking-tight uppercase overflow-hidden">
+        <h2 ref={headlineRef} className={`font-heading leading-[0.85] tracking-tight uppercase overflow-hidden ${isMobile ? "text-[10vw]" : "text-[12vw] md:text-[8vw]"}`}>
           <div className="reveal-line">Every Plate Begins</div>
           <div className="reveal-line italic text-[#D56A2C]">Long Before It</div>
           <div className="reveal-line">Reaches Your Table</div>
         </h2>
         
-        <div className="mt-16 overflow-hidden max-w-[400px]">
+        <div className="mt-8 overflow-hidden max-w-[400px]">
           <p className="reveal-line font-sans text-[14px] md:text-[16px] text-[#F7F2E8]/70 leading-relaxed">
             The foundation of our cuisine isn't just a recipe. It's the hands that roll the dough, the patience required for overnight slow-cooking, and the uncompromising selection of whole spices.
           </p>

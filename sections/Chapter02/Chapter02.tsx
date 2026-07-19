@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SteamMotif from "@/components/SteamMotif";
@@ -8,6 +8,7 @@ import { FloatingHandwriting } from "@/components/MicroArtifacts";
 
 export default function Chapter02() {
   const containerRef = useRef<HTMLElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
   
   // Refs for animation targeting
   const labelRef = useRef<HTMLDivElement>(null);
@@ -21,9 +22,76 @@ export default function Chapter02() {
   const overallWrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
+      if (isMobile) {
+        // Simple mobile entrance animations
+        gsap.fromTo(headlineLinesRef.current,
+          { opacity: 0, y: 15, filter: "blur(5px)" },
+          { 
+            opacity: 1, 
+            y: 0, 
+            filter: "blur(0px)", 
+            duration: 1.0, 
+            stagger: 0.15, 
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top 80%",
+            }
+          }
+        );
+
+        if (imageWrapperRef.current) {
+          gsap.fromTo(imageWrapperRef.current,
+            { clipPath: "circle(0% at 50% 50%)" },
+            { 
+              clipPath: "circle(100% at 50% 50%)", 
+              duration: 1.5, 
+              ease: "power2.inOut",
+              scrollTrigger: {
+                trigger: imageWrapperRef.current,
+                start: "top 75%",
+              }
+            }
+          );
+        }
+
+        // Crossfade to image 2 on mobile scroll reveal
+        gsap.to(image2Ref.current, {
+          opacity: 1,
+          duration: 1.0,
+          delay: 0.8,
+          scrollTrigger: {
+            trigger: imageWrapperRef.current,
+            start: "top 75%"
+          }
+        });
+
+        gsap.fromTo(paraRef.current,
+          { opacity: 0, y: 15 },
+          { 
+            opacity: 1, 
+            y: 0, 
+            duration: 1.0, 
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: paraRef.current,
+              start: "top 90%",
+            }
+          }
+        );
+        return;
+      }
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
@@ -125,20 +193,28 @@ export default function Chapter02() {
   };
 
   return (
-    <section ref={containerRef} className="relative w-full h-[260vh] bg-[#F8F5EF] text-[#262626]">
+    <section 
+      ref={containerRef} 
+      className={`relative w-full bg-[#F8F5EF] text-[#262626] ${isMobile ? "h-auto py-12" : "h-[260vh]"}`}
+    >
       {/* Texture Layer - Barely visible paper fibers */}
       <div className="absolute inset-0 z-0 opacity-30 texture-ch3-paper pointer-events-none mix-blend-multiply" />
 
-      <div className="sticky top-0 w-full h-screen overflow-hidden">
-        <div ref={overallWrapperRef} className="absolute inset-0 w-full h-full flex flex-col items-center justify-center pt-20">
-          
-          <div className="relative z-10 w-full max-w-[1600px] mx-auto px-8 md:px-16 flex flex-col md:flex-row items-center justify-between h-full">
+      <div className={isMobile ? "relative w-full" : "sticky top-0 w-full h-screen overflow-hidden"}>
+        <div 
+          ref={overallWrapperRef} 
+          className={isMobile ? "relative w-full flex flex-col px-6" : "absolute inset-0 w-full h-full flex flex-col items-center justify-center pt-20"}
+        >
+          <div className={`relative z-10 w-full max-w-[1600px] mx-auto flex flex-col md:flex-row items-center justify-between ${isMobile ? "gap-6" : "h-full px-8 md:px-16"}`}>
             
             {/* LEFT: Typography Column (Scene 01, 02, 05) */}
-            <div className="w-full md:w-[45%] flex flex-col justify-center h-full relative z-10 md:pr-12 pointer-events-none">
+            <div className={`w-full md:w-[45%] flex flex-col justify-center relative pointer-events-none ${isMobile ? "pt-12 text-center items-center" : "h-full md:pr-12"}`}>
               
               {/* Scene 01: Tiny Editorial Label */}
-              <div ref={labelRef} className="absolute top-[15%] md:top-[10%] left-8 md:left-16 flex items-center gap-4 opacity-70">
+              <div 
+                ref={labelRef} 
+                className={`flex items-center gap-4 opacity-70 ${isMobile ? "mb-6 justify-center" : "absolute top-[15%] md:top-[10%] left-8 md:left-16"}`}
+              >
                 <span className="font-mono text-[8px] uppercase tracking-[0.4em] text-[#6B2525]">
                   Chapter II
                 </span>
@@ -149,26 +225,35 @@ export default function Chapter02() {
               </div>
 
               {/* Scene 02: Massive Headline */}
-              <h2 className="font-heading text-[16vw] md:text-[10vw] leading-[0.9] text-[#262626] tracking-tight">
+              <h2 className={`font-heading text-[#262626] tracking-tight ${isMobile ? "text-[11vw] leading-[1.0] mb-4" : "text-[16vw] md:text-[10vw] leading-[0.9]"}`}>
                 <span ref={addToHeadline} className="block w-full">Some Tables</span>
-                <span ref={addToHeadline} className="block w-full italic pl-[5%] md:pl-[10%] text-[#8B5A2B]">Are Never</span>
-                <span ref={addToHeadline} className="block w-full pl-[2%] md:pl-[5%]">Forgotten.</span>
+                <span ref={addToHeadline} className={`block w-full italic text-[#8B5A2B] ${isMobile ? "" : "pl-[5%] md:pl-[10%]"}`}>Are Never</span>
+                <span ref={addToHeadline} className={`block w-full ${isMobile ? "" : "pl-[2%] md:pl-[5%]"}`}>Forgotten.</span>
               </h2>
 
               {/* Scene 05: The Memory Paragraph */}
-              <p ref={paraRef} className="font-sans text-[13px] md:text-[14px] leading-[1.8] text-[#262626]/80 max-w-[340px] mt-16 ml-[5%] md:ml-[10%]">
+              <p 
+                ref={paraRef} 
+                className={`font-sans text-[13px] md:text-[14px] leading-[1.8] text-[#262626]/80 max-w-[340px] ${
+                  isMobile ? "mt-4 text-center mx-auto" : "mt-16 ml-[5%] md:ml-[10%]"
+                }`}
+              >
                 Every celebration begins somewhere. For generations, families have gathered around this table—not just to eat, but to spend time together.
               </p>
             </div>
 
             {/* RIGHT: Cinematic Photographic Reveal (Scene 03, 04) */}
-            <div className="absolute right-0 top-[20%] md:top-1/2 md:-translate-y-1/2 w-[90vw] md:w-[60vw] lg:w-[50vw] h-[50vh] md:h-[80vh] z-20 pointer-events-none">
+            <div className={`z-20 pointer-events-none ${
+              isMobile 
+                ? "relative w-full h-[40vh] mt-4" 
+                : "absolute right-0 top-[20%] md:top-1/2 md:-translate-y-1/2 w-[90vw] md:w-[60vw] lg:w-[50vw] h-[50vh] md:h-[80vh]"
+            }`}>
               
               {/* The Masked Container (Steam Reveal) */}
               <div 
                 ref={imageWrapperRef} 
                 className="relative w-full h-full overflow-hidden"
-                style={{ clipPath: "circle(0% at 50% 50%)", WebkitClipPath: "circle(0% at 50% 50%)" }}
+                style={{ clipPath: isMobile ? "circle(100% at 50% 50%)" : "circle(0% at 50% 50%)", WebkitClipPath: isMobile ? "circle(100% at 50% 50%)" : "circle(0% at 50% 50%)" }}
               >
                 
                 {/* Image 1: The Food (Close up) */}
@@ -176,7 +261,7 @@ export default function Chapter02() {
                   ref={image1Ref}
                   src="/editorial-food-3.png" 
                   alt="Steaming vegetarian dish" 
-                  className="absolute inset-0 w-full h-full object-cover transform-origin-center grayscale-[10%] sepia-[10%] opacity-90"
+                  className={`absolute inset-0 w-full h-full object-cover transform-origin-center grayscale-[10%] sepia-[10%] ${isMobile ? "opacity-0" : "opacity-90"}`}
                   loading="lazy"
                 />
 
@@ -185,7 +270,7 @@ export default function Chapter02() {
                   ref={image2Ref}
                   src="/editorial-food-5.png" 
                   alt="Families gathering at the table" 
-                  className="absolute inset-0 w-full h-full object-cover transform-origin-center grayscale-[15%] sepia-[15%] opacity-0"
+                  className={`absolute inset-0 w-full h-full object-cover transform-origin-center grayscale-[15%] sepia-[15%] ${isMobile ? "opacity-100" : "opacity-0"}`}
                   loading="lazy"
                 />
                 
@@ -197,17 +282,19 @@ export default function Chapter02() {
             </div>
 
             {/* Scene 05: Editorial Handwritten Notes (Z-Index 30) */}
-            <div className="absolute inset-0 pointer-events-none z-30 max-w-[1600px] mx-auto w-full">
-              <div ref={addToNotes} className="absolute top-[25%] left-[55%] md:left-[45%]">
-                <FloatingHandwriting text="Sunday Lunch" rotate="-4deg" className="text-[#8B5A2B] text-lg md:text-2xl" />
+            {!isMobile && (
+              <div className="absolute inset-0 pointer-events-none z-30 max-w-[1600px] mx-auto w-full">
+                <div ref={addToNotes} className="absolute top-[25%] left-[55%] md:left-[45%]">
+                  <FloatingHandwriting text="Sunday Lunch" rotate="-4deg" className="text-[#8B5A2B] text-lg md:text-2xl" />
+                </div>
+                <div ref={addToNotes} className="absolute bottom-[20%] left-[8%] md:left-[25%]">
+                  <FloatingHandwriting text="Since Childhood" rotate="3deg" className="text-[#6B2525] text-lg md:text-2xl" />
+                </div>
+                <div ref={addToNotes} className="absolute top-[55%] right-[5%] md:right-[30%]">
+                  <FloatingHandwriting text="Passed Around" rotate="-2deg" className="text-[#F8F5EF] drop-shadow-md text-lg md:text-2xl" />
+                </div>
               </div>
-              <div ref={addToNotes} className="absolute bottom-[20%] left-[8%] md:left-[25%]">
-                <FloatingHandwriting text="Since Childhood" rotate="3deg" className="text-[#6B2525] text-lg md:text-2xl" />
-              </div>
-              <div ref={addToNotes} className="absolute top-[55%] right-[5%] md:right-[30%]">
-                <FloatingHandwriting text="Passed Around" rotate="-2deg" className="text-[#F8F5EF] drop-shadow-md text-lg md:text-2xl" />
-              </div>
-            </div>
+            )}
 
           </div>
         </div>
