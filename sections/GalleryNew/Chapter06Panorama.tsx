@@ -3,7 +3,7 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import EditorialImage from "@/components/EditorialImage";
 
 export default function Chapter06Panorama() {
   const containerRef = useRef<HTMLElement>(null);
@@ -38,10 +38,9 @@ export default function Chapter06Panorama() {
         style={{ width: "300vw" }} // Massive panoramic width
       >
         <div className="relative w-full h-[80vh] mx-12">
-          <ImagePlaceholder 
-            category="Panorama" 
-            description="Massive edge-to-edge panoramic interior. Tiny details hidden throughout." 
-            aspectRatio="h-full" 
+          <EditorialImage 
+            src="/editorial-entrance.png" 
+            alt="Massive edge-to-edge panoramic interior." 
           />
           {/* Subtle details/captions scattered across the panorama */}
           <div className="absolute top-[20%] left-[10%] font-mono text-[10px] text-[#F6F1E8] mix-blend-difference">A Family</div>

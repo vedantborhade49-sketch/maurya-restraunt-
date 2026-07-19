@@ -3,7 +3,7 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import EditorialImage from "@/components/EditorialImage";
 
 export default function Chapter09Ending() {
   const containerRef = useRef<HTMLElement>(null);
@@ -45,10 +45,9 @@ export default function Chapter09Ending() {
       {/* Golden Hour Background Image */}
       <div className="absolute inset-0 w-full h-full z-0">
         <div ref={imageRef} className="w-full h-full">
-          <ImagePlaceholder 
-            category="Ending" 
-            description="Restaurant exterior. Golden hour. Open entrance. Prepared tables. Warm lighting." 
-            aspectRatio="h-full" 
+          <EditorialImage 
+            src="https://images.unsplash.com/photo-1525610553991-2bede1a236e2?q=80&w=2000&auto=format&fit=crop" 
+            alt="Restaurant exterior at golden hour" 
           />
         </div>
         {/* Dark overlay for contrast */}

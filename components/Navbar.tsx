@@ -72,12 +72,10 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Center Nav links (Expands after scroll threshold) */}
+        {/* Center Nav links */}
         <div className="hidden md:flex items-center justify-center flex-1 px-8 overflow-hidden">
           <nav 
-            className={`flex items-center gap-8 lg:gap-10 font-sans text-xs uppercase tracking-[0.2em] font-semibold text-[#F3E8D4]/80 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              isExpanded ? "max-w-[1000px] opacity-100" : "max-w-0 opacity-0 pointer-events-none"
-            }`}
+            className="flex items-center gap-8 lg:gap-10 font-sans text-xs uppercase tracking-[0.2em] font-semibold text-[#F3E8D4]/80 transition-all duration-500"
           >
             {navItems.map((item, i) => {
               const isActive = pathname === item.href;

@@ -3,7 +3,7 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import EditorialImage from "@/components/EditorialImage";
 
 export default function Chapter02Asymmetrical() {
   const containerRef = useRef<HTMLElement>(null);
@@ -57,10 +57,9 @@ export default function Chapter02Asymmetrical() {
           ref={img1Ref}
           className="absolute top-[10%] left-[5%] md:left-[15%] w-[60vw] md:w-[25vw] aspect-[3/4] z-10 shadow-2xl group transition-transform duration-700 hover:-rotate-1"
         >
-          <ImagePlaceholder 
-            category="Preparation" 
-            description="Portrait format. Close up of hands preparing food, flour in the air." 
-            aspectRatio="h-full" 
+          <EditorialImage 
+            src="/editorial-food-1.png" 
+            alt="Close up of food preparation" 
           />
         </div>
 
@@ -69,10 +68,9 @@ export default function Chapter02Asymmetrical() {
           ref={img2Ref}
           className="absolute top-[35%] right-[5%] md:right-[10%] w-[80vw] md:w-[45vw] aspect-[21/9] z-20 shadow-2xl group transition-transform duration-700 hover:rotate-1"
         >
-          <ImagePlaceholder 
-            category="Ingredients" 
-            description="Panoramic macro shot of raw spices, herbs, and vibrant colors on wood." 
-            aspectRatio="h-full" 
+          <EditorialImage 
+            src="/editorial-spices.png" 
+            alt="Panoramic macro shot of raw spices" 
           />
         </div>
 
@@ -81,10 +79,9 @@ export default function Chapter02Asymmetrical() {
           ref={img3Ref}
           className="absolute top-[60%] left-[10%] md:left-[30%] w-[50vw] md:w-[30vw] aspect-square z-30 shadow-2xl group transition-transform duration-700 hover:-rotate-2"
         >
-          <ImagePlaceholder 
-            category="Texture" 
-            description="Square format. Copper utensils catching warm light, tactile focus." 
-            aspectRatio="h-full" 
+          <EditorialImage 
+            src="/editorial-texture.png" 
+            alt="Copper utensils catching warm light" 
           />
         </div>
 

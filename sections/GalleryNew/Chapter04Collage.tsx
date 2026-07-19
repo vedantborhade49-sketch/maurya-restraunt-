@@ -3,7 +3,7 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import EditorialImage from "@/components/EditorialImage";
 
 export default function Chapter04Collage() {
   const containerRef = useRef<HTMLElement>(null);
@@ -59,7 +59,7 @@ export default function Chapter04Collage() {
           {/* Masking tape */}
           <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-[#EFE8DB]/80 mix-blend-multiply rotate-[-3deg] shadow-sm z-20" />
           <div className="relative w-full aspect-[4/5]">
-            <ImagePlaceholder category="Collage" description="Hands kneading dough." aspectRatio="h-full" />
+            <EditorialImage src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1500&auto=format&fit=crop" alt="Friends dining" />
           </div>
           <p className="font-mono text-[8px] uppercase text-[#1F1F1F]/60 mt-3 px-2 text-center">
             Fig 01. The Foundation.
@@ -71,14 +71,14 @@ export default function Chapter04Collage() {
            {/* Copper paper clip */}
            <div className="absolute -top-4 right-8 w-4 h-12 border-2 border-[#B98555] rounded-full shadow-sm z-20 rotate-12" />
            <div className="relative w-full aspect-[16/9]">
-            <ImagePlaceholder category="Collage" description="Wide shot of ingredients scattered." aspectRatio="h-full" />
+            <EditorialImage src="https://images.unsplash.com/photo-1511690655022-07615f124bf0?q=80&w=2000&auto=format&fit=crop" alt="Family dining wide shot" />
           </div>
         </div>
 
         {/* Item 3 */}
         <div className="collage-item absolute top-[60%] left-[15%] md:left-[35%] w-[45vw] md:w-[20vw] rotate-[-5deg] bg-white p-2 shadow-[0_10px_20px_rgba(0,0,0,0.05)] z-30 transition-transform hover:-rotate-1 hover:z-50">
           <div className="relative w-full aspect-square">
-            <ImagePlaceholder category="Collage" description="Close up of a single spice." aspectRatio="h-full" />
+            <EditorialImage src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000&auto=format&fit=crop" alt="Food closeup square" />
           </div>
           {/* Editorial markup */}
           <div className="absolute -bottom-6 -right-6 font-serif italic text-3xl text-[#B98555]/60 -rotate-12 pointer-events-none">

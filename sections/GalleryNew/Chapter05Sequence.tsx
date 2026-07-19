@@ -3,7 +3,7 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import EditorialImage from "@/components/EditorialImage";
 
 export default function Chapter05Sequence() {
   const containerRef = useRef<HTMLElement>(null);
@@ -44,11 +44,7 @@ export default function Chapter05Sequence() {
       
       {/* Page 1 (Base) */}
       <div className="absolute inset-0 w-full h-full z-10">
-        <ImagePlaceholder 
-          category="Sequence 1" 
-          description="Giant printed page 1. Fullscreen cinematic moment." 
-          aspectRatio="h-full" 
-        />
+          <EditorialImage src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2000&auto=format&fit=crop" alt="Cooking process" />
         <div className="absolute top-12 left-12 text-[#F6F1E8] font-mono text-[10px] tracking-widest mix-blend-difference">
           MOMENT 01
         </div>
@@ -56,11 +52,7 @@ export default function Chapter05Sequence() {
 
       {/* Page 2 */}
       <div ref={page2Ref} className="absolute inset-0 w-full h-full z-20 origin-bottom">
-        <ImagePlaceholder 
-          category="Sequence 2" 
-          description="Giant printed page 2 sliding over the first." 
-          aspectRatio="h-full" 
-        />
+          <EditorialImage src="https://images.unsplash.com/photo-1555243896-c709bfa0b564?q=80&w=2000&auto=format&fit=crop" alt="Plating" />
         <div className="absolute top-12 left-12 text-[#F6F1E8] font-mono text-[10px] tracking-widest mix-blend-difference">
           MOMENT 02
         </div>
@@ -68,11 +60,7 @@ export default function Chapter05Sequence() {
 
       {/* Page 3 */}
       <div ref={page3Ref} className="absolute inset-0 w-full h-full z-30 origin-bottom">
-        <ImagePlaceholder 
-          category="Sequence 3" 
-          description="Giant printed page 3 sealing the sequence." 
-          aspectRatio="h-full" 
-        />
+          <EditorialImage src="https://images.unsplash.com/photo-1585937421612-70100de8e8fb?q=80&w=2000&auto=format&fit=crop" alt="Naan preparation" />
         <div className="absolute top-12 left-12 text-[#F6F1E8] font-mono text-[10px] tracking-widest mix-blend-difference">
           MOMENT 03
         </div>

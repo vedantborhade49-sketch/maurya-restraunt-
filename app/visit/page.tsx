@@ -1,31 +1,43 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import Link from "next/link";
-import { Phone, MapPin, Clock, MessageSquare, Compass } from "lucide-react";
+import React, { useEffect } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import Chapter01Invitation from "@/sections/VisitNew/Chapter01Invitation";
+import Chapter02Arrival from "@/sections/VisitNew/Chapter02Arrival";
+import Chapter03Journey from "@/sections/VisitNew/Chapter03Journey";
+import Chapter04Space from "@/sections/VisitNew/Chapter04Space";
+import Chapter05Experience from "@/sections/VisitNew/Chapter05Experience";
+import Chapter06Reservation from "@/sections/VisitNew/Chapter06Reservation";
+import Chapter07Contact from "@/sections/VisitNew/Chapter07Contact";
+import Chapter08FinalScene from "@/sections/VisitNew/Chapter08FinalScene";
 
 export default function VisitPage() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(".fade-in-item",
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "power3.out" }
-      );
-    }, containerRef);
-
-    return () => ctx.revert();
+    gsap.registerPlugin(ScrollTrigger);
+    // Refresh ScrollTrigger after a slight delay
+    const timeoutId = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
+    return () => clearTimeout(timeoutId);
   }, []);
 
   return (
-    <div 
-      ref={containerRef}
-      className="min-h-screen bg-[#0B0908] text-[#F3E8D4] pt-32 pb-24 px-4 sm:px-6 md:px-12 relative overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-noise opacity-[0.02] pointer-events-none" />
+    <main className="relative w-full bg-[#F6F1E8] text-[#1F1F1F] selection:bg-[#3A0F16] selection:text-[#F6F1E8] overflow-hidden">
+      {/* Global grain / physical paper texture */}
+      <svg className="hidden" aria-hidden="true">
+        <filter id="paper-texture">
+          <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/>
+          <feColorMatrix type="saturate" values="0"/>
+        </filter>
+      </svg>
+      <div
+        className="pointer-events-none fixed inset-0 z-[100] opacity-[0.03] mix-blend-multiply"
+        style={{ filter: "url(#paper-texture)", backgroundColor: "#a09070" }}
+      />
 
+<<<<<<< HEAD
       <div className="max-w-5xl mx-auto space-y-16 relative z-10">
         
         {/* Header Section */}
@@ -150,5 +162,16 @@ export default function VisitPage() {
 
       </div>
     </div>
+=======
+      <Chapter01Invitation />
+      <Chapter02Arrival />
+      <Chapter03Journey />
+      <Chapter04Space />
+      <Chapter05Experience />
+      <Chapter06Reservation />
+      <Chapter07Contact />
+      <Chapter08FinalScene />
+    </main>
+>>>>>>> 37c59ea ( reviews, gallery, visit and our story page improved)
   );
 }

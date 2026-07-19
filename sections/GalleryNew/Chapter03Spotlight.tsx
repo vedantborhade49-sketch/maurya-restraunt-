@@ -3,7 +3,7 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import EditorialImage from "@/components/EditorialImage";
 
 export default function Chapter03Spotlight() {
   const containerRef = useRef<HTMLElement>(null);
@@ -65,10 +65,9 @@ export default function Chapter03Spotlight() {
 
       <div className="relative z-0 w-[50vw] md:w-[30vw] aspect-[4/5] mx-auto">
         <div ref={imageRef} className="w-full h-full shadow-[0_0_100px_rgba(255,255,255,0.1)]">
-          <ImagePlaceholder 
-            category="Masterpiece" 
-            description="Single signature dish, incredibly sharp, dark museum lighting." 
-            aspectRatio="h-full" 
+          <EditorialImage 
+            src="/editorial-food-2.png" 
+            alt="Single signature dish, incredibly sharp, dark museum lighting." 
           />
         </div>
       </div>

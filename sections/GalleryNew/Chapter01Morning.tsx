@@ -3,7 +3,7 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import EditorialImage from "@/components/EditorialImage";
 
 export default function Chapter01Morning() {
   const containerRef = useRef<HTMLElement>(null);
@@ -45,10 +45,10 @@ export default function Chapter01Morning() {
       <div className="relative w-[92vw] h-[85vh] z-10 flex flex-col items-center">
         
         <div ref={imageRef} className="w-full h-full relative overflow-hidden group">
-          <ImagePlaceholder 
-            category="Morning" 
-            description="Warm sunlight entering the restaurant. Steam. Wood. Copper. Huge cinematic wide shot." 
-            aspectRatio="h-full" 
+          <EditorialImage 
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2000&auto=format&fit=crop" 
+            alt="Warm sunlight entering the restaurant" 
+            priority
           />
           {/* Subtle hover tilt effect */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-1000 bg-gradient-to-t from-black to-transparent pointer-events-none" />
