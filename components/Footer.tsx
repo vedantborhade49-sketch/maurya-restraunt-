@@ -47,19 +47,28 @@ export default function Footer() {
       ref={footerRef}
       className="relative w-full bg-[#161413] text-[#F8F5EF] pt-16 pb-12 font-sans select-none z-30"
     >
-      {/* ── REALISTIC ORGANIC TORN PAPER EDGE TRANSITION (MATCHING USER REFERENCE) ── */}
-      <div className="absolute top-0 left-0 w-full -translate-y-[98%] pointer-events-none drop-shadow-[0_14px_22px_rgba(0,0,0,0.38)] z-30 leading-none">
+      {/* ── REALISTIC DOUBLE TORN PAPER EDGE TRANSITION (BOTH SECTIONS TORN) ── */}
+      <div className="absolute top-0 left-0 w-full -translate-y-[98%] pointer-events-none drop-shadow-[0_14px_24px_rgba(0,0,0,0.4)] z-30 leading-none">
         
-        {/* Layer 1: Under-Tear Deckle Paper Shadow Layer */}
+        {/* Layer 1: Dark Charcoal Torn Edge (Footer Section Torn Top) */}
         <svg
           viewBox="0 0 1200 60"
           preserveAspectRatio="none"
-          className="w-full h-12 md:h-16 text-[#EFE8DB] fill-current absolute top-1 left-0 opacity-85"
+          className="w-full h-12 md:h-16 text-[#161413] fill-current absolute -top-2 left-0"
+        >
+          <path d="M0,60 L0,38 L18,42 L32,36 L48,44 L62,40 L78,45 L92,41 L108,46 L128,43 L148,47 L168,44 L188,50 L208,46 L228,51 L248,47 L268,50 L288,44 L308,48 L328,43 L348,46 L368,41 L388,44 L408,37 L428,40 L448,33 L468,36 L488,29 L508,32 L528,25 L548,29 L568,20 L588,24 L608,16 L628,21 L648,13 L668,18 L688,12 L708,16 L728,14 L748,20 L768,15 L788,22 L808,17 L828,24 L848,18 L868,26 L888,20 L908,29 L928,23 L948,31 L968,26 L988,34 L1008,28 L1028,36 L1048,32 L1068,38 L1088,34 L1108,40 L1128,36 L1148,42 L1168,38 L1188,43 L1200,41 L1200,60 Z" />
+        </svg>
+
+        {/* Layer 2: Under-Tear Deckle Paper Shadow Accent */}
+        <svg
+          viewBox="0 0 1200 60"
+          preserveAspectRatio="none"
+          className="w-full h-12 md:h-16 text-[#EFE8DB] fill-current absolute top-0.5 left-0 opacity-90"
         >
           <path d="M0,60 L0,44 L20,46 L35,42 L50,48 L65,44 L80,49 L95,45 L110,50 L130,47 L150,51 L170,48 L190,54 L210,50 L230,55 L250,51 L270,54 L290,48 L310,52 L330,47 L350,50 L370,45 L390,48 L410,41 L430,44 L450,37 L470,40 L490,33 L510,36 L530,29 L550,33 L570,24 L590,28 L610,20 L630,25 L650,17 L670,22 L690,16 L710,20 L730,18 L750,24 L770,19 L790,26 L810,21 L830,28 L850,22 L870,30 L890,24 L910,33 L930,27 L950,35 L970,30 L990,38 L1010,32 L1030,40 L1050,36 L1070,42 L1090,38 L1110,44 L1130,40 L1150,46 L1170,42 L1190,47 L1200,45 L1200,60 Z" />
         </svg>
 
-        {/* Layer 2: Main Ivory Ripped Paper Sheet (Top section paper) */}
+        {/* Layer 3: Main Ivory Ripped Paper Sheet (Light Section Paper Torn Bottom) */}
         <svg
           viewBox="0 0 1200 60"
           preserveAspectRatio="none"
@@ -183,16 +192,6 @@ export default function Footer() {
                   className="hover:text-[#9A5C3B] transition-colors"
                 >
                   <span>Google Reviews (4.8★)</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#9A5C3B] transition-colors"
-                >
-                  <span>Facebook</span>
                 </a>
               </li>
             </ul>
