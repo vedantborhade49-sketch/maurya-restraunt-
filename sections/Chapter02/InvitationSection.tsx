@@ -8,10 +8,11 @@ import SteamMotif from "@/components/SteamMotif";
 
 export default function InvitationSection() {
   const containerRef = useRef<HTMLElement>(null);
-  const cameraRef = useRef<HTMLDivElement>(null);
-  const feastOverlayRef = useRef<HTMLDivElement>(null);
+  const scene1Ref = useRef<HTMLDivElement>(null);
+  const scene2Ref = useRef<HTMLDivElement>(null);
+  const scene3Ref = useRef<HTMLDivElement>(null);
   const candleLightRef = useRef<HTMLDivElement>(null);
-  const statementRef = useRef<HTMLDivElement>(null);
+  const feastOverlayRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -21,7 +22,7 @@ export default function InvitationSection() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Mouse interactivity: candle light flicker & cutlery specular highlights
+  // Interactive cursor candle light follow
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     if (!containerRef.current || !candleLightRef.current || isMobile) return;
     const rect = containerRef.current.getBoundingClientRect();
@@ -40,40 +41,55 @@ export default function InvitationSection() {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      // 1. Slow Camera Push (3-5%) on scroll
+      // Scene 2: Breathing Space Single Sentence ("There's always room for one more...")
       gsap.fromTo(
-        cameraRef.current,
-        { scale: 1.05, filter: "brightness(0.85)" },
+        scene1Ref.current,
+        { opacity: 0, y: 20 },
         {
-          scale: 1.0,
-          filter: "brightness(1.0)",
-          ease: "none",
+          opacity: 1,
+          y: 0,
+          duration: 1.4,
+          ease: "power2.out",
           scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 75%",
-            end: "bottom 25%",
-            scrub: 1,
+            trigger: scene1Ref.current,
+            start: "top 80%",
           },
         }
       );
 
-      // 2. Emotional Statement Reveal
+      // Scene 3: Overhead Table Visual & Camera Push
       gsap.fromTo(
-        statementRef.current,
-        { opacity: 0, y: 30 },
+        scene2Ref.current,
+        { opacity: 0, scale: 1.04 },
         {
           opacity: 1,
-          y: 0,
+          scale: 1.0,
           duration: 1.2,
           ease: "power2.out",
           scrollTrigger: {
-            trigger: statementRef.current,
+            trigger: scene2Ref.current,
+            start: "top 75%",
+          },
+        }
+      );
+
+      // Scene 4: Action Links Reveal
+      gsap.fromTo(
+        scene3Ref.current,
+        { opacity: 0, y: 25 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.0,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: scene3Ref.current,
             start: "top 70%",
           },
         }
       );
 
-      // 3. Feast Dish Fill Transition (Setting the table for the Menu)
+      // Table Feast Dish Fill Transition (Setting the table for Chapter 03 Menu)
       gsap.fromTo(
         feastOverlayRef.current,
         { opacity: 0 },
@@ -82,12 +98,13 @@ export default function InvitationSection() {
           ease: "none",
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "bottom 60%",
+            start: "bottom 55%",
             end: "bottom 10%",
             scrub: 1,
           },
         }
       );
+
     }, containerRef);
 
     return () => ctx.revert();
@@ -97,42 +114,56 @@ export default function InvitationSection() {
     <section
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative w-full bg-[#161312] text-[#F8F5EF] select-none z-10 border-b border-[#9A5C3B]/20 overflow-hidden py-16 md:py-28"
+      className="relative w-full bg-[#161312] text-[#F8F5EF] select-none z-10 border-b border-[#9A5C3B]/20 overflow-hidden py-24 md:py-36 space-y-24 md:space-y-32"
     >
-      {/* Interactive Candlelight & Specular Light Follow */}
+      {/* Interactive Specular Candlelight Follow */}
       {!isMobile && (
         <div
           ref={candleLightRef}
-          className="pointer-events-none absolute w-[400px] h-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(185,133,50,0.22)_0%,_transparent_70%)] mix-blend-screen z-20 transition-transform duration-200"
+          className="pointer-events-none absolute w-[450px] h-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(185,133,50,0.25)_0%,_transparent_70%)] mix-blend-screen z-20 transition-transform duration-200"
           style={{ left: "50%", top: "50%" }}
         />
       )}
 
-      {/* Ambient Lighting Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(15,13,12,0.9)_100%)] pointer-events-none z-10" />
+      {/* Warm Ambient Vignette */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(15,13,12,0.95)_100%)] pointer-events-none z-10" />
 
-      {/* ── SCENE 02: THE TABLE (CINEMATIC OVERHEAD VISUAL) ──────────────── */}
-      <div className="container-maurya relative z-20 flex flex-col items-center gap-12 text-center">
-        
-        {/* Scene Chapter Counter */}
-        <div className="flex items-center gap-3">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#9A5C3B] animate-pulse" />
-          <span className="font-mono text-[9px] uppercase tracking-[0.35em] text-[#9A5C3B] font-bold">
-            01 &nbsp;·&nbsp; THE INVITATION
-          </span>
+      {/* ── SCENE 2: THE TRANSITION (ONLY ONE SENTENCE) ─────────────────── */}
+      <div
+        ref={scene1Ref}
+        className="container-maurya relative z-20 text-center pt-8 md:pt-12"
+      >
+        <div className="content-grid max-w-[840px] mx-auto space-y-4">
+          <div className="flex items-center justify-center gap-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#9A5C3B] animate-pulse" />
+            <span className="font-mono text-[9px] uppercase tracking-[0.35em] text-[#9A5C3B] font-bold">
+              CHAPTER 02 &nbsp;·&nbsp; THE INVITATION
+            </span>
+          </div>
+          
+          {/* Single Pure Sentence — Nothing else on screen */}
+          <h2 className="font-serif italic text-3xl sm:text-5xl md:text-6xl text-[#F8F5EF] font-normal leading-[1.15] tracking-tight py-4">
+            "There's always room for one more at our table."
+          </h2>
+
+          <div className="w-[1px] h-12 bg-[#9A5C3B]/35 mx-auto mt-2" />
         </div>
+      </div>
 
-        {/* 4K Overhead Dining Table Frame */}
+      {/* ── SCENE 3: THE TABLE (OVERHEAD ATMOSPHERE) ────────────────────── */}
+      <div
+        ref={scene2Ref}
+        className="container-maurya relative z-20 text-center"
+      >
         <div className="relative w-full max-w-[960px] mx-auto h-[48vh] sm:h-[58vh] md:h-[68vh] rounded-sm overflow-hidden border border-[#9A5C3B]/25 shadow-2xl bg-[#1C1414]">
           
-          {/* Frame A: Empty Table with One Chair Awaiting */}
-          <div ref={cameraRef} className="absolute inset-0 w-full h-full">
+          {/* Frame A: Overhead Empty Dining Table */}
+          <div className="absolute inset-0 w-full h-full">
             <img
               src="/cinematic-overhead-table.png"
               alt="A Seat Awaits You Around Our Table"
               className="w-full h-full object-cover"
             />
-            {/* Soft Warm Lighting Gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#161312] via-transparent to-black/30 opacity-70" />
             <SteamMotif className="absolute inset-0 w-full h-full mix-blend-screen opacity-20 pointer-events-none" />
           </div>
@@ -151,25 +182,26 @@ export default function InvitationSection() {
             <SteamMotif className="absolute inset-0 w-full h-full mix-blend-screen opacity-35 pointer-events-none" />
           </div>
 
-          {/* Restrained Subconscious Invite Accent */}
+          {/* Subconscious Seat Invitation Accent */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
             <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#9A5C3B] bg-[#161312]/80 px-4 py-1.5 rounded-full border border-[#9A5C3B]/30 backdrop-blur-md">
-              THERE’S ALWAYS ROOM FOR ONE MORE
+              A SEAT AWAITS YOU
             </span>
           </div>
+
         </div>
+      </div>
 
-        {/* ── SCENE 03: THE SINGLE EMOTIONAL STATEMENT ───────────────────── */}
-        <div ref={statementRef} className="content-grid max-w-[800px] mx-auto space-y-6 pt-4">
-          <h2 className="font-serif italic text-3xl sm:text-5xl md:text-6xl text-[#F8F5EF] font-normal leading-[1.1] tracking-tight">
-            "Every celebration begins around a table."
-          </h2>
-
-          <p className="font-sans text-[15px] sm:text-[17px] md:text-[19px] leading-[1.65] text-[#F8F5EF]/75 font-light max-w-[600px] mx-auto">
+      {/* ── SCENE 4: THE INVITATION ACTIONS ─────────────────────────────── */}
+      <div
+        ref={scene3Ref}
+        className="container-maurya relative z-20 text-center pb-8"
+      >
+        <div className="content-grid max-w-[640px] mx-auto space-y-6">
+          <p className="font-sans text-[15px] sm:text-[17px] md:text-[19px] leading-[1.65] text-[#F8F5EF]/75 font-light">
             At Maurya, food is only one part of the experience. The laughter across the table, the aroma from the kitchen, and the conversations shared over every meal are what make people return.
           </p>
 
-          {/* Restrained Minimal CTAs */}
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-6 font-mono text-[11px] uppercase tracking-[0.25em] font-bold">
             <Link
               href="/visit#reserve"
@@ -185,8 +217,8 @@ export default function InvitationSection() {
             </Link>
           </div>
         </div>
-
       </div>
+
     </section>
   );
 }

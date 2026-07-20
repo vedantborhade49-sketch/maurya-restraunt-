@@ -94,7 +94,7 @@ export default function PureVegPromise() {
 
               {/* Floating Pure Veg Heritage Seal */}
               <div className="absolute bottom-6 left-6 z-20 flex items-center gap-2.5 bg-[#FAF7F0]/90 px-4 py-2 rounded-full border border-[#9A5C3B]/30 backdrop-blur-md shadow-md">
-                <PureVegBadge showText={false} />
+                <PureVegBadge showText={false} size={16} />
                 <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-[#5A1F1F] font-bold">
                   100% PURE VEGETARIAN SANCTUARY
                 </span>
