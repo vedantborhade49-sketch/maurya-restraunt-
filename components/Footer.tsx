@@ -45,16 +45,16 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative w-full bg-[#161413] text-[#F8F5EF] pt-16 pb-12 overflow-hidden font-sans select-none z-30"
+      className="relative w-full bg-[#161413] text-[#F8F5EF] pt-16 pb-12 font-sans select-none z-30"
     >
       {/* ── TORN HANDMADE PAPER TOP EDGE TRANSITION ────────────────────── */}
-      <div className="absolute -top-7 left-0 w-full overflow-hidden leading-none pointer-events-none drop-shadow-[0_-6px_12px_rgba(0,0,0,0.25)] z-20">
+      <div className="absolute top-0 left-0 w-full -translate-y-[95%] pointer-events-none drop-shadow-[0_10px_16px_rgba(0,0,0,0.3)] z-30 leading-none">
         <svg
           viewBox="0 0 1200 40"
           preserveAspectRatio="none"
-          className="w-full h-8 text-[#F8F5EF] fill-current"
+          className="w-full h-9 md:h-11 text-[#F8F5EF] fill-current"
         >
-          <path d="M0,0 L1200,0 L1200,20 Q1170,32 1140,24 Q1110,6 1080,16 Q1050,30 1020,22 Q990,4 960,14 Q930,32 900,24 Q870,8 840,18 Q810,34 780,26 Q750,6 720,16 Q690,32 660,20 Q630,4 600,12 Q570,30 540,24 Q510,8 480,18 Q450,32 420,20 Q390,4 360,14 Q330,30 300,22 Q270,6 240,16 Q210,34 180,26 Q150,8 120,18 Q90,32 60,24 Q30,12 0,22 Z" />
+          <path d="M0,40 L0,16 Q30,28 60,12 Q90,2 120,18 Q150,26 180,10 Q210,4 240,22 Q270,30 300,14 Q330,2 360,18 Q390,28 420,10 Q450,4 480,24 Q510,32 540,16 Q570,4 600,20 Q630,28 660,10 Q690,2 720,24 Q750,30 780,14 Q810,4 840,20 Q870,28 900,12 Q930,2 960,22 Q990,30 1020,14 Q1050,4 1080,20 Q1110,28 1140,12 Q1170,4 1200,18 L1200,40 Z" />
         </svg>
       </div>
 
@@ -63,11 +63,15 @@ export default function Footer() {
         {/* ── 4 COMPACT CALM COLUMNS ───────────────────────────────────────── */}
         <div className="content-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 text-left">
           
-          {/* Column 1: MAURYA / VISIT */}
+          {/* Column 1: MAURYA LOGO / VISIT */}
           <div className="quiet-goodbye-col space-y-4">
-            <h3 className="font-heading text-xl text-[#F8F5EF] tracking-wider uppercase font-semibold">
-              MAURYA
-            </h3>
+            <Link href="/" className="inline-block">
+              <img
+                src="/morya-logo.png"
+                alt="Maurya"
+                className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              />
+            </Link>
             <div className="space-y-2 text-xs font-light text-[#F8F5EF]/75 leading-relaxed">
               <p className="font-serif italic font-medium text-sm text-[#F8F5EF]">Pure Veg Heritage</p>
               <p>Shop 1/2, Near Tilekar Nagar, Kamthe Pat, Kondhwa Khurd, Pune 411048</p>
