@@ -308,10 +308,11 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
           <div className="fixed inset-0 bg-[#0B0908]/20 z-0 pointer-events-none transition-opacity duration-300" />
         )}
 
-        {/* 2. Search & Filters Zone */}
-        <div className="max-w-3xl mx-auto mb-10 space-y-6 relative z-10">
-          <div className={`relative transition-all duration-300 ${isSearchFocused ? "scale-[1.02]" : "scale-100"}`}>
-            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-[#350709]/40" />
+        {/* 2. Sticky Fixed Search & Category Navigation Header */}
+        <div className="sticky top-16 md:top-20 z-40 w-full bg-[#F8F6F1]/95 backdrop-blur-md border-b border-[#B98532]/25 py-3.5 mb-10 -mx-4 px-4 md:-mx-8 md:px-8 space-y-4 shadow-sm">
+          {/* Sticky Search Input Bar */}
+          <div className="max-w-3xl mx-auto relative">
+            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-[#350709]/40" />
             <input
               type="text"
               placeholder={isSearchFocused ? "Search paneer, dosa, noodles..." : PLACEHOLDERS[placeholderIndex]}
@@ -322,32 +323,80 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
                 setIsSearchFocused(false);
                 if (searchQuery === "") setPlaceholderIndex(0);
               }}
-              className="w-full pl-14 pr-6 py-4 rounded-full bg-white border border-[#350709]/15 text-[#350709] placeholder:text-[#350709]/40 focus:outline-none focus:border-[#8F1115]/50 focus:shadow-[0_0_20px_rgba(143,17,21,0.06)] transition-all duration-300 text-base"
+              className="w-full pl-12 md:pl-14 pr-10 py-3 rounded-full bg-white border border-[#350709]/15 text-[#350709] placeholder:text-[#350709]/40 focus:outline-none focus:border-[#8F1115]/50 focus:shadow-[0_0_20px_rgba(143,17,21,0.06)] transition-all duration-300 text-sm md:text-base shadow-sm"
             />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#350709]/50 hover:text-[#350709]"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
             {/* Animated bottom brass line */}
             <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] bg-[#B98532] transition-all duration-500 rounded-full ${isSearchFocused ? "w-[90%]" : "w-0"}`} />
           </div>
 
-          {/* Mood Filters (Collapsed when search is active) */}
+          {/* Mood Filters (Collapsed when search active) */}
           {!searchQuery.trim() && (
-            <div className="space-y-2">
-              <span className="block text-[9px] uppercase tracking-[0.2em] text-[#350709]/60 font-bold text-center md:text-left">
-                I'm in the mood for...
-              </span>
-              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5">
-                {MOODS.map((mood) => {
-                  const isSelected = selectedMood === mood.tag;
+            <div className="flex flex-wrap items-center justify-center gap-2 max-w-3xl mx-auto">
+              {MOODS.map((mood) => {
+                const isSelected = selectedMood === mood.tag;
+                return (
+                  <button
+                    key={mood.tag}
+                    onClick={() => setSelectedMood(isSelected ? null : mood.tag)}
+                    className={`px-3 py-1.5 border rounded-full text-[9px] font-bold tracking-wider uppercase transition-all duration-200 ${
+                      isSelected 
+                        ? "bg-[#350709] border-[#350709] text-[#F3E8D4]" 
+                        : `bg-white hover:bg-[#350709]/5 border-[#350709]/15 text-[#350709]`
+                    }`}
+                  >
+                    {mood.label}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Horizontal Category Rail */}
+          {!searchQuery.trim() && (
+            <div className="overflow-x-auto no-scrollbar pt-1">
+              <div className="flex items-center gap-6 md:gap-8 font-sans text-xs font-bold uppercase tracking-[0.2em] justify-start md:justify-center">
+                <button
+                  id="rail-btn-ALL"
+                  onClick={() => handleRailClick("ALL")}
+                  className={`relative py-1.5 shrink-0 transition-colors ${
+                    selectedCategory === "ALL" ? "text-[#8F1115]" : "text-[#350709]/60 hover:text-[#350709]"
+                  }`}
+                >
+                  <span>01 ALL</span>
+                  {selectedCategory === "ALL" && (
+                    <motion.svg className="absolute bottom-0 left-0 w-full h-1 text-[#8F1115]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                      <motion.path d="M0,5 C30,2 70,8 100,5" fill="none" stroke="currentColor" strokeWidth="3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.3 }} />
+                    </motion.svg>
+                  )}
+                </button>
+
+                {categories.map((cat, index) => {
+                  const displayIndex = String(index + 2).padStart(2, "0");
+                  const isSelected = selectedCategory === cat.name;
+                  const slug = cat.name.replace(/[^a-z0-9]+/g, "-");
                   return (
                     <button
-                      key={mood.tag}
-                      onClick={() => setSelectedMood(isSelected ? null : mood.tag)}
-                      className={`px-4 py-2 border rounded-full text-[10px] font-bold tracking-wider uppercase transition-all duration-200 ${
-                        isSelected 
-                          ? "bg-[#350709] border-[#350709] text-[#F3E8D4]" 
-                          : `bg-white hover:bg-[#350709]/5 border-[#350709]/15 text-[#350709]`
+                      key={cat.id}
+                      id={`rail-btn-${slug}`}
+                      onClick={() => handleRailClick(cat.name)}
+                      className={`relative py-1.5 shrink-0 transition-colors ${
+                        isSelected ? "text-[#8F1115]" : "text-[#350709]/60 hover:text-[#350709]"
                       }`}
                     >
-                      {mood.label}
+                      <span>{displayIndex} {cat.name}</span>
+                      {isSelected && (
+                        <motion.svg className="absolute bottom-0 left-0 w-full h-1 text-[#8F1115]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                          <motion.path d="M0,5 C30,2 70,8 100,5" fill="none" stroke="currentColor" strokeWidth="3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.3 }} />
+                        </motion.svg>
+                      )}
                     </button>
                   );
                 })}
@@ -355,51 +404,6 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
             </div>
           )}
         </div>
-
-        {/* 3. Horizontal Sticky Category Rail */}
-        {!searchQuery.trim() && (
-          <div className="sticky top-20 z-40 w-full bg-[#F8F6F1]/95 backdrop-blur-md border-b border-[#B98532]/25 py-3 mb-10 overflow-x-auto no-scrollbar -mx-4 px-4 md:-mx-8 md:px-8">
-            <div className="flex items-center gap-6 md:gap-8 font-sans text-xs font-bold uppercase tracking-[0.2em]">
-              <button
-                id="rail-btn-ALL"
-                onClick={() => handleRailClick("ALL")}
-                className={`relative py-2 shrink-0 transition-colors ${
-                  selectedCategory === "ALL" ? "text-[#8F1115]" : "text-[#350709]/60 hover:text-[#350709]"
-                }`}
-              >
-                <span>01 ALL</span>
-                {selectedCategory === "ALL" && (
-                  <motion.svg className="absolute bottom-0 left-0 w-full h-1 text-[#8F1115]" viewBox="0 0 100 10" preserveAspectRatio="none">
-                    <motion.path d="M0,5 C30,2 70,8 100,5" fill="none" stroke="currentColor" strokeWidth="3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.3 }} />
-                  </motion.svg>
-                )}
-              </button>
-
-              {categories.map((cat, index) => {
-                const displayIndex = String(index + 2).padStart(2, "0");
-                const isSelected = selectedCategory === cat.name;
-                const slug = cat.name.replace(/[^a-z0-9]+/g, "-");
-                return (
-                  <button
-                    key={cat.id}
-                    id={`rail-btn-${slug}`}
-                    onClick={() => handleRailClick(cat.name)}
-                    className={`relative py-2 shrink-0 transition-colors ${
-                      isSelected ? "text-[#8F1115]" : "text-[#350709]/60 hover:text-[#350709]"
-                    }`}
-                  >
-                    <span>{displayIndex} {cat.name}</span>
-                    {isSelected && (
-                      <motion.svg className="absolute bottom-0 left-0 w-full h-1 text-[#8F1115]" viewBox="0 0 100 10" preserveAspectRatio="none">
-                        <motion.path d="M0,5 C30,2 70,8 100,5" fill="none" stroke="currentColor" strokeWidth="3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.3 }} />
-                      </motion.svg>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        )}
 
         {/* 4. Curated Recommendations: Maurya Favourites */}
         {!searchQuery && !selectedMood && selectedCategory === "ALL" && (
