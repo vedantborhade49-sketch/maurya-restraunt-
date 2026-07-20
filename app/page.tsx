@@ -142,22 +142,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Bottom Meta & Scroll Indicator */}
-            <div className="content-grid flex items-center justify-between border-t border-[#9A5C3B]/20 pt-6">
-              <div className="flex items-center gap-4 font-mono text-[9px] uppercase tracking-[0.2em] text-[#F8F5EF]/50">
-                <span>KONDHWA, PUNE</span>
-                <span className="text-[#9A5C3B]">·</span>
-                <span>SINCE 1998</span>
-              </div>
-
-              {/* Scroll Indicator */}
-              <div className="flex items-center gap-3 text-[#F8F5EF]/60">
-                <span className="font-mono text-[9px] uppercase tracking-[0.25em] hidden sm:inline">Scroll to Discover</span>
-                <div className="w-5 h-8 border border-[#9A5C3B]/40 rounded-full flex justify-center pt-1.5">
-                  <div className="w-1 h-2 bg-[#9A5C3B] rounded-full animate-bounce" />
-                </div>
-              </div>
-            </div>
           </div>
 
         </section>
