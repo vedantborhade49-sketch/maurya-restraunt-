@@ -45,7 +45,7 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative w-full bg-[#161413] text-[#F8F5EF] pt-16 pb-12 font-sans select-none z-30"
+      className="relative w-full bg-[#161413] text-[#F8F5EF] pt-20 pb-16 font-sans select-none z-30"
     >
       {/* ── AUTHENTIC ORGANIC TORN PAPER EDGE TRANSITION ────────────────── */}
       <div className="absolute top-0 left-0 w-full -translate-y-[99%] pointer-events-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.25)] z-30 leading-none">
@@ -70,10 +70,10 @@ export default function Footer() {
 
       </div>
 
-      <div className="container-maurya relative z-10 pt-4 space-y-12">
+      <div className="container-maurya relative z-10 pt-4 space-y-14">
         
-        {/* ── 4 COMPACT CALM COLUMNS ───────────────────────────────────────── */}
-        <div className="content-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 text-left">
+        {/* ── 4 CALM COLUMNS ───────────────────────────────────────────────── */}
+        <div className="content-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 text-left">
           
           {/* Column 1: MAURYA LOGO / VISIT */}
           <div className="quiet-goodbye-col space-y-4">
@@ -81,22 +81,22 @@ export default function Footer() {
               <img
                 src="/morya-logo.png"
                 alt="Maurya"
-                className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                className="h-12 md:h-14 w-auto object-contain transition-transform duration-300 hover:scale-105"
               />
             </Link>
-            <div className="space-y-2 text-xs font-light text-[#F8F5EF]/75 leading-relaxed">
-              <p className="font-serif italic font-medium text-sm text-[#F8F5EF]">Pure Veg Heritage</p>
+            <div className="space-y-2.5 text-sm md:text-base font-light text-[#F8F5EF]/80 leading-relaxed">
+              <p className="font-serif italic font-medium text-base md:text-lg text-[#F8F5EF]">Pure Veg Heritage</p>
               <p>Shop 1/2, Near Tilekar Nagar, Kamthe Pat, Kondhwa Khurd, Pune 411048</p>
-              <p className="text-[#9A5C3B] font-mono text-[11px] pt-1">Open Daily: 11:00 AM – 11:00 PM</p>
+              <p className="text-[#9A5C3B] font-mono text-xs sm:text-sm pt-1">Open Daily: 11:00 AM – 11:00 PM</p>
               <div className="pt-2">
                 <a
                   href="https://maps.google.com/?q=Maurya+Pure+Veg+Restaurant+Kondhwa+Pune"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[#F8F5EF] hover:text-[#9A5C3B] transition-colors font-mono text-[10px] uppercase tracking-wider font-bold"
+                  className="inline-flex items-center gap-2 text-[#F8F5EF] hover:text-[#9A5C3B] transition-colors font-mono text-xs sm:text-sm uppercase tracking-wider font-bold"
                 >
                   <span>Get Directions</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#9A5C3B]" />
+                  <ArrowUpRight className="w-4 h-4 text-[#9A5C3B]" />
                 </a>
               </div>
             </div>
@@ -104,10 +104,10 @@ export default function Footer() {
 
           {/* Column 2: EXPLORE */}
           <div className="quiet-goodbye-col space-y-4">
-            <h3 className="font-mono text-xs text-[#9A5C3B] font-bold uppercase tracking-[0.25em]">
+            <h3 className="font-mono text-sm text-[#9A5C3B] font-bold uppercase tracking-[0.25em]">
               EXPLORE
             </h3>
-            <ul className="space-y-2.5 text-xs font-light text-[#F8F5EF]/75">
+            <ul className="space-y-3 text-sm md:text-base font-light text-[#F8F5EF]/80">
               <li>
                 <Link href="/menu" className="hover:text-[#9A5C3B] transition-colors">
                   The Menu
@@ -133,25 +133,25 @@ export default function Footer() {
 
           {/* Column 3: CONTACT */}
           <div className="quiet-goodbye-col space-y-4">
-            <h3 className="font-mono text-xs text-[#9A5C3B] font-bold uppercase tracking-[0.25em]">
+            <h3 className="font-mono text-sm text-[#9A5C3B] font-bold uppercase tracking-[0.25em]">
               CONTACT
             </h3>
-            <ul className="space-y-2.5 text-xs font-light text-[#F8F5EF]/75">
+            <ul className="space-y-3 text-sm md:text-base font-light text-[#F8F5EF]/80">
               <li>
-                <a href="tel:+917030777051" className="inline-flex items-center gap-2 hover:text-[#9A5C3B] transition-colors">
-                  <Phone className="w-3.5 h-3.5 text-[#9A5C3B]" />
+                <a href="tel:+917030777051" className="inline-flex items-center gap-2.5 hover:text-[#9A5C3B] transition-colors">
+                  <Phone className="w-4 h-4 text-[#9A5C3B]" />
                   <span>+91 70307 77051</span>
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/917030777051" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[#9A5C3B] transition-colors">
-                  <MessageSquare className="w-3.5 h-3.5 text-[#9A5C3B]" />
+                <a href="https://wa.me/917030777051" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 hover:text-[#9A5C3B] transition-colors">
+                  <MessageSquare className="w-4 h-4 text-[#9A5C3B]" />
                   <span>WhatsApp Booking</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:info@mauryapureveg.com" className="inline-flex items-center gap-2 hover:text-[#9A5C3B] transition-colors">
-                  <Mail className="w-3.5 h-3.5 text-[#9A5C3B]" />
+                <a href="mailto:info@mauryapureveg.com" className="inline-flex items-center gap-2.5 hover:text-[#9A5C3B] transition-colors">
+                  <Mail className="w-4 h-4 text-[#9A5C3B]" />
                   <span>info@mauryapureveg.com</span>
                 </a>
               </li>
@@ -160,18 +160,18 @@ export default function Footer() {
 
           {/* Column 4: FOLLOW */}
           <div className="quiet-goodbye-col space-y-4">
-            <h3 className="font-mono text-xs text-[#9A5C3B] font-bold uppercase tracking-[0.25em]">
+            <h3 className="font-mono text-sm text-[#9A5C3B] font-bold uppercase tracking-[0.25em]">
               FOLLOW
             </h3>
-            <ul className="space-y-2.5 text-xs font-light text-[#F8F5EF]/75">
+            <ul className="space-y-3 text-sm md:text-base font-light text-[#F8F5EF]/80">
               <li>
                 <a
                   href="https://www.instagram.com/restaurant_mauryaveg?igsh=djFnNDV6N2c1dTN1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 hover:text-[#9A5C3B] transition-colors group"
+                  className="inline-flex items-center gap-2.5 hover:text-[#9A5C3B] transition-colors group"
                 >
-                  <Instagram className="w-3.5 h-3.5 text-[#9A5C3B]" />
+                  <Instagram className="w-4 h-4 text-[#9A5C3B]" />
                   <span>Instagram</span>
                 </a>
               </li>
@@ -191,7 +191,7 @@ export default function Footer() {
         </div>
 
         {/* ── BOTTOM COPYRIGHT & SIGNATURE STRIP ──────────────────────────── */}
-        <div className="content-grid pt-8 border-t border-[#9A5C3B]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left font-mono text-[10px] text-[#F8F5EF]/50">
+        <div className="content-grid pt-8 border-t border-[#9A5C3B]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left font-mono text-xs sm:text-sm text-[#F8F5EF]/60">
           <p>© 2026 Maurya Pure Veg. All rights reserved.</p>
 
           <p className="flex items-center gap-1.5">
