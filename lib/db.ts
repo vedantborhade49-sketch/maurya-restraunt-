@@ -218,7 +218,7 @@ export const db = {
   async getCategories() {
     if (supabase) {
       const { data, error } = await supabase.from("categories").select("*").order("display_order");
-      if (!error) return data;
+      if (!error && data && data.length > 0) return data;
     }
     const dbData = getMockDB();
     return dbData.categories;
@@ -247,7 +247,7 @@ export const db = {
   async getMenuItems() {
     if (supabase) {
       const { data, error } = await supabase.from("menu_items").select("*").order("display_order");
-      if (!error) return data;
+      if (!error && data && data.length > 0) return data;
     }
     const dbData = getMockDB();
     return dbData.items;

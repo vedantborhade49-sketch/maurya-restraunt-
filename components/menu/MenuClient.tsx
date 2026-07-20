@@ -11,6 +11,8 @@ import FloatingFoodPreview from "./FloatingFoodPreview";
 import MenuFinalCTA from "./MenuFinalCTA";
 import BrassDivider from "../ui/BrassDivider";
 
+import menuData from "../../maurya_menu.json";
+
 interface MenuClientProps {
   initialCategories: any[];
   initialItems: MenuItem[];
@@ -45,8 +47,60 @@ const CATEGORY_SUBTITLES: Record<string, string> = {
 };
 
 export default function MenuClient({ initialCategories, initialItems }: MenuClientProps) {
-  const [categories] = useState(initialCategories);
-  const [items] = useState<MenuItem[]>(initialItems);
+  const fallbackCategories = useMemo(() => {
+    return Object.keys(menuData).map((catName, idx) => ({
+      id: `cat-${idx + 1}`,
+      name: catName,
+      slug: catName.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+      display_order: idx + 1,
+    }));
+  }, []);
+
+  const fallbackItems = useMemo(() => {
+    const list: MenuItem[] = [];
+    let counter = 1;
+    Object.entries(menuData).forEach(([catName, dishList]) => {
+      (dishList as any[]).forEach((dish) => {
+        list.push({
+          id: dish.id || `item-${counter++}`,
+          name: dish.name,
+          price: dish.price,
+          description: dish.description || `${dish.name} - Freshly prepared using signature Maurya ingredients.`,
+          image_url:
+            dish.image_url && dish.image_url.trim() !== ""
+              ? dish.image_url
+              : catName.toUpperCase().includes("STARTER") || catName.toUpperCase().includes("SOUP")
+              ? "/editorial-food-starters.png"
+              : catName.toUpperCase().includes("DOSA") || catName.toUpperCase().includes("UTTAPAM")
+              ? "/editorial-food-dosa.png"
+              : catName.toUpperCase().includes("MAIN")
+              ? "/editorial-food-mains.png"
+              : catName.toUpperCase().includes("RICE")
+              ? "/editorial-food-rice.png"
+              : catName.toUpperCase().includes("DESSERT")
+              ? "/editorial-food-desserts.png"
+              : catName.toUpperCase().includes("BEVERAGE")
+              ? "/editorial-food-beverages.png"
+              : "/editorial-food-starters.png",
+          category: catName,
+          is_veg: true,
+          is_available: true,
+          is_bestseller: dish.price > 200,
+          is_signature: dish.name.toLowerCase().includes("maratha") || dish.name.toLowerCase().includes("special"),
+          is_spicy: dish.name.toLowerCase().includes("chilli") || dish.name.toLowerCase().includes("maratha"),
+          tags: ["quick"],
+        });
+      });
+    });
+    return list;
+  }, []);
+
+  const [categories] = useState(
+    initialCategories && initialCategories.length > 0 ? initialCategories : fallbackCategories
+  );
+  const [items] = useState<MenuItem[]>(
+    initialItems && initialItems.length > 0 ? initialItems : fallbackItems
+  );
   const [selectedCategory, setSelectedCategory] = useState("ALL");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
