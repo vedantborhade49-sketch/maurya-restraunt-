@@ -47,34 +47,25 @@ export default function Footer() {
       ref={footerRef}
       className="relative w-full bg-[#161413] text-[#F8F5EF] pt-16 pb-12 font-sans select-none z-30"
     >
-      {/* ── REALISTIC BRUSH STROKE / DISTRESSED INK TEAR TOP EDGE (MATCHING USER REFERENCE) ── */}
-      <div className="absolute top-0 left-0 w-full -translate-y-[99%] pointer-events-none z-30 leading-none overflow-visible">
+      {/* ── AUTHENTIC ORGANIC TORN PAPER EDGE TRANSITION ────────────────── */}
+      <div className="absolute top-0 left-0 w-full -translate-y-[99%] pointer-events-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.25)] z-30 leading-none">
         
-        {/* Layer 1: Fine Dry-Brush Bristle Scratches & Floating Ink Texture */}
+        {/* Layer 1: Under-Tear Deckle Paper Shadow Accent */}
         <svg
-          viewBox="0 0 1200 60"
+          viewBox="0 0 1200 45"
           preserveAspectRatio="none"
-          className="w-full h-12 md:h-16 text-[#161413] fill-none stroke-current opacity-70 absolute -top-1 left-0"
+          className="w-full h-10 md:h-14 text-[#EFE8DB] fill-current absolute top-1 left-0 opacity-80"
         >
-          <path
-            d="M50,12 L120,15 M180,9 L260,14 M340,18 L420,22 M520,10 L610,16 M700,8 L780,12 M850,14 L940,19 M1010,11 L1120,16"
-            strokeWidth="1.5"
-            strokeDasharray="4 2 8 3"
-          />
-          <path
-            d="M20,16 L90,18 M290,12 L360,15 M480,24 L560,28 M640,12 L730,16 M810,10 L890,14 M980,18 L1060,21"
-            strokeWidth="1.0"
-            strokeDasharray="2 4 6 2"
-          />
+          <path d="M0,0 L1200,0 L1200,20 C1160,30 1120,16 1080,24 C1040,32 1000,18 960,26 C920,14 880,22 840,16 C800,10 760,24 720,18 C680,12 640,26 600,18 C560,10 520,22 480,16 C440,24 400,14 360,22 C320,30 280,18 240,24 C200,14 160,22 120,16 C80,10 40,22 0,16 Z" />
         </svg>
 
-        {/* Layer 2: Main Dark Charcoal Painted Brush Stroke Body */}
+        {/* Layer 2: Main Ivory Ripped Paper Sheet */}
         <svg
-          viewBox="0 0 1200 60"
+          viewBox="0 0 1200 45"
           preserveAspectRatio="none"
-          className="w-full h-12 md:h-16 text-[#161413] fill-current relative"
+          className="w-full h-10 md:h-14 text-[#F8F5EF] fill-current relative"
         >
-          <path d="M0,60 L0,18 L8,24 L14,19 L21,26 L27,21 L34,28 L40,23 L47,29 L53,24 L60,31 L66,26 L73,32 L79,27 L86,33 L92,28 L99,35 L105,30 L112,36 L118,31 L125,37 L131,32 L138,38 L144,33 L151,40 L157,35 L164,41 L170,36 L177,42 L183,37 L190,43 L196,38 L203,44 L209,39 L216,45 L222,40 L229,46 L235,41 L242,47 L248,42 L255,48 L261,43 L268,49 L274,44 L281,50 L287,45 L294,51 L300,46 L307,51 L313,46 L320,52 L326,47 L333,52 L339,47 L346,53 L352,48 L359,53 L365,48 L372,54 L378,49 L385,54 L391,49 L398,53 L404,48 L411,53 L417,48 L424,52 L430,47 L437,52 L443,47 L450,51 L456,46 L463,51 L469,46 L476,50 L482,45 L489,50 L495,45 L502,49 L508,44 L515,49 L521,44 L528,48 L534,43 L541,48 L547,43 L554,47 L560,42 L567,47 L573,42 L580,46 L586,41 L593,46 L599,41 L606,45 L612,40 L619,45 L625,40 L632,44 L638,39 L645,44 L651,39 L658,43 L664,38 L671,43 L677,38 L684,42 L690,37 L697,42 L703,37 L710,41 L716,36 L723,41 L729,36 L736,40 L742,35 L749,40 L755,35 L762,39 L768,34 L775,39 L781,34 L788,38 L794,33 L801,38 L807,33 L814,37 L820,32 L827,37 L833,32 L840,36 L846,31 L853,36 L859,31 L866,35 L872,30 L879,35 L885,30 L892,34 L898,29 L905,34 L911,29 L918,33 L924,28 L931,33 L937,28 L944,32 L950,27 L957,32 L963,27 L970,31 L976,26 L983,31 L989,26 L996,30 L1002,25 L1009,30 L1015,25 L1022,29 L1028,24 L1035,29 L1041,24 L1048,28 L1054,23 L1061,28 L1067,23 L1074,27 L1080,22 L1087,27 L1093,22 L1100,26 L1106,21 L1113,26 L1119,21 L1126,25 L1132,20 L1139,25 L1145,20 L1152,24 L1158,19 L1165,24 L1171,19 L1178,23 L1184,18 L1191,23 L1197,18 L1200,21 L1200,60 Z" />
+          <path d="M0,0 L1200,0 L1200,18 C1170,26 1140,14 1110,22 C1080,30 1050,16 1020,24 C990,32 960,18 930,26 C900,14 870,22 840,16 C810,10 780,24 750,18 C720,12 690,26 660,18 C630,10 600,22 570,16 C540,24 510,14 480,22 C450,30 420,18 390,24 C360,14 330,22 300,16 C270,10 240,24 210,18 C180,12 150,22 120,16 C90,24 60,14 30,22 C15,18 0,20 0,20 Z" />
         </svg>
 
       </div>
