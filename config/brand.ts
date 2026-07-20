@@ -47,6 +47,7 @@ export const BRAND_COPY = {
   location: "Kondhwa Khurd, Pune",
   phone: "+91 70307 77051",
   whatsappUrl: "https://wa.me/917030777051",
+  instagramUrl: "https://www.instagram.com/restaurant_mauryaveg?igsh=djFnNDV6N2c1dTN1",
 } as const;
 
 export const BRAND_VOCABULARY = {

@@ -12,7 +12,6 @@ import {
   ShoppingBag, 
   MessageSquare,
   Instagram,
-  Facebook,
   MapPin,
   Phone,
   Mail,
@@ -296,7 +295,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3.5 text-sm font-medium text-[#F8F6F1]/80">
               <li>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[#B98532] transition-colors">
+                <a href="https://www.instagram.com/restaurant_mauryaveg?igsh=djFnNDV6N2c1dTN1" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[#B98532] transition-colors">
                   <span>Instagram</span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-[#B98532] stroke-[2]" />
                 </a>
@@ -305,12 +304,6 @@ export default function Footer() {
                 <Link href="/reviews" className="inline-flex items-center gap-2 hover:text-[#B98532] transition-colors">
                   <span>Google Reviews (4.5★)</span>
                 </Link>
-              </li>
-              <li>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[#B98532] transition-colors">
-                  <span>Facebook</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#B98532] stroke-[2]" />
-                </a>
               </li>
             </ul>
           </div>
@@ -340,7 +333,7 @@ export default function Footer() {
           {/* Social Links Row */}
           <div className="footer-social-links flex items-center justify-center gap-6">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/restaurant_mauryaveg?igsh=djFnNDV6N2c1dTN1"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -356,15 +349,6 @@ export default function Footer() {
               className="p-3 border border-[#B98532]/30 text-[#F8F6F1]/80 hover:text-[#B98532] hover:border-[#B98532] transition-all duration-250 hover:-translate-y-0.5"
             >
               <MessageSquare className="w-4 h-4 stroke-[1.5]" />
-            </a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="p-3 border border-[#B98532]/30 text-[#F8F6F1]/80 hover:text-[#B98532] hover:border-[#B98532] transition-all duration-250 hover:-translate-y-0.5"
-            >
-              <Facebook className="w-4 h-4 stroke-[1.5]" />
             </a>
           </div>
 
