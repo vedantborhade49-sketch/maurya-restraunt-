@@ -219,7 +219,7 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
 
   return (
     <div 
-      className="min-h-screen bg-[#F3E8D4] text-[#350709] pt-24 pb-20 relative overflow-x-hidden font-sans"
+      className="min-h-screen bg-[#F8F6F1] text-[#350709] pt-24 pb-20 relative overflow-x-hidden font-sans"
       onMouseMove={handleMouseMove}
       style={{
         backgroundImage: `url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjAwIDIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48ZmlsdGVyIGlkPSdub2lzZSc+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuNjUnIG51bU9jdGF2ZXM9JzMnIHN0aXRjaFRpbGVzPSdzdGl0Y2gnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9J3VybCgjbm9pc2UpJyBvcGFjaXR5PScwLjAyJy8+PC9zdmc+")`,
@@ -240,7 +240,7 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
               THE MAURYA KITCHEN
             </motion.span>
             <motion.h2 
-              className="font-heading text-4xl md:text-5xl text-[#F3E8D4] max-w-md mb-6 leading-tight"
+              className="font-heading text-4xl md:text-5xl text-[#F8F6F1] max-w-md mb-6 leading-tight"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0, transition: { delay: 0.4, duration: 0.6 } }}
             >
@@ -264,11 +264,11 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
         )}
       </AnimatePresence>
 
-      {/* Repeating Luxury Indian Diamond Pattern Background */}
+      {/* Subtle Brass Accent Overlay */}
       <div 
-        className="absolute inset-0 z-0 pointer-events-none opacity-100"
+        className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]"
         style={{
-          backgroundImage: `url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nNjAnIGhlaWdodD0nNjAnIHZpZXdCb3g9JzAgMCA2MCA2MCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cGF0aCBkPSdNMzAgMCBMNjAgMzAgTDMwIDYwIEwwIDMwIFonIGZpbGw9J25vbmUnIHN0cm9rZT0nI0I5ODUzMicgc3Ryb2tlLXdpZHRoPScwLjc1JyBvcGFjaXR5PScwLjA4Jy8+PHBhdGggZD0nTTMwIDI0IEwzMiAzMCBMMzAgMzYgTDI4IDMwIFonIGZpbGw9JyNCOTg1MzInIG9wYWNpdHk9JzAuMTInLz48cGF0aCBkPSdNMjQgMzAgTDMwIDI4IEwzNiAzMCBMMzAgMzIgWicgZmlsbD0nI0I5ODUzMicgb3BhY2l0eT0nMC4xMicvPjxjaXJjbGUgY3g9JzAnIGN5PScwJyByPScxLjUnIGZpbGw9JyNCOTg1MzInIG9wYWNpdHk9JzAuMTUnLz48Y2lyY2xlIGN4PSc2MCcgY3k9JzAnIHI9JzEuNScgZmlsbD0nI0I5ODUzMicgb3BhY2l0eT0nMC4xNScvPjxjaXJjbGUgY3g9JzAnIGN5PSc2MCcgcj0nMS41JyBmaWxsPScjQjk4NTMyJyBvcGFjaXR5PScwLjE1Jy8+PGNpcmNsZSBjeD0nNjAnIGN5PSc2MCcgcj0nMS41JyBmaWxsPScjQjk4NTMyJyBvcGFjaXR5PScwLjE1Jy8+PC9zdmc+")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%23B98532' stroke-width='0.75'%3E%3Cpath d='M0 0l40 40L0 80'/%3E%3Cpath d='M80 0L40 40l40 40'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           backgroundRepeat: "repeat",
         }}
       />
@@ -341,7 +341,7 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
 
         {/* 3. Horizontal Sticky Category Rail */}
         {!searchQuery.trim() && (
-          <div className="sticky top-20 z-40 w-full bg-[#F3E8D4]/95 backdrop-blur-md border-b border-[#350709]/10 py-3 mb-10 overflow-x-auto no-scrollbar -mx-4 px-4 md:-mx-8 md:px-8">
+          <div className="sticky top-20 z-40 w-full bg-[#F8F6F1]/95 backdrop-blur-md border-b border-[#B98532]/25 py-3 mb-10 overflow-x-auto no-scrollbar -mx-4 px-4 md:-mx-8 md:px-8">
             <div className="flex items-center gap-6 md:gap-8 font-sans text-xs font-bold uppercase tracking-[0.2em]">
               <button
                 id="rail-btn-ALL"
