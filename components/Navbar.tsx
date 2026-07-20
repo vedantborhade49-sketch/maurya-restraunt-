@@ -57,7 +57,11 @@ export default function Navbar() {
     <>
       <header
         ref={navRef}
-        className="fixed top-0 left-0 w-full z-50 flex items-center justify-between h-20 px-6 md:px-12 lg:px-20 border-b border-white/10 bg-[#0B0908]/90 backdrop-blur-md transition-all duration-300"
+        className={`fixed top-0 left-0 w-full z-50 flex items-center justify-between transition-all duration-500 border-b border-[#B98532]/30 ${
+          isExpanded
+            ? "h-16 px-6 md:px-12 lg:px-16 bg-[#350709]/95 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+            : "h-20 px-6 md:px-12 lg:px-20 bg-[#0B0908]/90 backdrop-blur-md"
+        }`}
         id="main-navbar"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E")`,
@@ -75,7 +79,7 @@ export default function Navbar() {
         {/* Center Nav links */}
         <div className="hidden md:flex items-center justify-center flex-1 px-8 overflow-hidden">
           <nav 
-            className="flex items-center gap-8 lg:gap-10 font-sans text-xs uppercase tracking-[0.2em] font-semibold text-[#F3E8D4]/80 transition-all duration-500"
+            className="flex items-center gap-8 lg:gap-10 font-sans text-xs uppercase tracking-[0.2em] font-semibold text-[#F8F6F1]/85 transition-all duration-500"
           >
             {navItems.map((item, i) => {
               const isActive = pathname === item.href;
@@ -83,7 +87,7 @@ export default function Navbar() {
                 <Link
                   key={i}
                   href={item.href}
-                  className="group relative cursor-pointer py-1.5 transition-colors hover:text-[#F3E8D4]"
+                  className="group relative cursor-pointer py-1.5 transition-colors hover:text-[#F8F6F1]"
                 >
                   <span className="relative overflow-hidden block">
                     <span className="block transition-transform duration-300 group-hover:-translate-y-full">{item.label}</span>
@@ -105,11 +109,11 @@ export default function Navbar() {
           {/* Desktop View Order Button */}
           <button
             onClick={() => setIsOpen(true)}
-            className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-[#8F1115] hover:bg-[#8F1115]/90 text-[#F3E8D4] border border-[#B98532]/35 rounded-xl font-sans text-[10px] font-bold uppercase tracking-[0.2em] transition-all hover:scale-[1.03] active:scale-95 shadow-[0_4px_15px_rgba(143,17,21,0.25)] shrink-0"
+            className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-[#350709] hover:bg-[#250406] text-[#F8F6F1] border border-[#B98532]/60 rounded-none font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-all hover:-translate-y-0.5 active:translate-y-0 shrink-0 cursor-pointer"
           >
             <span>VIEW ORDER</span>
             {itemCount > 0 && (
-              <span className="font-mono text-[10px] bg-[#B98532] text-[#350709] font-bold px-2 py-0.5 rounded-full shadow-inner animate-[pulse_2s_infinite]">
+              <span className="font-mono text-[10px] bg-[#B98532] text-[#350709] font-bold px-2 py-0.5 rounded-full">
                 {itemCount}
               </span>
             )}

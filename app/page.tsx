@@ -9,6 +9,9 @@ import Chapter03 from "@/sections/Chapter03/Chapter03";
 import Chapter04 from "@/sections/Chapter04/Chapter04";
 
 
+import PureVegPromise from "@/sections/PureVegPromise/PureVegPromise";
+import Guestbook from "@/sections/Guestbook/Guestbook";
+
 export default function Home() {
   const videoRef       = useRef<HTMLVideoElement>(null);
   const overlayRef     = useRef<HTMLDivElement>(null);
@@ -128,6 +131,8 @@ export default function Home() {
         <EditorialSequence />
         <Chapter03 />
         <Chapter04 />
+        <PureVegPromise />
+        <Guestbook />
       </main>
     </>
   );
