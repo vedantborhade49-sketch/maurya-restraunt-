@@ -3,79 +3,55 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import EditorialImage from "@/components/EditorialImage";
 
 export default function Chapter08FinalScene() {
   const containerRef = useRef<HTMLElement>(null);
-  const textRef = useRef<HTMLHeadingElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
-  const signatureRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 70%",
-          end: "bottom bottom",
-          scrub: true,
+      gsap.fromTo(
+        textRef.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 70%",
+          },
         }
-      });
-
-      // Subtle scale down on background to reveal more of the scene
-      tl.fromTo(imageRef.current,
-        { scale: 1.1 },
-        { scale: 1, ease: "none", duration: 1 },
-        0
       );
-
-      // Typography rises up
-      tl.fromTo(textRef.current,
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, ease: "power2.out", duration: 1 },
-        0.3
-      );
-      
-      // Signature fades in
-      tl.fromTo(signatureRef.current,
-        { opacity: 0 },
-        { opacity: 1, ease: "power2.out", duration: 1 },
-        0.6
-      );
-
     }, containerRef);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full h-screen bg-[#3A0F16] overflow-hidden flex flex-col items-center justify-center">
+    <section ref={containerRef} className="relative w-full h-screen min-h-[600px] bg-[#350709] text-[#F8F6F1] overflow-hidden flex flex-col items-center justify-center select-none">
       
       {/* Night Scene Background Image */}
-      <div className="absolute inset-0 w-full h-full z-0">
-        <div ref={imageRef} className="w-full h-full">
-          <ImagePlaceholder 
-            category="Final Scene" 
-            description="Night. Restaurant glowing. Warm interior visible through glass. Prepared table. No people. The restaurant waits." 
-            aspectRatio="h-full" 
-          />
-        </div>
-        {/* Deep maroon gradient overlay merging into the contact page */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#3A0F16] via-transparent to-[#3A0F16] opacity-90 mix-blend-multiply pointer-events-none" />
+      <div className="absolute inset-0 w-full h-full z-0 opacity-40">
+        <EditorialImage src="/editorial-entrance.png" alt="Night Scene at Maurya" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0908]/90 via-[#350709]/70 to-[#0B0908]/95" />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center text-center px-6 mt-32">
-        <h2 
-          ref={textRef}
-          className="font-serif text-6xl md:text-8xl lg:text-[9vw] leading-[0.9] text-[#F6F1E8] tracking-tight mb-16"
-        >
-          <span className="block">Until</span>
-          <span className="block italic text-[#B98555]">Next Sunday.</span>
+      <div ref={textRef} className="relative z-10 text-center max-w-4xl px-6 space-y-6">
+        <span className="font-mono text-[10px] md:text-xs uppercase tracking-[0.35em] font-bold text-[#B98532] block">
+          CHAPTER 08 — UNTIL TONIGHT
+        </span>
+
+        <h2 className="font-serif text-5xl sm:text-7xl md:text-8xl leading-[0.95] text-[#F8F6F1] font-normal">
+          The Lights Are On.<br />
+          <span className="italic text-[#B98532] font-serif block mt-2">The Table Is Prepared.</span>
         </h2>
-        
-        <div ref={signatureRef} className="flex flex-col items-center">
-          <img src="/morya-logo.png" alt="Maurya Signature" className="h-6 md:h-8 w-auto brightness-0 invert opacity-60 mb-4" />
-          <p className="font-mono text-[8px] uppercase tracking-[0.4em] text-[#F6F1E8]/40">Since 2003</p>
-        </div>
+
+        <p className="font-sans text-sm md:text-base text-[#F8F6F1]/80 max-w-md mx-auto font-light leading-relaxed pt-2">
+          We look forward to welcoming you to Maurya Pure Veg.
+        </p>
       </div>
 
     </section>

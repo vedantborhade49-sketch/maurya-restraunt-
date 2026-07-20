@@ -6,51 +6,67 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Chapter01Invitation() {
   const containerRef = useRef<HTMLElement>(null);
-  const textRef = useRef<HTMLHeadingElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
-      // Breathing animation independent of scroll
-      gsap.to(textRef.current, {
-        scale: 1.02,
-        opacity: 0.9,
-        duration: 4,
-        yoyo: true,
-        repeat: -1,
-        ease: "sine.inOut"
-      });
-
-      // Pin and hold for a cinematic pause on scroll
-      gsap.to(containerRef.current, {
+      // Pin hero & zoom background
+      gsap.to(bgRef.current, {
+        scale: 1.08,
+        ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=150%",
-          pin: true,
+          end: "bottom top",
           scrub: true,
-        }
+        },
       });
+
+      gsap.fromTo(
+        textRef.current,
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" }
+      );
     }, containerRef);
+
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full h-screen bg-[#F6F1E8] flex flex-col justify-center px-12 md:px-24 overflow-hidden">
-      
-      <div className="absolute top-[15%] left-12 md:left-24">
-        <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#B98555] font-bold block mb-1">VISIT</span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#B98555] font-bold block">MAURYA</span>
+    <section
+      ref={containerRef}
+      className="relative w-full h-screen min-h-[650px] flex flex-col justify-center px-8 md:px-20 overflow-hidden bg-[#350709] text-[#F8F6F1] select-none"
+    >
+      {/* Background Image & Overlay */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div
+          ref={bgRef}
+          className="w-full h-full bg-cover bg-center bg-no-repeat transition-transform opacity-50"
+          style={{ backgroundImage: `url('/editorial-entrance.png')` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0908]/85 via-[#350709]/60 to-[#0B0908]/90" />
       </div>
 
-      <h1 
-        ref={textRef}
-        className="font-serif text-[12vw] md:text-[10vw] leading-[0.85] tracking-tight text-[#1F1F1F] max-w-[90vw]"
-      >
-        We'll Keep<br />
-        A Table<br />
-        <span className="italic text-[#B98555]">Ready.</span>
-      </h1>
+      <div ref={textRef} className="relative z-10 space-y-6 max-w-5xl">
+        <div className="flex items-center gap-3">
+          <span className="w-8 h-[1px] bg-[#B98532]" />
+          <span className="font-mono text-[10px] md:text-xs uppercase tracking-[0.35em] font-bold text-[#B98532]">
+            THE ART OF ARRIVAL — VISIT MAURYA
+          </span>
+        </div>
 
+        <h1 className="font-serif text-6xl sm:text-8xl md:text-9xl leading-[0.9] tracking-tight text-[#F8F6F1] font-normal">
+          We'll Keep<br />
+          A Table<br />
+          <span className="italic text-[#B98532] font-serif block mt-1">Ready.</span>
+        </h1>
+
+        <p className="font-sans text-sm md:text-base lg:text-lg text-[#F8F6F1]/80 max-w-xl font-light leading-relaxed pt-2">
+          Tilekar Nagar, Kondhwa Khurd, Pune — Open Daily from 11:00 AM to 11:00 PM.
+        </p>
+      </div>
     </section>
   );
 }
