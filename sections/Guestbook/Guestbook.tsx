@@ -69,28 +69,31 @@ export default function Guestbook() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full material-light text-[#272322] py-28 md:py-36 overflow-hidden font-sans border-t border-[#9A5C3B]/20 select-none"
+      className="relative w-full bg-[#161312] text-[#F8F5EF] py-28 md:py-36 overflow-hidden font-sans border-t border-[#9A5C3B]/20 select-none"
     >
-      <div className="container-maurya space-y-16">
+      {/* Warm Ambient Vignette */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(15,13,12,0.9)_100%)] pointer-events-none z-0" />
+
+      <div className="container-maurya relative z-10 space-y-16">
         
         {/* Header Block & Google Rating Summary */}
         <div className="gb-header content-grid text-center space-y-6 max-w-3xl">
           
-          <div className="inline-flex items-center gap-2 px-5 py-2 bg-[#F8F5EF] border border-[#9A5C3B]/30 rounded-full shadow-sm">
+          <div className="inline-flex items-center gap-2 px-5 py-2 bg-[#272322]/80 border border-[#9A5C3B]/40 rounded-full shadow-sm backdrop-blur-md">
             <div className="flex items-center gap-1 text-[#9A5C3B]">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-3.5 h-3.5 fill-[#9A5C3B] stroke-none" />
               ))}
             </div>
-            <span className="font-mono text-[11px] font-bold text-[#272322]">4.8★</span>
-            <span className="text-[#272322]/40 text-xs">·</span>
-            <span className="font-mono text-[10px] text-[#272322]/70 uppercase tracking-wider">Over 880+ Verified Guest Memories</span>
+            <span className="font-mono text-[11px] font-bold text-[#F8F5EF]">4.8★</span>
+            <span className="text-[#F8F5EF]/40 text-xs">·</span>
+            <span className="font-mono text-[10px] text-[#F8F5EF]/80 uppercase tracking-wider">Over 880+ Verified Guest Memories</span>
           </div>
 
-          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl text-[#272322] leading-tight font-normal">
+          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl text-[#F8F5EF] leading-tight font-normal">
             Dining <span className="italic text-[#9A5C3B]">Memories</span>
           </h2>
-          <p className="font-sans text-sm md:text-base text-[#272322]/75 leading-relaxed max-w-xl mx-auto">
+          <p className="font-sans text-sm md:text-base text-[#F8F5EF]/75 leading-relaxed max-w-xl mx-auto">
             Pages from our guestbook and quiet notes left around the table over 28 years of pure vegetarian hospitality.
           </p>
         </div>
@@ -140,7 +143,7 @@ export default function Guestbook() {
         <div className="content-grid text-center pt-4">
           <Link
             href="/reviews"
-            className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] font-bold text-[#272322] border-b border-[#9A5C3B] pb-1 hover:text-[#9A5C3B] transition-colors"
+            className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] font-bold text-[#F8F5EF] border-b border-[#9A5C3B] pb-1 hover:text-[#9A5C3B] transition-colors"
           >
             Read All Guest Stories & Google Reviews →
           </Link>
