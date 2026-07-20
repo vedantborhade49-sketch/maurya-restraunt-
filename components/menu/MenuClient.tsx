@@ -584,8 +584,6 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
                     return (
                       <div 
                         key={item.id}
-                        onMouseEnter={() => setHoveredItem(item)}
-                        onMouseLeave={() => setHoveredItem(null)}
                         className={`flex items-center justify-between min-h-[96px] py-3 border-b border-[#350709]/5 transition-opacity duration-300 ${
                           !item.is_available ? "opacity-50" : ""
                         }`}
@@ -951,9 +949,6 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         <MenuFinalCTA onSelectOption={(m) => setDecideMood(m as any)} />
       </div>
-
-      {/* Desktop Floating Food Preview */}
-      <FloatingFoodPreview item={hoveredItem} mouseX={mousePos.x} mouseY={mousePos.y} />
     </div>
   );
 }
