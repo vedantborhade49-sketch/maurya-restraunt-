@@ -122,43 +122,44 @@ export default function Chapter04() {
   }, []);
 
   return (
-    <section ref={containerRef} className={`relative w-full bg-[#350d0d] text-[#F7F2E8] overflow-hidden z-20 flex flex-col items-center justify-center ${isMobile ? "h-auto py-16" : "h-screen"}`}>
+    <section ref={containerRef} className={`relative w-full material-dark text-[#F8F5EF] overflow-hidden z-20 flex flex-col items-center justify-center ${isMobile ? "h-auto py-16" : "h-screen"}`}>
       
-      {/* Premium Texture & Depth */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.05] mix-blend-overlay" style={{ backgroundImage: "url('/noise.png')", backgroundSize: "150px" }} />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#4d1616]/40 via-transparent to-[#1c0606]/90 pointer-events-none z-10" />
+      {/* Depth Vignette & Brass Glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#472020]/40 via-transparent to-[#161413]/90 pointer-events-none z-10" />
 
       {/* Hero Object / Visual */}
-      <div className={isMobile ? "relative w-[90vw] h-[40vh] mt-8 z-0 overflow-hidden" : "absolute inset-0 flex items-center justify-center z-0 overflow-hidden"}>
+      <div className={isMobile ? "relative w-full h-[40vh] mt-8 z-0 overflow-hidden container-maurya" : "absolute inset-0 flex items-center justify-center z-0 overflow-hidden"}>
         <div ref={imageRef} className={isMobile ? "w-full h-full relative" : "w-[100vw] h-[100vh] md:w-[60vw] md:h-[80vh] relative"}>
           <img 
             src="/editorial-spices.png" 
             alt="The Craft" 
             className="w-full h-full object-cover sepia-[20%]"
           />
-          {/* Subtle gradient overlay on the image to help text pop */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#350d0d] via-[#350d0d]/30 to-transparent" />
+          {/* Gradient overlay on the image to help text pop */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1C1414] via-[#1C1414]/30 to-transparent" />
         </div>
       </div>
 
       {/* Typography and Layout */}
-      <div className={`relative z-20 w-full max-w-[1200px] px-6 flex flex-col items-center text-center ${isMobile ? "mt-8" : "md:px-12 mt-32 md:mt-48"}`}>
+      <div className={`relative z-20 container-maurya flex flex-col items-center text-center ${isMobile ? "mt-8" : "mt-32 md:mt-48"}`}>
         
-        <div className="reveal-accent mb-6 md:mb-12">
-          <MarginNote text="Act II — The Craft" className="text-[#D56A2C]" rotate="0deg" />
-          <div className="w-[1px] h-12 bg-[#D56A2C]/40 mx-auto mt-4"></div>
-        </div>
+        <div className="content-grid flex flex-col items-center">
+          <div className="reveal-accent mb-6 md:mb-12">
+            <MarginNote text="Act II — The Craft" className="text-[#9A5C3B]" rotate="0deg" />
+            <div className="w-[1px] h-12 bg-[#9A5C3B]/40 mx-auto mt-4"></div>
+          </div>
 
-        <h2 ref={headlineRef} className={`font-heading leading-[0.85] tracking-tight uppercase overflow-hidden ${isMobile ? "text-[10vw]" : "text-[12vw] md:text-[8vw]"}`}>
-          <div className="reveal-line">Every Plate Begins</div>
-          <div className="reveal-line italic text-[#D56A2C]">Long Before It</div>
-          <div className="reveal-line">Reaches Your Table</div>
-        </h2>
-        
-        <div className="mt-8 overflow-hidden max-w-[400px]">
-          <p className="reveal-line font-sans text-[14px] md:text-[16px] text-[#F7F2E8]/70 leading-relaxed">
-            The foundation of our cuisine isn't just a recipe. It's the hands that roll the dough, the patience required for overnight slow-cooking, and the uncompromising selection of whole spices.
-          </p>
+          <h2 ref={headlineRef} className={`font-heading leading-[0.85] tracking-tight uppercase overflow-hidden ${isMobile ? "text-[10vw]" : "text-[12vw] md:text-[8vw]"}`}>
+            <div className="reveal-line">Every Plate Begins</div>
+            <div className="reveal-line italic text-[#9A5C3B]">Long Before It</div>
+            <div className="reveal-line">Reaches Your Table</div>
+          </h2>
+          
+          <div className="mt-8 overflow-hidden max-w-[420px] mx-auto">
+            <p className="reveal-line font-sans text-[14px] md:text-[16px] text-[#F8F5EF]/75 leading-relaxed">
+              The foundation of our cuisine isn't just a recipe. It's the hands that roll the dough, the patience required for overnight slow-cooking, and the uncompromising selection of whole spices.
+            </p>
+          </div>
         </div>
 
       </div>

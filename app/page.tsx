@@ -3,13 +3,10 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Link from "next/link";
-import EditorialSequence from "@/sections/EditorialSequence/EditorialSequence";
-import Chapter02 from "@/sections/Chapter02/Chapter02";
+import InvitationSection from "@/sections/Chapter02/InvitationSection";
 import Chapter03 from "@/sections/Chapter03/Chapter03";
-import Chapter04 from "@/sections/Chapter04/Chapter04";
-
-
 import PureVegPromise from "@/sections/PureVegPromise/PureVegPromise";
+import Chapter04 from "@/sections/Chapter04/Chapter04";
 import Guestbook from "@/sections/Guestbook/Guestbook";
 
 export default function Home() {
@@ -61,18 +58,19 @@ export default function Home() {
         </filter>
       </svg>
 
-      <main className="relative w-full bg-[#F8F5EF] text-[#272322] selection:bg-[#6E3236] selection:text-[#F8F5EF]">
+      <main className="relative w-full bg-[#161413] text-[#F8F5EF] selection:bg-[#6B2C2C] selection:text-[#F8F5EF]">
 
         {/* Film grain */}
         <div
-          className="pointer-events-none fixed inset-0 z-[100] opacity-[0.04] mix-blend-multiply"
+          className="pointer-events-none fixed inset-0 z-[100] opacity-[0.035] mix-blend-multiply"
           style={{ filter: "url(#grain)", backgroundColor: "#a09070" }}
         />
 
 
-        {/* ── HERO ────────────────────────────────────────────────── */}
-        <section className="sticky top-0 w-full h-[100dvh] overflow-hidden bg-black z-0">
+        {/* ── 1. HERO (Dark Vintage) ─────────────────────────────────── */}
+        <section className="sticky top-0 w-full h-[100dvh] overflow-hidden bg-[#1C1414] z-0 flex flex-col justify-between">
 
+          {/* Background Layer 1: Ambient Video */}
           <video
             ref={videoRef}
             src="/morya-hero.mp4"
@@ -83,43 +81,90 @@ export default function Home() {
             style={{ opacity: 1 }}
           />
 
+          {/* Background Layer 2: Warm Wall Texture & Dining Room Shadows */}
           <div
             ref={overlayRef}
-            className="absolute inset-0 pointer-events-none"
+            className="absolute inset-0 pointer-events-none z-10"
             style={{
               opacity: 0,
-              background: "linear-gradient(160deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.65) 100%)",
+              background: `
+                radial-gradient(ellipse at 50% 30%, rgba(90,31,31,0.35) 0%, transparent 70%),
+                radial-gradient(circle at center, transparent 40%, rgba(22,20,19,0.85) 100%),
+                linear-gradient(180deg, rgba(22,20,19,0.4) 0%, rgba(22,20,19,0.1) 40%, rgba(22,20,19,0.9) 100%)
+              `,
             }}
           />
 
+          {/* Background Layer 3: Embossed Maurya Watermark & Restrained Brass Sparkles */}
+          <div className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center opacity-[0.06] select-none">
+            <svg viewBox="0 0 300 300" className="w-[45vw] max-w-[500px] h-auto fill-none stroke-[#9A5C3B] stroke-[1]">
+              <circle cx="150" cy="150" r="140" strokeDasharray="4 4" />
+              <circle cx="150" cy="150" r="120" />
+              <path d="M150,30 L170,130 L270,150 L170,170 L150,270 L130,170 L30,150 L130,130 Z" />
+            </svg>
+          </div>
+
+          {/* Restrained Brass Sparkle Accent */}
+          <div className="absolute top-[25%] right-[15%] w-2 h-2 rounded-full bg-[#9A5C3B] blur-[1px] animate-pulse opacity-40 z-10 pointer-events-none" />
+          <div className="absolute bottom-[35%] left-[12%] w-1.5 h-1.5 rounded-full bg-[#9A5C3B] blur-[0.5px] opacity-30 z-10 pointer-events-none" />
+
+          {/* Foreground Hero Content Grid */}
           <div
             ref={heroContentRef}
-            className="absolute inset-0 z-[20] flex flex-col justify-end"
+            className="relative z-[20] container-maurya h-full flex flex-col justify-between pt-24 pb-12 md:pb-16"
             style={{ opacity: 0 }}
           >
-            <div className="max-w-[1400px] mx-auto w-full px-8 md:px-12 pb-16 md:pb-20">
-              <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#F8F5EF]/60 mb-8 leading-relaxed">
-                Issue 001 &nbsp;·&nbsp; Pune
-              </p>
-              <h1 className="font-heading text-[40px] md:text-[56px] leading-[1.0] tracking-tight text-[#F8F5EF] max-w-[380px]">
-                Where families<br />return.
+            {/* Top Logo Reveal */}
+            <div className="content-grid pt-4">
+              <div className="inline-flex items-center gap-3 px-4 py-1.5 bg-[#472020]/60 border border-[#9A5C3B]/30 rounded-full backdrop-blur-md">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#9A5C3B] animate-ping" />
+                <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#F8F5EF]/80 font-semibold">
+                  MAURYA &nbsp;·&nbsp; PURE VEG HERITAGE
+                </span>
+              </div>
+            </div>
+
+            {/* Core Emotional Hook */}
+            <div className="content-grid my-auto">
+              <h1 className="font-heading text-[48px] sm:text-[68px] md:text-[84px] lg:text-[96px] leading-[0.92] tracking-tight text-[#F8F5EF] max-w-[900px]">
+                Every Table<br />
+                <span className="italic text-[#9A5C3B]">Has A Story.</span>
               </h1>
-              <p className="mt-5 font-heading italic text-[15px] md:text-[18px] leading-[1.5] text-[#F8F5EF]/65 max-w-[260px]">
-                A place where every meal<br />becomes a memory.
+
+              <p className="mt-6 font-sans text-[15px] sm:text-[17px] md:text-[19px] leading-[1.6] text-[#F8F5EF]/80 max-w-[540px]">
+                A sanctuary of pure vegetarian dining, where families return for generations, friends celebrate, and every meal becomes a memory.
               </p>
-              <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+
+              {/* Action Buttons */}
+              <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 max-w-[480px]">
+                <Link
+                  href="/visit#reserve"
+                  className="cta-button font-mono text-[11px] uppercase tracking-[0.25em] px-8 py-4 inline-flex items-center justify-center text-center font-bold"
+                >
+                  Reserve a Table
+                </Link>
                 <Link
                   href="/menu"
-                  className="cta-button font-mono text-[10px] uppercase tracking-[0.25em] px-8 py-4 inline-flex items-center justify-center"
+                  className="cta-button-secondary font-mono text-[11px] uppercase tracking-[0.25em] px-8 py-4 inline-flex items-center justify-center text-center font-bold"
                 >
-                  Explore the Menu
+                  View the Menu
                 </Link>
-                <div className="flex items-center gap-5 font-mono text-[8px] uppercase tracking-[0.2em] text-[#F8F5EF]/45">
-                  <span>Pure Veg</span>
-                  <span className="text-[#A56A43]">·</span>
-                  <span>Garden Dining</span>
-                  <span className="text-[#A56A43]">·</span>
-                  <span>Since 1998</span>
+              </div>
+            </div>
+
+            {/* Bottom Meta & Scroll Indicator */}
+            <div className="content-grid flex items-center justify-between border-t border-[#9A5C3B]/20 pt-6">
+              <div className="flex items-center gap-4 font-mono text-[9px] uppercase tracking-[0.2em] text-[#F8F5EF]/50">
+                <span>KONDHWA, PUNE</span>
+                <span className="text-[#9A5C3B]">·</span>
+                <span>SINCE 1998</span>
+              </div>
+
+              {/* Scroll Indicator */}
+              <div className="flex items-center gap-3 text-[#F8F5EF]/60">
+                <span className="font-mono text-[9px] uppercase tracking-[0.25em] hidden sm:inline">Scroll to Discover</span>
+                <div className="w-5 h-8 border border-[#9A5C3B]/40 rounded-full flex justify-center pt-1.5">
+                  <div className="w-1 h-2 bg-[#9A5C3B] rounded-full animate-bounce" />
                 </div>
               </div>
             </div>
@@ -127,12 +172,21 @@ export default function Home() {
 
         </section>
 
-        <Chapter02 />
-        <EditorialSequence />
+        {/* ── 2. STORY (Warm Ivory Paper) ───────────────────────────── */}
+        <InvitationSection />
+
+        {/* ── 3. MENU PREVIEW (Warm Beige) ──────────────────────────── */}
         <Chapter03 />
-        <Chapter04 />
+
+        {/* ── 4. PROMISE (Forest Green) ─────────────────────────────── */}
         <PureVegPromise />
+
+        {/* ── 5. GALLERY / SPACE (Dark Wood Grain) ──────────────────── */}
+        <Chapter04 />
+
+        {/* ── 6. DINING MEMORIES (Guestbook Paper) ──────────────────── */}
         <Guestbook />
+
       </main>
     </>
   );

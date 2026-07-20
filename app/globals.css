@@ -3,31 +3,37 @@
 @tailwind utilities;
 
 :root {
-  --background: #0b0908; /* After Dark */
-  --foreground: #f3e8d4; /* Table Ivory */
+  --background: #161413; /* Charcoal */
+  --foreground: #F8F5EF; /* Warm Ivory */
   --font-cormorant: 'Cormorant Garamond', serif;
   --font-manrope: 'Manrope', sans-serif;
   --font-instrument: 'Instrument Serif', serif;
 
-  --maurya-blood: #8f1115;
-  --maurya-wine: #350709;
-  --maurya-dark: #0b0908;
-  --maurya-ivory: #f3e8d4;
-  --maurya-brass: #b98532;
+  /* V8 Vintage Wine Palette */
+  --maurya-primary-wine: #5A1F1F;
+  --maurya-burgundy: #472020;
+  --maurya-maroon: #6B2C2C;
+  --maurya-terracotta: #9A5C3B;
+  
+  --maurya-blood: #6B2C2C;
+  --maurya-wine: #5A1F1F;
+  --maurya-dark: #161413;
+  --maurya-ivory: #F8F5EF;
+  --maurya-brass: #9A5C3B;
   --maurya-leaf: #164c2b;
-  --maurya-chilli: #c9371d;
+  --maurya-chilli: #8b2525;
 
-  /* Primary CTA */
-  --maurya-red: #B11616;
-  --maurya-red-hover: #C51B1B;
-  --maurya-red-active: #8F1111;
-  --maurya-red-border: #D56A2C;
-  --maurya-red-glow: rgba(177, 22, 22, 0.28);
+  /* Primary CTA Buttons */
+  --maurya-red: #5A1F1F;
+  --maurya-red-hover: #6B2C2C;
+  --maurya-red-active: #472020;
+  --maurya-red-border: #9A5C3B;
+  --maurya-red-glow: rgba(154, 92, 59, 0.25);
 }
 
 @layer base {
   body {
-    @apply bg-midnight text-soft-ivory antialiased font-sans;
+    @apply bg-[#161413] text-[#F8F5EF] antialiased font-sans;
     overflow-x: hidden;
   }
 
@@ -41,7 +47,49 @@
     clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
   }
 
-  /* Original Textures (Restored for Hero Section) */
+  /* V8 Global Content Grid & Container System */
+  .container-maurya {
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-maurya {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  .content-grid {
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  /* V8 Material Layers */
+  .material-light {
+    background-color: #F8F5EF;
+    background-image: 
+      radial-gradient(circle at 50% 20%, rgba(255,248,235,0.9) 0%, rgba(248,245,239,1) 80%),
+      radial-gradient(circle at center, transparent 60%, rgba(71,32,32,0.05) 100%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.05' numOctaves='3' result='noise'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0 0 0.9 0 0 0 0 0 0.8 0 0 0 0 0 0.035 0' in='noise'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperGrain)'/%3E%3C/svg%3E");
+    color: #272322;
+  }
+
+  .material-dark {
+    background-color: #1C1414;
+    background-image: 
+      radial-gradient(ellipse at 80% 20%, rgba(154,92,59,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at center, rgba(90,31,31,0.2) 0%, rgba(22,20,19,0.95) 100%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    color: #F8F5EF;
+  }
+
   .noise-bg {
     position: absolute;
     inset: 0;
@@ -55,7 +103,6 @@
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   }
 
-
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
@@ -64,13 +111,6 @@
     scrollbar-width: none;
   }
 
-  /* 
-   * Layer 3: Material Textures for 3-layer Backgrounds
-   */
-   
-
-
-  /* Chapter 3: Warm Handmade Paper Texture */
   .texture-ch3-paper {
     position: absolute;
     inset: 0;
@@ -80,18 +120,6 @@
     mix-blend-mode: multiply;
   }
 
-  /* Atmospheric Steam Effect */
-  .steam-cloud {
-    position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 40%, transparent 70%);
-    filter: blur(40px);
-    pointer-events: none;
-    mix-blend-mode: screen;
-  }
-
-
-
   .font-display {
     font-family: var(--font-instrument), var(--font-cormorant), serif;
     font-size: clamp(5rem, 11vw, 11rem);
@@ -99,27 +127,47 @@
     letter-spacing: -0.055em;
   }
 
+  /* V8 Layered Vintage Wine CTA Buttons */
   .cta-button {
     background: linear-gradient(
       180deg,
-      #B81A1A 0%,
-      #A11414 100%
+      #6B2C2C 0%,
+      #472020 100%
     );
-    border: 2px solid #D56A2C;
-    color: #F7F2E8;
+    border: 1px solid #9A5C3B;
+    color: #F8F5EF;
     border-radius: 999px;
     box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.12),
-      0 8px 24px rgba(177,22,22,.22);
+      inset 0 1px 0 rgba(255,255,255,.15),
+      0 6px 20px rgba(71,32,32,.35);
     transition: all .3s ease;
   }
 
   .cta-button:hover {
     background: linear-gradient(
       180deg,
-      #C51B1B 0%,
-      #B11616 100%
+      #7A3535 0%,
+      #5A1F1F 100%
     );
+    border-color: #B8724C;
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.25),
+      0 8px 25px rgba(90,31,31,.45);
+  }
+
+  .cta-button-secondary {
+    background: transparent;
+    border: 1px solid rgba(248,245,239,0.3);
+    color: #F8F5EF;
+    border-radius: 999px;
+    transition: all .3s ease;
+  }
+
+  .cta-button-secondary:hover {
+    border-color: #9A5C3B;
+    color: #9A5C3B;
+    background: rgba(154,92,59,0.08);
     transform: translateY(-2px);
   }
 }

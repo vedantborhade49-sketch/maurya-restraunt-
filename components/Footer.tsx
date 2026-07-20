@@ -17,49 +17,25 @@ import ButtonSecondary from "@/components/ui/ButtonSecondary";
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
-  const ornamentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: footerRef.current,
-          start: "top 85%",
-          toggleActions: "play none none none",
-        },
-      });
-
-      // 1. Closing statement & buttons fade-up
-      tl.fromTo(
-        ".quiet-goodbye-closing",
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
-      );
-
-      // 2. Center brass ornament draw outward
-      tl.fromTo(
-        ornamentRef.current,
-        { scaleX: 0, opacity: 0 },
-        { scaleX: 1, opacity: 1, duration: 0.7, ease: "expo.out", transformOrigin: "center center" },
-        "-=0.4"
-      );
-
-      // 3. 4-Column Grid Rise (Staggered)
-      tl.fromTo(
+      gsap.fromTo(
         ".quiet-goodbye-col",
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7, stagger: 0.08, ease: "power3.out" },
-        "-=0.3"
-      );
-
-      // 4. Copyright & Akari Signature fade
-      tl.fromTo(
-        ".quiet-goodbye-bottom",
-        { opacity: 0 },
-        { opacity: 1, duration: 0.6, ease: "power3.out" },
-        "-=0.2"
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          stagger: 0.08,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: "top 85%",
+          },
+        }
       );
     }, footerRef);
 
@@ -69,86 +45,42 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative w-full bg-[#F4EFE6] text-[#350709] pt-20 pb-16 px-6 md:px-12 lg:px-20 overflow-hidden font-sans select-none"
-      style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)' opacity='0.035'/%3E%3C/svg%3E")`,
-      }}
+      className="relative w-full bg-[#161413] text-[#F8F5EF] pt-16 pb-12 overflow-hidden font-sans select-none z-30"
     >
-      {/* ── TORN PAPER TOP EDGE (SVG MASK WITH DROP SHADOW) ──────────────── */}
-      <div className="absolute -top-7 left-0 w-full overflow-hidden leading-none pointer-events-none drop-shadow-[0_-8px_16px_rgba(0,0,0,0.18)] z-20">
+      {/* ── TORN HANDMADE PAPER TOP EDGE TRANSITION ────────────────────── */}
+      <div className="absolute -top-7 left-0 w-full overflow-hidden leading-none pointer-events-none drop-shadow-[0_-6px_12px_rgba(0,0,0,0.25)] z-20">
         <svg
           viewBox="0 0 1200 40"
           preserveAspectRatio="none"
-          className="w-full h-8 text-[#F4EFE6] fill-current"
+          className="w-full h-8 text-[#F8F5EF] fill-current"
         >
-          <path d="M0,40 L0,22 Q30,12 60,24 Q90,32 120,18 Q150,8 180,26 Q210,34 240,16 Q270,6 300,22 Q330,30 360,14 Q390,4 420,20 Q450,32 480,18 Q510,8 540,24 Q570,30 600,12 Q630,4 660,20 Q690,32 720,16 Q750,6 780,26 Q810,34 840,18 Q870,8 900,24 Q930,32 960,14 Q990,4 1020,22 Q1050,30 1080,16 Q1110,6 1140,24 Q1170,32 1200,20 L1200,40 Z" />
+          <path d="M0,0 L1200,0 L1200,20 Q1170,32 1140,24 Q1110,6 1080,16 Q1050,30 1020,22 Q990,4 960,14 Q930,32 900,24 Q870,8 840,18 Q810,34 780,26 Q750,6 720,16 Q690,32 660,20 Q630,4 600,12 Q570,30 540,24 Q510,8 480,18 Q450,32 420,20 Q390,4 360,14 Q330,30 300,22 Q270,6 240,16 Q210,34 180,26 Q150,8 120,18 Q90,32 60,24 Q30,12 0,22 Z" />
         </svg>
       </div>
 
-      <div className="max-w-[1240px] mx-auto space-y-12 relative z-10 pt-4">
+      <div className="container-maurya relative z-10 pt-4 space-y-12">
         
-        {/* ── SECTION 1 & 2: CLOSING STATEMENT & CTAS ─────────────────────── */}
-        <div className="quiet-goodbye-closing text-center space-y-6 max-w-2xl mx-auto">
-          <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#350709] tracking-tight leading-tight">
-            COME HUNGRY.<br />
-            <span className="italic text-[#B98532]">LEAVE WITH A STORY.</span>
-          </h2>
-
-          <p className="font-sans text-xs sm:text-sm text-[#350709]/80 font-light max-w-md mx-auto">
-            Thank you for sharing your table with us. We look forward to welcoming you again.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-            <Link href="/menu">
-              <ButtonPrimary className="w-full sm:w-auto bg-[#350709] text-[#F8F6F1] hover:bg-[#B98532] hover:text-[#350709] text-xs py-3 px-6 shadow-md">
-                Reserve A Table
-              </ButtonPrimary>
-            </Link>
-
-            <a
-              href="https://wa.me/917030777051"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto"
-            >
-              <ButtonSecondary className="w-full sm:w-auto border-[#350709] text-[#350709] hover:bg-[#350709] hover:text-[#F8F6F1] text-xs py-3 px-6">
-                Order On WhatsApp
-              </ButtonSecondary>
-            </a>
-          </div>
-        </div>
-
-        {/* ── SECTION 3: CENTER BRASS ORNAMENT ─────────────────────────────── */}
-        <div
-          ref={ornamentRef}
-          className="flex items-center justify-center gap-4 text-[#B98532] py-2 max-w-xl mx-auto"
-        >
-          <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent via-[#B98532]/40 to-[#B98532]" />
-          <span className="text-sm font-serif italic font-bold">❖</span>
-          <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent via-[#B98532]/40 to-[#B98532]" />
-        </div>
-
-        {/* ── SECTION 4: EXACTLY FOUR COLUMNS GRID ──────────────────────────── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 pt-4 text-center sm:text-left">
+        {/* ── 4 COMPACT CALM COLUMNS ───────────────────────────────────────── */}
+        <div className="content-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 text-left">
           
-          {/* Column 1: VISIT */}
+          {/* Column 1: MAURYA / VISIT */}
           <div className="quiet-goodbye-col space-y-4">
-            <h3 className="font-mono text-xs text-[#B98532] font-bold uppercase tracking-[0.25em]">
-              VISIT
+            <h3 className="font-heading text-xl text-[#F8F5EF] tracking-wider uppercase font-semibold">
+              MAURYA
             </h3>
-            <div className="space-y-2 text-xs font-medium text-[#350709]/80 leading-relaxed">
-              <p className="font-serif italic font-bold text-sm text-[#350709]">Maurya Pure Veg</p>
+            <div className="space-y-2 text-xs font-light text-[#F8F5EF]/75 leading-relaxed">
+              <p className="font-serif italic font-medium text-sm text-[#F8F5EF]">Pure Veg Heritage</p>
               <p>Shop 1/2, Near Tilekar Nagar, Kamthe Pat, Kondhwa Khurd, Pune 411048</p>
-              <p className="text-[#B98532] font-mono text-[11px] pt-1">Open Daily: 11:00 AM – 11:00 PM</p>
+              <p className="text-[#9A5C3B] font-mono text-[11px] pt-1">Open Daily: 11:00 AM – 11:00 PM</p>
               <div className="pt-2">
                 <a
                   href="https://maps.google.com/?q=Maurya+Pure+Veg+Restaurant+Kondhwa+Pune"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[#350709] hover:text-[#B98532] transition-colors font-mono text-[10px] uppercase tracking-wider font-bold"
+                  className="inline-flex items-center gap-1.5 text-[#F8F5EF] hover:text-[#9A5C3B] transition-colors font-mono text-[10px] uppercase tracking-wider font-bold"
                 >
                   <span>Get Directions</span>
-                  <ArrowUpRight className="w-3 h-3" />
+                  <ArrowUpRight className="w-3 h-3 text-[#9A5C3B]" />
                 </a>
               </div>
             </div>
@@ -156,32 +88,28 @@ export default function Footer() {
 
           {/* Column 2: EXPLORE */}
           <div className="quiet-goodbye-col space-y-4">
-            <h3 className="font-mono text-xs text-[#B98532] font-bold uppercase tracking-[0.25em]">
+            <h3 className="font-mono text-xs text-[#9A5C3B] font-bold uppercase tracking-[0.25em]">
               EXPLORE
             </h3>
-            <ul className="space-y-2.5 text-xs font-medium text-[#350709]/80">
+            <ul className="space-y-2.5 text-xs font-light text-[#F8F5EF]/75">
               <li>
-                <Link href="/menu" className="group inline-flex items-center gap-1 hover:text-[#350709] transition-colors">
-                  <span>The Menu</span>
-                  <span className="h-[1px] w-0 bg-[#350709] transition-all duration-300 group-hover:w-full" />
+                <Link href="/menu" className="hover:text-[#9A5C3B] transition-colors">
+                  The Menu
                 </Link>
               </li>
               <li>
-                <Link href="/our-story" className="group inline-flex items-center gap-1 hover:text-[#350709] transition-colors">
-                  <span>Around Our Table</span>
-                  <span className="h-[1px] w-0 bg-[#350709] transition-all duration-300 group-hover:w-full" />
+                <Link href="/our-story" className="hover:text-[#9A5C3B] transition-colors">
+                  Around Our Table
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="group inline-flex items-center gap-1 hover:text-[#350709] transition-colors">
-                  <span>Gallery</span>
-                  <span className="h-[1px] w-0 bg-[#350709] transition-all duration-300 group-hover:w-full" />
+                <Link href="/gallery" className="hover:text-[#9A5C3B] transition-colors">
+                  Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/menu" className="group inline-flex items-center gap-1 hover:text-[#350709] transition-colors">
-                  <span>Reserve A Table</span>
-                  <span className="h-[1px] w-0 bg-[#350709] transition-all duration-300 group-hover:w-full" />
+                <Link href="/visit#reserve" className="hover:text-[#9A5C3B] transition-colors">
+                  Reserve A Table
                 </Link>
               </li>
             </ul>
@@ -189,25 +117,25 @@ export default function Footer() {
 
           {/* Column 3: CONTACT */}
           <div className="quiet-goodbye-col space-y-4">
-            <h3 className="font-mono text-xs text-[#B98532] font-bold uppercase tracking-[0.25em]">
+            <h3 className="font-mono text-xs text-[#9A5C3B] font-bold uppercase tracking-[0.25em]">
               CONTACT
             </h3>
-            <ul className="space-y-2.5 text-xs font-medium text-[#350709]/80">
+            <ul className="space-y-2.5 text-xs font-light text-[#F8F5EF]/75">
               <li>
-                <a href="tel:+917030777051" className="inline-flex items-center justify-center sm:justify-start gap-2 hover:text-[#350709] transition-colors">
-                  <Phone className="w-3.5 h-3.5 text-[#B98532]" />
+                <a href="tel:+917030777051" className="inline-flex items-center gap-2 hover:text-[#9A5C3B] transition-colors">
+                  <Phone className="w-3.5 h-3.5 text-[#9A5C3B]" />
                   <span>+91 70307 77051</span>
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/917030777051" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center sm:justify-start gap-2 hover:text-[#350709] transition-colors">
-                  <MessageSquare className="w-3.5 h-3.5 text-[#B98532]" />
+                <a href="https://wa.me/917030777051" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[#9A5C3B] transition-colors">
+                  <MessageSquare className="w-3.5 h-3.5 text-[#9A5C3B]" />
                   <span>WhatsApp Booking</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:info@mauryapureveg.com" className="inline-flex items-center justify-center sm:justify-start gap-2 hover:text-[#350709] transition-colors">
-                  <Mail className="w-3.5 h-3.5 text-[#B98532]" />
+                <a href="mailto:info@mauryapureveg.com" className="inline-flex items-center gap-2 hover:text-[#9A5C3B] transition-colors">
+                  <Mail className="w-3.5 h-3.5 text-[#9A5C3B]" />
                   <span>info@mauryapureveg.com</span>
                 </a>
               </li>
@@ -216,18 +144,18 @@ export default function Footer() {
 
           {/* Column 4: FOLLOW */}
           <div className="quiet-goodbye-col space-y-4">
-            <h3 className="font-mono text-xs text-[#B98532] font-bold uppercase tracking-[0.25em]">
+            <h3 className="font-mono text-xs text-[#9A5C3B] font-bold uppercase tracking-[0.25em]">
               FOLLOW
             </h3>
-            <ul className="space-y-2.5 text-xs font-medium text-[#350709]/80">
+            <ul className="space-y-2.5 text-xs font-light text-[#F8F5EF]/75">
               <li>
                 <a
                   href="https://www.instagram.com/restaurant_mauryaveg?igsh=djFnNDV6N2c1dTN1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center sm:justify-start gap-2 hover:text-[#350709] transition-colors group"
+                  className="inline-flex items-center gap-2 hover:text-[#9A5C3B] transition-colors group"
                 >
-                  <Instagram className="w-3.5 h-3.5 text-[#B98532] transition-transform duration-200 group-hover:-translate-y-0.5" />
+                  <Instagram className="w-3.5 h-3.5 text-[#9A5C3B]" />
                   <span>Instagram</span>
                 </a>
               </li>
@@ -236,7 +164,7 @@ export default function Footer() {
                   href="https://maps.google.com/?q=Maurya+Pure+Veg+Restaurant+Kondhwa+Pune"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center sm:justify-start gap-2 hover:text-[#350709] transition-colors"
+                  className="hover:text-[#9A5C3B] transition-colors"
                 >
                   <span>Google Reviews (4.8★)</span>
                 </a>
@@ -246,7 +174,7 @@ export default function Footer() {
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center sm:justify-start gap-2 hover:text-[#350709] transition-colors"
+                  className="hover:text-[#9A5C3B] transition-colors"
                 >
                   <span>Facebook</span>
                 </a>
@@ -256,17 +184,17 @@ export default function Footer() {
 
         </div>
 
-        {/* ── SECTION 5: BOTTOM COPYRIGHT STRIP & AKARI STUDIOS SIGNATURE ───── */}
-        <div className="quiet-goodbye-bottom pt-8 border-t border-[#B98532]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left font-mono text-[10px] text-[#350709]/60">
-          <p>© {new Date().getFullYear()} Maurya Pure Veg. All rights reserved.</p>
+        {/* ── BOTTOM COPYRIGHT & SIGNATURE STRIP ──────────────────────────── */}
+        <div className="content-grid pt-8 border-t border-[#9A5C3B]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left font-mono text-[10px] text-[#F8F5EF]/50">
+          <p>© 2026 Maurya Pure Veg. All rights reserved.</p>
 
-          <p className="flex items-center gap-1">
-            <span>Crafted with precision by</span>
+          <p className="flex items-center gap-1.5">
+            <span>Crafted by</span>
             <a
               href="https://akaristudios.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold text-[#350709] hover:text-[#B98532] transition-colors underline underline-offset-2"
+              className="font-bold text-[#F8F5EF] hover:text-[#9A5C3B] transition-colors tracking-wider"
             >
               AKARI STUDIOS
             </a>

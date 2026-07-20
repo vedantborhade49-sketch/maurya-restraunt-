@@ -118,16 +118,16 @@ export default function Chapter03() {
   }, []);
 
   return (
-    <section ref={containerRef} className={`relative w-full bg-[#0b0908] text-[#F8F5EF] ${isMobile ? "h-auto py-12" : "h-[300vh]"}`}>
-      {/* Background Texture */}
-      <div className="absolute inset-0 z-0 opacity-10 texture-ch3-paper pointer-events-none mix-blend-screen" />
+    <section ref={containerRef} className={`relative w-full bg-[#EFE8DB] text-[#272322] ${isMobile ? "h-auto py-16" : "h-[300vh]"}`}>
+      {/* Background Texture - Paper Grain */}
+      <div className="absolute inset-0 z-0 opacity-40 texture-ch3-paper pointer-events-none mix-blend-multiply" />
 
-      <div className={isMobile ? "relative w-full flex flex-col items-center gap-8 px-6" : "sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center"}>
+      <div className={isMobile ? "relative w-full flex flex-col items-center gap-8 container-maurya" : "sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center"}>
         
         {/* Layer 1: The Sequence of Photographs */}
         <div className={isMobile ? "relative w-full z-10" : "absolute inset-0 w-full h-full z-10 flex items-center justify-center"}>
           
-          <div className={`overflow-hidden bg-[#1a1715] relative ${isMobile ? "w-[90vw] h-[45vh] mx-auto" : "w-full md:w-[70vw] lg:w-[50vw] h-[60vh] md:h-[80vh]"}`}>
+          <div className={`overflow-hidden bg-[#1a1715] relative shadow-2xl rounded-sm ${isMobile ? "w-full h-[45vh] mx-auto" : "w-full md:w-[70vw] lg:w-[50vw] h-[60vh] md:h-[80vh]"}`}>
             
             {/* Image 1: Ingredients */}
             <img 
@@ -156,17 +156,17 @@ export default function Chapter03() {
             <SteamMotif className="opacity-20 mix-blend-screen pointer-events-none z-20" />
             
             {/* Minimal Editorial Captions */}
-            <MarginNote text="The Craft" className="absolute top-8 left-8 text-[#b98532] z-30 opacity-70" rotate="0deg" />
+            <MarginNote text="The Craft" className="absolute top-8 left-8 text-[#9A5C3B] z-30 opacity-80" rotate="0deg" />
           </div>
         </div>
 
         {/* Layer 2: Editorial Typography */}
-        <div className={isMobile ? "relative z-20 w-full text-center" : "relative z-20 w-full max-w-[1600px] mx-auto px-8 md:px-16 pointer-events-none h-full flex flex-col justify-end pb-24 md:pb-32"}>
+        <div className={isMobile ? "relative z-20 w-full text-center" : "relative z-20 container-maurya h-full flex flex-col justify-end pb-24 md:pb-32 pointer-events-none"}>
           
-          <div ref={headlineRef} className={`flex flex-col ${isMobile ? "opacity-100" : "opacity-0"}`}>
-            <h2 className={`font-heading text-[#F8F5EF] leading-[1.0] tracking-tight ${isMobile ? "text-[10vw] mb-4" : "text-[12vw] md:text-[6vw] mix-blend-difference"}`}>
+          <div ref={headlineRef} className={`content-grid flex flex-col ${isMobile ? "opacity-100" : "opacity-0"}`}>
+            <h2 className={`font-heading text-[#272322] leading-[1.0] tracking-tight ${isMobile ? "text-[10vw] mb-4" : "text-[12vw] md:text-[6vw]"}`}>
               Fresh Every Morning.<br/>
-              <span className={`italic text-[#b98532] ${isMobile ? "" : "mix-blend-normal"}`}>Served Every Evening.</span>
+              <span className="italic text-[#9A5C3B]">Served Every Evening.</span>
             </h2>
           </div>
 
@@ -174,8 +174,8 @@ export default function Chapter03() {
 
         {/* Layer 3: Transition Steam (Fills screen at end) */}
         {!isMobile && (
-          <div ref={finalSteamRef} className="absolute inset-0 z-50 pointer-events-none opacity-0 flex items-center justify-center bg-[#0b0908]/40">
-            <SteamMotif className="w-[200%] h-[200%] mix-blend-screen opacity-80" />
+          <div ref={finalSteamRef} className="absolute inset-0 z-50 pointer-events-none opacity-0 flex items-center justify-center bg-[#EFE8DB]/60">
+            <SteamMotif className="w-[200%] h-[200%] mix-blend-multiply opacity-60" />
           </div>
         )}
 
