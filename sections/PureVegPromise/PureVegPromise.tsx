@@ -5,7 +5,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PureVegBadge from "@/components/ui/PureVegBadge";
 import BrassDivider from "@/components/ui/BrassDivider";
-import { Leaf, Flame, HeartHandshake } from "lucide-react";
 
 export default function PureVegPromise() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -24,93 +23,92 @@ export default function PureVegPromise() {
 
       tl.fromTo(
         ".pv-header",
-        { y: 40, opacity: 0 },
+        { y: 35, opacity: 0 },
         { y: 0, opacity: 1, duration: 1.0, ease: "power4.out" }
       );
 
       tl.fromTo(
-        ".pv-card",
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power3.out" },
-        "-=0.6"
+        ".pv-pillar",
+        { y: 25, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, stagger: 0.18, ease: "power3.out" },
+        "-=0.5"
       );
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
-  const promiseItems = [
+  const pillars = [
     {
-      icon: Leaf,
+      num: "01",
       title: "Fresh Daily Ingredients",
-      description: "Hand-selected vegetables and farm-fresh dairy delivered every morning before dawn. We never compromise on natural freshness.",
+      desc: "Hand-selected vegetables and farm-fresh dairy delivered before dawn every single morning.",
     },
     {
-      icon: Flame,
+      num: "02",
       title: "Slow-Cooked Ember Craft",
-      description: "Our dal and signature gravies simmer overnight over tandoori embers, capturing authentic smoky depth and rich traditional aromas.",
+      desc: "Simmered overnight over authentic tandoori embers for rich, natural smoky depth.",
     },
     {
-      icon: HeartHandshake,
+      num: "03",
       title: "Pure Vegetarian Kitchen",
-      description: "100% pure vegetarian. Dedicated cookware and traditional family recipes passed down over 28 years of pure hospitality.",
+      desc: "100% pure vegetarian. Dedicated cookware and family recipes passed down over 28 years.",
     },
   ];
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#164C2B] text-[#F8F5EF] py-28 md:py-36 overflow-hidden font-sans border-t border-[#9A5C3B]/30"
-      style={{
-        backgroundImage: `radial-gradient(circle at center, transparent 60%, rgba(10,35,20,0.8) 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E")`,
-      }}
+      className="relative w-full bg-[#0E1B14] text-[#F8F5EF] py-24 md:py-36 overflow-hidden select-none border-t border-[#9A5C3B]/25"
     >
-      <div className="container-maurya space-y-16">
+      {/* Radial Emerald-Gold Ambient Lighting */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(27,59,39,0.5)_0%,_rgba(14,27,20,0.95)_75%)] pointer-events-none z-0" />
+
+      <div className="container-maurya relative z-10 space-y-16">
         
-        {/* Header Block */}
-        <div className="pv-header text-center space-y-4 content-grid max-w-3xl">
+        {/* Editorial Header Block */}
+        <div className="pv-header text-center space-y-5 content-grid max-w-3xl mx-auto">
           <div className="flex items-center justify-center gap-3">
             <PureVegBadge showText={true} />
-            <span className="text-[#9A5C3B]">·</span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#9A5C3B] font-bold">
-              OUR PROMISE
+            <span className="text-[#9A5C3B] opacity-60">·</span>
+            <span className="font-mono text-[9px] uppercase tracking-[0.35em] text-[#9A5C3B] font-bold">
+              03 &nbsp;·&nbsp; OUR PURE VEG SANCTUARY
             </span>
           </div>
 
-          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl text-[#F8F5EF] leading-tight font-normal">
-            Pure Veg. <span className="italic text-[#9A5C3B]">Zero Compromise.</span>
+          <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl text-[#F8F5EF] leading-tight font-normal tracking-tight">
+            Pure Veg. <span className="italic text-[#9A5C3B] font-serif">Zero Compromise.</span>
           </h2>
 
-          <p className="font-sans text-sm md:text-base text-[#F8F5EF]/80 max-w-xl mx-auto leading-relaxed">
-            Dining at Maurya is more than a meal—it is a sacred tradition of pure ingredients,
-            traditional clay-tandoor embers, and heartfelt hospitality.
+          <p className="font-sans text-base md:text-lg text-[#F8F5EF]/75 max-w-xl mx-auto leading-relaxed font-light">
+            Dining at Maurya is a sacred tradition—pure ingredients, traditional clay-tandoor embers, and 28 years of pure hospitality.
           </p>
         </div>
 
-        {/* 3-Column Manifesto Grid */}
-        <div className="content-grid grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          {promiseItems.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={idx}
-                className="pv-card bg-[#133D23] border border-[#9A5C3B]/30 p-8 md:p-10 space-y-5 transition-transform duration-300 hover:-translate-y-1 shadow-xl"
-              >
-                <div className="w-12 h-12 rounded-none bg-[#9A5C3B] text-[#F8F5EF] flex items-center justify-center">
-                  <Icon className="w-6 h-6 stroke-[1.5]" />
-                </div>
-                <h3 className="font-heading text-2xl text-[#F8F5EF] leading-snug">
-                  {item.title}
-                </h3>
-                <p className="font-sans text-sm text-[#F8F5EF]/75 leading-relaxed">
-                  {item.description}
-                </p>
+        {/* Minimalist 3-Pillar Editorial Layout (No Boxed Cards) */}
+        <div className="content-grid grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 pt-4 border-t border-[#9A5C3B]/20">
+          {pillars.map((item, idx) => (
+            <div
+              key={idx}
+              className="pv-pillar space-y-4 pr-0 md:pr-4 border-b md:border-b-0 md:border-r border-[#9A5C3B]/15 pb-8 md:pb-0 last:border-none"
+            >
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-[10px] text-[#9A5C3B] tracking-[0.25em] font-bold">
+                  {item.num}
+                </span>
+                <div className="h-[1px] w-8 bg-[#9A5C3B]/40" />
               </div>
-            );
-          })}
+              <h3 className="font-heading text-2xl text-[#F8F5EF] leading-snug">
+                {item.title}
+              </h3>
+              <p className="font-sans text-sm text-[#F8F5EF]/70 leading-relaxed font-light">
+                {item.desc}
+              </p>
+            </div>
+          ))}
         </div>
 
-        <BrassDivider showLogo={false} className="opacity-40" />
+        <BrassDivider showLogo={false} className="opacity-30 pt-4" />
       </div>
     </section>
   );
