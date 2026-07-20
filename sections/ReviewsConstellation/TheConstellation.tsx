@@ -269,12 +269,12 @@ export default function TheConstellation() {
         </h2>
         
         <Link 
-          href="/book-a-table"
+          href="/menu"
           className="mt-16 pointer-events-auto group relative inline-flex items-center justify-center px-12 py-5 border border-[#D4A373]/60 hover:border-[#D4A373] transition-colors duration-500 overflow-hidden"
         >
           <div className="absolute inset-0 bg-[#D4A373]/5 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-out" />
           <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-[#F9F6F0] font-bold relative z-10">
-            Join The Constellation
+            Explore the Menu
           </span>
         </Link>
       </div>

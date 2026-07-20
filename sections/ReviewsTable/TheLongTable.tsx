@@ -247,12 +247,12 @@ export default function TheLongTable() {
               </h2>
 
               <Link 
-                href="/book-a-table"
+                href="/menu"
                 className="mt-16 group relative inline-flex items-center justify-center px-10 py-5 overflow-hidden transition-all duration-700"
               >
                 <div className="absolute bottom-4 left-8 right-8 h-[0.5px] bg-[#D4A373] scale-x-0 group-hover:scale-x-100 transition-transform duration-1000 origin-center" />
                 <span className="font-sans text-[8px] uppercase tracking-[0.4em] text-[#D4A373] font-bold transition-all duration-700 relative z-10">
-                  Join Us At Maurya
+                  Explore the Menu
                 </span>
               </Link>
             </div>

@@ -64,14 +64,14 @@ export default function Chapter06Reservation() {
 
         <Link 
           ref={btnRef}
-          href="/book-a-table"
+          href="/menu"
           className="group relative inline-flex items-center justify-center px-12 py-6 border border-[#B98555]/40 overflow-hidden transition-all duration-700 hover:border-[#B98555]"
         >
           {/* Subtle illumination effect */}
           <div className="absolute inset-0 bg-[#B98555] opacity-0 group-hover:opacity-10 transition-opacity duration-700" />
           
           <span className="font-sans text-xs uppercase tracking-[0.3em] group-hover:tracking-[0.4em] text-[#F6F1E8] font-bold transition-all duration-700 relative z-10">
-            Secure A Reservation
+            Explore the Menu
           </span>
         </Link>
         

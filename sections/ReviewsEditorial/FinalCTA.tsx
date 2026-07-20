@@ -40,13 +40,13 @@ export default function FinalCTA() {
         </h2>
 
         <Link 
-          href="/book-a-table"
+          href="/menu"
           className="cta-element group relative inline-flex items-center justify-center px-12 py-5 border border-[#B98555]/60 hover:border-[#B98555] transition-colors duration-500 overflow-hidden"
         >
           {/* Subtle fill on hover */}
           <div className="absolute inset-0 bg-[#B98555]/5 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-out" />
           <span className="font-sans text-[11px] uppercase tracking-[0.4em] text-[#1F1F1F] font-bold relative z-10 group-hover:text-[#3A0F16] transition-colors duration-500">
-            Reserve A Table
+            Explore the Menu
           </span>
         </Link>
 

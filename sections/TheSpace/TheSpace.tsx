@@ -294,11 +294,11 @@ export default function TheSpace() {
 
            <div className="scene6-cta pointer-events-auto">
              <Link 
-               href="/book-a-table"
+               href="/menu"
                className="group relative inline-flex items-center justify-center px-12 py-5 border border-[#B98555]/30 hover:border-[#B98555] bg-[#1A050A]/50 backdrop-blur-md overflow-hidden transition-all duration-700"
              >
                <span className="relative z-10 font-mono text-[10px] uppercase tracking-[0.4em] text-[#F8F5EF] group-hover:tracking-[0.6em] transition-all duration-700">
-                 Reserve A Table
+                 Explore the Menu
                </span>
                <div className="absolute inset-0 bg-[#B98555]/10 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-700 ease-out" />
              </Link>

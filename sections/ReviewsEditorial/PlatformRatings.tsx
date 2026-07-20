@@ -38,7 +38,7 @@ export default function PlatformRatings() {
       );
 
       // 3. Counter animations
-      const animateCounter = (ref: React.RefObject<HTMLElement>, endValue: number, suffix: string = "★") => {
+      const animateCounter = (ref: React.RefObject<HTMLSpanElement | null>, endValue: number, suffix: string = "★") => {
         if (ref.current) {
           gsap.to(ref.current, {
             innerHTML: endValue,

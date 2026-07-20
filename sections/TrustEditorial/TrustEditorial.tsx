@@ -177,11 +177,11 @@ export default function TrustEditorial() {
 
         {/* CTA Button */}
         <Link 
-          href="/book-a-table"
+          href="/menu"
           className="group relative inline-flex items-center justify-center px-16 py-6 border border-[#B98555]/50 transition-all duration-700 hover:border-[#B98555] hover:shadow-[0_0_30px_rgba(185,133,85,0.2)] bg-[#1A050A]/80 backdrop-blur-md mb-40"
         >
           <span className="font-sans text-[11px] uppercase tracking-[0.4em] text-[#F9F6F0] font-bold group-hover:tracking-[0.6em] transition-all duration-700">
-            Reserve A Table
+            Explore the Menu
           </span>
         </Link>
 

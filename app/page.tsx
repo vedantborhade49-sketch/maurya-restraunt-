@@ -7,7 +7,7 @@ import EditorialSequence from "@/sections/EditorialSequence/EditorialSequence";
 import Chapter02 from "@/sections/Chapter02/Chapter02";
 import Chapter03 from "@/sections/Chapter03/Chapter03";
 import Chapter04 from "@/sections/Chapter04/Chapter04";
-import Chapter05 from "@/sections/Chapter05/Chapter05";
+
 
 export default function Home() {
   const videoRef       = useRef<HTMLVideoElement>(null);
@@ -128,7 +128,6 @@ export default function Home() {
         <EditorialSequence />
         <Chapter03 />
         <Chapter04 />
-        <Chapter05 />
       </main>
     </>
   );
