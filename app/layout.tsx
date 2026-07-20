@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import SmoothScroll from "../components/SmoothScroll";
 import YourTableDrawer from "../components/cart/YourTableDrawer";
 import { PreloaderProvider } from "../components/preloader";
+import Footer from "../components/Footer";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function RootLayout({
             <YourTableDrawer />
             <div className="noise-bg" />
             <main>{children}</main>
+            <Footer />
           </SmoothScroll>
         </PreloaderProvider>
       </body>
