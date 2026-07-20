@@ -169,7 +169,7 @@ export default function TheSpace() {
           {/* Layer 3: Photography */}
           <div className="scene3-img-layer absolute top-[20%] left-[20%] w-[60vw] md:w-[35vw] aspect-[4/5] bg-white p-3 z-10 shadow-xl rotate-[-2deg]">
              <div className="relative w-full h-full">
-               <EditorialImage src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1500&auto=format&fit=crop" alt="Afternoon Lunch" />
+               <EditorialImage src="/editorial-food-4.png" alt="Afternoon Lunch" />
              </div>
           </div>
 

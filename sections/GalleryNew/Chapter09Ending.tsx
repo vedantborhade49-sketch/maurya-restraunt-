@@ -46,7 +46,7 @@ export default function Chapter09Ending() {
       <div className="absolute inset-0 w-full h-full z-0">
         <div ref={imageRef} className="w-full h-full">
           <EditorialImage 
-            src="https://images.unsplash.com/photo-1525610553991-2bede1a236e2?q=80&w=2000&auto=format&fit=crop" 
+            src="/editorial-entrance.png" 
             alt="Restaurant exterior at golden hour" 
           />
         </div>

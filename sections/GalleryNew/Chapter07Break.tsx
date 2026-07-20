@@ -58,7 +58,7 @@ export default function Chapter07Break() {
         className="absolute bottom-16 md:bottom-24 right-16 md:right-32 w-32 md:w-48 aspect-square shadow-[0_20px_40px_rgba(0,0,0,0.1)] p-2 bg-white rotate-3"
       >
         <div className="relative w-full h-full">
-          <EditorialImage src="https://images.unsplash.com/photo-1574484284002-9ae846c48f8f?q=80&w=1500&auto=format&fit=crop" alt="One confident tiny photograph" />
+          <EditorialImage src="/editorial-food-dosa.png" alt="One confident tiny photograph" />
         </div>
       </div>
 

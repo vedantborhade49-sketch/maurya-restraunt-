@@ -43,7 +43,7 @@ export default function Chapter08Wall() {
 
         {/* Wall Item 2 */}
         <div className="wall-item absolute top-[15%] right-[10%] w-[50vw] md:w-[35vw] aspect-[16/9] shadow-2xl group transition-transform duration-700 hover:scale-[1.02]">
-          <EditorialImage src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2000&auto=format&fit=crop" alt="Large floating landscape" />
+          <EditorialImage src="/editorial-spices.png" alt="Large floating landscape" />
         </div>
 
         {/* Wall Item 3 */}
@@ -53,12 +53,12 @@ export default function Chapter08Wall() {
 
         {/* Wall Item 4 */}
         <div className="wall-item absolute top-[45%] right-[30%] w-[45vw] md:w-[25vw] aspect-square shadow-2xl group transition-transform duration-700 hover:scale-[1.02]">
-          <EditorialImage src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1500&auto=format&fit=crop" alt="Square composition" />
+          <EditorialImage src="/editorial-food-mains.png" alt="Square composition" />
         </div>
 
         {/* Wall Item 5 */}
         <div className="wall-item absolute top-[65%] left-[10%] w-[60vw] md:w-[40vw] aspect-[21/9] shadow-2xl z-10 group transition-transform duration-700 hover:scale-[1.02]">
-          <EditorialImage src="https://images.unsplash.com/photo-1414235077428-9710c28afbb3?q=80&w=2500&auto=format&fit=crop" alt="Overlapping panoramic" />
+          <EditorialImage src="/editorial-food-rice.png" alt="Overlapping panoramic" />
         </div>
 
         {/* Wall Item 6 */}

@@ -145,7 +145,7 @@ const getInitialMockData = () => {
       }
 
       const dishImage =
-        dish.image_url && dish.image_url.trim() !== ""
+        dish.image_url && dish.image_url.trim() !== "" && !dish.image_url.includes("hashtagloyalty.com")
           ? dish.image_url
           : catName.toUpperCase().includes("STARTER") || catName.toUpperCase().includes("SOUP")
           ? "/editorial-food-starters.png"

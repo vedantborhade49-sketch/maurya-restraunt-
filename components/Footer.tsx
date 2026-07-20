@@ -122,16 +122,16 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative w-full bg-[#350709] text-[#F8F6F1] border-t border-[#B98532]/40 pt-24 pb-12 px-6 md:px-12 lg:px-20 overflow-hidden font-sans select-none"
+      className="relative w-full bg-[#F8F6F1] text-[#350709] border-t border-[#B98532] pt-24 pb-12 px-6 md:px-12 lg:px-20 overflow-hidden font-sans select-none"
       style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)' opacity='0.03'/%3E%3C/svg%3E")`,
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)' opacity='0.02'/%3E%3C/svg%3E")`,
       }}
     >
-      <div className="max-w-[1320px] mx-auto space-y-20 relative z-10">
+      <div className="max-w-[1320px] mx-auto space-y-20">
 
         {/* ── SECTION 1: CLOSING STATEMENT ─────────────────────────────── */}
         <div className="text-center space-y-6 max-w-4xl mx-auto">
-          <h2 className="footer-closing-heading font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#F8F6F1] leading-[0.95] tracking-tight font-normal">
+          <h2 className="footer-closing-heading font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#350709] leading-[0.95] tracking-tight font-normal">
             <span>COME HUNGRY</span>
             <br />
             <span className="italic font-serif text-[#B98532] block mt-2">
@@ -139,7 +139,7 @@ export default function Footer() {
             </span>
           </h2>
 
-          <p className="footer-closing-text font-sans text-sm md:text-base lg:text-lg text-[#F8F6F1]/80 max-w-[640px] mx-auto leading-relaxed pt-2">
+          <p className="footer-closing-text font-sans text-sm md:text-base lg:text-lg text-[#350709]/80 max-w-[640px] mx-auto leading-relaxed pt-2">
             Every meal at Maurya is crafted with fresh ingredients, authentic flavours,
             and warm hospitality.
           </p>
@@ -150,7 +150,7 @@ export default function Footer() {
           {/* Primary Button */}
           <Link
             href="/menu"
-            className="w-full sm:w-auto min-h-[48px] px-10 py-3.5 bg-[#B98532] hover:bg-[#D4A373] text-[#350709] font-mono text-[11px] uppercase tracking-[0.25em] font-bold rounded-none flex items-center justify-center transition-transform duration-250 hover:-translate-y-0.5 active:translate-y-0 shadow-none"
+            className="w-full sm:w-auto min-h-[48px] px-10 py-3.5 bg-[#350709] hover:bg-[#250406] text-[#F8F6F1] font-mono text-[11px] uppercase tracking-[0.25em] font-bold rounded-none flex items-center justify-center transition-transform duration-250 hover:-translate-y-0.5 active:translate-y-0 shadow-none"
           >
             Reserve A Table
           </Link>
@@ -160,7 +160,7 @@ export default function Footer() {
             href="https://wa.me/917030777051"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto min-h-[48px] px-10 py-3.5 bg-transparent border border-[#B98532] text-[#F8F6F1] hover:bg-[#B98532] hover:text-[#350709] hover:border-[#B98532] font-mono text-[11px] uppercase tracking-[0.25em] font-bold rounded-none flex items-center justify-center transition-all duration-250 hover:-translate-y-0.5 active:translate-y-0"
+            className="w-full sm:w-auto min-h-[48px] px-10 py-3.5 bg-transparent border border-[#B98532] text-[#350709] hover:bg-[#350709] hover:text-[#F8F6F1] hover:border-[#350709] font-mono text-[11px] uppercase tracking-[0.25em] font-bold rounded-none flex items-center justify-center transition-all duration-250 hover:-translate-y-0.5 active:translate-y-0"
           >
             Order on WhatsApp
           </a>
@@ -177,12 +177,12 @@ export default function Footer() {
           {/* Centered Logo Badge */}
           <div
             ref={logoRef}
-            className="footer-logo relative z-10 bg-[#350709] px-8 py-2 flex items-center justify-center border border-[#B98532]/30"
+            className="footer-logo relative z-10 bg-[#F8F6F1] px-8 py-2 flex items-center justify-center"
           >
             <img
               src="/morya-logo.png"
               alt="Maurya Pure Veg"
-              className="h-[70px] w-auto object-contain brightness-110 transition-transform duration-300 hover:scale-105"
+              className="h-[70px] w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
           </div>
         </div>
@@ -195,35 +195,35 @@ export default function Footer() {
             <h3 className="font-mono text-xs text-[#B98532] font-bold uppercase tracking-[0.25em]">
               EXPLORE
             </h3>
-            <ul className="space-y-3.5 text-sm font-medium text-[#F8F6F1]/80">
+            <ul className="space-y-3.5 text-sm font-medium text-[#350709]/80">
               <li>
-                <Link href="/menu" className="group inline-flex items-center gap-1 hover:text-[#B98532] transition-colors">
+                <Link href="/menu" className="group inline-flex items-center gap-1 hover:text-[#350709] transition-colors">
                   <span>The Menu</span>
-                  <span className="h-[1px] w-0 bg-[#B98532] transition-all duration-300 group-hover:w-full" />
+                  <span className="h-[1px] w-0 bg-[#350709] transition-all duration-300 group-hover:w-full" />
                 </Link>
               </li>
               <li>
-                <Link href="/our-story" className="group inline-flex items-center gap-1 hover:text-[#B98532] transition-colors">
+                <Link href="/our-story" className="group inline-flex items-center gap-1 hover:text-[#350709] transition-colors">
                   <span>Our Story</span>
-                  <span className="h-[1px] w-0 bg-[#B98532] transition-all duration-300 group-hover:w-full" />
+                  <span className="h-[1px] w-0 bg-[#350709] transition-all duration-300 group-hover:w-full" />
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="group inline-flex items-center gap-1 hover:text-[#B98532] transition-colors">
+                <Link href="/gallery" className="group inline-flex items-center gap-1 hover:text-[#350709] transition-colors">
                   <span>Gallery</span>
-                  <span className="h-[1px] w-0 bg-[#B98532] transition-all duration-300 group-hover:w-full" />
+                  <span className="h-[1px] w-0 bg-[#350709] transition-all duration-300 group-hover:w-full" />
                 </Link>
               </li>
               <li>
-                <Link href="/group-dining" className="group inline-flex items-center gap-1 hover:text-[#B98532] transition-colors">
+                <Link href="/group-dining" className="group inline-flex items-center gap-1 hover:text-[#350709] transition-colors">
                   <span>Group Dining</span>
-                  <span className="h-[1px] w-0 bg-[#B98532] transition-all duration-300 group-hover:w-full" />
+                  <span className="h-[1px] w-0 bg-[#350709] transition-all duration-300 group-hover:w-full" />
                 </Link>
               </li>
               <li>
-                <Link href="/reviews" className="group inline-flex items-center gap-1 hover:text-[#B98532] transition-colors">
+                <Link href="/reviews" className="group inline-flex items-center gap-1 hover:text-[#350709] transition-colors">
                   <span>Guest Reviews</span>
-                  <span className="h-[1px] w-0 bg-[#B98532] transition-all duration-300 group-hover:w-full" />
+                  <span className="h-[1px] w-0 bg-[#350709] transition-all duration-300 group-hover:w-full" />
                 </Link>
               </li>
             </ul>
@@ -234,7 +234,7 @@ export default function Footer() {
             <h3 className="font-mono text-xs text-[#B98532] font-bold uppercase tracking-[0.25em]">
               VISIT
             </h3>
-            <address className="not-italic space-y-3.5 text-sm font-medium text-[#F8F6F1]/80 leading-relaxed">
+            <address className="not-italic space-y-3.5 text-sm font-medium text-[#350709]/80 leading-relaxed">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#B98532] shrink-0 mt-0.5 stroke-[1.5]" />
                 <span>
@@ -252,7 +252,7 @@ export default function Footer() {
                   href="https://maps.google.com/?q=Maurya+Pure+Veg+Kondhwa+Pune"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-[0.15em] text-[#B98532] font-bold hover:text-[#F8F6F1] transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-[0.15em] text-[#B98532] font-bold hover:text-[#350709] transition-colors"
                 >
                   <span>Get Directions</span>
                   <ArrowUpRight className="w-3.5 h-3.5 stroke-[2]" />
@@ -266,21 +266,21 @@ export default function Footer() {
             <h3 className="font-mono text-xs text-[#B98532] font-bold uppercase tracking-[0.25em]">
               CONTACT
             </h3>
-            <ul className="space-y-3.5 text-sm font-medium text-[#F8F6F1]/80">
+            <ul className="space-y-3.5 text-sm font-medium text-[#350709]/80">
               <li>
-                <a href="tel:+917030777051" className="inline-flex items-center gap-2.5 hover:text-[#B98532] transition-colors">
+                <a href="tel:+917030777051" className="inline-flex items-center gap-2.5 hover:text-[#350709] transition-colors">
                   <Phone className="w-4 h-4 text-[#B98532] shrink-0 stroke-[1.5]" />
                   <span>+91 70307 77051</span>
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/917030777051" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 hover:text-[#B98532] transition-colors">
+                <a href="https://wa.me/917030777051" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 hover:text-[#350709] transition-colors">
                   <MessageSquare className="w-4 h-4 text-[#B98532] shrink-0 stroke-[1.5]" />
                   <span>WhatsApp Direct</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:contact@mauryaveg.com" className="inline-flex items-center gap-2.5 hover:text-[#B98532] transition-colors">
+                <a href="mailto:contact@mauryaveg.com" className="inline-flex items-center gap-2.5 hover:text-[#350709] transition-colors">
                   <Mail className="w-4 h-4 text-[#B98532] shrink-0 stroke-[1.5]" />
                   <span>contact@mauryaveg.com</span>
                 </a>
@@ -293,15 +293,15 @@ export default function Footer() {
             <h3 className="font-mono text-xs text-[#B98532] font-bold uppercase tracking-[0.25em]">
               FOLLOW
             </h3>
-            <ul className="space-y-3.5 text-sm font-medium text-[#F8F6F1]/80">
+            <ul className="space-y-3.5 text-sm font-medium text-[#350709]/80">
               <li>
-                <a href="https://www.instagram.com/restaurant_mauryaveg?igsh=djFnNDV6N2c1dTN1" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[#B98532] transition-colors">
+                <a href="https://www.instagram.com/restaurant_mauryaveg?igsh=djFnNDV6N2c1dTN1" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[#350709] transition-colors">
                   <span>Instagram</span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-[#B98532] stroke-[2]" />
                 </a>
               </li>
               <li>
-                <Link href="/reviews" className="inline-flex items-center gap-2 hover:text-[#B98532] transition-colors">
+                <Link href="/reviews" className="inline-flex items-center gap-2 hover:text-[#350709] transition-colors">
                   <span>Google Reviews (4.5★)</span>
                 </Link>
               </li>
@@ -311,14 +311,14 @@ export default function Footer() {
         </nav>
 
         {/* ── SECTION 5: RESTAURANT INFORMATION STRIP ─────────────────── */}
-        <div className="footer-info-strip border-t border-b border-[#B98532]/30 py-8 my-10 bg-[#250406]/60">
+        <div className="footer-info-strip border-t border-b border-[#B98532]/25 py-8 my-10">
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 text-center">
             {restaurantInfoItems.map((item, idx) => {
               const Icon = item.icon;
               return (
                 <div key={idx} className="flex items-center gap-3">
                   <Icon className="w-4 h-4 text-[#B98532] stroke-[1.5]" />
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] font-bold text-[#F8F6F1]/90">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] font-bold text-[#350709]/90">
                     {item.label}
                   </span>
                 </div>
@@ -337,7 +337,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="p-3 border border-[#B98532]/30 text-[#F8F6F1]/80 hover:text-[#B98532] hover:border-[#B98532] transition-all duration-250 hover:-translate-y-0.5"
+              className="p-3 border border-[#B98532]/30 text-[#350709]/70 hover:text-[#350709] hover:border-[#350709] transition-all duration-250 hover:-translate-y-0.5"
             >
               <Instagram className="w-4 h-4 stroke-[1.5]" />
             </a>
@@ -346,7 +346,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
-              className="p-3 border border-[#B98532]/30 text-[#F8F6F1]/80 hover:text-[#B98532] hover:border-[#B98532] transition-all duration-250 hover:-translate-y-0.5"
+              className="p-3 border border-[#B98532]/30 text-[#350709]/70 hover:text-[#350709] hover:border-[#350709] transition-all duration-250 hover:-translate-y-0.5"
             >
               <MessageSquare className="w-4 h-4 stroke-[1.5]" />
             </a>
@@ -354,7 +354,7 @@ export default function Footer() {
 
           {/* Copyright & Akari Studios Attribution */}
           <div className="footer-copyright text-center space-y-5 pt-8 border-t border-[#B98532]/30 max-w-xl mx-auto">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] font-semibold text-[#F8F6F1]/80">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] font-semibold text-[#350709]/80">
               © 2026 Maurya Pure Veg
             </p>
             
@@ -362,10 +362,10 @@ export default function Footer() {
               <p className="font-serif italic text-xs text-[#B98532]">
                 Crafted with precision by
               </p>
-              <h4 className="font-mono text-sm md:text-base font-bold uppercase tracking-[0.3em] text-[#F8F6F1]">
+              <h4 className="font-mono text-sm md:text-base font-bold uppercase tracking-[0.3em] text-[#350709]">
                 AKARI STUDIOS
               </h4>
-              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#B98532]/80 pt-1">
+              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#350709]/60 pt-1">
                 Digital Experiences • Branding • Websites
               </p>
             </div>

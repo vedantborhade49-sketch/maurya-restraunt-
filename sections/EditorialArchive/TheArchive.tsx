@@ -111,7 +111,7 @@ export default function TheArchive() {
       <section className="spread1 relative w-full min-h-[150vh] flex flex-col items-center justify-center py-40">
         <div className="relative w-[85vw] md:w-[45vw] aspect-[3/4] overflow-hidden shadow-2xl group cursor-none">
           <div className="spread1-img w-full h-[120%] -top-[10%] relative">
-            <EditorialImage src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2000&auto=format&fit=crop" alt="The Monolith" priority />
+            <EditorialImage src="/editorial-entrance.png" alt="The Monolith" priority />
           </div>
           {/* Custom hover interaction */}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-700 pointer-events-none" />
@@ -161,7 +161,7 @@ export default function TheArchive() {
 
         <div className="spread2-tiny absolute top-[80%] right-[5%] md:right-[30%] w-36 md:w-48 aspect-[3/4] shadow-xl p-2 bg-white">
           <div className="relative w-full h-full">
-            <EditorialImage src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000&auto=format&fit=crop" alt="Details" />
+            <EditorialImage src="/editorial-food-2.png" alt="Details" />
           </div>
         </div>
 
@@ -221,14 +221,14 @@ export default function TheArchive() {
           
           <div className="spread5-img absolute top-[10%] left-[10%] w-[50vw] md:w-[35vw] aspect-[4/5] bg-white p-3 shadow-[0_30px_60px_rgba(0,0,0,0.15)] z-10 transition-transform hover:z-50 hover:scale-105 duration-500">
              <div className="relative w-full h-full">
-               <EditorialImage src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1500&auto=format&fit=crop" alt="Friends" />
+               <EditorialImage src="/editorial-food-starters.png" alt="Friends" />
              </div>
              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#1F1F1F]/50 mt-4 px-2">Table 12. Laughter.</p>
           </div>
 
           <div className="spread5-img absolute top-[30%] right-[5%] md:right-[15%] w-[60vw] md:w-[45vw] aspect-[16/9] bg-white p-3 shadow-[0_40px_80px_rgba(0,0,0,0.2)] z-20 transition-transform hover:z-50 hover:scale-105 duration-500">
              <div className="relative w-full h-full">
-               <EditorialImage src="https://images.unsplash.com/photo-1511690655022-07615f124bf0?q=80&w=2000&auto=format&fit=crop" alt="Family" />
+               <EditorialImage src="/editorial-food-mains.png" alt="Family" />
              </div>
              <div className="absolute -top-6 -right-6 font-serif italic text-4xl text-[#B98555]/80 pointer-events-none -rotate-12">
                Forever.
@@ -252,7 +252,7 @@ export default function TheArchive() {
       */}
       <section className="spread6 relative w-full h-[120vh] bg-[#111111] overflow-hidden">
         <div className="spread6-bleed w-full h-full relative">
-          <EditorialImage src="https://images.unsplash.com/photo-1414235077428-9710c28afbb3?q=80&w=2500&auto=format&fit=crop" alt="Enormous Bleed" />
+          <EditorialImage src="/editorial-food-5.png" alt="Enormous Bleed" />
         </div>
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none mix-blend-overlay">
           <h2 className="font-serif text-[20vw] md:text-[15vw] text-white opacity-20 tracking-tighter">
@@ -270,7 +270,7 @@ export default function TheArchive() {
         
         <div className="w-48 md:w-64 aspect-[3/4] bg-white p-2 shadow-2xl rotate-[-2deg]">
           <div className="relative w-full h-full">
-             <EditorialImage src="https://images.unsplash.com/photo-1574484284002-9ae846c48f8f?q=80&w=1500&auto=format&fit=crop" alt="Detail" />
+             <EditorialImage src="/editorial-food-dosa.png" alt="Detail" />
           </div>
         </div>
 
