@@ -114,16 +114,6 @@ export default function Home() {
             className="relative z-[20] container-maurya h-full flex flex-col justify-between pt-24 pb-12 md:pb-16"
             style={{ opacity: 0 }}
           >
-            {/* Top Logo Reveal */}
-            <div className="content-grid pt-4">
-              <div className="inline-flex items-center gap-3 px-4 py-1.5 bg-[#472020]/60 border border-[#9A5C3B]/30 rounded-full backdrop-blur-md">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#9A5C3B] animate-ping" />
-                <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#F8F5EF]/80 font-semibold">
-                  MAURYA &nbsp;·&nbsp; PURE VEG HERITAGE
-                </span>
-              </div>
-            </div>
-
             {/* Core Emotional Hook */}
             <div className="content-grid my-auto">
               <h1 className="font-heading text-[48px] sm:text-[68px] md:text-[84px] lg:text-[96px] leading-[0.92] tracking-tight text-[#F8F5EF] max-w-[900px]">
