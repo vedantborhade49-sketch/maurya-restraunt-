@@ -10,8 +10,7 @@ import {
   Phone, 
   Mail, 
   ArrowUpRight, 
-  MessageSquare, 
-  Calendar 
+  MessageSquare 
 } from "lucide-react";
 import ButtonPrimary from "@/components/ui/ButtonPrimary";
 import ButtonSecondary from "@/components/ui/ButtonSecondary";
@@ -27,7 +26,7 @@ export default function Footer() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: footerRef.current,
-          start: "top 80%",
+          start: "top 85%",
           toggleActions: "play none none none",
         },
       });
@@ -70,12 +69,23 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative w-full bg-[#F8F6F1] text-[#350709] border-t border-[#B98532]/30 py-16 md:py-20 px-6 md:px-12 lg:px-20 overflow-hidden font-sans select-none"
+      className="relative w-full bg-[#F4EFE6] text-[#350709] pt-20 pb-16 px-6 md:px-12 lg:px-20 overflow-hidden font-sans select-none"
       style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)' opacity='0.02'/%3E%3C/svg%3E")`,
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)' opacity='0.035'/%3E%3C/svg%3E")`,
       }}
     >
-      <div className="max-w-[1240px] mx-auto space-y-12">
+      {/* ── TORN PAPER TOP EDGE (SVG MASK WITH DROP SHADOW) ──────────────── */}
+      <div className="absolute -top-7 left-0 w-full overflow-hidden leading-none pointer-events-none drop-shadow-[0_-8px_16px_rgba(0,0,0,0.18)] z-20">
+        <svg
+          viewBox="0 0 1200 40"
+          preserveAspectRatio="none"
+          className="w-full h-8 text-[#F4EFE6] fill-current"
+        >
+          <path d="M0,40 L0,22 Q30,12 60,24 Q90,32 120,18 Q150,8 180,26 Q210,34 240,16 Q270,6 300,22 Q330,30 360,14 Q390,4 420,20 Q450,32 480,18 Q510,8 540,24 Q570,30 600,12 Q630,4 660,20 Q690,32 720,16 Q750,6 780,26 Q810,34 840,18 Q870,8 900,24 Q930,32 960,14 Q990,4 1020,22 Q1050,30 1080,16 Q1110,6 1140,24 Q1170,32 1200,20 L1200,40 Z" />
+        </svg>
+      </div>
+
+      <div className="max-w-[1240px] mx-auto space-y-12 relative z-10 pt-4">
         
         {/* ── SECTION 1 & 2: CLOSING STATEMENT & CTAS ─────────────────────── */}
         <div className="quiet-goodbye-closing text-center space-y-6 max-w-2xl mx-auto">
@@ -90,7 +100,7 @@ export default function Footer() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <Link href="/menu">
-              <ButtonPrimary className="w-full sm:w-auto bg-[#350709] text-[#F8F6F1] hover:bg-[#B98532] hover:text-[#350709] text-xs py-3 px-6">
+              <ButtonPrimary className="w-full sm:w-auto bg-[#350709] text-[#F8F6F1] hover:bg-[#B98532] hover:text-[#350709] text-xs py-3 px-6 shadow-md">
                 Reserve A Table
               </ButtonPrimary>
             </Link>
@@ -158,7 +168,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/our-story" className="group inline-flex items-center gap-1 hover:text-[#350709] transition-colors">
-                  <span>The Maurya Experience</span>
+                  <span>Around Our Table</span>
                   <span className="h-[1px] w-0 bg-[#350709] transition-all duration-300 group-hover:w-full" />
                 </Link>
               </li>
@@ -192,7 +202,7 @@ export default function Footer() {
               <li>
                 <a href="https://wa.me/917030777051" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center sm:justify-start gap-2 hover:text-[#350709] transition-colors">
                   <MessageSquare className="w-3.5 h-3.5 text-[#B98532]" />
-                  <span>WhatsApp Reservation</span>
+                  <span>WhatsApp Booking</span>
                 </a>
               </li>
               <li>
