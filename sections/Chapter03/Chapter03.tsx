@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SteamMotif from "@/components/SteamMotif";
 import { MarginNote } from "@/components/MicroArtifacts";
+import LittleMonkeyBadge from "@/components/LittleMonkeyBadge";
 
 export default function Chapter03() {
   const containerRef = useRef<HTMLElement>(null);
@@ -163,7 +164,12 @@ export default function Chapter03() {
         {/* Layer 2: Editorial Typography */}
         <div className={isMobile ? "relative z-20 w-full text-center" : "relative z-20 container-maurya h-full flex flex-col justify-end pb-24 md:pb-32 pointer-events-none"}>
           
-          <div ref={headlineRef} className={`content-grid flex flex-col ${isMobile ? "opacity-100" : "opacity-0"}`}>
+          <div ref={headlineRef} className={`content-grid flex flex-col items-center text-center ${isMobile ? "opacity-100" : "opacity-0"}`}>
+            {/* Little Monkey UI Accent */}
+            <div className="mb-4">
+              <LittleMonkeyBadge variant="menu" message="Monkey's Fresh Picks 🍌" />
+            </div>
+
             <h2 className={`font-heading text-[#272322] leading-[1.0] tracking-tight ${isMobile ? "text-[10vw] mb-4" : "text-[12vw] md:text-[6vw]"}`}>
               Fresh Every Morning.<br/>
               <span className="italic text-[#9A5C3B]">Served Every Evening.</span>

@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import EditorialImage from "@/components/EditorialImage";
 import { Star, ArrowRight, ExternalLink } from "lucide-react";
+import LittleMonkeyBadge from "@/components/LittleMonkeyBadge";
 
 interface GuestbookMemory {
   id: string;
@@ -145,8 +146,10 @@ export default function DiningMemories() {
       <div className="max-w-[1320px] mx-auto space-y-20">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-6">
-          <span className="memories-hero-text font-mono text-[10px] md:text-xs uppercase tracking-[0.35em] font-bold text-[#B98532] block">
+        <div className="text-center max-w-3xl mx-auto space-y-6 flex flex-col items-center">
+          <LittleMonkeyBadge variant="reviews" message="Loved by Guests & Monkeys Alike 🐒" className="mb-2" />
+
+          <span className="memories-hero-text font-mono text-[10px] md:text-xs uppercase tracking-[0.35em] font-bold text-[#9A5C3B] block">
             GUESTBOOK ARCHIVE
           </span>
 

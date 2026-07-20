@@ -10,6 +10,7 @@ import CategoryHeroDish from "./CategoryHeroDish";
 import FloatingFoodPreview from "./FloatingFoodPreview";
 import MenuFinalCTA from "./MenuFinalCTA";
 import BrassDivider from "../ui/BrassDivider";
+import LittleMonkeyBadge from "../LittleMonkeyBadge";
 
 import menuData from "../../maurya_menu.json";
 
@@ -358,13 +359,19 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         
         {/* Header Block */}
-        <div className="mb-10 text-center md:text-left mt-8">
-          <span className="font-sans text-[10px] tracking-[0.25em] text-[#8F1115] font-bold uppercase">
-            THE MAURYA KITCHEN
-          </span>
-          <h1 className="font-heading text-5xl md:text-6xl text-[#350709] tracking-tight mt-1">
-            What are you<br className="md:hidden" /> craving today?
-          </h1>
+        <div className="mb-10 text-center md:text-left mt-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <span className="font-sans text-[10px] tracking-[0.25em] text-[#8F1115] font-bold uppercase">
+              THE MAURYA KITCHEN
+            </span>
+            <h1 className="font-heading text-5xl md:text-6xl text-[#350709] tracking-tight mt-1">
+              What are you<br className="md:hidden" /> craving today?
+            </h1>
+          </div>
+          
+          <div className="flex justify-center md:justify-end">
+            <LittleMonkeyBadge variant="menu" message="Monkey's Kitchen Picks 🍌" />
+          </div>
         </div>
 
         {/* Dimmer overlay for search focus */}
