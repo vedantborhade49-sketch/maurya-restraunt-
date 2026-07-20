@@ -6,6 +6,10 @@ import { Search, Plus, Minus, ArrowRight, X } from "lucide-react";
 import { motion, AnimatePresence, useSpring } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import CategoryHeroDish from "./CategoryHeroDish";
+import FloatingFoodPreview from "./FloatingFoodPreview";
+import MenuFinalCTA from "./MenuFinalCTA";
+import BrassDivider from "../ui/BrassDivider";
 
 interface MenuClientProps {
   initialCategories: any[];
@@ -28,6 +32,17 @@ const MOODS = [
   { label: "MAURYA FAVOURITES", tag: "maurya_favourite", border: "border-purple-900/30 text-purple-400" },
   { label: "LIGHT", tag: "light", border: "border-orange-900/30 text-orange-400" }
 ];
+
+const CATEGORY_SUBTITLES: Record<string, string> = {
+  STARTERS: "Where every meal begins with warmth & spice.",
+  DOSA: "Crispy golden crepes crafted on traditional hot griddles.",
+  UTTAPAM: "Soft savory pancakes layered with fresh toppings.",
+  MAINS: "Rich curries simmered over slow tandoori embers.",
+  CHINESE: "Wok-tossed delicacies full of bold oriental aroma.",
+  RICE: "Fragrant basmati biryanis infused with aromatic spices.",
+  DESSERTS: "Pure indulgence to conclude a memorable dining story.",
+  BEVERAGES: "Cooling traditional coolers & refreshing blends.",
+};
 
 export default function MenuClient({ initialCategories, initialItems }: MenuClientProps) {
   const [categories] = useState(initialCategories);
@@ -62,6 +77,7 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
 
   // Contextual Hover Preview Coordinates (Desktop)
   const [hoveredItem, setHoveredItem] = useState<MenuItem | null>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const mouseX = useSpring(0, { stiffness: 180, damping: 22 });
   const mouseY = useSpring(0, { stiffness: 180, damping: 22 });
   const previewRef = useRef<HTMLDivElement>(null);
@@ -92,6 +108,7 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
 
   // Track mouse coordinates on desktop
   const handleMouseMove = (e: React.MouseEvent) => {
+    setMousePos({ x: e.clientX + 20, y: e.clientY + 20 });
     if (!hoveredItem) return;
     mouseX.set(e.clientX + 20);
     mouseY.set(e.clientY + 20);
@@ -514,9 +531,16 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
         )}
 
         {/* 6. High-Density Menu Category Listings */}
-        <div className="space-y-16">
+        <div className="space-y-20">
           {Object.entries(groupedItems).map(([catName, dishList], groupIndex) => {
             const slug = catName.replace(/[^a-z0-9]+/g, "-");
+            const subtitle =
+              CATEGORY_SUBTITLES[catName.toUpperCase()] ||
+              "Crafted with fresh ingredients and authentic hospitality.";
+            const heroDish =
+              dishList.find((d) => d.is_spicy || d.tags?.includes("maurya_favourite")) ||
+              dishList[0];
+
             return (
               <div
                 key={catName}
@@ -524,20 +548,37 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
                 ref={(el) => {
                   sectionRefs.current[catName] = el;
                 }}
-                className="scroll-mt-32"
+                className="scroll-mt-32 space-y-8"
               >
                 {/* Category Header */}
-                <div className="border-b border-[#350709]/10 pb-4 mb-8 flex items-baseline justify-between">
-                  <h3 className="font-heading text-3xl md:text-4xl text-[#350709]">
-                    {catName}
-                  </h3>
-                  <span className="font-mono text-xs text-[#350709]/50">
-                    {dishList.length} DISHES
+                <div className="border-b border-[#B98532]/30 pb-4 flex flex-col md:flex-row md:items-baseline justify-between gap-2">
+                  <div>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#B98532] font-bold">
+                      CHAPTER {String(groupIndex + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-serif text-4xl md:text-5xl text-[#350709] font-normal leading-tight">
+                      {catName}
+                    </h3>
+                    <p className="font-serif italic text-sm text-[#B98532]">
+                      "{subtitle}"
+                    </p>
+                  </div>
+                  <span className="font-mono text-xs text-[#350709]/60 font-bold">
+                    {dishList.length} DISHES ON THE TABLE
                   </span>
                 </div>
 
+                {/* Giant Category Hero Dish Showcase */}
+                {heroDish && (
+                  <CategoryHeroDish
+                    item={heroDish}
+                    onAdd={handleAdd}
+                    quantity={getItemQuantity(heroDish.id)}
+                  />
+                )}
+
                 {/* Two-Column high density Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 pt-4">
                   {dishList.map((item) => {
                     const qty = getItemQuantity(item.id);
                     return (
@@ -905,6 +946,14 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* 11. Final CTA: LET MAURYA SET THE TABLE */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+        <MenuFinalCTA onSelectOption={(m) => setDecideMood(m as any)} />
+      </div>
+
+      {/* Desktop Floating Food Preview */}
+      <FloatingFoodPreview item={hoveredItem} mouseX={mousePos.x} mouseY={mousePos.y} />
     </div>
   );
 }
