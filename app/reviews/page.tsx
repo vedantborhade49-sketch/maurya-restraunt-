@@ -3,8 +3,7 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import TheConstellation from "@/sections/ReviewsConstellation/TheConstellation";
-import TrustEditorial from "@/sections/TrustEditorial/TrustEditorial";
+import DiningMemories from "@/components/reviews/DiningMemories";
 
 export default function ReviewsPage() {
   useEffect(() => {
@@ -16,9 +15,8 @@ export default function ReviewsPage() {
   }, []);
 
   return (
-    <main className="w-full bg-[#1A050A] selection:bg-[#B98555] selection:text-[#1A050A] overflow-x-hidden">
-      <TheConstellation />
-      <TrustEditorial />
+    <main className="w-full bg-[#F8F6F1] text-[#350709] selection:bg-[#350709] selection:text-[#F8F6F1] overflow-x-hidden">
+      <DiningMemories />
     </main>
   );
 }

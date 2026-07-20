@@ -5,19 +5,20 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { 
-  Clock, 
-  MessageSquare,
-  Instagram,
-  MapPin,
-  Phone,
-  Mail,
-  ArrowUpRight
+  Instagram, 
+  MapPin, 
+  Phone, 
+  Mail, 
+  ArrowUpRight, 
+  MessageSquare, 
+  Calendar 
 } from "lucide-react";
+import ButtonPrimary from "@/components/ui/ButtonPrimary";
+import ButtonSecondary from "@/components/ui/ButtonSecondary";
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
-  const dividerRef = useRef<HTMLDivElement>(null);
-  const logoRef = useRef<HTMLDivElement>(null);
+  const ornamentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -31,67 +32,35 @@ export default function Footer() {
         },
       });
 
-      // 1. Closing Statement Heading (Fade up 40px, 1.0s)
+      // 1. Closing statement & buttons fade-up
       tl.fromTo(
-        ".footer-closing-heading",
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.0, ease: "power4.out" }
-      );
-
-      // 2. Paragraph (80ms delay)
-      tl.fromTo(
-        ".footer-closing-text",
+        ".quiet-goodbye-closing",
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
-        "-=0.72"
+        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
       );
 
-      // 3. CTA Buttons
+      // 2. Center brass ornament draw outward
       tl.fromTo(
-        ".footer-cta-buttons",
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
-        "-=0.64"
-      );
-
-      // 4. Brass Divider Draw (Center outward, 0.6s)
-      tl.fromTo(
-        ".footer-divider-line",
-        { scaleX: 0 },
-        { scaleX: 1, duration: 0.6, ease: "expo.out", transformOrigin: "center center" },
-        "-=0.5"
-      );
-
-      // 5. Logo Fade and Scale (0.95 -> 1, 0.7s)
-      tl.fromTo(
-        ".footer-logo",
-        { opacity: 0, scale: 0.95 },
-        { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" },
-        "-=0.45"
-      );
-
-      // 6. Navigation Columns (Staggered 80ms)
-      tl.fromTo(
-        ".footer-nav-col",
-        { y: 25, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.08, ease: "power3.out" },
+        ornamentRef.current,
+        { scaleX: 0, opacity: 0 },
+        { scaleX: 1, opacity: 1, duration: 0.7, ease: "expo.out", transformOrigin: "center center" },
         "-=0.4"
       );
 
-      // 7. Social Links
+      // 3. 4-Column Grid Rise (Staggered)
       tl.fromTo(
-        ".footer-social-links",
-        { y: 15, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" },
-        "-=0.2"
+        ".quiet-goodbye-col",
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, stagger: 0.08, ease: "power3.out" },
+        "-=0.3"
       );
 
-      // 8. Copyright
+      // 4. Copyright & Akari Signature fade
       tl.fromTo(
-        ".footer-copyright",
+        ".quiet-goodbye-bottom",
         { opacity: 0 },
         { opacity: 1, duration: 0.6, ease: "power3.out" },
-        "-=0.1"
+        "-=0.2"
       );
     }, footerRef);
 
@@ -101,80 +70,86 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative w-full bg-[#F8F6F1] text-[#350709] border-t border-[#B98532] pt-24 pb-12 px-6 md:px-12 lg:px-20 overflow-hidden font-sans select-none"
+      className="relative w-full bg-[#F8F6F1] text-[#350709] border-t border-[#B98532]/30 py-16 md:py-20 px-6 md:px-12 lg:px-20 overflow-hidden font-sans select-none"
       style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)' opacity='0.02'/%3E%3C/svg%3E")`,
       }}
     >
-      <div className="max-w-[1320px] mx-auto space-y-20">
-
-        {/* ── SECTION 1: CLOSING STATEMENT ─────────────────────────────── */}
-        <div className="text-center space-y-6 max-w-4xl mx-auto">
-          <h2 className="footer-closing-heading font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#350709] leading-[0.95] tracking-tight font-normal">
-            <span>COME HUNGRY</span>
-            <br />
-            <span className="italic font-serif text-[#B98532] block mt-2">
-              LEAVE WITH A STORY
-            </span>
+      <div className="max-w-[1240px] mx-auto space-y-12">
+        
+        {/* ── SECTION 1 & 2: CLOSING STATEMENT & CTAS ─────────────────────── */}
+        <div className="quiet-goodbye-closing text-center space-y-6 max-w-2xl mx-auto">
+          <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#350709] tracking-tight leading-tight">
+            COME HUNGRY.<br />
+            <span className="italic text-[#B98532]">LEAVE WITH A STORY.</span>
           </h2>
 
-          <p className="footer-closing-text font-sans text-sm md:text-base lg:text-lg text-[#350709]/80 max-w-[640px] mx-auto leading-relaxed pt-2">
-            Every meal at Maurya is crafted with fresh ingredients, authentic flavours,
-            and warm hospitality.
+          <p className="font-sans text-xs sm:text-sm text-[#350709]/80 font-light max-w-md mx-auto">
+            Thank you for sharing your table with us. We look forward to welcoming you again.
           </p>
-        </div>
 
-        {/* ── SECTION 2: PRIMARY CALL TO ACTION ────────────────────────── */}
-        <div className="footer-cta-buttons flex flex-col sm:flex-row items-center justify-center gap-5 pt-2">
-          {/* Primary Button */}
-          <Link
-            href="/menu"
-            className="w-full sm:w-auto min-h-[48px] px-10 py-3.5 bg-[#350709] hover:bg-[#250406] text-[#F8F6F1] font-mono text-[11px] uppercase tracking-[0.25em] font-bold rounded-none flex items-center justify-center transition-transform duration-250 hover:-translate-y-0.5 active:translate-y-0 shadow-none"
-          >
-            Reserve A Table
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+            <Link href="/menu">
+              <ButtonPrimary className="w-full sm:w-auto bg-[#350709] text-[#F8F6F1] hover:bg-[#B98532] hover:text-[#350709] text-xs py-3 px-6">
+                Reserve A Table
+              </ButtonPrimary>
+            </Link>
 
-          {/* Secondary Button */}
-          <a
-            href="https://wa.me/917030777051"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto min-h-[48px] px-10 py-3.5 bg-transparent border border-[#B98532] text-[#350709] hover:bg-[#350709] hover:text-[#F8F6F1] hover:border-[#350709] font-mono text-[11px] uppercase tracking-[0.25em] font-bold rounded-none flex items-center justify-center transition-all duration-250 hover:-translate-y-0.5 active:translate-y-0"
-          >
-            Order on WhatsApp
-          </a>
-        </div>
-
-        {/* ── SECTION 3: DECORATIVE DIVIDER & LOGO ────────────────────── */}
-        <div className="relative py-8 flex items-center justify-center">
-          {/* Thin Brass Divider Line */}
-          <div
-            ref={dividerRef}
-            className="footer-divider-line absolute inset-x-0 top-1/2 -translate-y-1/2 h-[1px] bg-[#B98532]/40 w-full"
-          />
-
-          {/* Centered Logo Badge */}
-          <div
-            ref={logoRef}
-            className="footer-logo relative z-10 bg-[#F8F6F1] px-8 py-2 flex items-center justify-center"
-          >
-            <img
-              src="/morya-logo.png"
-              alt="Maurya Pure Veg"
-              className="h-[70px] w-auto object-contain transition-transform duration-300 hover:scale-105"
-            />
+            <a
+              href="https://wa.me/917030777051"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              <ButtonSecondary className="w-full sm:w-auto border-[#350709] text-[#350709] hover:bg-[#350709] hover:text-[#F8F6F1] text-xs py-3 px-6">
+                Order On WhatsApp
+              </ButtonSecondary>
+            </a>
           </div>
         </div>
 
-        {/* ── SECTION 4: FOOTER NAVIGATION (4 COLUMNS) ──────────────────── */}
-        <nav aria-label="Footer Navigation" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 pt-4">
+        {/* ── SECTION 3: CENTER BRASS ORNAMENT ─────────────────────────────── */}
+        <div
+          ref={ornamentRef}
+          className="flex items-center justify-center gap-4 text-[#B98532] py-2 max-w-xl mx-auto"
+        >
+          <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent via-[#B98532]/40 to-[#B98532]" />
+          <span className="text-sm font-serif italic font-bold">❖</span>
+          <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent via-[#B98532]/40 to-[#B98532]" />
+        </div>
+
+        {/* ── SECTION 4: EXACTLY FOUR COLUMNS GRID ──────────────────────────── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 pt-4 text-center sm:text-left">
           
-          {/* Column 1: EXPLORE */}
-          <div className="footer-nav-col space-y-6">
+          {/* Column 1: VISIT */}
+          <div className="quiet-goodbye-col space-y-4">
+            <h3 className="font-mono text-xs text-[#B98532] font-bold uppercase tracking-[0.25em]">
+              VISIT
+            </h3>
+            <div className="space-y-2 text-xs font-medium text-[#350709]/80 leading-relaxed">
+              <p className="font-serif italic font-bold text-sm text-[#350709]">Maurya Pure Veg</p>
+              <p>Shop 1/2, Near Tilekar Nagar, Kamthe Pat, Kondhwa Khurd, Pune 411048</p>
+              <p className="text-[#B98532] font-mono text-[11px] pt-1">Open Daily: 11:00 AM – 11:00 PM</p>
+              <div className="pt-2">
+                <a
+                  href="https://maps.google.com/?q=Maurya+Pure+Veg+Restaurant+Kondhwa+Pune"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[#350709] hover:text-[#B98532] transition-colors font-mono text-[10px] uppercase tracking-wider font-bold"
+                >
+                  <span>Get Directions</span>
+                  <ArrowUpRight className="w-3 h-3" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Column 2: EXPLORE */}
+          <div className="quiet-goodbye-col space-y-4">
             <h3 className="font-mono text-xs text-[#B98532] font-bold uppercase tracking-[0.25em]">
               EXPLORE
             </h3>
-            <ul className="space-y-3.5 text-sm font-medium text-[#350709]/80">
+            <ul className="space-y-2.5 text-xs font-medium text-[#350709]/80">
               <li>
                 <Link href="/menu" className="group inline-flex items-center gap-1 hover:text-[#350709] transition-colors">
                   <span>The Menu</span>
@@ -183,7 +158,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/our-story" className="group inline-flex items-center gap-1 hover:text-[#350709] transition-colors">
-                  <span>Around Our Table</span>
+                  <span>The Maurya Experience</span>
                   <span className="h-[1px] w-0 bg-[#350709] transition-all duration-300 group-hover:w-full" />
                 </Link>
               </li>
@@ -194,147 +169,98 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/group-dining" className="group inline-flex items-center gap-1 hover:text-[#350709] transition-colors">
-                  <span>Group Dining</span>
-                  <span className="h-[1px] w-0 bg-[#350709] transition-all duration-300 group-hover:w-full" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/reviews" className="group inline-flex items-center gap-1 hover:text-[#350709] transition-colors">
-                  <span>Guest Reviews</span>
+                <Link href="/menu" className="group inline-flex items-center gap-1 hover:text-[#350709] transition-colors">
+                  <span>Reserve A Table</span>
                   <span className="h-[1px] w-0 bg-[#350709] transition-all duration-300 group-hover:w-full" />
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 2: VISIT */}
-          <div className="footer-nav-col space-y-6">
-            <h3 className="font-mono text-xs text-[#B98532] font-bold uppercase tracking-[0.25em]">
-              VISIT
-            </h3>
-            <address className="not-italic space-y-3.5 text-sm font-medium text-[#350709]/80 leading-relaxed">
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#B98532] shrink-0 mt-0.5 stroke-[1.5]" />
-                <span>
-                  Maurya Pure Veg,<br />
-                  Near Mithanagar, Kondhwa Khurd,<br />
-                  Pune, Maharashtra 411048
-                </span>
-              </div>
-              <div className="flex items-center gap-2.5 pt-1">
-                <Clock className="w-4 h-4 text-[#B98532] shrink-0 stroke-[1.5]" />
-                <span>11:00 AM — 11:00 PM Daily</span>
-              </div>
-              <div className="pt-2">
-                <a
-                  href="https://maps.google.com/?q=Maurya+Pure+Veg+Kondhwa+Pune"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-[0.15em] text-[#B98532] font-bold hover:text-[#350709] transition-colors"
-                >
-                  <span>Get Directions</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 stroke-[2]" />
-                </a>
-              </div>
-            </address>
-          </div>
-
           {/* Column 3: CONTACT */}
-          <div className="footer-nav-col space-y-6">
+          <div className="quiet-goodbye-col space-y-4">
             <h3 className="font-mono text-xs text-[#B98532] font-bold uppercase tracking-[0.25em]">
               CONTACT
             </h3>
-            <ul className="space-y-3.5 text-sm font-medium text-[#350709]/80">
+            <ul className="space-y-2.5 text-xs font-medium text-[#350709]/80">
               <li>
-                <a href="tel:+917030777051" className="inline-flex items-center gap-2.5 hover:text-[#350709] transition-colors">
-                  <Phone className="w-4 h-4 text-[#B98532] shrink-0 stroke-[1.5]" />
+                <a href="tel:+917030777051" className="inline-flex items-center justify-center sm:justify-start gap-2 hover:text-[#350709] transition-colors">
+                  <Phone className="w-3.5 h-3.5 text-[#B98532]" />
                   <span>+91 70307 77051</span>
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/917030777051" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 hover:text-[#350709] transition-colors">
-                  <MessageSquare className="w-4 h-4 text-[#B98532] shrink-0 stroke-[1.5]" />
-                  <span>WhatsApp Direct</span>
+                <a href="https://wa.me/917030777051" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center sm:justify-start gap-2 hover:text-[#350709] transition-colors">
+                  <MessageSquare className="w-3.5 h-3.5 text-[#B98532]" />
+                  <span>WhatsApp Reservation</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:contact@mauryaveg.com" className="inline-flex items-center gap-2.5 hover:text-[#350709] transition-colors">
-                  <Mail className="w-4 h-4 text-[#B98532] shrink-0 stroke-[1.5]" />
-                  <span>contact@mauryaveg.com</span>
+                <a href="mailto:info@mauryapureveg.com" className="inline-flex items-center justify-center sm:justify-start gap-2 hover:text-[#350709] transition-colors">
+                  <Mail className="w-3.5 h-3.5 text-[#B98532]" />
+                  <span>info@mauryapureveg.com</span>
                 </a>
               </li>
             </ul>
           </div>
 
           {/* Column 4: FOLLOW */}
-          <div className="footer-nav-col space-y-6">
+          <div className="quiet-goodbye-col space-y-4">
             <h3 className="font-mono text-xs text-[#B98532] font-bold uppercase tracking-[0.25em]">
               FOLLOW
             </h3>
-            <ul className="space-y-3.5 text-sm font-medium text-[#350709]/80">
+            <ul className="space-y-2.5 text-xs font-medium text-[#350709]/80">
               <li>
-                <a href="https://www.instagram.com/restaurant_mauryaveg?igsh=djFnNDV6N2c1dTN1" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[#350709] transition-colors">
+                <a
+                  href="https://www.instagram.com/restaurant_mauryaveg?igsh=djFnNDV6N2c1dTN1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center sm:justify-start gap-2 hover:text-[#350709] transition-colors group"
+                >
+                  <Instagram className="w-3.5 h-3.5 text-[#B98532] transition-transform duration-200 group-hover:-translate-y-0.5" />
                   <span>Instagram</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#B98532] stroke-[2]" />
                 </a>
               </li>
               <li>
-                <Link href="/reviews" className="inline-flex items-center gap-2 hover:text-[#350709] transition-colors">
-                  <span>Google Reviews (4.5★)</span>
-                </Link>
+                <a
+                  href="https://maps.google.com/?q=Maurya+Pure+Veg+Restaurant+Kondhwa+Pune"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center sm:justify-start gap-2 hover:text-[#350709] transition-colors"
+                >
+                  <span>Google Reviews (4.8★)</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center sm:justify-start gap-2 hover:text-[#350709] transition-colors"
+                >
+                  <span>Facebook</span>
+                </a>
               </li>
             </ul>
           </div>
 
-        </nav>
+        </div>
 
-        {/* ── SECTION 6: SOCIAL LINKS & COPYRIGHT ─────────────────────── */}
-        <div className="space-y-6 pt-4">
+        {/* ── SECTION 5: BOTTOM COPYRIGHT STRIP & AKARI STUDIOS SIGNATURE ───── */}
+        <div className="quiet-goodbye-bottom pt-8 border-t border-[#B98532]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left font-mono text-[10px] text-[#350709]/60">
+          <p>© {new Date().getFullYear()} Maurya Pure Veg. All rights reserved.</p>
 
-          {/* Social Links Row */}
-          <div className="footer-social-links flex items-center justify-center gap-6">
+          <p className="flex items-center gap-1">
+            <span>Crafted with precision by</span>
             <a
-              href="https://www.instagram.com/restaurant_mauryaveg?igsh=djFnNDV6N2c1dTN1"
+              href="https://akaristudios.com"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="p-3 border border-[#B98532]/30 text-[#350709]/70 hover:text-[#350709] hover:border-[#350709] transition-all duration-250 hover:-translate-y-0.5"
+              className="font-bold text-[#350709] hover:text-[#B98532] transition-colors underline underline-offset-2"
             >
-              <Instagram className="w-4 h-4 stroke-[1.5]" />
+              AKARI STUDIOS
             </a>
-            <a
-              href="https://wa.me/917030777051"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp"
-              className="p-3 border border-[#B98532]/30 text-[#350709]/70 hover:text-[#350709] hover:border-[#350709] transition-all duration-250 hover:-translate-y-0.5"
-            >
-              <MessageSquare className="w-4 h-4 stroke-[1.5]" />
-            </a>
-          </div>
-
-          {/* Copyright & Akari Studios Attribution */}
-          <div className="footer-copyright text-center space-y-5 pt-8 border-t border-[#B98532]/30 max-w-xl mx-auto">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] font-semibold text-[#350709]/80">
-              © 2026 Maurya Pure Veg
-            </p>
-            
-            <div className="space-y-1.5 pt-1">
-              <p className="font-serif italic text-xs text-[#B98532]">
-                Crafted with precision by
-              </p>
-              <h4 className="font-mono text-sm md:text-base font-bold uppercase tracking-[0.3em] text-[#350709]">
-                AKARI STUDIOS
-              </h4>
-              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#350709]/60 pt-1">
-                Digital Experiences • Branding • Websites
-              </p>
-            </div>
-
-            <div className="h-[1px] bg-[#B98532]/30 w-full mt-6" />
-          </div>
-
+          </p>
         </div>
 
       </div>
