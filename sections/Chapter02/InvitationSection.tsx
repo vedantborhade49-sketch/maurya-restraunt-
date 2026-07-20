@@ -66,10 +66,8 @@ export default function InvitationSection() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          pin: true,
-          pinSpacing: true,
-          start: "top top",
-          end: "+=220%",
+          start: "top 60%",
+          end: "bottom bottom",
           scrub: 1,
         },
       });
@@ -105,9 +103,7 @@ export default function InvitationSection() {
   return (
     <section
       ref={containerRef}
-      className={`relative w-full material-light text-[#272322] select-none z-10 border-b border-[#9A5C3B]/15 overflow-hidden ${
-        isMobile ? "py-20" : "min-h-screen flex flex-col justify-between"
-      }`}
+      className="relative w-full material-light text-[#272322] select-none z-10 border-b border-[#9A5C3B]/15 overflow-hidden py-16 md:py-24"
     >
       {/* Subtle Layered Warm Lighting & Vignette Overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#FAF7F0] via-[#F8F5EF] to-[#EFE8DB]/80 pointer-events-none z-0" />

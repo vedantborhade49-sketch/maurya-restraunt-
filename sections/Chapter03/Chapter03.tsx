@@ -58,60 +58,45 @@ export default function Chapter03() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          pin: true,
-          pinSpacing: true,
-          start: "top top",
-          end: "+=200%",
+          start: "top 70%",
+          end: "bottom 30%",
           scrub: 1,
         }
       });
 
-      // 1. Headline fades in then fades out slightly as focus shifts to images
+      // 1. Headline fades in
       tl.fromTo(headlineRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1, ease: "none" },
+        { opacity: 0, y: 25 },
+        { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
         0
       );
 
-      // 2. Image 1 (Ingredient) scales slightly
+      // 2. Image 1 (Spices) starts visible and scales smoothly
       tl.fromTo(img1Ref.current,
-        { scale: 1.1, opacity: 0 },
+        { scale: 1.08, opacity: 1 },
         { scale: 1, opacity: 1, duration: 1, ease: "none" },
-        1
+        0
       );
 
-      // 3. Image 2 (Preparation) wipes/fades over Image 1
+      // 3. Image 2 (Process) wipes over Image 1
       tl.fromTo(img2Ref.current,
         { opacity: 0 },
         { opacity: 1, duration: 1.5, ease: "none" },
-        2.5
-      );
-      
-      // Image 2 slight scale down while visible
-      tl.fromTo(img2Ref.current,
-        { scale: 1.05 },
-        { scale: 1, duration: 2.5, ease: "none" },
-        2.5
+        1.5
       );
 
       // 4. Image 3 (Finished Dish) fades over Image 2
       tl.fromTo(img3Ref.current,
         { opacity: 0 },
         { opacity: 1, duration: 1.5, ease: "none" },
-        4.5
+        3.0
       );
 
-      tl.fromTo(img3Ref.current,
-        { scale: 1.05 },
-        { scale: 1, duration: 2.5, ease: "none" },
-        4.5
-      );
-
-      // 5. Final Steam Transition engulfs the screen at the very end
+      // 5. Final Steam Transition
       tl.fromTo(finalSteamRef.current,
         { opacity: 0, scale: 0.8 },
-        { opacity: 1, scale: 1.5, duration: 2, ease: "power2.inOut" },
-        6.5
+        { opacity: 1, scale: 1.3, duration: 1.5, ease: "power2.inOut" },
+        4.5
       );
 
     }, containerRef);
@@ -120,23 +105,34 @@ export default function Chapter03() {
   }, []);
 
   return (
-    <section ref={containerRef} className={`relative w-full bg-[#EFE8DB] text-[#272322] ${isMobile ? "h-auto py-16" : "h-[300vh]"}`}>
+    <section ref={containerRef} className="relative w-full bg-[#EFE8DB] text-[#272322] py-20 md:py-28 overflow-hidden">
       {/* Background Texture - Paper Grain */}
       <div className="absolute inset-0 z-0 opacity-40 texture-ch3-paper pointer-events-none mix-blend-multiply" />
 
-      <div className={isMobile ? "relative w-full flex flex-col items-center gap-8 container-maurya" : "sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center"}>
+      <div className="relative w-full flex flex-col items-center gap-12 container-maurya z-10">
         
-        {/* Layer 1: The Sequence of Photographs */}
-        <div className={isMobile ? "relative w-full z-10" : "absolute inset-0 w-full h-full z-10 flex items-center justify-center"}>
+        {/* Layer 1: Editorial Typography */}
+        <div ref={headlineRef} className="content-grid w-full text-center max-w-[900px] mx-auto opacity-0">
+          <span className="font-mono text-[9px] uppercase tracking-[0.35em] text-[#9A5C3B] font-bold mb-3 block">
+            02 &nbsp;·&nbsp; THE CRAFT & THE TABLE
+          </span>
+          <h2 className="font-heading text-[40px] sm:text-[60px] md:text-[76px] text-[#272322] leading-[0.98] tracking-tight">
+            Fresh Every Morning.<br/>
+            <span className="italic text-[#9A5C3B]">Served Every Evening.</span>
+          </h2>
+        </div>
+
+        {/* Layer 2: The Sequence of Photographs */}
+        <div className="relative w-full max-w-[900px] mx-auto z-10">
           
-          <div className={`overflow-hidden bg-[#1a1715] relative shadow-2xl rounded-sm ${isMobile ? "w-full h-[45vh] mx-auto" : "w-full md:w-[70vw] lg:w-[50vw] h-[60vh] md:h-[80vh]"}`}>
+          <div className="overflow-hidden bg-[#1a1715] relative shadow-2xl rounded-sm w-full h-[45vh] md:h-[65vh] border border-[#9A5C3B]/20">
             
             {/* Image 1: Ingredients */}
             <img 
               ref={img1Ref}
               src="/editorial-spices.png" 
               alt="Raw ingredients and spices" 
-              className={`absolute inset-0 w-full h-full object-cover grayscale-[20%] ${isMobile ? "opacity-0" : "opacity-0"}`}
+              className="absolute inset-0 w-full h-full object-cover grayscale-[15%] opacity-100"
             />
 
             {/* Image 2: Preparation */}
@@ -144,7 +140,7 @@ export default function Chapter03() {
               ref={img2Ref}
               src="/editorial-process.png" 
               alt="Chef preparing the dish" 
-              className={`absolute inset-0 w-full h-full object-cover grayscale-[10%] ${isMobile ? "opacity-0" : "opacity-0"}`}
+              className="absolute inset-0 w-full h-full object-cover grayscale-[10%] opacity-0"
             />
 
             {/* Image 3: Finished Dish */}
@@ -152,32 +148,20 @@ export default function Chapter03() {
               ref={img3Ref}
               src="/editorial-food-2.png" 
               alt="Finished vegetarian dish in copper vessel" 
-              className={`absolute inset-0 w-full h-full object-cover ${isMobile ? "opacity-100" : "opacity-0"}`}
+              className="absolute inset-0 w-full h-full object-cover opacity-0"
             />
             
             <SteamMotif className="opacity-20 mix-blend-screen pointer-events-none z-20" />
             
             {/* Minimal Editorial Captions */}
-            <MarginNote text="The Craft" className="absolute top-8 left-8 text-[#9A5C3B] z-30 opacity-80" rotate="0deg" />
+            <MarginNote text="The Craft" className="absolute top-6 left-6 text-[#F8F5EF] z-30 opacity-90 font-mono text-[10px]" rotate="0deg" />
           </div>
         </div>
 
-        {/* Layer 2: Editorial Typography */}
-        <div className={isMobile ? "relative z-20 w-full text-center" : "relative z-20 container-maurya h-full flex flex-col justify-end pb-24 md:pb-32 pointer-events-none"}>
-          
-          <div ref={headlineRef} className={`content-grid flex flex-col ${isMobile ? "opacity-100" : "opacity-0"}`}>
-            <h2 className={`font-heading text-[#272322] leading-[1.0] tracking-tight ${isMobile ? "text-[10vw] mb-4" : "text-[12vw] md:text-[6vw]"}`}>
-              Fresh Every Morning.<br/>
-              <span className="italic text-[#9A5C3B]">Served Every Evening.</span>
-            </h2>
-          </div>
-
-        </div>
-
-        {/* Layer 3: Transition Steam (Fills screen at end) */}
+        {/* Layer 3: Transition Steam Accent */}
         {!isMobile && (
-          <div ref={finalSteamRef} className="absolute inset-0 z-50 pointer-events-none opacity-0 flex items-center justify-center bg-[#EFE8DB]/60">
-            <SteamMotif className="w-[200%] h-[200%] mix-blend-multiply opacity-60" />
+          <div ref={finalSteamRef} className="absolute inset-0 z-50 pointer-events-none opacity-0 flex items-center justify-center bg-[#EFE8DB]/40">
+            <SteamMotif className="w-[150%] h-[150%] mix-blend-multiply opacity-50" />
           </div>
         )}
 
