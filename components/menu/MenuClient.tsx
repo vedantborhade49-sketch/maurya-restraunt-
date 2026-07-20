@@ -335,14 +335,14 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
         )}
       </AnimatePresence>
 
-      {/* Unique Fixed Food & Dining Background Photography Backdrop */}
+      {/* Unique Fixed Food & Dining Pattern Collage Background */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 scale-105"
-          style={{ backgroundImage: `url('/unique-menu-bg.png')` }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 scale-105"
+          style={{ backgroundImage: `url('/food-pattern-collage-bg.png')` }}
         />
-        {/* Soft Vignette & Subtle Warm Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F8F6F1]/88 via-[#F8F6F1]/82 to-[#F8F6F1]/92" />
+        {/* Soft Vignette & Warm Parchment Overlay for Perfect Text Contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F8F6F1]/90 via-[#F8F6F1]/85 to-[#F8F6F1]/92" />
       </div>
 
       {/* Subtle Brass Accent Overlay */}
@@ -646,18 +646,18 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
                 )}
 
                 {/* Two-Column high density Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 pt-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 pt-4">
                   {dishList.map((item) => {
                     const qty = getItemQuantity(item.id);
                     return (
                       <div 
                         key={item.id}
-                        className={`flex items-center justify-between min-h-[96px] py-3 border-b border-[#350709]/5 transition-opacity duration-300 ${
+                        className={`flex items-center justify-between min-h-[100px] p-4 md:p-5 bg-[#F8F6F1]/95 backdrop-blur-md border border-[#B98532]/25 rounded-xl shadow-sm hover:border-[#B98532] hover:shadow-md transition-all duration-300 ${
                           !item.is_available ? "opacity-50" : ""
                         }`}
                       >
                         {/* Left Details */}
-                        <div className="space-y-1 pr-6 flex-1">
+                        <div className="space-y-1.5 pr-4 flex-1">
                           <div className="flex items-center gap-2.5">
                             {/* Tap target to open peek sheet on mobile */}
                             <button
@@ -666,17 +666,17 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
                                   setPeekItem(item);
                                 }
                               }}
-                              className="text-left font-sans text-[#350709] font-bold text-sm hover:text-[#8F1115] transition-colors"
+                              className="text-left font-serif text-[#350709] font-bold text-base md:text-lg hover:text-[#8F1115] transition-colors"
                             >
                               {item.name}
                             </button>
                             {item.is_spicy && (
-                              <span className="text-[8px] font-bold text-[#8F1115] tracking-widest uppercase">
+                              <span className="text-[8px] font-bold text-[#8F1115] bg-[#8F1115]/10 border border-[#8F1115]/20 tracking-widest uppercase px-2 py-0.5 rounded-full">
                                 SPICY
                               </span>
                             )}
                           </div>
-                          <p className="font-sans text-xs text-[#350709]/60 line-clamp-1">
+                          <p className="font-sans text-xs md:text-sm text-[#350709]/80 leading-snug line-clamp-2">
                             {item.description}
                           </p>
                           {!item.is_available && (
@@ -687,8 +687,8 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
                         </div>
 
                         {/* Right Price & Controls */}
-                        <div className="flex items-center gap-6 shrink-0">
-                          <span className="font-mono text-xs font-bold text-[#350709]">
+                        <div className="flex items-center gap-4 shrink-0">
+                          <span className="font-mono text-sm md:text-base font-bold text-[#350709]">
                             ₹{item.price}
                           </span>
 
