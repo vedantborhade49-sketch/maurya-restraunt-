@@ -81,17 +81,17 @@ const GalleryTable = memo(function GalleryTable() {
   };
 
   return (
-    <section ref={containerRef} className="relative w-full overflow-hidden content-visibility-auto text-[#F5E8D5]">
+    <section ref={containerRef} className="relative w-full overflow-hidden content-visibility-auto text-[#F5E8D5] -mt-24 z-20">
       
-      {/* Editorial Break */}
-      <div className="w-full h-screen flex flex-col items-center justify-center">
-        <h2 ref={breakTextRef} className="font-serif text-3xl md:text-5xl italic opacity-80 text-center tracking-wide">
-          Craft Before<br />Comfort.
-        </h2>
-      </div>
-
       {/* The Table Content (Deep Cocoa environment) */}
-      <div className="relative w-full min-h-[150vh] flex flex-col justify-start items-center py-20 px-6 md:px-12">
+      <div className="relative w-full min-h-[100vh] flex flex-col justify-start items-center pt-32 pb-20 px-6 md:px-12">
+        
+        {/* Integrated Background Typography */}
+        <div className="absolute top-[10%] left-0 w-full flex items-center justify-center pointer-events-none z-0">
+          <h2 ref={breakTextRef} className="font-serif text-5xl md:text-8xl italic opacity-10 text-center tracking-wide">
+            Craft Before<br />Comfort.
+          </h2>
+        </div>
         
         {/* Animated Candle Glow Reflection */}
         <div className="absolute top-[20%] right-[-10%] w-[80vw] h-[80vw] bg-[radial-gradient(circle_at_center,rgba(255,180,120,0.1)_0%,transparent_50%)] rounded-full blur-3xl pointer-events-none mix-blend-screen" />

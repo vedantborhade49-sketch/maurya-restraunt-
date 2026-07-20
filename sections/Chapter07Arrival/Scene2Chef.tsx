@@ -122,27 +122,43 @@ export default function Scene2Chef() {
 
         {/* ─── SCATTERED HERBS & SPICES ─── */}
         <div className="absolute inset-0 pointer-events-none">
-          {[0,1,2,3,4,5].map(i => (
+          {[
+            { left: "25%", top: "15%", rotate: "45deg", scale: 0.8 },
+            { left: "75%", top: "25%", rotate: "120deg", scale: 0.6 },
+            { left: "30%", top: "80%", rotate: "210deg", scale: 0.9 },
+            { left: "65%", top: "75%", rotate: "330deg", scale: 0.7 },
+            { left: "85%", top: "50%", rotate: "15deg", scale: 0.85 },
+            { left: "15%", top: "45%", rotate: "85deg", scale: 0.5 },
+          ].map((pos, i) => (
             <div 
-              key={i}
+              key={`herb-${i}`}
               ref={el => { herbsRef.current[i] = el!; }}
-              className={`absolute w-4 h-8 bg-gradient-to-br from-[#6B6B45] to-[#4A4A2B] rounded-full shadow-[5px_5px_10px_rgba(0,0,0,0.5)] opacity-80`}
+              className="absolute w-4 h-8 bg-gradient-to-br from-[#6B6B45] to-[#4A4A2B] rounded-full shadow-[5px_5px_10px_rgba(0,0,0,0.5)] opacity-80"
               style={{
-                left: `${20 + Math.random() * 60}%`,
-                top: `${10 + Math.random() * 80}%`,
-                transform: `rotate(${Math.random() * 360}deg) scale(${0.5 + Math.random() * 0.5})`,
+                left: pos.left,
+                top: pos.top,
+                transform: `rotate(${pos.rotate}) scale(${pos.scale})`,
                 borderRadius: "50% 0 50% 0" // Leaf shape
               }}
             />
           ))}
           {/* Peppercorns */}
-          {[0,1,2,3,4,5,6,7].map(i => (
+          {[
+            { left: "32%", top: "22%" },
+            { left: "68%", top: "35%" },
+            { left: "45%", top: "78%" },
+            { left: "58%", top: "85%" },
+            { left: "82%", top: "45%" },
+            { left: "22%", top: "55%" },
+            { left: "38%", top: "40%" },
+            { left: "72%", top: "65%" },
+          ].map((pos, i) => (
             <div 
-              key={`p${i}`}
+              key={`peppercorn-${i}`}
               className="absolute w-2 h-2 bg-[#292421] rounded-full shadow-[2px_2px_5px_rgba(0,0,0,0.6)]"
               style={{
-                left: `${30 + Math.random() * 40}%`,
-                top: `${20 + Math.random() * 60}%`,
+                left: pos.left,
+                top: pos.top,
               }}
             />
           ))}

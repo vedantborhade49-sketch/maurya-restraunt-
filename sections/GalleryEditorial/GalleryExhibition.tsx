@@ -118,7 +118,7 @@ const GalleryExhibition = memo(function GalleryExhibition() {
                 alt="Evening Service" 
                 fill 
                 sizes="(max-width: 768px) 60vw, 30vw" 
-                className="object-cover sepia-[0.3] brightness-90 transition-all duration-1000 group-hover:brightness-100 group-hover:scale-105" 
+                className="object-cover brightness-90 transition-all duration-1000 group-hover:brightness-100 group-hover:scale-105" 
                 decoding="async" 
                 loading="lazy" 
               />

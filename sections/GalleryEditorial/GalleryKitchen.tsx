@@ -6,12 +6,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 
 const KITCHEN_IMAGES = [
-  { src: "https://images.unsplash.com/photo-1581184953963-d15972933fc1?q=80&w=800", alt: "The Chef" },
+  { src: "/editorial-food-5.png", alt: "The Chef" },
   { src: "https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?q=80&w=800", alt: "Tools" },
   { src: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?q=80&w=800", alt: "Glassware" },
   { src: "/editorial-food-3.png", alt: "Plating" },
   { src: "/editorial-food-2.png", alt: "Service" },
-  { src: "https://images.unsplash.com/photo-1414235077428-9710c28afbb3?q=80&w=800", alt: "Atmosphere" },
+  { src: "/editorial-spices.png", alt: "Atmosphere" },
+  { src: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=800", alt: "Prep" },
+  { src: "/editorial-texture.png", alt: "Texture" },
+  { src: "/cinematic-overhead-table.png", alt: "Details" },
 ];
 
 const COLLAGE_STATES = [
@@ -21,6 +24,9 @@ const COLLAGE_STATES = [
   { x: 120, y: -100, rot: 15, scale: 1.3 },
   { x: 50, y: 150, rot: -8, scale: 1.5 },
   { x: -100, y: -150, rot: 6, scale: 1.4 },
+  { x: 200, y: 0, rot: 10, scale: 1.2 },
+  { x: -200, y: 50, rot: -15, scale: 1.6 },
+  { x: 0, y: 200, rot: 5, scale: 1.3 },
 ];
 
 const EXHIBITION_STATES = [
@@ -30,6 +36,9 @@ const EXHIBITION_STATES = [
   { x: -250, y: 200, rot: 0, scale: 1.2 },
   { x: 50, y: 250, rot: 0, scale: 1.4 },
   { x: 350, y: 180, rot: 0, scale: 1.2 },
+  { x: -400, y: 0, rot: 0, scale: 1.1 },
+  { x: 400, y: 0, rot: 0, scale: 1.3 },
+  { x: 0, y: 0, rot: 0, scale: 1.5 },
 ];
 
 const GalleryKitchen = memo(function GalleryKitchen() {
@@ -129,22 +138,22 @@ const GalleryKitchen = memo(function GalleryKitchen() {
   };
 
   return (
-    <section ref={containerRef} className="relative w-full overflow-hidden content-visibility-auto">
+    <section ref={containerRef} className="relative w-full overflow-hidden content-visibility-auto -mt-24 z-10">
       
-      {/* Editorial Break */}
-      <div className="w-full h-screen flex flex-col items-center justify-center">
-        <h2 ref={breakTextRef} className="font-serif text-3xl md:text-5xl italic opacity-80 text-center tracking-wide">
-          Every Plate<br />Carries A Story.
-        </h2>
-      </div>
-
       {/* The Signature Sequence */}
       <div ref={sequenceRef} className="relative w-full h-screen flex items-center justify-center bg-[#E0D8D0]">
         
         {/* Grease paper / rough texture overlay */}
         <div className="absolute inset-0 z-0 bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] opacity-30 mix-blend-multiply pointer-events-none" />
 
-        <div className="relative z-10 w-full max-w-[900px] px-4 grid grid-cols-3 gap-2 md:gap-4">
+        {/* Integrated Background Typography */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+          <h2 ref={breakTextRef} className="font-serif text-5xl md:text-8xl italic opacity-30 text-[#8B7355] text-center tracking-tighter mix-blend-multiply">
+            Every Plate<br />Carries A Story.
+          </h2>
+        </div>
+
+        <div className="relative z-10 w-full max-w-[900px] px-4 grid grid-cols-3 gap-2 md:gap-4 mt-32">
           {KITCHEN_IMAGES.map((img, i) => (
             <div 
               key={`kitchen-${i}`}
@@ -159,7 +168,7 @@ const GalleryKitchen = memo(function GalleryKitchen() {
                   alt={img.alt} 
                   fill 
                   sizes="(max-width: 768px) 30vw, 20vw" 
-                  className="object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-700" 
+                  className="object-cover contrast-125 transition-all duration-700" 
                   decoding="async" 
                   loading="lazy" 
                 />

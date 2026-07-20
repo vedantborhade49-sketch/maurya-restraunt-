@@ -10,7 +10,6 @@ const GalleryArchive = dynamic(() => import("@/sections/GalleryEditorial/Gallery
 const GalleryKitchen = dynamic(() => import("@/sections/GalleryEditorial/GalleryKitchen"), { ssr: false });
 const GalleryTable = dynamic(() => import("@/sections/GalleryEditorial/GalleryTable"), { ssr: false });
 const GalleryAtmosphere = dynamic(() => import("@/sections/GalleryEditorial/GalleryAtmosphere"), { ssr: false });
-const GalleryExhibition = dynamic(() => import("@/sections/GalleryEditorial/GalleryExhibition"), { ssr: false });
 
 export default function GalleryPage() {
   const containerRef = useRef<HTMLElement>(null);
@@ -125,7 +124,6 @@ export default function GalleryPage() {
         <GalleryKitchen />
         <GalleryTable />
         <GalleryAtmosphere />
-        <GalleryExhibition />
       </div>
     </main>
   );

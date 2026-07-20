@@ -44,7 +44,7 @@ const GalleryHero = memo(function GalleryHero() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full min-h-[120vh] flex flex-col justify-center items-center py-32 px-6 md:px-12 overflow-hidden content-visibility-auto [contain-intrinsic-size:120vh]">
+    <section ref={containerRef} className="relative w-full min-h-[70vh] flex flex-col justify-center items-center pt-32 pb-12 px-6 md:px-12 overflow-visible content-visibility-auto [contain-intrinsic-size:70vh]">
       
       {/* Animated Warm Spotlight */}
       <div 

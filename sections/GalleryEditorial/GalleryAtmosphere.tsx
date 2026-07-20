@@ -73,20 +73,20 @@ const GalleryAtmosphere = memo(function GalleryAtmosphere() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full overflow-hidden content-visibility-auto text-[#F6EFE6]">
+    <section ref={containerRef} className="relative w-full overflow-hidden content-visibility-auto text-[#F6EFE6] -mt-16 z-30">
       
-      {/* Editorial Break */}
-      <div className="w-full h-screen flex flex-col items-center justify-center">
-        <h2 ref={breakTextRef} className="font-serif text-3xl md:text-5xl italic opacity-80 text-center tracking-wide">
-          The Evening<br />Begins.
-        </h2>
-      </div>
-
       {/* The Atmosphere Content */}
-      <div className="relative w-full h-[150vh] flex flex-col justify-center items-center overflow-hidden">
+      <div className="relative w-full min-h-[80vh] flex flex-col justify-center items-center overflow-hidden py-16">
         
         {/* Deep Moving Shadow Layer */}
         <div ref={shadowRef} className="absolute inset-0 z-20 bg-gradient-to-r from-black/80 via-transparent to-black/80 w-[150%] left-[-25%] pointer-events-none mix-blend-multiply" />
+
+        {/* Integrated Typography */}
+        <div className="absolute top-[20%] left-0 w-full flex items-center justify-center pointer-events-none z-30">
+          <h2 ref={breakTextRef} className="font-serif text-4xl md:text-6xl italic opacity-90 text-center tracking-wide mix-blend-overlay">
+            The Evening<br />Begins.
+          </h2>
+        </div>
 
         {/* Borderless Panoramic Canvas */}
         <div className="relative w-full h-[60vh] md:h-[80vh] flex items-center overflow-hidden z-10">
