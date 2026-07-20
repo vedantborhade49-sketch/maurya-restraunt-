@@ -144,12 +144,29 @@ const getInitialMockData = () => {
         itemTags.push("quick");
       }
 
+      const dishImage =
+        dish.image_url && dish.image_url.trim() !== ""
+          ? dish.image_url
+          : catName.toUpperCase().includes("STARTER") || catName.toUpperCase().includes("SOUP")
+          ? "/editorial-food-starters.png"
+          : catName.toUpperCase().includes("DOSA") || catName.toUpperCase().includes("UTTAPAM")
+          ? "/editorial-food-dosa.png"
+          : catName.toUpperCase().includes("MAIN")
+          ? "/editorial-food-mains.png"
+          : catName.toUpperCase().includes("RICE")
+          ? "/editorial-food-rice.png"
+          : catName.toUpperCase().includes("DESSERT")
+          ? "/editorial-food-desserts.png"
+          : catName.toUpperCase().includes("BEVERAGE")
+          ? "/editorial-food-beverages.png"
+          : "/editorial-food-starters.png";
+
       items.push({
         id: dish.id || `item-${itemCounter++}`,
         name: dish.name,
         price: dish.price,
         description: dish.description || `${dish.name} - Freshly prepared using signature Maurya ingredients.`,
-        image_url: dish.image_url || "",
+        image_url: dishImage,
         category: catName,
         is_veg: true,
         is_available: true,

@@ -82,22 +82,27 @@ export default function CategoryHeroDish({ item, onAdd, quantity }: CategoryHero
         {/* Right Hero Image Showcase */}
         <div className="lg:col-span-5 relative">
           <div className="relative w-full aspect-[4/3] md:aspect-square bg-[#0B0908] border border-[#B98532]/30 overflow-hidden rotate-[1deg] hover:rotate-0 transition-transform duration-500 shadow-2xl">
-            {item.image_url ? (
-              <img
-                src={item.image_url}
-                alt={item.name}
-                className="w-full h-full object-cover grayscale-[15%] hover:grayscale-0 hover:scale-105 transition-all duration-700"
-              />
-            ) : (
-              <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center bg-gradient-to-br from-[#350709] to-[#0B0908]">
-                <span className="font-serif italic text-5xl text-[#B98532] font-bold mb-2">
-                  {item.name[0]}
-                </span>
-                <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-[#B98532]">
-                  MAURYA SIGNATURE
-                </span>
-              </div>
-            )}
+            <img
+              src={
+                item.image_url && item.image_url.trim() !== ""
+                  ? item.image_url
+                  : item.category?.toUpperCase().includes("STARTER")
+                  ? "/editorial-food-starters.png"
+                  : item.category?.toUpperCase().includes("DOSA") || item.category?.toUpperCase().includes("UTTAPAM")
+                  ? "/editorial-food-dosa.png"
+                  : item.category?.toUpperCase().includes("MAIN")
+                  ? "/editorial-food-mains.png"
+                  : item.category?.toUpperCase().includes("RICE")
+                  ? "/editorial-food-rice.png"
+                  : item.category?.toUpperCase().includes("DESSERT")
+                  ? "/editorial-food-desserts.png"
+                  : item.category?.toUpperCase().includes("BEVERAGE")
+                  ? "/editorial-food-beverages.png"
+                  : "/editorial-food-starters.png"
+              }
+              alt={item.name}
+              className="w-full h-full object-cover grayscale-[10%] hover:grayscale-0 hover:scale-105 transition-all duration-700"
+            />
           </div>
         </div>
 
