@@ -368,14 +368,25 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Copyright Text */}
-          <div className="footer-copyright text-center space-y-1.5 pt-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#350709]/60">
-              © 2026 Maurya Pure Veg. All rights reserved.
+          {/* Copyright & Akari Studios Attribution */}
+          <div className="footer-copyright text-center space-y-5 pt-8 border-t border-[#B98532]/30 max-w-xl mx-auto">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] font-semibold text-[#350709]/80">
+              © 2026 Maurya Pure Veg
             </p>
-            <p className="font-serif italic text-xs text-[#350709]/50">
-              Crafted with care by Akari Studios
-            </p>
+            
+            <div className="space-y-1.5 pt-1">
+              <p className="font-serif italic text-xs text-[#B98532]">
+                Crafted with precision by
+              </p>
+              <h4 className="font-mono text-sm md:text-base font-bold uppercase tracking-[0.3em] text-[#350709]">
+                AKARI STUDIOS
+              </h4>
+              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#350709]/60 pt-1">
+                Digital Experiences • Branding • Websites
+              </p>
+            </div>
+
+            <div className="h-[1px] bg-[#B98532]/30 w-full mt-6" />
           </div>
 
         </div>
