@@ -100,8 +100,6 @@ export default function EditorialSequence() {
         );
       }
 
-      }
-
     }, containerRef);
 
     return () => ctx.revert();
