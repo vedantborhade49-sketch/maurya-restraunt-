@@ -8,11 +8,10 @@ import SteamMotif from "@/components/SteamMotif";
 
 export default function InvitationSection() {
   const containerRef = useRef<HTMLElement>(null);
-  const tableImgRef = useRef<HTMLDivElement>(null);
-  const feastImgRef = useRef<HTMLDivElement>(null);
-  const quietNoteRef = useRef<HTMLDivElement>(null);
+  const cameraRef = useRef<HTMLDivElement>(null);
+  const feastOverlayRef = useRef<HTMLDivElement>(null);
+  const candleLightRef = useRef<HTMLDivElement>(null);
   const statementRef = useRef<HTMLDivElement>(null);
-  const chairPulseRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -22,79 +21,73 @@ export default function InvitationSection() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Mouse interactivity: candle light flicker & cutlery specular highlights
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (!containerRef.current || !candleLightRef.current || isMobile) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    gsap.to(candleLightRef.current, {
+      left: x,
+      top: y,
+      duration: 0.6,
+      ease: "power2.out",
+    });
+  };
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      // 1. Initial Quiet Opening Note Reveal ("There's always room for one more...")
+      // 1. Slow Camera Push (3-5%) on scroll
       gsap.fromTo(
-        quietNoteRef.current,
-        { opacity: 0, y: 20 },
+        cameraRef.current,
+        { scale: 1.05, filter: "brightness(0.85)" },
+        {
+          scale: 1.0,
+          filter: "brightness(1.0)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 75%",
+            end: "bottom 25%",
+            scrub: 1,
+          },
+        }
+      );
+
+      // 2. Emotional Statement Reveal
+      gsap.fromTo(
+        statementRef.current,
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
-          duration: 1.4,
+          duration: 1.2,
           ease: "power2.out",
           scrollTrigger: {
-            trigger: quietNoteRef.current,
-            start: "top 80%",
-          },
-        }
-      );
-
-      // 2. Poetic Typography Mask & Fade
-      const lines = gsap.utils.toArray<HTMLElement>(".invitation-poetry-line");
-      gsap.fromTo(
-        lines,
-        { yPercent: 40, opacity: 0 },
-        {
-          yPercent: 0,
-          opacity: 1,
-          duration: 1.1,
-          stagger: 0.15,
-          ease: "power3.out",
-          scrollTrigger: {
             trigger: statementRef.current,
-            start: "top 75%",
+            start: "top 70%",
           },
         }
       );
 
-      if (isMobile) return;
-
-      // 3. Living Table Interactive Scroll Sequence
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 60%",
-          end: "bottom bottom",
-          scrub: 1,
-        },
-      });
-
-      // Camera slowly moves toward the table (walk to your seat)
-      tl.fromTo(
-        tableImgRef.current,
-        { scale: 1.12, opacity: 0.4 },
-        { scale: 1.0, opacity: 1, duration: 2, ease: "none" },
-        0
+      // 3. Feast Dish Fill Transition (Setting the table for the Menu)
+      gsap.fromTo(
+        feastOverlayRef.current,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "bottom 60%",
+            end: "bottom 10%",
+            scrub: 1,
+          },
+        }
       );
-
-      // Empty chair pulls back slightly (inviting you to sit)
-      tl.to(
-        chairPulseRef.current,
-        { y: -15, opacity: 1, duration: 1.5, ease: "power1.out" },
-        1.0
-      );
-
-      // Transition: Table gradually fills with dishes (Feast Image cross-fade)
-      tl.fromTo(
-        feastImgRef.current,
-        { opacity: 0, scale: 1.05 },
-        { opacity: 1, scale: 1.0, duration: 2.5, ease: "power2.inOut" },
-        2.5
-      );
-
     }, containerRef);
 
     return () => ctx.revert();
@@ -103,107 +96,94 @@ export default function InvitationSection() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full material-light text-[#272322] select-none z-10 border-b border-[#9A5C3B]/15 overflow-hidden py-16 md:py-24"
+      onMouseMove={handleMouseMove}
+      className="relative w-full bg-[#161312] text-[#F8F5EF] select-none z-10 border-b border-[#9A5C3B]/20 overflow-hidden py-16 md:py-28"
     >
-      {/* Subtle Layered Warm Lighting & Vignette Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#FAF7F0] via-[#F8F5EF] to-[#EFE8DB]/80 pointer-events-none z-0" />
+      {/* Interactive Candlelight & Specular Light Follow */}
+      {!isMobile && (
+        <div
+          ref={candleLightRef}
+          className="pointer-events-none absolute w-[400px] h-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(185,133,50,0.22)_0%,_transparent_70%)] mix-blend-screen z-20 transition-transform duration-200"
+          style={{ left: "50%", top: "50%" }}
+        />
+      )}
 
-      {/* ── 1. QUIET OPENING NOTE (CREATIVE IDEA ⭐⭐⭐⭐⭐) ──────────────────── */}
-      <div
-        ref={quietNoteRef}
-        className="container-maurya relative z-20 pt-16 md:pt-24 text-center"
-      >
-        <div className="content-grid max-w-[760px] mx-auto space-y-3">
-          <div className="flex items-center justify-center gap-3">
-            <span className="font-mono text-[9px] uppercase tracking-[0.35em] text-[#9A5C3B] font-bold">
-              01 &nbsp;·&nbsp; THE INVITATION
+      {/* Ambient Lighting Vignette */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(15,13,12,0.9)_100%)] pointer-events-none z-10" />
+
+      {/* ── SCENE 02: THE TABLE (CINEMATIC OVERHEAD VISUAL) ──────────────── */}
+      <div className="container-maurya relative z-20 flex flex-col items-center gap-12 text-center">
+        
+        {/* Scene Chapter Counter */}
+        <div className="flex items-center gap-3">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#9A5C3B] animate-pulse" />
+          <span className="font-mono text-[9px] uppercase tracking-[0.35em] text-[#9A5C3B] font-bold">
+            01 &nbsp;·&nbsp; THE INVITATION
+          </span>
+        </div>
+
+        {/* 4K Overhead Dining Table Frame */}
+        <div className="relative w-full max-w-[960px] mx-auto h-[48vh] sm:h-[58vh] md:h-[68vh] rounded-sm overflow-hidden border border-[#9A5C3B]/25 shadow-2xl bg-[#1C1414]">
+          
+          {/* Frame A: Empty Table with One Chair Awaiting */}
+          <div ref={cameraRef} className="absolute inset-0 w-full h-full">
+            <img
+              src="/cinematic-overhead-table.png"
+              alt="A Seat Awaits You Around Our Table"
+              className="w-full h-full object-cover"
+            />
+            {/* Soft Warm Lighting Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#161312] via-transparent to-black/30 opacity-70" />
+            <SteamMotif className="absolute inset-0 w-full h-full mix-blend-screen opacity-20 pointer-events-none" />
+          </div>
+
+          {/* Frame B: Feast Transition (Table Fills with Dishes) */}
+          <div
+            ref={feastOverlayRef}
+            className="absolute inset-0 w-full h-full opacity-0 pointer-events-none"
+          >
+            <img
+              src="/editorial-table-feast.png"
+              alt="The Table Filled With Dishes"
+              className="w-full h-full object-cover sepia-[15%]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#161312] via-transparent to-transparent opacity-80" />
+            <SteamMotif className="absolute inset-0 w-full h-full mix-blend-screen opacity-35 pointer-events-none" />
+          </div>
+
+          {/* Restrained Subconscious Invite Accent */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
+            <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#9A5C3B] bg-[#161312]/80 px-4 py-1.5 rounded-full border border-[#9A5C3B]/30 backdrop-blur-md">
+              THERE’S ALWAYS ROOM FOR ONE MORE
             </span>
           </div>
-          <p className="font-serif italic text-2xl sm:text-3xl md:text-4xl text-[#5A1F1F] font-normal leading-relaxed tracking-tight">
-            "There's always room for one more at our table."
-          </p>
-          <div className="w-[1px] h-10 bg-[#9A5C3B]/40 mx-auto mt-4" />
         </div>
-      </div>
 
-      {/* ── 2. POETIC STATEMENT & EDITORIAL COPY ─────────────────────────── */}
-      <div
-        ref={statementRef}
-        className="container-maurya relative z-20 my-auto py-12 text-center"
-      >
-        <div className="content-grid max-w-[960px] mx-auto space-y-8 flex flex-col items-center">
-          
-          <h2 className="font-heading text-[44px] sm:text-[64px] md:text-[84px] lg:text-[96px] leading-[0.92] tracking-tight text-[#272322] uppercase">
-            <div className="invitation-poetry-line">Every Great Meal</div>
-            <div className="invitation-poetry-line">Begins With</div>
-            <div className="invitation-poetry-line italic text-[#9A5C3B] font-serif lowercase py-1">
-              Someone Waiting
-            </div>
-            <div className="invitation-poetry-line">At The Table.</div>
+        {/* ── SCENE 03: THE SINGLE EMOTIONAL STATEMENT ───────────────────── */}
+        <div ref={statementRef} className="content-grid max-w-[800px] mx-auto space-y-6 pt-4">
+          <h2 className="font-serif italic text-3xl sm:text-5xl md:text-6xl text-[#F8F5EF] font-normal leading-[1.1] tracking-tight">
+            "Every celebration begins around a table."
           </h2>
 
-          <p className="font-sans text-[16px] sm:text-[18px] md:text-[21px] leading-[1.65] text-[#272322]/85 font-light max-w-[680px]">
+          <p className="font-sans text-[15px] sm:text-[17px] md:text-[19px] leading-[1.65] text-[#F8F5EF]/75 font-light max-w-[600px] mx-auto">
             At Maurya, food is only one part of the experience. The laughter across the table, the aroma from the kitchen, and the conversations shared over every meal are what make people return.
           </p>
 
-          {/* Minimal Elegant CTAs */}
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-6 font-mono text-[11px] uppercase tracking-[0.25em] font-bold">
+          {/* Restrained Minimal CTAs */}
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-6 font-mono text-[11px] uppercase tracking-[0.25em] font-bold">
             <Link
               href="/visit#reserve"
-              className="px-8 py-3.5 bg-[#5A1F1F] text-[#F8F5EF] hover:bg-[#472020] rounded-full border border-[#9A5C3B]/40 shadow-sm transition-all duration-300 hover:scale-105"
+              className="px-8 py-3.5 bg-[#5A1F1F] text-[#F8F5EF] hover:bg-[#9A5C3B] rounded-full border border-[#9A5C3B]/40 shadow-sm transition-all duration-300 hover:scale-105"
             >
               Reserve A Table
             </Link>
-            <div className="hidden sm:block text-[#9A5C3B] opacity-50">↓</div>
             <Link
               href="/menu"
-              className="text-[#272322] hover:text-[#9A5C3B] transition-colors border-b border-[#272322]/30 hover:border-[#9A5C3B] pb-0.5"
+              className="text-[#F8F5EF]/80 hover:text-[#9A5C3B] transition-colors border-b border-[#F8F5EF]/30 hover:border-[#9A5C3B] pb-0.5"
             >
               Explore Today's Menu
             </Link>
           </div>
-
-        </div>
-      </div>
-
-      {/* ── 3. THE LIVING TABLE VISUAL & SEAMLESS MENU TRANSITION ───────────── */}
-      <div className="relative w-full h-[55vh] md:h-[65vh] overflow-hidden z-20 border-t border-[#9A5C3B]/20">
-        
-        {/* Frame A: Empty Table with One Chair Invited */}
-        <div ref={tableImgRef} className="absolute inset-0 w-full h-full">
-          <img
-            src="/editorial-living-table.png"
-            alt="A Seat Awaits You"
-            className="w-full h-full object-cover sepia-[15%]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#EFE8DB] via-transparent to-transparent opacity-80" />
-        </div>
-
-        {/* Chair Pull-Back Subconscious Invite Accent */}
-        <div
-          ref={chairPulseRef}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30 pointer-events-none text-center opacity-0"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#F8F5EF]/90 border border-[#9A5C3B]/40 rounded-full backdrop-blur-md shadow-lg">
-            <span className="w-2 h-2 rounded-full bg-[#9A5C3B] animate-pulse" />
-            <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-[#5A1F1F] font-bold">
-              YOUR CHAIR IS SET
-            </span>
-          </div>
-        </div>
-
-        {/* Frame B: Seamless Transition — Table Fills with Feast Dishes */}
-        <div
-          ref={feastImgRef}
-          className="absolute inset-0 w-full h-full opacity-0 pointer-events-none"
-        >
-          <img
-            src="/editorial-table-feast.png"
-            alt="Table Filled With Dishes"
-            className="w-full h-full object-cover sepia-[10%]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#EFE8DB] via-[#EFE8DB]/30 to-transparent" />
-          <SteamMotif className="absolute inset-0 w-full h-full mix-blend-multiply opacity-40 pointer-events-none" />
         </div>
 
       </div>
