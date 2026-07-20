@@ -159,34 +159,40 @@ export default function DiningMemories() {
           </p>
         </div>
 
-        {/* Google Rating Hero Card */}
-        <div className="bg-[#350709] text-[#F8F6F1] border border-[#B98532]/40 p-8 md:p-12 max-w-4xl mx-auto shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+        {/* Google Rating Hero Certificate / Vintage Parchment Plaque */}
+        <div className="relative bg-[#F8F5EF] text-[#272322] border-2 border-[#9A5C3B]/50 p-8 md:p-12 max-w-4xl mx-auto shadow-[0_15px_40px_rgba(71,32,32,0.12)] flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left material-light">
+          {/* Vintage Corner Ornaments */}
+          <div className="absolute top-2 left-2 text-[#9A5C3B] text-xs opacity-60">❖</div>
+          <div className="absolute top-2 right-2 text-[#9A5C3B] text-xs opacity-60">❖</div>
+          <div className="absolute bottom-2 left-2 text-[#9A5C3B] text-xs opacity-60">❖</div>
+          <div className="absolute bottom-2 right-2 text-[#9A5C3B] text-xs opacity-60">❖</div>
+          
           <div className="space-y-3">
-            <div className="flex items-center justify-center md:justify-start gap-1 text-[#B98532]">
+            <div className="flex items-center justify-center md:justify-start gap-1 text-[#9A5C3B]">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 fill-[#B98532] stroke-none" />
+                <Star key={i} className="w-6 h-6 fill-[#9A5C3B] stroke-none" />
               ))}
             </div>
-            <div className="font-serif text-6xl md:text-7xl leading-none text-[#F8F6F1]">
-              4.8 <span className="text-2xl md:text-3xl text-[#B98532] font-sans font-light">/ 5.0</span>
+            <div className="font-heading text-6xl md:text-7xl leading-none text-[#5A1F1F]">
+              4.8 <span className="text-2xl md:text-3xl text-[#9A5C3B] font-sans font-light">/ 5.0</span>
             </div>
-            <p className="font-sans text-sm text-[#F8F6F1]/80 font-light">
-              Loved by over <strong className="text-[#B98532] font-semibold">1,200+ Happy Guests</strong> on Google Reviews
+            <p className="font-sans text-sm text-[#272322]/80 font-light">
+              Loved by over <strong className="text-[#5A1F1F] font-bold">1,200+ Happy Guests</strong> on Google Reviews
             </p>
           </div>
 
-          <div className="flex flex-col items-center md:items-end gap-3 border-t md:border-t-0 md:border-l border-[#B98532]/30 pt-6 md:pt-0 md:pl-10">
-            <div className="flex items-center gap-2 bg-[#F8F6F1]/10 px-4 py-2 border border-[#B98532]/30 backdrop-blur-sm">
-              <span className="font-bold text-xs text-[#F8F6F1] tracking-wider uppercase font-mono">Verified Google Reviews</span>
+          <div className="flex flex-col items-center md:items-end gap-3 border-t md:border-t-0 md:border-l border-[#9A5C3B]/30 pt-6 md:pt-0 md:pl-10">
+            <div className="flex items-center gap-2 bg-[#5A1F1F] text-[#F8F5EF] px-5 py-2 rounded-full border border-[#9A5C3B]/40 shadow-sm">
+              <span className="font-bold text-xs tracking-wider uppercase font-mono">Verified Google Reviews</span>
             </div>
             <a
               href="https://maps.google.com/?q=Maurya+Pure+Veg+Restaurant+Kondhwa+Pune"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-[#B98532] hover:text-[#F8F6F1] transition-colors pt-2"
+              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] font-bold text-[#5A1F1F] hover:text-[#9A5C3B] transition-colors pt-2"
             >
               <span>View On Google Maps</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <ExternalLink className="w-3.5 h-3.5 text-[#9A5C3B]" />
             </a>
           </div>
         </div>
@@ -194,34 +200,36 @@ export default function DiningMemories() {
         {/* Editorial Scrapbook Wall */}
         <div className="space-y-8">
           <div className="text-center">
-            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#B98532] font-bold">
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#9A5C3B] font-bold">
               VISUAL MEMORY SCRAPBOOK
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-4 border border-[#B98532]/25 shadow-md rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
-              <div className="relative w-full aspect-[4/3] overflow-hidden mb-3 border border-[#B98532]/20">
+            <div className="bg-[#FAF7F0] p-4 border border-[#9A5C3B]/30 shadow-md rotate-[-2deg] hover:rotate-0 transition-transform duration-500 relative">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-5 bg-[#EFE8DB]/80 border border-[#9A5C3B]/20 rotate-[-1deg] z-20 shadow-xs pointer-events-none" />
+              <div className="relative w-full aspect-[4/3] overflow-hidden mb-3 border border-[#9A5C3B]/20">
                 <EditorialImage src="/editorial-food-starters.png" alt="Starters" />
               </div>
-              <p className="font-serif italic text-base text-center text-[#350709]">"The Paneer Tikka was unforgettable."</p>
-              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#B98532] block text-center mt-2">— Table 8 Memories</span>
+              <p className="font-heading italic text-base text-center text-[#272322]">"The Paneer Tikka was unforgettable."</p>
+              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#9A5C3B] block text-center mt-2">— Table 8 Memories</span>
             </div>
 
-            <div className="bg-[#350709] text-[#F8F6F1] p-6 border border-[#B98532]/40 shadow-xl flex flex-col justify-center text-center space-y-4">
-              <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#B98532]">GUESTBOOK EXCERPT</span>
-              <p className="font-serif italic text-2xl text-[#F8F6F1] leading-relaxed">
+            <div className="bg-[#5A1F1F] text-[#F8F5EF] p-6 border border-[#9A5C3B]/40 shadow-xl flex flex-col justify-center text-center space-y-4 rounded-xs">
+              <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#9A5C3B] font-bold">GUESTBOOK EXCERPT</span>
+              <p className="font-heading italic text-2xl text-[#F8F5EF] leading-relaxed">
                 "We didn't just share a meal. We shared stories that we hadn't spoken in years."
               </p>
-              <span className="font-mono text-xs text-[#B98532] uppercase tracking-[0.2em]">— The Kulkarni Family</span>
+              <span className="font-mono text-xs text-[#9A5C3B] uppercase tracking-[0.2em]">— The Kulkarni Family</span>
             </div>
 
-            <div className="bg-white p-4 border border-[#B98532]/25 shadow-md rotate-[2deg] hover:rotate-0 transition-transform duration-500">
-              <div className="relative w-full aspect-[4/3] overflow-hidden mb-3 border border-[#B98532]/20">
+            <div className="bg-[#FAF7F0] p-4 border border-[#9A5C3B]/30 shadow-md rotate-[2deg] hover:rotate-0 transition-transform duration-500 relative">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-5 bg-[#EFE8DB]/80 border border-[#9A5C3B]/20 rotate-[1deg] z-20 shadow-xs pointer-events-none" />
+              <div className="relative w-full aspect-[4/3] overflow-hidden mb-3 border border-[#9A5C3B]/20">
                 <EditorialImage src="/editorial-food-dosa.png" alt="Crispy Dosa" />
               </div>
-              <p className="font-serif italic text-base text-center text-[#350709]">"Crispy dosa & filter coffee on Sunday."</p>
-              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#B98532] block text-center mt-2">— Sunday Breakfast Club</span>
+              <p className="font-heading italic text-base text-center text-[#272322]">"Crispy dosa & filter coffee on Sunday."</p>
+              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#9A5C3B] block text-center mt-2">— Sunday Breakfast Club</span>
             </div>
           </div>
         </div>
@@ -233,10 +241,10 @@ export default function DiningMemories() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-5 py-2 font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 border ${
+                className={`px-5 py-2 font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 border rounded-full ${
                   activeCategory === cat
-                    ? "bg-[#350709] text-[#F8F6F1] border-[#350709] shadow-md"
-                    : "bg-[#F8F6F1] text-[#350709]/80 border-[#B98532]/30 hover:border-[#350709]"
+                    ? "bg-[#5A1F1F] text-[#F8F5EF] border-[#9A5C3B] shadow-md"
+                    : "bg-[#F8F5EF] text-[#272322]/80 border-[#9A5C3B]/30 hover:border-[#5A1F1F]"
                 }`}
               >
                 {cat}
@@ -245,46 +253,47 @@ export default function DiningMemories() {
           </div>
         </div>
 
-        {/* Guestbook Paper Cards */}
+        {/* Vintage Guestbook Paper Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredMemories.map((item) => (
+          {filteredMemories.map((item, idx) => (
             <div
               key={item.id}
-              className="bg-[#F6F1E8] border border-[#B98532]/30 p-8 flex flex-col justify-between space-y-6 shadow-sm hover:shadow-xl hover:border-[#B98532] transition-all duration-300 relative group"
+              className="bg-[#FAF7F0] border-2 border-[#9A5C3B]/30 p-8 flex flex-col justify-between space-y-6 shadow-[0_10px_30px_rgba(71,32,32,0.07)] hover:shadow-2xl hover:border-[#9A5C3B] transition-all duration-300 relative group material-light"
+              style={{ transform: `rotate(${idx % 2 === 0 ? '-0.8deg' : '0.8deg'})` }}
             >
-              {/* Paper Clip Accent */}
-              <div className="absolute -top-3 right-6 w-8 h-4 bg-[#B98532]/20 border border-[#B98532]/40 rounded-sm" />
+              {/* Antique Washi Tape / Paper Clip Accent */}
+              <div className="absolute -top-3 left-8 w-16 h-5 bg-[#EFE8DB]/90 border border-[#9A5C3B]/30 rotate-[-1deg] z-20 shadow-xs pointer-events-none" />
 
               <div className="space-y-4">
-                <div className="flex items-center justify-between border-b border-[#B98532]/20 pb-3">
-                  <div className="flex items-center gap-1 text-[#B98532]">
+                <div className="flex items-center justify-between border-b border-[#9A5C3B]/20 pb-3">
+                  <div className="flex items-center gap-1 text-[#9A5C3B]">
                     {[...Array(item.rating)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-[#B98532] stroke-none" />
+                      <Star key={i} className="w-3.5 h-3.5 fill-[#9A5C3B] stroke-none" />
                     ))}
                   </div>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#B98532] font-bold">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#9A5C3B] font-bold">
                     {item.occasion}
                   </span>
                 </div>
 
-                <h3 className="font-serif text-2xl text-[#350709] font-medium leading-snug">
+                <h3 className="font-heading text-2xl text-[#5A1F1F] font-medium leading-snug">
                   "{item.title}"
                 </h3>
 
-                <p className="font-sans text-sm text-[#1F1F1F]/80 leading-relaxed font-light">
+                <p className="font-sans text-sm text-[#272322]/85 leading-relaxed font-light">
                   "{item.review}"
                 </p>
               </div>
 
-              <div className="space-y-3 pt-4 border-t border-[#B98532]/20">
+              <div className="space-y-3 pt-4 border-t border-[#9A5C3B]/20">
                 <div className="flex items-center justify-between font-mono text-xs">
-                  <span className="font-bold text-[#350709] uppercase tracking-wider">— {item.guestName}</span>
-                  <span className="text-[#1F1F1F]/50 text-[10px]">{item.visitedDate}</span>
+                  <span className="font-bold text-[#272322] uppercase tracking-wider">— {item.guestName}</span>
+                  <span className="text-[#272322]/50 text-[10px]">{item.visitedDate}</span>
                 </div>
 
-                <div className="bg-white/80 p-2.5 border border-[#B98532]/20 flex items-center justify-between text-xs">
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-[#B98532] font-bold">Favourite Dish:</span>
-                  <span className="font-serif italic font-medium text-[#350709]">{item.favoriteDish}</span>
+                <div className="bg-[#EFE8DB]/60 p-2.5 border border-[#9A5C3B]/20 flex items-center justify-between text-xs rounded-xs">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-[#9A5C3B] font-bold">Favourite Dish:</span>
+                  <span className="font-heading italic font-semibold text-[#5A1F1F]">{item.favoriteDish}</span>
                 </div>
               </div>
             </div>

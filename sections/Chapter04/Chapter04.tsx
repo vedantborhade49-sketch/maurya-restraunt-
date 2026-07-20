@@ -141,22 +141,22 @@ export default function Chapter04() {
       </div>
 
       {/* Typography and Layout */}
-      <div className={`relative z-20 container-maurya flex flex-col items-center text-center ${isMobile ? "mt-8" : "mt-32 md:mt-48"}`}>
+      <div className={`relative z-20 container-maurya flex flex-col items-center justify-center text-center my-auto ${isMobile ? "py-12" : "py-16 md:py-24"}`}>
         
-        <div className="content-grid flex flex-col items-center">
-          <div className="reveal-accent mb-6 md:mb-12">
+        <div className="content-grid flex flex-col items-center max-w-[900px] mx-auto">
+          <div className="reveal-accent mb-4 md:mb-8">
             <MarginNote text="Act II — The Craft" className="text-[#9A5C3B]" rotate="0deg" />
-            <div className="w-[1px] h-12 bg-[#9A5C3B]/40 mx-auto mt-4"></div>
+            <div className="w-[1px] h-8 bg-[#9A5C3B]/40 mx-auto mt-2"></div>
           </div>
 
-          <h2 ref={headlineRef} className={`font-heading leading-[0.85] tracking-tight uppercase overflow-hidden ${isMobile ? "text-[10vw]" : "text-[12vw] md:text-[8vw]"}`}>
+          <h2 ref={headlineRef} className={`font-heading leading-[0.88] tracking-tight uppercase overflow-hidden ${isMobile ? "text-[9vw]" : "text-[10vw] md:text-[6.5vw]"}`}>
             <div className="reveal-line">Every Plate Begins</div>
             <div className="reveal-line italic text-[#9A5C3B]">Long Before It</div>
             <div className="reveal-line">Reaches Your Table</div>
           </h2>
           
-          <div className="mt-8 overflow-hidden max-w-[420px] mx-auto">
-            <p className="reveal-line font-sans text-[14px] md:text-[16px] text-[#F8F5EF]/75 leading-relaxed">
+          <div className="mt-6 md:mt-8 overflow-hidden max-w-[520px] mx-auto">
+            <p className="reveal-line font-sans text-[14px] md:text-[16px] text-[#F8F5EF]/85 leading-relaxed">
               The foundation of our cuisine isn't just a recipe. It's the hands that roll the dough, the patience required for overnight slow-cooking, and the uncompromising selection of whole spices.
             </p>
           </div>
