@@ -10,7 +10,6 @@ import CategoryHeroDish from "./CategoryHeroDish";
 import FloatingFoodPreview from "./FloatingFoodPreview";
 import MenuFinalCTA from "./MenuFinalCTA";
 import BrassDivider from "../ui/BrassDivider";
-import LittleMonkeyBadge from "../LittleMonkeyBadge";
 
 import menuData from "../../maurya_menu.json";
 
@@ -177,14 +176,30 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
       (entries) => {
         if (isClickScrolling.current) return;
         
-        // Find the section that has the largest visible area near the top
-        const visibleSection = entries.find((entry) => entry.isIntersecting);
-        if (visibleSection) {
-          const categoryName = visibleSection.target.getAttribute("data-category");
+        // Identify the section currently closest to the top of the viewport
+        let topSection: Element | null = null;
+        let topY = Infinity;
+
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const rect = entry.target.getBoundingClientRect();
+            // Prefer section header currently near top of screen
+            if (rect.top >= 0 && rect.top < topY) {
+              topY = rect.top;
+              topSection = entry.target;
+            } else if (!topSection && rect.top < 0 && rect.bottom > 200) {
+              topSection = entry.target;
+            }
+          }
+        });
+
+        if (topSection) {
+          const categoryName = (topSection as Element).getAttribute("data-category");
           if (categoryName) {
             setSelectedCategory(categoryName);
-            // Auto scroll rail element
-            const railBtn = document.getElementById(`rail-btn-${categoryName.replace(/[^a-z0-9]+/g, "-")}`);
+            // Auto scroll rail element smoothly without jumping
+            const slug = categoryName.replace(/[^a-z0-9]+/g, "-");
+            const railBtn = document.getElementById(`rail-btn-${slug}`);
             if (railBtn) {
               railBtn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
             }
@@ -192,8 +207,8 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
         }
       },
       {
-        rootMargin: "-100px 0px -60% 0px",
-        threshold: 0.1
+        rootMargin: "-120px 0px -40% 0px",
+        threshold: [0, 0.1, 0.3, 0.5]
       }
     );
 
@@ -213,14 +228,14 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
     } else {
       const section = sectionRefs.current[categoryName];
       if (section) {
-        const offset = section.offsetTop - 180;
-        window.scrollTo({ top: offset, behavior: "smooth" });
+        const y = section.getBoundingClientRect().top + window.pageYOffset - 160;
+        window.scrollTo({ top: y, behavior: "smooth" });
       }
     }
 
     setTimeout(() => {
       isClickScrolling.current = false;
-    }, 700);
+    }, 1000);
   };
 
   // Filter items
@@ -359,19 +374,13 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         
         {/* Header Block */}
-        <div className="mb-10 text-center md:text-left mt-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <span className="font-sans text-[10px] tracking-[0.25em] text-[#8F1115] font-bold uppercase">
-              THE MAURYA KITCHEN
-            </span>
-            <h1 className="font-heading text-5xl md:text-6xl text-[#350709] tracking-tight mt-1">
-              What are you<br className="md:hidden" /> craving today?
-            </h1>
-          </div>
-          
-          <div className="flex justify-center md:justify-end">
-            <LittleMonkeyBadge variant="menu" message="Monkey's Kitchen Picks 🍌" />
-          </div>
+        <div className="mb-10 text-center md:text-left mt-8">
+          <span className="font-sans text-[10px] tracking-[0.25em] text-[#8F1115] font-bold uppercase">
+            THE MAURYA KITCHEN
+          </span>
+          <h1 className="font-heading text-5xl md:text-6xl text-[#350709] tracking-tight mt-1">
+            What are you<br className="md:hidden" /> craving today?
+          </h1>
         </div>
 
         {/* Dimmer overlay for search focus */}

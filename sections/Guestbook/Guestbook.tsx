@@ -6,7 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Star, Quote, Heart } from "lucide-react";
 import Link from "next/link";
 import { FloatingHandwriting } from "@/components/MicroArtifacts";
-import LittleMonkeyBadge from "@/components/LittleMonkeyBadge";
 
 export default function Guestbook() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -75,13 +74,8 @@ export default function Guestbook() {
       <div className="container-maurya space-y-16">
         
         {/* Header Block & Google Rating Summary */}
-        <div className="gb-header content-grid text-center space-y-6 max-w-3xl flex flex-col items-center">
+        <div className="gb-header content-grid text-center space-y-6 max-w-3xl">
           
-          {/* Little Monkey UI Badge */}
-          <div className="mb-2">
-            <LittleMonkeyBadge variant="reviews" message="Monkey Stamp of Pure Veg Joy 🐒" />
-          </div>
-
           <div className="inline-flex items-center gap-2 px-5 py-2 bg-[#F8F5EF] border border-[#9A5C3B]/30 rounded-full shadow-sm">
             <div className="flex items-center gap-1 text-[#9A5C3B]">
               {[...Array(5)].map((_, i) => (
