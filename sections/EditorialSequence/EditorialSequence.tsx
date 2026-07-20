@@ -100,35 +100,7 @@ export default function EditorialSequence() {
         );
       }
 
-      // SPREAD 02: The Voice (Whitespace Overlap)
-      if (spread02Ref.current) {
-        const bgs = spread02Ref.current.querySelectorAll(".spread-bg");
-        const quotes = spread02Ref.current.querySelectorAll(".spread-quote");
-        const lockup = spread02Ref.current.querySelector(".spread-lockup");
-        const notes = spread02Ref.current.querySelectorAll(".spread-note");
-        
-        gsap.fromTo(bgs,
-          { opacity: 0 },
-          { opacity: 1, duration: 1, ease: "none", scrollTrigger: { trigger: spread02Ref.current, start: "top bottom", end: "top center", scrub: true }}
-        );
-
-        gsap.fromTo(quotes,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 2, stagger: 0.2, ease: "power2.out", scrollTrigger: { trigger: spread02Ref.current, start: "top 60%" }}
-        );
-
-        gsap.fromTo(lockup,
-          { opacity: 0 },
-          { opacity: 1, duration: 1.5, delay: 0.8, ease: "none", scrollTrigger: { trigger: spread02Ref.current, start: "top 50%" }}
-        );
-
-        gsap.fromTo(notes,
-          { opacity: 0, scale: 0.95 },
-          { opacity: 1, scale: 1, duration: 1.5, stagger: 0.2, ease: "power2.out", scrollTrigger: { trigger: spread02Ref.current, start: "top 45%" }}
-        );
       }
-
-      // Removed Spread 03 and Spread 04
 
     }, containerRef);
 
@@ -184,21 +156,6 @@ export default function EditorialSequence() {
             </div>
 
           </div>
-        </div>
-      </div>
-
-      {/* 
-        SPREAD 02: The Voice (Static Image)
-      */}
-      <div ref={spread02Ref} className={`relative w-full pointer-events-auto ${isMobile ? "h-[50vh] bg-[#f5f2eb]" : "h-[120vh] mt-[-20vh] bg-[#f5f2eb]"}`}>
-        <div className={isMobile ? "relative w-full h-full" : "sticky top-0 w-full h-screen flex items-center justify-center overflow-hidden"}>
-          
-          <img 
-            src="/memory-wall.png" 
-            alt="Memory Wall Scrapbook" 
-            className={`spread-bg w-full h-full object-cover object-center ${isMobile ? "opacity-100" : "opacity-0"}`}
-          />
-
         </div>
       </div>
 
