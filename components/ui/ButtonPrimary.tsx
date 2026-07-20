@@ -6,7 +6,7 @@ import Link from "next/link";
 interface ButtonPrimaryProps {
   children: React.ReactNode;
   href?: string;
-  onClick?: () => void;
+  onClick?: (e?: any) => void;
   className?: string;
   type?: "button" | "submit" | "reset";
 }

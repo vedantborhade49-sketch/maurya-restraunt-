@@ -63,7 +63,7 @@ export default function CategoryHeroDish({ item, onAdd, quantity }: CategoryHero
             </div>
 
             <ButtonPrimary
-              onClick={(e) => onAdd(item, e)}
+              onClick={() => onAdd(item)}
               className="bg-[#B98532] text-[#350709] hover:bg-[#D4A373]"
             >
               {quantity > 0 ? (
