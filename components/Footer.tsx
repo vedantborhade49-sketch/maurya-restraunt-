@@ -5,11 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { 
-  Leaf, 
   Clock, 
-  Users, 
-  Home as HomeIcon, 
-  ShoppingBag, 
   MessageSquare,
   Instagram,
   MapPin,
@@ -82,15 +78,7 @@ export default function Footer() {
         "-=0.4"
       );
 
-      // 7. Restaurant Info Strip
-      tl.fromTo(
-        ".footer-info-strip",
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
-        "-=0.3"
-      );
-
-      // 8. Social Links
+      // 7. Social Links
       tl.fromTo(
         ".footer-social-links",
         { y: 15, opacity: 0 },
@@ -98,7 +86,7 @@ export default function Footer() {
         "-=0.2"
       );
 
-      // 9. Copyright
+      // 8. Copyright
       tl.fromTo(
         ".footer-copyright",
         { opacity: 0 },
@@ -109,15 +97,6 @@ export default function Footer() {
 
     return () => ctx.revert();
   }, []);
-
-  const restaurantInfoItems = [
-    { icon: Leaf, label: "PURE VEGETARIAN" },
-    { icon: Clock, label: "OPEN DAILY (11 AM — 11 PM)" },
-    { icon: Users, label: "FAMILY DINING" },
-    { icon: HomeIcon, label: "INDOOR & GARDEN SEATING" },
-    { icon: ShoppingBag, label: "TAKEAWAY & DELIVERY" },
-    { icon: MessageSquare, label: "WHATSAPP ORDERING" },
-  ];
 
   return (
     <footer
@@ -204,7 +183,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/our-story" className="group inline-flex items-center gap-1 hover:text-[#350709] transition-colors">
-                  <span>Our Story</span>
+                  <span>Around Our Table</span>
                   <span className="h-[1px] w-0 bg-[#350709] transition-all duration-300 group-hover:w-full" />
                 </Link>
               </li>
@@ -309,23 +288,6 @@ export default function Footer() {
           </div>
 
         </nav>
-
-        {/* ── SECTION 5: RESTAURANT INFORMATION STRIP ─────────────────── */}
-        <div className="footer-info-strip border-t border-b border-[#B98532]/25 py-8 my-10">
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 text-center">
-            {restaurantInfoItems.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div key={idx} className="flex items-center gap-3">
-                  <Icon className="w-4 h-4 text-[#B98532] stroke-[1.5]" />
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] font-bold text-[#350709]/90">
-                    {item.label}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
 
         {/* ── SECTION 6: SOCIAL LINKS & COPYRIGHT ─────────────────────── */}
         <div className="space-y-6 pt-4">

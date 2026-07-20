@@ -47,7 +47,7 @@ export default function Navbar() {
 
   const navItems = [
     { label: "THE MENU", href: "/menu", prefix: "01" },
-    { label: "OUR STORY", href: "/our-story", prefix: "02" },
+    { label: "AROUND OUR TABLE", href: "/our-story", prefix: "02" },
     { label: "GALLERY", href: "/gallery", prefix: "03" },
     { label: "REVIEWS", href: "/reviews", prefix: "04" },
     { label: "VISIT", href: "/visit", prefix: "05" },
