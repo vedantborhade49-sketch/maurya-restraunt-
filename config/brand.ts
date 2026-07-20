@@ -48,3 +48,16 @@ export const BRAND_COPY = {
   phone: "+91 70307 77051",
   whatsappUrl: "https://wa.me/917030777051",
 } as const;
+
+export const BRAND_VOCABULARY = {
+  cart: "Your Table",
+  addToCart: "Set on the Table",
+  checkout: "Confirm Your Table",
+  bestseller: "Guest Favourite",
+  recommended: "Chef's Choice",
+  categories: "Chapters",
+  menu: "Dining Journey",
+  searchPlaceholder: "What are you craving today?",
+  subtotal: "Tonight's Table",
+  confirmation: "Table Set & Confirmed",
+} as const;
