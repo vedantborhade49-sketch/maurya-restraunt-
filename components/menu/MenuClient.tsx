@@ -281,6 +281,16 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
         )}
       </AnimatePresence>
 
+      {/* Unique Fixed Food & Dining Background Photography Backdrop */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 scale-105"
+          style={{ backgroundImage: `url('/unique-menu-bg.png')` }}
+        />
+        {/* Soft Vignette & Subtle Warm Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F8F6F1]/88 via-[#F8F6F1]/82 to-[#F8F6F1]/92" />
+      </div>
+
       {/* Subtle Brass Accent Overlay */}
       <div 
         className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]"
