@@ -142,6 +142,26 @@ export default function Home() {
               </div>
             </div>
 
+          {/* Vintage Red Page-Like Frame */}
+          <div className="absolute inset-4 md:inset-8 border-[3px] border-[#8F1115]/35 z-30 pointer-events-none rounded-sm shadow-[inset_0_0_30px_rgba(143,17,21,0.15),0_0_20px_rgba(143,17,21,0.1)]">
+            {/* Inner thin border */}
+            <div className="absolute inset-1.5 border border-[#8F1115]/20">
+              {/* Decorative corner dots */}
+              <div className="absolute top-2 left-2 w-1.5 h-1.5 rounded-full bg-[#8F1115]/40" />
+              <div className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-[#8F1115]/40" />
+              <div className="absolute bottom-2 left-2 w-1.5 h-1.5 rounded-full bg-[#8F1115]/40" />
+              <div className="absolute bottom-2 right-2 w-1.5 h-1.5 rounded-full bg-[#8F1115]/40" />
+            </div>
+            
+            {/* Corner Bracket Flourishes */}
+            {/* Top Left */}
+            <div className="absolute top-0 left-0 w-8 h-8 border-t-[3px] border-l-[3px] border-[#8F1115] -translate-x-[3px] -translate-y-[3px]" />
+            {/* Top Right */}
+            <div className="absolute top-0 right-0 w-8 h-8 border-t-[3px] border-r-[3px] border-[#8F1115] translate-x-[3px] -translate-y-[3px]" />
+            {/* Bottom Left */}
+            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-[3px] border-l-[3px] border-[#8F1115] -translate-x-[3px] translate-y-[3px]" />
+            {/* Bottom Right */}
+            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-[3px] border-r-[3px] border-[#8F1115] translate-x-[3px] translate-y-[3px]" />
           </div>
 
         </section>
