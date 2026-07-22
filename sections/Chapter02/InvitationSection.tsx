@@ -140,7 +140,7 @@ export default function InvitationSection() {
                 MADE FOR
               </h2>
               {/* Accent Word overlapping with interactive wiggle letter spans */}
-              <span className="absolute -bottom-6 right-4 sm:right-16 md:right-auto md:left-24 font-instrument italic text-7xl md:text-9xl text-[#8F1115] z-20 font-normal select-none flex">
+              <span className="absolute left-1/2 -translate-x-1/2 -bottom-12 md:left-auto md:translate-x-0 md:left-[60%] lg:left-[68%] md:-bottom-8 font-instrument italic text-7xl md:text-9xl text-[#8F1115] z-20 font-normal select-none flex">
                 {"Silence.".split("").map((char, idx) => (
                   <motion.span
                     key={idx}
