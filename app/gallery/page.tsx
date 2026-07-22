@@ -9,6 +9,7 @@ const GalleryHero = dynamic(() => import("@/sections/GalleryEditorial/GalleryHer
 const GalleryArchive = dynamic(() => import("@/sections/GalleryEditorial/GalleryArchive"), { ssr: false });
 const GalleryTable = dynamic(() => import("@/sections/GalleryEditorial/GalleryTable"), { ssr: false });
 const GalleryAtmosphere = dynamic(() => import("@/sections/GalleryEditorial/GalleryAtmosphere"), { ssr: false });
+const MemoryDrawer = dynamic(() => import("@/components/gallery/MemoryDrawer"), { ssr: false });
 
 export default function GalleryPage() {
   const containerRef = useRef<HTMLElement>(null);
@@ -122,6 +123,9 @@ export default function GalleryPage() {
         <GalleryTable />
         <GalleryAtmosphere />
       </div>
+
+      {/* Interactive Memory Box Drawer overlay */}
+      <MemoryDrawer />
     </main>
   );
 }
