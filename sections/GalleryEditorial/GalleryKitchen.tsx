@@ -7,12 +7,12 @@ import Image from "next/image";
 
 const KITCHEN_IMAGES = [
   { src: "/editorial-food-5.png", alt: "The Chef" },
-  { src: "https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?q=80&w=800", alt: "Tools" },
-  { src: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?q=80&w=800", alt: "Glassware" },
+  { src: "/editorial-food-mains.png", alt: "Tools" },
+  { src: "/editorial-food-rice.png", alt: "Glassware" },
   { src: "/editorial-food-3.png", alt: "Plating" },
   { src: "/editorial-food-2.png", alt: "Service" },
   { src: "/editorial-spices.png", alt: "Atmosphere" },
-  { src: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=800", alt: "Prep" },
+  { src: "/editorial-food-desserts.png", alt: "Prep" },
   { src: "/editorial-texture.png", alt: "Texture" },
   { src: "/cinematic-overhead-table.png", alt: "Details" },
 ];
@@ -138,7 +138,7 @@ const GalleryKitchen = memo(function GalleryKitchen() {
   };
 
   return (
-    <section ref={containerRef} className="relative w-full overflow-hidden content-visibility-auto -mt-24 z-10">
+    <section ref={containerRef} className="relative w-full overflow-hidden content-visibility-auto pt-12 z-10">
       
       {/* The Signature Sequence */}
       <div ref={sequenceRef} className="relative w-full h-screen flex items-center justify-center bg-[#E0D8D0]">

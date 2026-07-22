@@ -81,7 +81,7 @@ const GalleryTable = memo(function GalleryTable() {
   };
 
   return (
-    <section ref={containerRef} className="relative w-full overflow-hidden content-visibility-auto text-[#F5E8D5] -mt-24 z-20">
+    <section ref={containerRef} className="relative w-full overflow-hidden content-visibility-auto text-[#F5E8D5] pt-12 z-20">
       
       {/* The Table Content (Deep Cocoa environment) */}
       <div className="relative w-full min-h-[100vh] flex flex-col justify-start items-center pt-32 pb-20 px-6 md:px-12">
@@ -124,7 +124,7 @@ const GalleryTable = memo(function GalleryTable() {
             <div ref={setItemRef(2)} className="w-full aspect-square relative group">
               <div className="absolute inset-[-10px] bg-white/5 backdrop-blur-sm border border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-0 rounded-sm" />
               <div className="relative w-full h-full overflow-hidden z-10">
-                <Image src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=800" alt="First Pour" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover opacity-85 transition-opacity duration-700 group-hover:opacity-100" decoding="async" loading="lazy" />
+                <Image src="/editorial-food-mains.png" alt="First Pour" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover opacity-85 transition-opacity duration-700 group-hover:opacity-100" decoding="async" loading="lazy" />
               </div>
               <p className="absolute -bottom-8 right-0 font-mono text-[9px] uppercase tracking-widest text-[#F5E8D5]/60 text-right">First Pour</p>
             </div>

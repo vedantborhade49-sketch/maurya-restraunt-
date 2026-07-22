@@ -73,7 +73,7 @@ const GalleryAtmosphere = memo(function GalleryAtmosphere() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full overflow-hidden content-visibility-auto text-[#F6EFE6] -mt-16 z-30">
+    <section ref={containerRef} className="relative w-full overflow-hidden content-visibility-auto text-[#F6EFE6] pt-12 z-30">
       
       {/* The Atmosphere Content */}
       <div className="relative w-full min-h-[80vh] flex flex-col justify-center items-center overflow-hidden py-16">
@@ -93,7 +93,7 @@ const GalleryAtmosphere = memo(function GalleryAtmosphere() {
           
           <div ref={panoRef} className="absolute w-[130%] h-full left-[-15%]">
             <Image 
-              src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=2000" 
+              src="/editorial-entrance.png" 
               alt="Dinner Rush Atmosphere" 
               fill 
               sizes="130vw" 
