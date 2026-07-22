@@ -4,12 +4,12 @@ import React, { useRef, useEffect, memo } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const GalleryAtmosphere = memo(function GalleryAtmosphere() {
   const containerRef = useRef<HTMLElement>(null);
   const breakTextRef = useRef<HTMLHeadingElement>(null);
   const panoRef = useRef<HTMLDivElement>(null);
-  const shadowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -26,46 +26,28 @@ const GalleryAtmosphere = memo(function GalleryAtmosphere() {
             ease: "power2.out",
             scrollTrigger: {
               trigger: breakTextRef.current,
-              start: "top 75%",
+              start: "top 80%",
               toggleActions: "play none none reverse"
             }
           }
         );
       }
 
-      // Quicker Progression Panoramic Scroll
+      // Panoramic Scroll Parallax
       if (panoRef.current) {
         gsap.fromTo(panoRef.current,
-          { xPercent: 15 },
+          { yPercent: -8 },
           {
-            xPercent: -15,
+            yPercent: 8,
             ease: "none",
             scrollTrigger: {
               trigger: containerRef.current,
               start: "top bottom",
               end: "bottom top",
-              scrub: 0.5, // Faster scrub for quicker progression
-              onEnter: () => gsap.set(panoRef.current, { willChange: "transform" }),
-              onLeave: () => gsap.set(panoRef.current, { willChange: "auto" }),
-              onEnterBack: () => gsap.set(panoRef.current, { willChange: "transform" }),
-              onLeaveBack: () => gsap.set(panoRef.current, { willChange: "auto" }),
+              scrub: true,
             }
           }
         );
-      }
-
-      // Moving Deep Shadow
-      if (shadowRef.current) {
-        gsap.to(shadowRef.current, {
-          x: "50vw",
-          ease: "none",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          }
-        });
       }
 
     }, containerRef);
@@ -73,42 +55,103 @@ const GalleryAtmosphere = memo(function GalleryAtmosphere() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full overflow-hidden content-visibility-auto text-[#F6EFE6] pt-12 z-30">
+    <section ref={containerRef} className="relative w-full overflow-visible bg-[#161413] text-[#F6EFE6] py-24 md:py-36 z-30">
       
-      {/* The Atmosphere Content */}
-      <div className="relative w-full min-h-[80vh] flex flex-col justify-center items-center overflow-hidden py-16">
-        
-        {/* Deep Moving Shadow Layer */}
-        <div ref={shadowRef} className="absolute inset-0 z-20 bg-gradient-to-r from-black/80 via-transparent to-black/80 w-[150%] left-[-25%] pointer-events-none mix-blend-multiply" />
+      {/* Texture Background Overlay */}
+      <div className="absolute inset-0 z-0 bg-[url('https://www.transparenttextures.com/patterns/dust.png')] opacity-15 mix-blend-overlay pointer-events-none" />
 
-        {/* Integrated Typography */}
-        <div className="absolute top-[20%] left-0 w-full flex items-center justify-center pointer-events-none z-30">
-          <h2 ref={breakTextRef} className="font-serif text-4xl md:text-6xl italic opacity-90 text-center tracking-wide mix-blend-overlay">
-            The Evening<br />Begins.
+      {/* Main Container */}
+      <div className="relative w-full max-w-[1200px] mx-auto px-6 md:px-12 z-10 flex flex-col items-center">
+        
+        {/* Cinematic Centered Title */}
+        <div className="text-center mb-16 md:mb-24 z-20">
+          <h2 ref={breakTextRef} className="font-heading text-5xl md:text-8xl tracking-tight leading-none text-[#F8F6F1] font-bold uppercase select-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+            THE EVENING<br />
+            <span className="font-instrument italic text-[#B98532] lowercase normal-case tracking-normal block mt-3 font-normal text-6xl md:text-9xl">
+              Begins.
+            </span>
           </h2>
         </div>
 
-        {/* Borderless Panoramic Canvas */}
-        <div className="relative w-full h-[60vh] md:h-[80vh] flex items-center overflow-hidden z-10">
+        {/* Widescreen Film Canvas Container */}
+        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] border-[6px] md:border-[10px] border-white/5 bg-black overflow-hidden rounded-sm shadow-[0_30px_70px_rgba(0,0,0,0.8)] z-10">
+          {/* Inner Vignette shadow */}
+          <div className="absolute inset-0 z-20 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.9)]" />
           
-          <div ref={panoRef} className="absolute w-[130%] h-full left-[-15%]">
+          <div ref={panoRef} className="absolute w-full h-[120%] -top-[10%] left-0">
             <Image 
               src="/editorial-entrance.png" 
               alt="Dinner Rush Atmosphere" 
               fill 
-              sizes="130vw" 
-              className="object-cover opacity-90" 
+              className="object-cover opacity-80" 
               decoding="async" 
               loading="lazy" 
             />
           </div>
 
-          <div className="absolute bottom-10 left-10 md:left-24 font-mono text-[9px] uppercase tracking-widest text-white/70 z-30">
-            Warm Light
+          {/* Film Accents */}
+          <div className="absolute bottom-6 left-6 md:left-12 font-mono text-[9px] uppercase tracking-widest text-white/50 z-30">
+            WARM LIGHT / 35MM
           </div>
-          <div className="absolute top-10 right-10 md:right-24 font-mono text-[9px] uppercase tracking-widest text-white/70 z-30">
-            Dinner Rush
+          <div className="absolute top-6 right-6 md:right-12 font-mono text-[9px] uppercase tracking-widest text-white/50 z-30">
+            DINNER RUSH
           </div>
+        </div>
+
+        {/* Floating Scrapbook Overlays Container */}
+        <div className="relative w-full max-w-[1100px] mt-8 md:mt-0 md:-translate-y-12 z-20 flex flex-col md:flex-row items-center justify-between gap-12 pointer-events-none">
+          
+          {/* 1. Vintage Handwritten Guest Log Sheet */}
+          <motion.div 
+            initial={{ rotate: -4 }}
+            whileHover={{ rotate: 1, scale: 1.04, y: -10 }}
+            transition={{ type: "spring", stiffness: 250, damping: 15 }}
+            className="w-full max-w-[280px] p-6 bg-[#FAF7F2] text-black shadow-[0_15px_35px_rgba(0,0,0,0.25)] rounded-sm pointer-events-auto transform border border-black/5"
+          >
+            {/* Header */}
+            <div className="border-b-2 border-dashed border-[#8F1115]/30 pb-3 mb-4">
+              <p className="font-mono text-[9px] uppercase tracking-widest text-black/50">MAURYA - PUNE</p>
+              <h4 className="font-serif italic text-lg text-[#8F1115] mt-1">Guest Log</h4>
+            </div>
+            {/* Log Entries */}
+            <ul className="space-y-3 font-mono text-[10px] text-black/85 leading-normal">
+              <li>
+                <span className="font-bold text-[#8F1115]">TBL 04</span> / 02 Guests<br />
+                <span className="italic font-serif text-[11px] text-black/60 font-medium">"Celebrating 40 winters together."</span>
+              </li>
+              <li>
+                <span className="font-bold text-[#8F1115]">TBL 11</span> / 06 Guests<br />
+                <span className="italic font-serif text-[11px] text-black/60 font-medium">"The laughter carries across rooms."</span>
+              </li>
+              <li>
+                <span className="font-bold text-[#8F1115]">TBL 09</span> / 04 Guests<br />
+                <span className="italic font-serif text-[11px] text-black/60 font-medium">"Savoring the last warm Dosa."</span>
+              </li>
+            </ul>
+          </motion.div>
+
+          {/* 2. Floating Polaroid card of Sweet Endings */}
+          <motion.div 
+            initial={{ rotate: 5 }}
+            whileHover={{ rotate: -2, scale: 1.05, y: -12 }}
+            transition={{ type: "spring", stiffness: 250, damping: 15 }}
+            className="w-full max-w-[240px] p-4 pb-8 bg-[#fdfbf7] shadow-[0_15px_35px_rgba(0,0,0,0.25)] rounded-sm pointer-events-auto border border-black/5"
+          >
+            {/* Image Box */}
+            <div className="relative aspect-square w-full bg-black overflow-hidden border border-black/5 mb-3">
+              <Image 
+                src="/editorial-food-desserts.png" 
+                alt="Sweet Finish" 
+                fill 
+                className="object-cover contrast-110 saturate-[0.85]" 
+                loading="lazy"
+              />
+            </div>
+            {/* Polaroid Handwriting */}
+            <p className="font-serif italic text-center text-black/75 text-[15px] select-none">
+              "The sweet finish."
+            </p>
+          </motion.div>
 
         </div>
 
