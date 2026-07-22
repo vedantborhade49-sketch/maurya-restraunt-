@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useSpring } from "framer-motion";
+import React, { useRef, useState } from "react";
+import { motion, useSpring, useMotionValue, useMotionTemplate } from "framer-motion";
 import Link from "next/link";
 import SteamMotif from "@/components/SteamMotif";
 
@@ -11,22 +11,28 @@ export default function InvitationSection() {
   // Parallax / cursor tilt values for interactive micro-interactions
   const rotateX = useSpring(0, { stiffness: 100, damping: 20 });
   const rotateY = useSpring(0, { stiffness: 100, damping: 20 });
-  const lightX = useSpring(50, { stiffness: 120, damping: 25 });
-  const lightY = useSpring(50, { stiffness: 120, damping: 25 });
+  
+  // Spotlight follow using Motion Values for high-performance updates
+  const lightX = useMotionValue(50);
+  const lightY = useMotionValue(50);
+  const lightXSpring = useSpring(lightX, { stiffness: 120, damping: 25 });
+  const lightYSpring = useSpring(lightY, { stiffness: 120, damping: 25 });
+
+  // 3D Receipt flip state
+  const [isReceiptFlipped, setIsReceiptFlipped] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    lightX.set(x);
+    lightY.set(y);
 
     // Convert to minor rotation degrees (-4 to 4)
-    rotateX.set((y - 0.5) * 8);
-    rotateY.set((x - 0.5) * -8);
-
-    // Light highlights position (0% to 100%)
-    lightX.set(x * 100);
-    lightY.set(y * 100);
+    rotateX.set(((e.clientY - rect.top) / rect.height - 0.5) * 10);
+    rotateY.set(((e.clientX - rect.left) / rect.width - 0.5) * -10);
   };
 
   const handleMouseLeave = () => {
@@ -35,6 +41,9 @@ export default function InvitationSection() {
     lightX.set(50);
     lightY.set(50);
   };
+
+  // Define spotlight radial gradient using Framer Motion template
+  const spotlightBg = useMotionTemplate`radial-gradient(circle 380px at ${lightXSpring}% ${lightYSpring}%, rgba(185, 133, 50, 0.22) 0%, transparent 100%)`;
 
   return (
     <section
@@ -46,13 +55,68 @@ export default function InvitationSection() {
         backgroundImage: `url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjAwIDIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48ZmlsdGVyIGlkPSdub2lzZSc+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuNjUnIG51bU9jdGF2ZXM9JzMnIHN0aXRjaFRpbGVzPSdzdGl0Y2gnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9J3VybCgjbm9pc2UpJyBvcGFjaXR5PScwLjAzJy8+PC9zdmc+")`,
       }}
     >
-      {/* 1. Subtle Radial Ambient Lighting Catch (Subconscious highlight) */}
+      {/* 1. Subtle Radial Ambient Lighting Catch (Subconscious highlight follow) */}
       <motion.div
-        className="pointer-events-none absolute inset-0 mix-blend-color-burn opacity-25 z-0"
-        style={{
-          background: `radial-gradient(circle 350px at var(--light-x, 50%) var(--light-y, 50%), rgba(185, 133, 50, 0.15) 0%, transparent 100%)`,
-        }}
+        className="pointer-events-none absolute inset-0 mix-blend-color-burn opacity-35 z-0"
+        style={{ background: spotlightBg }}
       />
+
+      {/* 2. Hidden Pencil Recipe Sketch - Spotlight revealed */}
+      <div className="absolute left-[8%] top-[12%] opacity-15 pointer-events-none z-0 text-[#350709]/75 select-none hidden lg:block">
+        <svg width="110" height="110" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="0.8">
+          <path d="M20 50 C20 80, 80 80, 80 50 Z" />
+          <path d="M30 48 L70 48" />
+          <path d="M58 48 L72 24" strokeWidth="1.3" />
+          <circle cx="50" cy="62" r="2.5" />
+          <circle cx="42" cy="58" r="1.5" />
+          <circle cx="58" cy="65" r="1.8" />
+        </svg>
+        <span className="block font-instrument italic text-[11px] leading-tight text-[#8F1115]/80 mt-1">
+          Traditional spice mortar
+        </span>
+        <span className="block font-mono text-[7px] uppercase tracking-wider opacity-60">
+          Cardamom, Clove, Cinnamon
+        </span>
+      </div>
+
+      {/* 3. Floating Interactive Spices */}
+      <div className="absolute inset-0 overflow-visible pointer-events-none z-0 hidden lg:block">
+        {/* Floating Cardamom Pod */}
+        <motion.div
+          className="absolute left-[3%] bottom-[15%] opacity-35 text-[#B98532]"
+          animate={{
+            x: lightX.get() * 0.15,
+            y: [lightY.get() * 0.15, (lightY.get() * 0.15) - 10, lightY.get() * 0.15],
+            rotate: [15, 20, 15],
+          }}
+          transition={{
+            y: { repeat: Infinity, duration: 4.5, ease: "easeInOut" }
+          }}
+        >
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+            <ellipse cx="12" cy="12" rx="6" ry="10" />
+            <path d="M12 2v20M8 8c2 2 6 2 8 0" />
+          </svg>
+        </motion.div>
+
+        {/* Floating Mint Leaf */}
+        <motion.div
+          className="absolute right-[4%] top-[25%] opacity-30 text-[#8F1115]"
+          animate={{
+            x: -lightX.get() * 0.12,
+            y: [lightY.get() * 0.12, (lightY.get() * 0.12) + 12, lightY.get() * 0.12],
+            rotate: [-8, -12, -8],
+          }}
+          transition={{
+            y: { repeat: Infinity, duration: 5, ease: "easeInOut" }
+          }}
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+            <path d="M12 22C12 22 4 17 4 12C4 7 12 2 12 2C12 2 20 7 20 12C20 17 12 22 12 22Z" />
+            <path d="M12 2v20M4 12h16" />
+          </svg>
+        </motion.div>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         {/* PHASE 3 — Chapter Label */}
@@ -75,9 +139,18 @@ export default function InvitationSection() {
                 WERE NEVER<br />
                 MADE FOR
               </h2>
-              {/* Accent Word overlapping */}
-              <span className="absolute -bottom-6 right-4 sm:right-16 md:right-auto md:left-24 font-instrument italic text-7xl md:text-9xl text-[#8F1115] z-20 font-normal select-none">
-                Silence.
+              {/* Accent Word overlapping with interactive wiggle letter spans */}
+              <span className="absolute -bottom-6 right-4 sm:right-16 md:right-auto md:left-24 font-instrument italic text-7xl md:text-9xl text-[#8F1115] z-20 font-normal select-none flex">
+                {"Silence.".split("").map((char, idx) => (
+                  <motion.span
+                    key={idx}
+                    whileHover={{ y: -8, color: "#B98532" }}
+                    transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                    className="inline-block"
+                  >
+                    {char}
+                  </motion.span>
+                ))}
               </span>
             </div>
 
@@ -142,47 +215,78 @@ export default function InvitationSection() {
                 </div>
               </div>
 
-              {/* Vintage Restaurant Receipt */}
-              <div className="absolute -right-4 sm:-right-8 top-[-20px] w-36 sm:w-44 bg-[#F4EFE6] p-4 shadow-2xl border border-[#B98532]/30 rotate-[6deg] rounded-sm z-20 font-mono text-[9px] text-[#350709]/75 flex flex-col justify-between">
-                <div>
-                  <div className="text-center font-bold tracking-widest text-[#8F1115] border-b border-dashed border-[#B98532]/35 pb-1">
-                    MAURYA VEG
+              {/* 3D Flip Vintage Restaurant Receipt Card */}
+              <motion.div
+                onClick={() => setIsReceiptFlipped(!isReceiptFlipped)}
+                className="absolute -right-4 sm:-right-8 top-[-20px] w-36 sm:w-44 h-56 sm:h-64 cursor-pointer z-20 [perspective:1000px] select-none"
+                animate={{ rotateY: isReceiptFlipped ? 180 : 6 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <div className="relative w-full h-full [transform-style:preserve-3d] transform-gpu">
+                  {/* Front Side: Receipt */}
+                  <div className="absolute inset-0 w-full h-full bg-[#F4EFE6] p-4 shadow-2xl border border-[#B98532]/30 rounded-sm font-mono text-[8px] text-[#350709]/75 flex flex-col justify-between [backface-visibility:hidden] transform-gpu">
+                    <div>
+                      <div className="text-center font-bold tracking-widest text-[#8F1115] border-b border-dashed border-[#B98532]/35 pb-1">
+                        MAURYA VEG
+                      </div>
+                      <div className="flex justify-between mt-2 opacity-60">
+                        <span>TBL 12 / GST 4</span>
+                        <span>2026</span>
+                      </div>
+                      <div className="border-b border-dashed border-[#B98532]/35 my-1.5" />
+                      <ul className="space-y-1">
+                        <li className="flex justify-between">
+                          <span>1x Cheese Masala Dosa</span>
+                          <span>160</span>
+                        </li>
+                        <li className="flex justify-between">
+                          <span>1x Paneer Tikka Masala</span>
+                          <span>280</span>
+                        </li>
+                        <li className="flex justify-between">
+                          <span>2x Butter Naan</span>
+                          <span>120</span>
+                        </li>
+                      </ul>
+                      <div className="border-b border-dashed border-[#B98532]/35 my-1.5" />
+                      <div className="flex justify-between font-bold text-[#8F1115]">
+                        <span>TOTAL</span>
+                        <span>INR 560</span>
+                      </div>
+                    </div>
+                    
+                    {/* Stamp & Ink Logo */}
+                    <div className="mt-2 flex justify-between items-center border-t border-dashed border-[#B98532]/20 pt-1">
+                      <svg width="20" height="20" viewBox="0 0 40 40" className="text-[#8F1115] opacity-75">
+                        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
+                        <text x="5" y="24" className="text-[7px] font-sans fill-current font-bold tracking-tighter">MAURYA</text>
+                      </svg>
+                      <span className="text-[7px] italic opacity-50 font-sans">Click to Flip</span>
+                    </div>
                   </div>
-                  <div className="flex justify-between mt-2 text-[8px] opacity-60">
-                    <span>TBL 12 / GST 4</span>
-                    <span>2026</span>
-                  </div>
-                  <div className="border-b border-dashed border-[#B98532]/35 my-1.5" />
-                  <ul className="space-y-1 text-[8px]">
-                    <li className="flex justify-between">
-                      <span>1x Cheese Masala Dosa</span>
-                      <span>160</span>
-                    </li>
-                    <li className="flex justify-between">
-                      <span>1x Paneer Tikka Masala</span>
-                      <span>280</span>
-                    </li>
-                    <li className="flex justify-between">
-                      <span>2x Butter Garlic Naan</span>
-                      <span>120</span>
-                    </li>
-                  </ul>
-                  <div className="border-b border-dashed border-[#B98532]/35 my-1.5" />
-                  <div className="flex justify-between font-bold text-[#8F1115]">
-                    <span>TOTAL</span>
-                    <span>INR 560</span>
+
+                  {/* Back Side: Handwritten Postcard note */}
+                  <div className="absolute inset-0 w-full h-full bg-[#FAF7F2] p-4 shadow-2xl border border-[#B98532]/30 rounded-sm flex flex-col justify-between [backface-visibility:hidden] [transform:rotateY(180deg)] transform-gpu">
+                    <div className="text-left font-serif text-[10px] text-[#350709] leading-relaxed flex-1 flex flex-col justify-between">
+                      <div>
+                        <div className="border-b border-[#B98532]/25 pb-1 mb-2 font-sans text-[7px] uppercase tracking-wider text-[#8F1115] font-bold">
+                          GUEST NOTE / TBL 12
+                        </div>
+                        <p className="italic text-[#8F1115] font-semibold text-[11px] leading-tight font-instrument mt-1">
+                          "The best Cheese Dosa in Pune! Reminds me of family Sunday dinners."
+                        </p>
+                        <p className="text-[8px] mt-2 opacity-75 font-sans">
+                          - The Patil Family
+                        </p>
+                      </div>
+                      <div className="border-t border-[#B98532]/20 pt-1.5 flex justify-between items-center text-[7px] font-sans opacity-60">
+                        <span>★ ★ ★ ★ ★</span>
+                        <span>Jul 2026</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                
-                {/* Stamp & Ink Logo */}
-                <div className="mt-4 flex justify-between items-center">
-                  <svg width="24" height="24" viewBox="0 0 40 40" className="text-[#8F1115] opacity-75">
-                    <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
-                    <text x="5" y="24" className="text-[7px] font-sans fill-current font-bold tracking-tighter">MAURYA</text>
-                  </svg>
-                  <span className="text-[7px] italic opacity-50">#01726</span>
-                </div>
-              </div>
+              </motion.div>
 
               {/* Chef Signature Overlay */}
               <div className="absolute right-4 bottom-[-15px] z-30 pointer-events-none">
