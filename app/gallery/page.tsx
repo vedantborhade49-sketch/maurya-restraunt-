@@ -7,7 +7,6 @@ import dynamic from "next/dynamic";
 
 const GalleryHero = dynamic(() => import("@/sections/GalleryEditorial/GalleryHero"), { ssr: true });
 const GalleryArchive = dynamic(() => import("@/sections/GalleryEditorial/GalleryArchive"), { ssr: false });
-const GalleryKitchen = dynamic(() => import("@/sections/GalleryEditorial/GalleryKitchen"), { ssr: false });
 const GalleryTable = dynamic(() => import("@/sections/GalleryEditorial/GalleryTable"), { ssr: false });
 const GalleryAtmosphere = dynamic(() => import("@/sections/GalleryEditorial/GalleryAtmosphere"), { ssr: false });
 
@@ -53,10 +52,9 @@ export default function GalleryPage() {
       const themes = [
         { bg: "#F8F4ED", text: "#322A26" }, // 1. Warm Ivory
         { bg: "#F2E6D8", text: "#322A26" }, // 2. Linen
-        { bg: "#E0D8D0", text: "#322A26" }, // 3. Stone
-        { bg: "#322A26", text: "#F5E8D5" }, // 4. Deep Cocoa
-        { bg: "#273128", text: "#F6EFE6" }, // 5. Dark Olive
-        { bg: "#F8F4ED", text: "#322A26" }  // 6. Warm Ivory
+        { bg: "#322A26", text: "#F5E8D5" }, // 3. Deep Cocoa
+        { bg: "#273128", text: "#F6EFE6" }, // 4. Dark Olive
+        { bg: "#F8F4ED", text: "#322A26" }  // 5. Warm Ivory
       ];
 
       sections.forEach((section: any, i: number) => {
@@ -121,7 +119,6 @@ export default function GalleryPage() {
       <div className="relative z-10">
         <GalleryHero />
         <GalleryArchive />
-        <GalleryKitchen />
         <GalleryTable />
         <GalleryAtmosphere />
       </div>
