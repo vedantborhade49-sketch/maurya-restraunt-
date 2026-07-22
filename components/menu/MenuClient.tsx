@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { useTableStore, MenuItem } from "../../stores/table-store";
-import { Search, Plus, Minus, ArrowRight, X } from "lucide-react";
+import { Search, Plus, Minus, ArrowRight, X, Sparkles } from "lucide-react";
 import { motion, AnimatePresence, useSpring } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -118,6 +118,13 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
   // "Can't Decide" Selection
   const [decideMood, setDecideMood] = useState<"one" | "two" | "table" | null>(null);
 
+  // Parallax offset for crazy header floating elements
+  const [parallaxOffset, setParallaxOffset] = useState({ x: 0, y: 0 });
+
+  // Slot machine Gourmet Surprise suggestion states
+  const [rollingSuggestion, setRollingSuggestion] = useState("");
+  const [isRolling, setIsRolling] = useState(false);
+
   // Cart operations
   const { items: cartItems, addItem, decreaseQuantity, setIsOpen: setCartOpen, isOpen: isCartOpen } = useTableStore();
 
@@ -163,9 +170,37 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
   // Track mouse coordinates on desktop
   const handleMouseMove = (e: React.MouseEvent) => {
     setMousePos({ x: e.clientX + 20, y: e.clientY + 20 });
+    
+    // Parallax offset relative to screen center
+    if (typeof window !== "undefined") {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      setParallaxOffset({
+        x: (e.clientX - centerX) / 30,
+        y: (e.clientY - centerY) / 30,
+      });
+    }
+
     if (!hoveredItem) return;
     mouseX.set(e.clientX + 20);
     mouseY.set(e.clientY + 20);
+  };
+
+  const handleSurpriseRoll = () => {
+    if (isRolling || items.length === 0) return;
+    setIsRolling(true);
+    let count = 0;
+    const interval = setInterval(() => {
+      const idx = Math.floor(Math.random() * items.length);
+      setRollingSuggestion(items[idx].name);
+      count++;
+      if (count > 12) {
+        clearInterval(interval);
+        const finalItem = items[idx];
+        setSearchQuery(finalItem.name);
+        setIsRolling(false);
+      }
+    }, 80);
   };
 
   // Scroll sync: Set rail category on scroll
@@ -374,12 +409,82 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         
         {/* Header Block */}
-        <div className="mb-10 text-center md:text-left mt-8">
-          <span className="font-sans text-[10px] tracking-[0.25em] text-[#8F1115] font-bold uppercase">
+        <div className="mb-14 text-center md:text-left mt-8 relative select-none">
+          {/* Interactive Floating Ingredients Parallax */}
+          <div className="absolute inset-0 overflow-visible pointer-events-none z-0 hidden lg:block">
+            {/* Floating Chilli */}
+            <motion.div
+              className="absolute left-[-10%] top-[-20%] opacity-40 text-[#8F1115]"
+              animate={{
+                x: parallaxOffset.x * 0.8,
+                y: [parallaxOffset.y * 0.8, (parallaxOffset.y * 0.8) - 12, parallaxOffset.y * 0.8],
+                rotate: [-12, -15, -12],
+              }}
+              transition={{
+                y: { repeat: Infinity, duration: 4, ease: "easeInOut" },
+                rotate: { repeat: Infinity, duration: 5, ease: "easeInOut" }
+              }}
+            >
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+                <path d="M12 2C8 6 4 10 4 15c0 4.4 3.6 8 8 8s8-3.6 8-8c0-5-4-9-8-13z" />
+                <path d="M12 2c1-1 3-1 4 0" />
+              </svg>
+              <span className="font-mono text-[7px] tracking-wider uppercase block mt-1">CHILLI</span>
+            </motion.div>
+
+            {/* Floating Cardamom */}
+            <motion.div
+              className="absolute right-[-8%] top-[-30%] opacity-35 text-[#B98532]"
+              animate={{
+                x: -parallaxOffset.x * 0.6,
+                y: [parallaxOffset.y * 0.6, (parallaxOffset.y * 0.6) + 10, parallaxOffset.y * 0.6],
+                rotate: [8, 12, 8],
+              }}
+              transition={{
+                y: { repeat: Infinity, duration: 4.5, ease: "easeInOut" },
+                rotate: { repeat: Infinity, duration: 4.5, ease: "easeInOut" }
+              }}
+            >
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+                <ellipse cx="12" cy="12" rx="6" ry="10" />
+                <path d="M12 2v20M8 8c2 2 6 2 8 0M8 16c2-2 6-2 8 0" />
+              </svg>
+              <span className="font-mono text-[7px] tracking-wider uppercase block mt-1">ELAICHI</span>
+            </motion.div>
+
+            {/* Floating Star Anise */}
+            <motion.div
+              className="absolute left-[35%] bottom-[-50px] opacity-25 text-[#B98532]"
+              animate={{
+                x: parallaxOffset.x * 0.5,
+                y: [parallaxOffset.y * 0.5, (parallaxOffset.y * 0.5) - 8, parallaxOffset.y * 0.5],
+                rotate: [0, 360],
+              }}
+              transition={{
+                y: { repeat: Infinity, duration: 5, ease: "easeInOut" },
+                rotate: { repeat: Infinity, duration: 25, ease: "linear" }
+              }}
+            >
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+                <path d="M12 2l2 5 5-2-3 5 5 2-5 2 3 5-5-2-2 5-2-5-5 2 3-5-5-2 5-2-3-5 5 2z" />
+              </svg>
+            </motion.div>
+          </div>
+
+          <span className="font-sans text-[10px] tracking-[0.25em] text-[#8F1115] font-bold uppercase relative z-10">
             THE MAURYA KITCHEN
           </span>
-          <h1 className="font-heading text-5xl md:text-6xl text-[#350709] tracking-tight mt-1">
-            What are you<br className="md:hidden" /> craving today?
+          <h1 className="font-heading text-5xl md:text-7xl text-[#350709] tracking-tight mt-2 leading-none relative z-10">
+            What are you <br className="sm:hidden" />
+            <span className="relative inline-block px-2">
+              <span className="italic text-[#B98532] font-instrument select-none hover:scale-105 hover:rotate-[-2deg] transition-transform duration-300 inline-block font-normal">
+                craving
+              </span>
+              {/* Hand-drawn underline curve */}
+              <svg className="absolute -bottom-2 left-0 w-full h-3 text-[#B98532]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <path d="M0,5 Q50,0 100,5" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+            </span> today?
           </h1>
         </div>
 
@@ -390,31 +495,47 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
 
         {/* 2. Sticky Fixed Search & Category Navigation Header */}
         <div className="sticky top-16 md:top-20 z-40 w-full bg-[#F8F6F1]/95 backdrop-blur-md border-b border-[#B98532]/25 py-3.5 mb-10 -mx-4 px-4 md:-mx-8 md:px-8 space-y-4 shadow-sm">
-          {/* Sticky Search Input Bar */}
-          <div className="max-w-3xl mx-auto relative">
-            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-[#350709]/40" />
-            <input
-              type="text"
-              placeholder={isSearchFocused ? "Search paneer, dosa, noodles..." : PLACEHOLDERS[placeholderIndex]}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onFocus={() => setIsSearchFocused(true)}
-              onBlur={() => {
-                setIsSearchFocused(false);
-                if (searchQuery === "") setPlaceholderIndex(0);
-              }}
-              className="w-full pl-12 md:pl-14 pr-10 py-3 rounded-full bg-white border border-[#350709]/15 text-[#350709] placeholder:text-[#350709]/40 focus:outline-none focus:border-[#8F1115]/50 focus:shadow-[0_0_20px_rgba(143,17,21,0.06)] transition-all duration-300 text-sm md:text-base shadow-sm"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery("")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#350709]/50 hover:text-[#350709]"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            )}
-            {/* Animated bottom brass line */}
-            <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] bg-[#B98532] transition-all duration-500 rounded-full ${isSearchFocused ? "w-[90%]" : "w-0"}`} />
+          {/* Sticky Search Input Bar with Gourmet Surprise Stamp Key */}
+          <div className="max-w-3xl mx-auto flex items-center gap-3 relative">
+            <div className="relative flex-1">
+              <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-[#350709]/40" />
+              <input
+                type="text"
+                placeholder={isRolling ? `Rolling: ${rollingSuggestion}...` : isSearchFocused ? "Search paneer, dosa, noodles..." : PLACEHOLDERS[placeholderIndex]}
+                value={isRolling ? rollingSuggestion : searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => setIsSearchFocused(true)}
+                onBlur={() => {
+                  setIsSearchFocused(false);
+                  if (searchQuery === "") setPlaceholderIndex(0);
+                }}
+                disabled={isRolling}
+                className="w-full pl-12 md:pl-14 pr-10 py-3.5 rounded-full bg-white border border-[#350709]/15 text-[#350709] placeholder:text-[#350709]/40 focus:outline-none focus:border-[#8F1115]/50 focus:shadow-[0_0_20px_rgba(143,17,21,0.06)] transition-all duration-300 text-sm md:text-base shadow-md disabled:bg-white/80"
+              />
+              {searchQuery && !isRolling && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[#350709]/50 hover:text-[#350709]"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+              {/* Animated bottom brass line */}
+              <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] bg-[#B98532] transition-all duration-500 rounded-full ${isSearchFocused ? "w-[90%]" : "w-0"}`} />
+            </div>
+
+            {/* Surprise Me Gourmet Roller Button */}
+            <button
+              onClick={handleSurpriseRoll}
+              disabled={isRolling}
+              className={`p-3.5 rounded-full bg-[#B98532] text-[#350709] border border-[#B98532] hover:bg-[#350709] hover:text-[#F8F6F1] transition-all duration-300 shadow-md flex-shrink-0 relative group ${isRolling ? "animate-bounce" : ""}`}
+              title="Gourmet Surprise!"
+            >
+              <Sparkles className="w-4 h-4 stroke-[2]" />
+              <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-[#350709] text-[#F8F6F1] text-[9px] font-mono uppercase tracking-wider py-1.5 px-3.5 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-lg">
+                Surprise Me!
+              </span>
+            </button>
           </div>
 
           {/* Mood Filters (Collapsed when search active) */}
