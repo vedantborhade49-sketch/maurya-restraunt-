@@ -142,6 +142,8 @@ export default function Home() {
               </div>
             </div>
 
+          </div>
+
           {/* Vintage Red Page-Like Frame */}
           <div className="absolute inset-4 md:inset-8 border-[3px] border-[#8F1115]/35 z-30 pointer-events-none rounded-sm shadow-[inset_0_0_30px_rgba(143,17,21,0.15),0_0_20px_rgba(143,17,21,0.1)]">
             {/* Inner thin border */}
