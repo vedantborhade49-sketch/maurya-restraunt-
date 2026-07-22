@@ -133,25 +133,26 @@ export default function InvitationSection() {
           {/* Left Column: Typography Statement & Paragraph */}
           <div className="lg:col-span-5 space-y-8 flex flex-col justify-center text-center md:text-left">
             {/* PHASE 4 & 7 — Typography Hierarchy & Overlapping */}
-            <div className="relative inline-block">
+            <div className="relative inline-block text-left w-full">
               <h2 className="font-heading text-6xl md:text-8xl tracking-tight leading-[0.88] text-[#350709] font-bold uppercase">
                 TABLES<br />
                 WERE NEVER<br />
-                MADE FOR
+                <span className="inline-flex flex-wrap items-baseline gap-x-3 md:gap-x-5">
+                  <span>MADE FOR</span>
+                  <span className="font-instrument italic text-7xl md:text-9xl text-[#8F1115] font-normal normal-case select-none flex translate-y-1 md:translate-y-2 tracking-normal">
+                    {"Silence.".split("").map((char, idx) => (
+                      <motion.span
+                        key={idx}
+                        whileHover={{ y: -8, color: "#B98532" }}
+                        transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                        className="inline-block"
+                      >
+                        {char}
+                      </motion.span>
+                    ))}
+                  </span>
+                </span>
               </h2>
-              {/* Accent Word overlapping with interactive wiggle letter spans */}
-              <span className="absolute left-1/2 -translate-x-1/2 -bottom-12 md:left-auto md:translate-x-0 md:left-[60%] lg:left-[68%] md:-bottom-8 font-instrument italic text-7xl md:text-9xl text-[#8F1115] z-20 font-normal select-none flex">
-                {"Silence.".split("").map((char, idx) => (
-                  <motion.span
-                    key={idx}
-                    whileHover={{ y: -8, color: "#B98532" }}
-                    transition={{ type: "spring", stiffness: 300, damping: 10 }}
-                    className="inline-block"
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-              </span>
             </div>
 
             {/* PHASE 5 — Editorial Paragraph (60-80 words) */}
