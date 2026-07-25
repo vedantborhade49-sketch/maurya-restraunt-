@@ -74,16 +74,16 @@ const GalleryAtmosphere = memo(function GalleryAtmosphere() {
         </div>
 
         {/* Widescreen Film Canvas Container */}
-        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] border-[6px] md:border-[10px] border-white/5 bg-black overflow-hidden rounded-sm shadow-[0_30px_70px_rgba(0,0,0,0.8)] z-10">
+        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] border-[6px] md:border-[10px] border-white/5 bg-black overflow-hidden rounded-sm shadow-[0_30px_70px_rgba(0,0,0,0.8)] z-10 group cursor-pointer">
           {/* Inner Vignette shadow */}
           <div className="absolute inset-0 z-20 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.9)]" />
           
           <div ref={panoRef} className="absolute w-full h-[120%] -top-[10%] left-0">
             <Image 
-              src="/editorial-entrance.png" 
+              src="/outside.jpeg" 
               alt="Dinner Rush Atmosphere" 
               fill 
-              className="object-cover opacity-80" 
+              className="object-cover opacity-85 transition-transform duration-1000 ease-out group-hover:scale-110 group-hover:opacity-100" 
               decoding="async" 
               loading="lazy" 
             />

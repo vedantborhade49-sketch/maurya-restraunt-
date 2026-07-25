@@ -8,7 +8,7 @@ const isSupabaseConfigured = supabaseUrl && supabaseAnonKey;
 export const supabase = isSupabaseConfigured ? createClient(supabaseUrl, supabaseAnonKey) : null;
 
 // Mock database state for client-side fallback
-const MOCK_STORAGE_KEY = "maurya_mock_db";
+const MOCK_STORAGE_KEY = "maurya_mock_db_v2_photo_prices";
 
 interface Category {
   id: string;

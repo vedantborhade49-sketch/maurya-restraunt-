@@ -58,7 +58,7 @@ export default function Home() {
         </filter>
       </svg>
 
-      <main className="relative w-full bg-[#161413] text-[#F8F5EF] selection:bg-[#6B2C2C] selection:text-[#F8F5EF]">
+      <main className="relative w-full bg-[#161413] text-[#F8F5EF] selection:bg-[#C62828] selection:text-[#F8F5EF]">
 
         {/* Film grain */}
         <div

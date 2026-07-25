@@ -7,7 +7,7 @@ import { Folder, FolderOpen, RotateCcw } from "lucide-react";
 
 interface ScrapItem {
   id: string;
-  type: "recipe" | "ticket" | "polaroid" | "leaf" | "stamp";
+  type: "recipe" | "ticket" | "polaroid" | "leaf" | "stamp" | "bappa";
   title: string;
   rotation: number;
   initialX: number;
@@ -43,6 +43,7 @@ export default function MemoryDrawer() {
     { id: "polaroid", type: "polaroid", title: "The Spices", rotation: 12, initialX: 180, initialY: 340, width: "w-60", height: "h-72" },
     { id: "leaf", type: "leaf", title: "Bay Leaf", rotation: -18, initialX: 680, initialY: 120, width: "w-24", height: "h-36" },
     { id: "stamp", type: "stamp", title: "Wax Seal", rotation: -15, initialX: 720, initialY: 320, width: "w-20", height: "h-20" },
+    { id: "bappa", type: "bappa", title: "Bappa Medallion", rotation: 10, initialX: 520, initialY: 360, width: "w-28", height: "h-28" },
   ];
 
   return (
@@ -283,6 +284,15 @@ export default function MemoryDrawer() {
                     <span className="font-serif italic text-base font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
                       M
                     </span>
+                  </div>
+                )}
+
+                {/* 6. GANPATI BAPPA GOLD MEDALLION */}
+                {item.type === "bappa" && (
+                  <div className="w-full h-full rounded-full bg-gradient-to-br from-[#FFCC00] via-[#FF9900] to-[#D84315] border-4 border-[#350709] shadow-[0_15px_30px_rgba(0,0,0,0.4)] flex flex-col items-center justify-center text-[#350709] relative overflow-hidden group hover:scale-110 transition-transform cursor-pointer">
+                    <div className="absolute inset-1.5 border-2 border-dashed border-[#350709]/40 rounded-full animate-spin" style={{ animationDuration: "25s" }} />
+                    <span className="text-3xl filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">🕉️</span>
+                    <span className="font-mono text-[7px] font-bold uppercase tracking-tighter mt-0.5 text-[#350709]">PUNE 1989</span>
                   </div>
                 )}
 

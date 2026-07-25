@@ -100,11 +100,11 @@ const GalleryTable = memo(function GalleryTable() {
         <div className="relative w-full max-w-[1200px] z-10 flex flex-col items-center gap-32">
           
           {/* Oversized Macro Crop */}
-          <div ref={setItemRef(0)} className="w-full md:w-[70%] aspect-[16/9] md:aspect-[21/9] relative group">
+          <div ref={setItemRef(0)} className="w-full md:w-[70%] aspect-[16/9] md:aspect-[21/9] relative group cursor-pointer">
             {/* Acrylic Glassmorphism Frame */}
             <div className="absolute inset-[-15px] bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-0 rounded-sm" />
             <div className="relative w-full h-full overflow-hidden z-10 bg-black/20">
-              <Image src="/editorial-food-3.png" alt="Macro Detail" fill sizes="(max-width: 768px) 100vw, 70vw" className="object-cover scale-110 opacity-90 transition-transform duration-1000 group-hover:scale-100" decoding="async" loading="lazy" />
+              <Image src="/editorial-food-3.png" alt="Macro Detail" fill sizes="(max-width: 768px) 100vw, 70vw" className="object-cover scale-100 opacity-90 transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-100" decoding="async" loading="lazy" />
               {/* Visual steam/refraction cue */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent mix-blend-overlay" />
             </div>
@@ -114,17 +114,17 @@ const GalleryTable = memo(function GalleryTable() {
           {/* Floating Glass Panels */}
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 mt-12 px-0 md:px-16">
             
-            <div ref={setItemRef(1)} className="w-full aspect-[3/4] relative group mt-0 md:mt-24">
+            <div ref={setItemRef(1)} className="w-full aspect-[3/4] relative group mt-0 md:mt-24 cursor-pointer">
               <div className="absolute inset-[-10px] bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-0 rounded-sm" />
               <div className="relative w-full h-full overflow-hidden z-10">
-                <Image src="/editorial-food-1.png" alt="Plating Detail" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover opacity-85 transition-opacity duration-700 group-hover:opacity-100" decoding="async" loading="lazy" />
+                <Image src="/editorial-food-1.png" alt="Plating Detail" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover scale-100 opacity-85 transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-100" decoding="async" loading="lazy" />
               </div>
             </div>
 
-            <div ref={setItemRef(2)} className="w-full aspect-square relative group">
+            <div ref={setItemRef(2)} className="w-full aspect-square relative group cursor-pointer">
               <div className="absolute inset-[-10px] bg-white/5 backdrop-blur-sm border border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-0 rounded-sm" />
               <div className="relative w-full h-full overflow-hidden z-10">
-                <Image src="/editorial-food-mains.png" alt="First Pour" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover opacity-85 transition-opacity duration-700 group-hover:opacity-100" decoding="async" loading="lazy" />
+                <Image src="/editorial-food-mains.png" alt="First Pour" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover scale-100 opacity-85 transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-100" decoding="async" loading="lazy" />
               </div>
               <p className="absolute -bottom-8 right-0 font-mono text-[9px] uppercase tracking-widest text-[#F5E8D5]/60 text-right">First Pour</p>
             </div>

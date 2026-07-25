@@ -57,30 +57,30 @@ export default function Navbar() {
     <>
       <header
         ref={navRef}
-        className={`fixed top-0 left-0 w-full z-50 flex items-center transition-all duration-500 border-b border-[#9A5C3B]/25 ${
+        className={`fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[94%] max-w-6xl z-50 flex items-center transition-all duration-500 rounded-full border border-[#9A5C3B]/45 shadow-[0_25px_60px_rgba(0,0,0,0.6)] ${
           isExpanded
-            ? "h-16 bg-[#472020]/95 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
-            : "h-20 bg-[#161413]/90 backdrop-blur-md"
+            ? "h-14 md:h-16 bg-[#472020]/95 backdrop-blur-md px-5 md:px-8"
+            : "h-16 md:h-20 bg-[#161413]/95 backdrop-blur-md px-5 md:px-8"
         }`}
         id="main-navbar"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E")`,
         }}
       >
-        <div className="container-maurya flex items-center justify-between w-full">
+        <div className="flex items-center justify-between w-full">
           {/* Logo on Left */}
-          <Link href="/" className="flex items-center shrink-0">
+          <Link href="/" className="flex items-center shrink-0 pl-1 md:pl-2">
             <img
               src="/morya-logo.png"
               alt="Maurya"
-              className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              className="h-8 md:h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
           </Link>
 
           {/* Center Nav links */}
           <div className="hidden md:flex items-center justify-center flex-1 px-8 overflow-hidden">
             <nav 
-              className="flex items-center gap-8 lg:gap-10 font-sans text-xs uppercase tracking-[0.2em] font-semibold text-[#F8F5EF]/85 transition-all duration-500"
+              className="flex items-center gap-7 lg:gap-10 font-sans text-[11px] uppercase tracking-[0.22em] font-bold text-[#F8F5EF]/90 transition-all duration-500"
             >
               {navItems.map((item, i) => {
                 const isActive = pathname === item.href;
@@ -88,14 +88,14 @@ export default function Navbar() {
                   <Link
                     key={i}
                     href={item.href}
-                    className="group relative cursor-pointer py-1.5 transition-colors hover:text-[#F8F5EF]"
+                    className="group relative cursor-pointer py-1.5 transition-colors hover:text-[#FFCC00]"
                   >
                     <span className="relative overflow-hidden block">
                       <span className="block transition-transform duration-300 group-hover:-translate-y-full">{item.label}</span>
-                      <span className="absolute inset-0 block translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-[#9A5C3B]">{item.label}</span>
+                      <span className="absolute inset-0 block translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-[#FFCC00]">{item.label}</span>
                     </span>
                     <span 
-                      className={`absolute bottom-0 left-0 w-full h-[1.5px] bg-[#9A5C3B] transition-transform duration-300 origin-left ${
+                      className={`absolute bottom-0 left-0 w-full h-[1.5px] bg-[#FFCC00] transition-transform duration-300 origin-left ${
                         isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                       }`} 
                     />
@@ -106,15 +106,15 @@ export default function Navbar() {
           </div>
 
           {/* Right side Order Cart Triggers */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 pr-1 md:pr-2">
             {/* Desktop View Order Button */}
             <button
               onClick={() => setIsOpen(true)}
-              className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-[#5A1F1F] hover:bg-[#6B2C2C] text-[#F8F5EF] border border-[#9A5C3B]/60 rounded-none font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-all hover:-translate-y-0.5 active:translate-y-0 shrink-0 cursor-pointer shadow-md"
+              className="hidden md:flex items-center gap-2 px-6 py-2.5 bg-[#8F1115] hover:bg-[#A3161A] text-[#F8F5EF] border border-[#FFCC00]/50 rounded-full font-sans text-xs font-bold uppercase tracking-[0.18em] transition-all hover:scale-105 active:scale-95 shrink-0 cursor-pointer shadow-[0_4px_15px_rgba(143,17,21,0.5)]"
             >
-              <span>VIEW ORDER</span>
+              <span>ORDER ONLINE &rarr;</span>
               {itemCount > 0 && (
-                <span className="font-mono text-[10px] bg-[#9A5C3B] text-[#F8F5EF] font-bold px-2 py-0.5 rounded-full">
+                <span className="font-mono text-[10px] bg-[#FFCC00] text-black font-extrabold px-2 py-0.5 rounded-full">
                   {itemCount}
                 </span>
               )}
@@ -123,11 +123,11 @@ export default function Navbar() {
             {/* Mobile View Order Button */}
             <button
               onClick={() => setIsOpen(true)}
-              className="flex md:hidden items-center gap-1.5 px-3.5 py-2 bg-[#5A1F1F] hover:bg-[#6B2C2C] text-[#F8F5EF] border border-[#9A5C3B]/50 rounded-full font-sans text-[9px] font-bold uppercase tracking-wider transition-all shadow-md"
+              className="flex md:hidden items-center gap-1.5 px-4 py-2 bg-[#8F1115] hover:bg-[#A3161A] text-[#F8F5EF] border border-[#FFCC00]/50 rounded-full font-sans text-[10px] font-bold uppercase tracking-wider transition-all shadow-md"
             >
-              <span>ORDER</span>
+              <span>ORDER &rarr;</span>
               {itemCount > 0 && (
-                <span className="font-mono text-[9px] bg-[#9A5C3B] text-[#F8F5EF] font-bold px-1.5 py-0.5 rounded-full">
+                <span className="font-mono text-[9px] bg-[#FFCC00] text-black font-extrabold px-1.5 py-0.5 rounded-full">
                   {itemCount}
                 </span>
               )}
@@ -136,10 +136,10 @@ export default function Navbar() {
             {/* Mobile Hamburger Trigger */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="text-[#F8F5EF] hover:text-[#9A5C3B] transition-colors md:hidden p-1"
+              className="text-[#F8F5EF] hover:text-[#FFCC00] transition-colors md:hidden p-1.5 ml-1 rounded-full bg-white/5 border border-white/10"
               aria-label="Open Menu"
             >
-              <Menu className="w-6 h-6" />
+              <Menu className="w-5 h-5" />
             </button>
           </div>
         </div>

@@ -173,23 +173,25 @@ export default function DiningMemories() {
                 <Star key={i} className="w-6 h-6 fill-[#9A5C3B] stroke-none" />
               ))}
             </div>
-            <div className="font-heading text-6xl md:text-7xl leading-none text-[#5A1F1F]">
-              4.8 <span className="text-2xl md:text-3xl text-[#9A5C3B] font-sans font-light">/ 5.0</span>
+            <div className="font-heading text-6xl md:text-7xl leading-none text-[#D32F2F]">
+              4.9
             </div>
-            <p className="font-sans text-sm text-[#272322]/80 font-light">
-              Loved by over <strong className="text-[#5A1F1F] font-bold">1,200+ Happy Guests</strong> on Google Reviews
-            </p>
+            <div className="text-sm font-sans text-[#272322]/80 mt-1">
+              Loved by over <strong className="text-[#D32F2F] font-bold">1,200+ Happy Guests</strong> on Google Reviews
+            </div>
           </div>
 
+          <div className="hidden md:block w-[1px] h-12 bg-[#9A5C3B]/20 mx-4" />
+
           <div className="flex flex-col items-center md:items-end gap-3 border-t md:border-t-0 md:border-l border-[#9A5C3B]/30 pt-6 md:pt-0 md:pl-10">
-            <div className="flex items-center gap-2 bg-[#5A1F1F] text-[#F8F5EF] px-5 py-2 rounded-full border border-[#9A5C3B]/40 shadow-sm">
+            <div className="flex items-center gap-2 bg-[#D32F2F] text-[#F8F5EF] px-5 py-2 rounded-full border border-[#9A5C3B]/40 shadow-sm">
               <span className="font-bold text-xs tracking-wider uppercase font-mono">Verified Google Reviews</span>
             </div>
             <a
-              href="https://maps.google.com/?q=Maurya+Pure+Veg+Restaurant+Kondhwa+Pune"
+              href="https://google.com" 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] font-bold text-[#5A1F1F] hover:text-[#9A5C3B] transition-colors pt-2"
+              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] font-bold text-[#D32F2F] hover:text-[#9A5C3B] transition-colors pt-2"
             >
               <span>View On Google Maps</span>
               <ExternalLink className="w-3.5 h-3.5 text-[#9A5C3B]" />
@@ -215,12 +217,14 @@ export default function DiningMemories() {
               <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#9A5C3B] block text-center mt-2">— Table 8 Memories</span>
             </div>
 
-            <div className="bg-[#5A1F1F] text-[#F8F5EF] p-6 border border-[#9A5C3B]/40 shadow-xl flex flex-col justify-center text-center space-y-4 rounded-xs">
-              <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#9A5C3B] font-bold">GUESTBOOK EXCERPT</span>
-              <p className="font-heading italic text-2xl text-[#F8F5EF] leading-relaxed">
-                "We didn't just share a meal. We shared stories that we hadn't spoken in years."
-              </p>
-              <span className="font-mono text-xs text-[#9A5C3B] uppercase tracking-[0.2em]">— The Kulkarni Family</span>
+            <div className="relative z-10 w-full max-w-sm shrink-0 md:-ml-8 mt-12 md:mt-0 transform md:rotate-2 hover:rotate-0 transition-transform duration-500">
+              <div className="bg-[#D32F2F] text-[#F8F5EF] p-6 border border-[#9A5C3B]/40 shadow-xl flex flex-col justify-center text-center space-y-4 rounded-xs">
+                <div className="flex justify-center gap-1 mb-2 font-mono text-[9px] uppercase tracking-[0.3em] text-[#9A5C3B] font-bold">GUESTBOOK EXCERPT</div>
+                <p className="font-heading italic text-2xl text-[#F8F5EF] leading-relaxed">
+                  "We didn't just share a meal. We shared stories that we hadn't spoken in years."
+                </p>
+                <span className="font-mono text-xs text-[#9A5C3B] uppercase tracking-[0.2em]">— The Kulkarni Family</span>
+              </div>
             </div>
 
             <div className="bg-[#FAF7F0] p-4 border border-[#9A5C3B]/30 shadow-md rotate-[2deg] hover:rotate-0 transition-transform duration-500 relative">
@@ -243,8 +247,8 @@ export default function DiningMemories() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-5 py-2 font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 border rounded-full ${
                   activeCategory === cat
-                    ? "bg-[#5A1F1F] text-[#F8F5EF] border-[#9A5C3B] shadow-md"
-                    : "bg-[#F8F5EF] text-[#272322]/80 border-[#9A5C3B]/30 hover:border-[#5A1F1F]"
+                    ? "bg-[#D32F2F] text-[#F8F5EF] border-[#9A5C3B] shadow-md"
+                    : "bg-[#F8F5EF] text-[#272322]/80 border-[#9A5C3B]/30 hover:border-[#D32F2F]"
                 }`}
               >
                 {cat}
@@ -276,7 +280,7 @@ export default function DiningMemories() {
                   </span>
                 </div>
 
-                <h3 className="font-heading text-2xl text-[#5A1F1F] font-medium leading-snug">
+                <h3 className="font-heading text-2xl text-[#D32F2F] font-medium leading-snug">
                   "{item.title}"
                 </h3>
 
@@ -291,9 +295,9 @@ export default function DiningMemories() {
                   <span className="text-[#272322]/50 text-[10px]">{item.visitedDate}</span>
                 </div>
 
-                <div className="bg-[#EFE8DB]/60 p-2.5 border border-[#9A5C3B]/20 flex items-center justify-between text-xs rounded-xs">
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-[#9A5C3B] font-bold">Favourite Dish:</span>
-                  <span className="font-heading italic font-semibold text-[#5A1F1F]">{item.favoriteDish}</span>
+                <div className="mt-4 pt-4 border-t border-[#9A5C3B]/20 text-sm">
+                  <span className="font-mono uppercase tracking-widest text-[#272322]/60 text-xs">Favorite: </span>
+                  <span className="font-heading italic font-semibold text-[#D32F2F]">{item.favoriteDish}</span>
                 </div>
               </div>
             </div>

@@ -125,7 +125,7 @@ export default function Chapter04() {
     <section ref={containerRef} className={`relative w-full material-dark text-[#F8F5EF] overflow-hidden z-20 flex flex-col items-center justify-center ${isMobile ? "h-auto py-16" : "h-screen"}`}>
       
       {/* Depth Vignette & Brass Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#472020]/40 via-transparent to-[#161413]/90 pointer-events-none z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#B71C1C]/40 via-transparent to-[#161413]/90 pointer-events-none z-10" />
 
       {/* Hero Object / Visual */}
       <div className={isMobile ? "relative w-full h-[40vh] mt-8 z-0 overflow-hidden container-maurya" : "absolute inset-0 flex items-center justify-center z-0 overflow-hidden"}>

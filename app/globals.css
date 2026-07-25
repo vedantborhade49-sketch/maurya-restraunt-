@@ -10,13 +10,13 @@
   --font-instrument: 'Instrument Serif', serif;
 
   /* V8 Vintage Wine Palette */
-  --maurya-primary-wine: #5A1F1F;
-  --maurya-burgundy: #472020;
-  --maurya-maroon: #6B2C2C;
+  --maurya-primary-wine: #D32F2F;
+  --maurya-burgundy: #B71C1C;
+  --maurya-maroon: #C62828;
   --maurya-terracotta: #9A5C3B;
   
-  --maurya-blood: #6B2C2C;
-  --maurya-wine: #5A1F1F;
+  --maurya-blood: #C62828;
+  --maurya-wine: #D32F2F;
   --maurya-dark: #161413;
   --maurya-ivory: #F8F5EF;
   --maurya-brass: #9A5C3B;
@@ -24,9 +24,9 @@
   --maurya-chilli: #8b2525;
 
   /* Primary CTA Buttons */
-  --maurya-red: #5A1F1F;
-  --maurya-red-hover: #6B2C2C;
-  --maurya-red-active: #472020;
+  --maurya-red: #D32F2F;
+  --maurya-red-hover: #C62828;
+  --maurya-red-active: #B71C1C;
   --maurya-red-border: #9A5C3B;
   --maurya-red-glow: rgba(154, 92, 59, 0.25);
 }
@@ -131,8 +131,8 @@
   .cta-button {
     background: linear-gradient(
       180deg,
-      #6B2C2C 0%,
-      #472020 100%
+      #C62828 0%,
+      #B71C1C 100%
     );
     border: 1px solid #9A5C3B;
     color: #F8F5EF;
@@ -146,8 +146,8 @@
   .cta-button:hover {
     background: linear-gradient(
       180deg,
-      #7A3535 0%,
-      #5A1F1F 100%
+      #E53935 0%,
+      #D32F2F 100%
     );
     border-color: #B8724C;
     transform: translateY(-2px);
