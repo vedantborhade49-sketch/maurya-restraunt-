@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { useTableStore, MenuItem } from "../../stores/table-store";
+import { resolveDishImage } from "../../lib/db";
 import { Search, Plus, Minus, ArrowRight, X, Sparkles } from "lucide-react";
 import { motion, AnimatePresence, useSpring } from "framer-motion";
 import Image from "next/image";
@@ -66,22 +67,7 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
           name: dish.name,
           price: dish.price,
           description: dish.description || `${dish.name} - Freshly prepared using signature Maurya ingredients.`,
-          image_url:
-            dish.image_url && dish.image_url.trim() !== "" && !dish.image_url.includes("hashtagloyalty.com")
-              ? dish.image_url
-              : catName.toUpperCase().includes("STARTER") || catName.toUpperCase().includes("SOUP")
-              ? "/editorial-food-starters.png"
-              : catName.toUpperCase().includes("DOSA") || catName.toUpperCase().includes("UTTAPAM")
-              ? "/editorial-food-dosa.png"
-              : catName.toUpperCase().includes("MAIN")
-              ? "/editorial-food-mains.png"
-              : catName.toUpperCase().includes("RICE")
-              ? "/editorial-food-rice.png"
-              : catName.toUpperCase().includes("DESSERT")
-              ? "/editorial-food-desserts.png"
-              : catName.toUpperCase().includes("BEVERAGE")
-              ? "/editorial-food-beverages.png"
-              : "/editorial-food-starters.png",
+          image_url: resolveDishImage(dish.name, catName, dish.image_url),
           category: catName,
           is_veg: true,
           is_available: true,
@@ -98,9 +84,13 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
   const [categories] = useState(
     initialCategories && initialCategories.length > 0 ? initialCategories : fallbackCategories
   );
-  const [items] = useState<MenuItem[]>(
-    initialItems && initialItems.length > 0 ? initialItems : fallbackItems
-  );
+  const [items] = useState<MenuItem[]>(() => {
+    const raw = initialItems && initialItems.length > 0 ? initialItems : fallbackItems;
+    return raw.map((item) => ({
+      ...item,
+      image_url: resolveDishImage(item.name, item.category, item.image_url),
+    }));
+  });
   const [selectedCategory, setSelectedCategory] = useState("ALL");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedMood, setSelectedMood] = useState<string | null>(null);

@@ -19,6 +19,12 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.hashtagloyalty.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };

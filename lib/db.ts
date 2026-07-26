@@ -8,7 +8,7 @@ const isSupabaseConfigured = supabaseUrl && supabaseAnonKey;
 export const supabase = isSupabaseConfigured ? createClient(supabaseUrl, supabaseAnonKey) : null;
 
 // Mock database state for client-side fallback
-const MOCK_STORAGE_KEY = "maurya_mock_db_v2_photo_prices";
+const MOCK_STORAGE_KEY = "maurya_mock_db_v3_authentic_photos";
 
 interface Category {
   id: string;
@@ -62,6 +62,36 @@ interface Reservation {
   status: string;
   created_at: string;
 }
+
+// Smart dish image resolver to ensure authentic imagery per dish type
+export const resolveDishImage = (dishName?: string, catName?: string, existingUrl?: string) => {
+  const lowerName = (dishName || "").toLowerCase();
+  const lowerCat = (catName || "").toLowerCase();
+
+  if (lowerName.includes("pav") && lowerName.includes("bhaji")) return "/dish-pav-bhaji.png";
+  if (lowerName.includes("dosa")) return "/dish-masala-dosa.png";
+  if (lowerName.includes("uttapam")) return "/dish-uttapam.png";
+  if (lowerName.includes("idli") || lowerName.includes("vada") || lowerName.includes("wada")) return "/dish-idli-vada.png";
+  if (lowerName.includes("biryani") || lowerName.includes("pulao") || lowerCat.includes("rice")) return "/dish-veg-biryani.png";
+  if (lowerName.includes("paneer") || lowerName.includes("maratha") || lowerName.includes("jaipuri") || lowerName.includes("kofta")) return "/dish-paneer-butter-masala.png";
+  if (lowerName.includes("manchurian") || lowerName.includes("crispy") || lowerName.includes("65") || lowerName.includes("noodles") || lowerName.includes("chilli") || lowerName.includes("dragon roll") || lowerName.includes("spring roll")) return "/dish-manchurian.png";
+  if (lowerName.includes("naan") || lowerName.includes("roti") || lowerName.includes("kulcha") || lowerName.includes("paratha") || lowerName.includes("roti") || lowerName.includes("bread")) return "/dish-butter-naan.png";
+  if (lowerName.includes("soup") || lowerCat.includes("soup")) return "/dish-hot-sour-soup.png";
+  if (lowerName.includes("sandwich") || lowerName.includes("toast") || lowerCat.includes("sandwich")) return "/dish-club-sandwich.png";
+
+  if (existingUrl && existingUrl.trim() !== "" && !existingUrl.includes("hashtagloyalty.com")) {
+    return existingUrl;
+  }
+
+  if (lowerCat.includes("starter") || lowerCat.includes("soup")) return "/editorial-food-starters.png";
+  if (lowerCat.includes("dosa") || lowerCat.includes("uttapam")) return "/editorial-food-dosa.png";
+  if (lowerCat.includes("main")) return "/editorial-food-mains.png";
+  if (lowerCat.includes("rice")) return "/editorial-food-rice.png";
+  if (lowerCat.includes("dessert")) return "/editorial-food-desserts.png";
+  if (lowerCat.includes("beverage")) return "/editorial-food-beverages.png";
+
+  return "/editorial-food-starters.png";
+};
 
 // Seed the mock database
 const getInitialMockData = () => {
@@ -144,22 +174,7 @@ const getInitialMockData = () => {
         itemTags.push("quick");
       }
 
-      const dishImage =
-        dish.image_url && dish.image_url.trim() !== "" && !dish.image_url.includes("hashtagloyalty.com")
-          ? dish.image_url
-          : catName.toUpperCase().includes("STARTER") || catName.toUpperCase().includes("SOUP")
-          ? "/editorial-food-starters.png"
-          : catName.toUpperCase().includes("DOSA") || catName.toUpperCase().includes("UTTAPAM")
-          ? "/editorial-food-dosa.png"
-          : catName.toUpperCase().includes("MAIN")
-          ? "/editorial-food-mains.png"
-          : catName.toUpperCase().includes("RICE")
-          ? "/editorial-food-rice.png"
-          : catName.toUpperCase().includes("DESSERT")
-          ? "/editorial-food-desserts.png"
-          : catName.toUpperCase().includes("BEVERAGE")
-          ? "/editorial-food-beverages.png"
-          : "/editorial-food-starters.png";
+      const dishImage = resolveDishImage(dish.name, catName, dish.image_url);
 
       items.push({
         id: dish.id || `item-${itemCounter++}`,
@@ -247,10 +262,18 @@ export const db = {
   async getMenuItems() {
     if (supabase) {
       const { data, error } = await supabase.from("menu_items").select("*").order("display_order");
-      if (!error && data && data.length > 0) return data;
+      if (!error && data && data.length > 0) {
+        return data.map((item: any) => ({
+          ...item,
+          image_url: resolveDishImage(item.name, item.category, item.image_url),
+        }));
+      }
     }
     const dbData = getMockDB();
-    return dbData.items;
+    return dbData.items.map((item: any) => ({
+      ...item,
+      image_url: resolveDishImage(item.name, item.category, item.image_url),
+    }));
   },
 
   async updateMenuItem(id: string, updates: Partial<MenuItem>) {
