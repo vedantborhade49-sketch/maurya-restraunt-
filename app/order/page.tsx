@@ -55,7 +55,7 @@ export default function OrderPage() {
   }, []);
 
   const subtotal = getSubtotal();
-  const deliveryCharge = 40; // Flat delivery fee
+  const deliveryCharge = 0; // Free under 3km service area
   const total = subtotal + (deliveryCharge);
 
   const {
@@ -115,12 +115,12 @@ ORDER
 ${orderSummaryList}
 ────────────────
 Subtotal               ₹${subtotal}
-Delivery               ${data.orderType === "DELIVERY" ? `₹${deliveryCharge}` : "Self Pickup"}
+Delivery               ${data.orderType === "DELIVERY" ? "FREE (Under 3km)*" : "Self Pickup"}
 Total                  ₹${data.orderType === "DELIVERY" ? total : subtotal}
 
 ${
   data.orderType === "DELIVERY"
-    ? `DELIVERY ADDRESS\n${data.address}${data.landmark ? `\nLandmark: ${data.landmark}` : ""}${data.pincode ? `\nPincode: ${data.pincode}` : ""}`
+    ? `DELIVERY ADDRESS\n${data.address}${data.landmark ? `\nLandmark: ${data.landmark}` : ""}${data.pincode ? `\nPincode: ${data.pincode}` : ""}\n\n*Note: Delivery is free and under 3km service area. Delivery in areas farther than 3km will have delivery charges applied.`
     : "PICKUP OPTION\nSelf Pickup from Maurya Veg, Kondhwa, Pune"
 }
 
@@ -264,6 +264,19 @@ Please confirm my order.`;
             {/* Address fields (Only show if Delivery is chosen) */}
             {orderType === "DELIVERY" && (
               <div className="space-y-4 pt-2">
+                {/* Home delivery policy notice */}
+                <div className="p-4 rounded-xl bg-[#B98532]/15 border border-[#B98532]/40 flex items-start gap-3 shadow-md">
+                  <MapPin className="w-5 h-5 text-[#B98532] shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="text-xs font-bold text-[#F3E8D4] uppercase tracking-wider mb-1">
+                      For Home Delivery Orders
+                    </h4>
+                    <p className="text-xs text-[#F3E8D4]/90 leading-relaxed font-sans">
+                      Delivery is <span className="text-[#B98532] font-bold">free and under 3km service area</span>. Delivery in areas farther than 3km will have delivery charges applied.
+                    </p>
+                  </div>
+                </div>
+
                 <div>
                   <label className="block text-[10px] uppercase tracking-[0.2em] text-[#F3E8D4]/60 mb-2 font-bold">Delivery Address</label>
                   <textarea
@@ -410,10 +423,15 @@ Please confirm my order.`;
                   <span className="font-mono text-[#350709] font-bold">₹{subtotal}</span>
                 </div>
                 {orderType === "DELIVERY" && (
-                  <div className="flex justify-between text-[#350709]/70">
-                    <span className="font-bold">Delivery Charge</span>
-                    <span className="font-mono text-[#350709] font-bold">₹{deliveryCharge}</span>
-                  </div>
+                  <>
+                    <div className="flex justify-between text-[#350709]/70 items-center">
+                      <span className="font-bold">Delivery Charge</span>
+                      <span className="font-mono text-[#164C2B] font-extrabold uppercase text-xs">FREE (Under 3km)*</span>
+                    </div>
+                    <p className="text-[10px] text-[#350709]/70 italic leading-tight">
+                      *Delivery is free and under 3km service area. Farther areas have delivery charges applied.
+                    </p>
+                  </>
                 )}
                 <div className="pt-4 border-t border-dashed border-[#350709]/20 flex justify-between text-sm font-bold">
                   <span className="text-[#350709]">Total</span>

@@ -178,7 +178,7 @@ export default function Chapter02() {
     }, containerRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [isMobile]);
 
   const addToHeadline = (el: HTMLSpanElement | null) => {
     if (el && !headlineLinesRef.current.includes(el)) {
