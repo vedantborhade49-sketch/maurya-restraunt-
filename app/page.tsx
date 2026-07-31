@@ -68,7 +68,7 @@ export default function Home() {
 
 
         {/* ── 1. HERO (Dark Vintage) ─────────────────────────────────── */}
-        <section className="sticky top-0 w-full h-[100dvh] overflow-hidden bg-[#1C1414] z-0 flex flex-col justify-between">
+        <section className="sticky top-0 w-full min-h-[100dvh] md:h-[100dvh] overflow-hidden bg-[#1C1414] z-0 flex flex-col justify-between">
 
           {/* Background Layer 1: Mobile-Optimized Video Container */}
           <div className="absolute inset-0 w-full h-full overflow-hidden bg-[#1C1414]">
@@ -128,18 +128,34 @@ export default function Home() {
             style={{ opacity: 0 }}
           >
             {/* Core Emotional Hook */}
-            <div className="content-grid my-auto">
-              <h1 className="font-heading text-[48px] sm:text-[68px] md:text-[84px] lg:text-[96px] leading-[0.92] tracking-tight text-[#F8F5EF] max-w-[900px]">
+            <div className="content-grid my-auto flex flex-col justify-center">
+              <h1 className="font-heading text-[38px] sm:text-[64px] md:text-[84px] lg:text-[96px] leading-[0.95] tracking-tight text-[#F8F5EF] max-w-[900px]">
                 Every Table<br />
                 <span className="italic text-[#9A5C3B]">Has A Story.</span>
               </h1>
 
-              <p className="mt-6 font-sans text-[15px] sm:text-[17px] md:text-[19px] leading-[1.6] text-[#F8F5EF]/80 max-w-[540px]">
+              {/* Dedicated Widescreen Video Player Showcase for Mobile View (< md) */}
+              <div className="md:hidden relative w-full aspect-video rounded-xl overflow-hidden border border-[#9A5C3B]/50 shadow-[0_20px_50px_rgba(0,0,0,0.7)] my-5 bg-black group">
+                <video
+                  src="/morya-hero.mp4"
+                  playsInline
+                  autoPlay
+                  loop
+                  muted
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-3 left-3 bg-[#1C1414]/80 backdrop-blur-md px-3 py-1 rounded-full text-[9px] font-mono tracking-widest text-[#9A5C3B] border border-[#9A5C3B]/40 uppercase font-extrabold shadow-lg flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#9A5C3B] animate-pulse" />
+                  MAURYA HERITAGE FILM
+                </div>
+              </div>
+
+              <p className="mt-2 md:mt-6 font-sans text-[14px] sm:text-[17px] md:text-[19px] leading-[1.6] text-[#F8F5EF]/80 max-w-[540px]">
                 A sanctuary of pure vegetarian dining, where families return for generations, friends celebrate, and every meal becomes a memory.
               </p>
 
               {/* Action Buttons */}
-              <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 max-w-[480px]">
+              <div className="mt-6 md:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 max-w-[480px]">
                 <Link
                   href="/visit#reserve"
                   className="cta-button font-mono text-[11px] uppercase tracking-[0.25em] px-8 py-4 inline-flex items-center justify-center text-center font-bold"
