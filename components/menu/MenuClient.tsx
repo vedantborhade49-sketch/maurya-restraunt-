@@ -60,8 +60,26 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
   const fallbackItems = useMemo(() => {
     const list: MenuItem[] = [];
     let counter = 1;
+    const popularBestsellers = [
+      "paneer butter masala",
+      "butter naan",
+      "pav bhaji",
+      "pavbhaji",
+      "veg maratha",
+      "hakka noodles",
+      "gobi manchurian",
+      "maurya veg biryani",
+      "veg biryani",
+      "mysore cheese masala dosa",
+      "cheese ball",
+      "spring roll"
+    ];
+
     Object.entries(menuData).forEach(([catName, dishList]) => {
       (dishList as any[]).forEach((dish) => {
+        const lower = dish.name.toLowerCase();
+        const isBestseller = popularBestsellers.some((p) => lower.includes(p));
+
         list.push({
           id: dish.id || `item-${counter++}`,
           name: dish.name,
@@ -71,9 +89,9 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
           category: catName,
           is_veg: true,
           is_available: true,
-          is_bestseller: dish.price > 200,
-          is_signature: dish.name.toLowerCase().includes("maratha") || dish.name.toLowerCase().includes("special"),
-          is_spicy: dish.name.toLowerCase().includes("chilli") || dish.name.toLowerCase().includes("maratha"),
+          is_bestseller: isBestseller,
+          is_signature: lower.includes("maratha") || lower.includes("special"),
+          is_spicy: lower.includes("chilli") || lower.includes("maratha"),
           tags: ["quick"],
         });
       });
@@ -779,24 +797,27 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
                     return (
                       <div 
                         key={item.id}
-                        className={`flex items-center justify-between min-h-[100px] p-4 md:p-5 bg-[#F8F6F1]/95 backdrop-blur-md border border-[#B98532]/25 rounded-xl shadow-sm hover:border-[#B98532] hover:shadow-md transition-all duration-300 ${
+                        className={`flex items-center justify-between min-h-[95px] p-4 md:p-5 bg-[#F8F6F1]/95 backdrop-blur-md border border-[#B98532]/25 rounded-xl shadow-sm hover:border-[#B98532] hover:shadow-md transition-all duration-300 ${
                           !item.is_available ? "opacity-50" : ""
                         }`}
                       >
                         {/* Left Details */}
                         <div className="space-y-1.5 pr-4 flex-1">
-                          <div className="flex items-center gap-2.5">
-                            {/* Tap target to open peek sheet on mobile */}
+                          <div className="flex flex-wrap items-center gap-2">
+                            {/* Tap target to open peek sheet */}
                             <button
                               onClick={() => {
-                                if (window.innerWidth < 768) {
-                                  setPeekItem(item);
-                                }
+                                setPeekItem(item);
                               }}
                               className="text-left font-serif text-[#350709] font-bold text-base md:text-lg hover:text-[#8F1115] transition-colors"
                             >
                               {item.name}
                             </button>
+                            {item.is_bestseller && (
+                              <span className="text-[8px] font-bold text-[#350709] bg-[#B98532] tracking-widest uppercase px-2 py-0.5 rounded-full shadow-sm">
+                                BESTSELLER
+                              </span>
+                            )}
                             {item.is_spicy && (
                               <span className="text-[8px] font-bold text-[#8F1115] bg-[#8F1115]/10 border border-[#8F1115]/20 tracking-widest uppercase px-2 py-0.5 rounded-full">
                                 SPICY
@@ -814,7 +835,7 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
                         </div>
 
                         {/* Right Price & Controls */}
-                        <div className="flex items-center gap-4 shrink-0">
+                        <div className="flex items-center gap-3 md:gap-4 shrink-0">
                           <span className="font-mono text-sm md:text-base font-bold text-[#350709]">
                             ₹{item.price}
                           </span>

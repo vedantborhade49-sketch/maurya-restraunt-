@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
 import { MenuItem } from "../../stores/table-store";
 import { Star, Plus, Check } from "lucide-react";
 import ButtonPrimary from "../ui/ButtonPrimary";
 import PureVegBadge from "../ui/PureVegBadge";
+import { resolveDishImage } from "../../lib/db";
 
 interface CategoryHeroDishProps {
   item: MenuItem;
@@ -83,23 +83,7 @@ export default function CategoryHeroDish({ item, onAdd, quantity }: CategoryHero
         <div className="lg:col-span-5 relative">
           <div className="relative w-full aspect-[4/3] md:aspect-square bg-[#0B0908] border border-[#B98532]/30 overflow-hidden rotate-[1deg] hover:rotate-0 transition-transform duration-500 shadow-2xl">
             <img
-              src={
-                item.image_url && item.image_url.trim() !== ""
-                  ? item.image_url
-                  : item.category?.toUpperCase().includes("STARTER")
-                  ? "/editorial-food-starters.png"
-                  : item.category?.toUpperCase().includes("DOSA") || item.category?.toUpperCase().includes("UTTAPAM")
-                  ? "/editorial-food-dosa.png"
-                  : item.category?.toUpperCase().includes("MAIN")
-                  ? "/editorial-food-mains.png"
-                  : item.category?.toUpperCase().includes("RICE")
-                  ? "/editorial-food-rice.png"
-                  : item.category?.toUpperCase().includes("DESSERT")
-                  ? "/editorial-food-desserts.png"
-                  : item.category?.toUpperCase().includes("BEVERAGE")
-                  ? "/editorial-food-beverages.png"
-                  : "/editorial-food-starters.png"
-              }
+              src={resolveDishImage(item.name, item.category, item.image_url)}
               alt={item.name}
               className="w-full h-full object-cover grayscale-[10%] hover:grayscale-0 hover:scale-105 transition-all duration-700"
             />
