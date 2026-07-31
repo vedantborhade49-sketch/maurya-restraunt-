@@ -70,16 +70,29 @@ export default function Home() {
         {/* ── 1. HERO (Dark Vintage) ─────────────────────────────────── */}
         <section className="sticky top-0 w-full h-[100dvh] overflow-hidden bg-[#1C1414] z-0 flex flex-col justify-between">
 
-          {/* Background Layer 1: Ambient Video */}
-          <video
-            ref={videoRef}
-            src="/morya-hero.mp4"
-            playsInline
-            muted
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ opacity: 1 }}
-          />
+          {/* Background Layer 1: Mobile-Optimized Video Container */}
+          <div className="absolute inset-0 w-full h-full overflow-hidden bg-[#1C1414]">
+            {/* Ambient Blurred Video Background for Mobile View (fills portrait height smoothly) */}
+            <video
+              src="/morya-hero.mp4"
+              playsInline
+              autoPlay
+              loop
+              muted
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-45 md:hidden pointer-events-none"
+            />
+            {/* Main Hero Video: Complete video frame visible on mobile (object-contain) & seamless cover on desktop (md:object-cover) */}
+            <video
+              ref={videoRef}
+              src="/morya-hero.mp4"
+              playsInline
+              muted
+              preload="auto"
+              className="absolute inset-0 w-full h-full object-contain md:object-cover transition-all duration-500"
+              style={{ opacity: 1 }}
+            />
+          </div>
 
           {/* Background Layer 2: Warm Wall Texture & Dining Room Shadows */}
           <div
