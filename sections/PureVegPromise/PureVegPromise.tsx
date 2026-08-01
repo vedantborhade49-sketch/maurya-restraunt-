@@ -6,30 +6,16 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PureVegBadge from "@/components/ui/PureVegBadge";
 import SteamMotif from "@/components/SteamMotif";
 
+import PureVegSVGAnimation from "@/components/PureVegSVGAnimation";
+
 export default function PureVegPromise() {
   const sectionRef = useRef<HTMLElement>(null);
-  const imgRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        imgRef.current,
-        { scale: 1.06, opacity: 0.6 },
-        {
-          scale: 1.0,
-          opacity: 1,
-          duration: 1.2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 75%",
-          },
-        }
-      );
-
       gsap.fromTo(
         textRef.current,
         { y: 30, opacity: 0 },
@@ -63,7 +49,7 @@ export default function PureVegPromise() {
     {
       num: "03",
       title: "100% Dedicated Kitchen",
-      desc: "Separate cookware and 28 years of uncompromised family recipes.",
+      desc: "Separate cookware and 35 years of uncompromised family recipes.",
     },
   ];
 
@@ -78,28 +64,9 @@ export default function PureVegPromise() {
       <div className="container-maurya relative z-10">
         <div className="content-grid grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-center max-w-[1100px] mx-auto">
           
-          {/* Left Column: Editorial Spices & Tandoor Photograph */}
+          {/* Left Column: Pure Veg SVG Animated Symbol (Untitled design.svg) */}
           <div className="lg:col-span-5 relative">
-            <div
-              ref={imgRef}
-              className="relative w-full h-[420px] sm:h-[480px] rounded-sm overflow-hidden border border-[#9A5C3B]/25 shadow-2xl bg-[#1C1414]"
-            >
-              <img
-                src="/editorial-spices.png"
-                alt="Fresh spices and raw ingredients"
-                className="w-full h-full object-cover grayscale-[15%] sepia-[10%]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#272322]/80 via-transparent to-transparent" />
-              <SteamMotif className="absolute inset-0 w-full h-full mix-blend-screen opacity-25 pointer-events-none" />
-
-              {/* Floating Pure Veg Heritage Seal */}
-              <div className="absolute bottom-6 left-6 z-20 flex items-center gap-2.5 bg-[#FAF7F0]/90 px-4 py-2 rounded-full border border-[#9A5C3B]/30 backdrop-blur-md shadow-md">
-                <PureVegBadge showText={false} size={16} />
-                <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-[#D32F2F] font-bold">
-                  100% PURE VEGETARIAN SANCTUARY
-                </span>
-              </div>
-            </div>
+            <PureVegSVGAnimation />
           </div>
 
           {/* Right Column: Editorial Oath & Pillars */}
