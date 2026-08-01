@@ -40,7 +40,7 @@ export default function Chapter03() {
             <div className="relative w-full h-full rounded-xl overflow-hidden bg-white flex items-center justify-center">
               <video
                 ref={videoRef}
-                src="/maurya2.mp4"
+                src="/logo3.mp4"
                 playsInline
                 autoPlay
                 loop
