@@ -188,31 +188,17 @@ export default function InvitationSection() {
             >
               {/* Material: Walnut wood/Paper base backboard layer */}
               <div className="absolute inset-0 bg-[#F4EFE6] border border-[#B98532]/25 shadow-xl rounded-sm p-4 overflow-hidden">
-                {/* Large Dining Image (Main Centerpiece) */}
+                {/* Large Dining Image (Main Centerpiece with uploaded home.png) */}
                 <div className="relative w-full h-full rounded-sm overflow-hidden group">
                   <img
-                    src="/editorial-food-starters.png"
-                    alt="Gathered around the table"
+                    src="/home.png"
+                    alt="Maurya Pure Veg Dining Atmosphere"
                     className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[6s] ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#F8F6F1]/50 to-transparent mix-blend-overlay" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#F8F6F1]/30 to-transparent mix-blend-overlay" />
                   
                   {/* Subtle Steam Rising Overlay */}
                   <SteamMotif className="absolute inset-0 w-full h-full mix-blend-screen opacity-15 pointer-events-none" />
-                </div>
-              </div>
-
-              {/* Polaroid Snapshot Overlay (Close-up Dish) */}
-              <div className="absolute -left-6 sm:-left-12 bottom-6 w-32 sm:w-44 bg-white p-2.5 shadow-2xl border border-black/5 rotate-[-6deg] rounded-sm transform hover:rotate-[2deg] hover:scale-105 transition-all duration-500 z-30">
-                <div className="w-full h-24 sm:h-32 overflow-hidden bg-[#F4EFE6]">
-                  <img
-                    src="/editorial-food-dosa.png"
-                    alt="Gourmet Dosa detail"
-                    className="w-full h-full object-cover scale-110"
-                  />
-                </div>
-                <div className="pt-2 text-center">
-                  <span className="font-serif italic text-[9px] sm:text-[11px] text-[#350709]/60">Crispy Dosa</span>
                 </div>
               </div>
 
