@@ -134,12 +134,12 @@ export default function InvitationSection() {
           <div className="lg:col-span-5 space-y-8 flex flex-col justify-center text-center md:text-left">
             {/* PHASE 4 & 7 — Typography Hierarchy & Overlapping */}
             <div className="relative inline-block text-left w-full">
-              <h2 className="font-heading text-6xl md:text-8xl tracking-tight leading-[0.88] text-[#350709] font-bold uppercase">
+              <h2 className="font-heading text-4xl sm:text-6xl md:text-8xl tracking-tight leading-[0.9] text-[#350709] font-bold uppercase">
                 TABLES<br />
                 WERE NEVER<br />
-                <span className="inline-flex flex-wrap items-baseline gap-x-3 md:gap-x-5">
+                <span className="inline-flex flex-wrap items-baseline gap-x-2 sm:gap-x-3 md:gap-x-5">
                   <span>MADE FOR</span>
-                  <span className="font-instrument italic text-7xl md:text-9xl text-[#8F1115] font-normal normal-case select-none flex translate-y-1 md:translate-y-2 tracking-normal">
+                  <span className="font-instrument italic text-5xl sm:text-7xl md:text-9xl text-[#8F1115] font-normal normal-case select-none flex translate-y-1 md:translate-y-2 tracking-normal">
                     {"Silence.".split("").map((char, idx) => (
                       <motion.span
                         key={idx}

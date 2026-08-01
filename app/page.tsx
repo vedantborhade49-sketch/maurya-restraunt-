@@ -129,13 +129,22 @@ export default function Home() {
           >
             {/* Core Emotional Hook */}
             <div className="content-grid my-auto flex flex-col justify-center">
-              <h1 className="font-heading text-[38px] sm:text-[64px] md:text-[84px] lg:text-[96px] leading-[0.95] tracking-tight text-[#F8F5EF] max-w-[900px]">
+              {/* Eyebrow Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#350709]/80 border border-[#9A5C3B]/40 text-[#9A5C3B] font-mono text-[10px] uppercase tracking-[0.2em] w-fit mb-4 shadow-lg backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-[#164C2B] animate-pulse" />
+                <span>MAURYA • ESTD 1989</span>
+              </div>
+
+              <h1 className="font-heading text-[40px] sm:text-[64px] md:text-[84px] lg:text-[96px] leading-[0.92] tracking-tight text-[#F8F5EF] max-w-[900px]">
                 Every Table<br />
                 <span className="italic text-[#9A5C3B]">Has A Story.</span>
               </h1>
 
-              {/* Dedicated Widescreen Video Player Showcase for Mobile View (< md) */}
-              <div className="md:hidden relative w-full aspect-video rounded-xl overflow-hidden border border-[#9A5C3B]/50 shadow-[0_20px_50px_rgba(0,0,0,0.7)] my-5 bg-black group">
+              {/* Popped-Out 3D Glassmorphism Mobile Video Reel Frame (< md) */}
+              <div className="md:hidden relative w-full aspect-video rounded-2xl overflow-hidden border-2 border-[#9A5C3B]/70 shadow-[0_25px_60px_rgba(143,17,21,0.5),0_10px_20px_rgba(0,0,0,0.8)] my-5 bg-black group transform transition-transform active:scale-[0.98]">
+                {/* Metallic Gold Top Shimmer Line */}
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#9A5C3B] to-transparent z-20" />
+                
                 <video
                   src="/morya-hero.mp4"
                   playsInline
@@ -144,27 +153,59 @@ export default function Home() {
                   muted
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute top-3 left-3 bg-[#1C1414]/80 backdrop-blur-md px-3 py-1 rounded-full text-[9px] font-mono tracking-widest text-[#9A5C3B] border border-[#9A5C3B]/40 uppercase font-extrabold shadow-lg flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#9A5C3B] animate-pulse" />
-                  MAURYA HERITAGE FILM
+
+                {/* Gradient Overlays for Cinematic Touch */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
+
+                {/* Top Badge */}
+                <div className="absolute top-3 left-3 bg-[#1C1414]/90 backdrop-blur-md px-3 py-1 rounded-full text-[9px] font-mono tracking-widest text-[#F8F5EF] border border-[#9A5C3B]/50 uppercase font-extrabold shadow-lg flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-red-600 animate-ping" />
+                  <span className="text-[#9A5C3B]">REC</span>
+                  <span>• HERITAGE FILM</span>
+                </div>
+
+                {/* Bottom Overlay Label */}
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                  <span className="font-serif italic text-xs text-[#F8F5EF]/90 tracking-wide">
+                    Pure Vegetarian Dining Sanctuary
+                  </span>
+                  <span className="font-mono text-[9px] text-[#9A5C3B] uppercase tracking-widest bg-black/60 px-2 py-0.5 rounded border border-[#9A5C3B]/30">
+                    HD 1080p
+                  </span>
                 </div>
               </div>
 
-              <p className="mt-2 md:mt-6 font-sans text-[14px] sm:text-[17px] md:text-[19px] leading-[1.6] text-[#F8F5EF]/80 max-w-[540px]">
+              {/* Mobile Quick Highlight Stats Bar */}
+              <div className="grid grid-cols-3 gap-2 my-2 md:hidden">
+                <div className="bg-[#1C1414]/90 border border-[#9A5C3B]/30 p-2.5 rounded-xl text-center backdrop-blur-md shadow-md">
+                  <span className="block font-mono text-base font-bold text-[#9A5C3B]">35+</span>
+                  <span className="font-sans text-[9px] uppercase tracking-wider text-[#F8F5EF]/70">Years Legend</span>
+                </div>
+                <div className="bg-[#1C1414]/90 border border-[#9A5C3B]/30 p-2.5 rounded-xl text-center backdrop-blur-md shadow-md">
+                  <span className="block font-mono text-base font-bold text-[#164C2B]">100%</span>
+                  <span className="font-sans text-[9px] uppercase tracking-wider text-[#F8F5EF]/70">Pure Veg</span>
+                </div>
+                <div className="bg-[#1C1414]/90 border border-[#9A5C3B]/30 p-2.5 rounded-xl text-center backdrop-blur-md shadow-md">
+                  <span className="block font-mono text-base font-bold text-amber-400">4.9 ★</span>
+                  <span className="font-sans text-[9px] uppercase tracking-wider text-[#F8F5EF]/70">Rating</span>
+                </div>
+              </div>
+
+              <p className="mt-4 md:mt-6 font-sans text-[14px] sm:text-[17px] md:text-[19px] leading-[1.6] text-[#F8F5EF]/80 max-w-[540px]">
                 A sanctuary of pure vegetarian dining, where families return for generations, friends celebrate, and every meal becomes a memory.
               </p>
 
               {/* Action Buttons */}
-              <div className="mt-6 md:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 max-w-[480px]">
+              <div className="mt-6 md:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 max-w-[480px]">
                 <Link
                   href="/visit#reserve"
-                  className="cta-button font-mono text-[11px] uppercase tracking-[0.25em] px-8 py-4 inline-flex items-center justify-center text-center font-bold"
+                  className="cta-button font-mono text-[11px] uppercase tracking-[0.25em] px-8 py-4 inline-flex items-center justify-center text-center font-bold shadow-[0_10px_30px_rgba(143,17,21,0.5)] active:scale-[0.98] transition-transform"
                 >
                   Reserve a Table
                 </Link>
                 <Link
                   href="/menu"
-                  className="cta-button-secondary font-mono text-[11px] uppercase tracking-[0.25em] px-8 py-4 inline-flex items-center justify-center text-center font-bold"
+                  className="cta-button-secondary font-mono text-[11px] uppercase tracking-[0.25em] px-8 py-4 inline-flex items-center justify-center text-center font-bold active:scale-[0.98] transition-transform"
                 >
                   View the Menu
                 </Link>
