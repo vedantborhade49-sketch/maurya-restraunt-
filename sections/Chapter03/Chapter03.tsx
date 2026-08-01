@@ -23,8 +23,8 @@ export default function Chapter03() {
             02 &nbsp;·&nbsp; THE CRAFT & THE TABLE
           </span>
           <h2 className="font-heading text-[40px] sm:text-[60px] md:text-[76px] text-[#272322] leading-[0.98] tracking-tight">
-            Fresh Every Morning.<br/>
-            <span className="italic text-[#9A5C3B]">Served Every Evening.</span>
+            Freshly Crafted.<br/>
+            <span className="italic text-[#9A5C3B]">Lovingly Served.</span>
           </h2>
         </div>
 
