@@ -31,7 +31,7 @@ export default function Chapter03() {
         {/* Layer 2: White Background Smooth Video Canvas Container (maurya2.mp4) */}
         <div className="relative w-full max-w-[900px] mx-auto z-10">
           
-          <div className="overflow-hidden bg-white relative shadow-[0_20px_60px_rgba(0,0,0,0.08)] rounded-2xl w-full h-[48vh] md:h-[65vh] border border-[#9A5C3B]/20 transform-gpu flex flex-col items-center justify-center p-2 sm:p-4 group">
+          <div className="overflow-hidden bg-white relative shadow-[0_20px_60px_rgba(0,0,0,0.08)] rounded-2xl w-full aspect-video md:aspect-auto md:h-[65vh] border border-[#9A5C3B]/20 transform-gpu flex flex-col items-center justify-center p-1.5 sm:p-4 group">
             
             {/* Top Subtle Metallic Shimmer Bar */}
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#9A5C3B]/40 to-transparent z-40" />
@@ -46,7 +46,7 @@ export default function Chapter03() {
                 loop
                 muted
                 preload="auto"
-                className="w-full h-full object-contain md:object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                className="w-full h-full object-cover sm:object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
               />
 
               {/* Light Vignette Soft Blend */}

@@ -55,7 +55,7 @@ export default function PureVegSVGAnimation() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full flex items-center justify-center py-2 select-none [perspective:1000px]"
+      className="relative w-full flex items-center justify-center py-2 select-none overflow-hidden [perspective:1000px]"
     >
       {/* Soft Ambient Radial Glow behind the SVG (No box, pure soft aura) */}
       <div className="absolute w-[90%] h-[90%] rounded-full bg-[radial-gradient(ellipse_at_center,_rgba(22,76,43,0.15)_0%,_rgba(154,92,59,0.05)_55%,_transparent_75%)] blur-2xl pointer-events-none" />

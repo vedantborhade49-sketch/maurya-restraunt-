@@ -181,15 +181,15 @@ export default function InvitationSection() {
           </div>
 
           {/* Right Column: Layered Scrapbook Composition */}
-          <div className="lg:col-span-7 flex justify-center relative py-12">
+          <div className="lg:col-span-7 flex justify-center relative py-6 md:py-12 w-full">
             <motion.div
               style={{ rotateX, rotateY }}
-              className="relative w-full max-w-[500px] h-[360px] sm:h-[450px] transform-gpu"
+              className="relative w-full max-w-[500px] aspect-[4/3] sm:aspect-auto sm:h-[450px] transform-gpu"
             >
               {/* Material: Walnut wood/Paper base backboard layer */}
-              <div className="absolute inset-0 bg-[#F4EFE6] border border-[#B98532]/25 shadow-xl rounded-sm p-4 overflow-hidden">
+              <div className="absolute inset-0 bg-[#F4EFE6] border border-[#B98532]/25 shadow-xl rounded-xl sm:rounded-sm p-2.5 sm:p-4 overflow-hidden">
                 {/* Large Dining Image (Main Centerpiece with uploaded home.png) */}
-                <div className="relative w-full h-full rounded-sm overflow-hidden group">
+                <div className="relative w-full h-full rounded-lg sm:rounded-sm overflow-hidden group">
                   <img
                     src="/home.png"
                     alt="Maurya Pure Veg Dining Atmosphere"
@@ -205,7 +205,7 @@ export default function InvitationSection() {
               {/* 3D Flip Vintage Restaurant Receipt Card */}
               <motion.div
                 onClick={() => setIsReceiptFlipped(!isReceiptFlipped)}
-                className="absolute -right-4 sm:-right-8 top-[-20px] w-36 sm:w-44 h-56 sm:h-64 cursor-pointer z-20 [perspective:1000px] select-none"
+                className="absolute right-0 sm:-right-8 top-[-15px] sm:top-[-20px] w-32 sm:w-44 h-48 sm:h-64 cursor-pointer z-20 [perspective:1000px] select-none"
                 animate={{ rotateY: isReceiptFlipped ? 180 : 6 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >

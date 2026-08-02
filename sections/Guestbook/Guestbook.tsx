@@ -1,14 +1,15 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Star, Quote, Heart } from "lucide-react";
+import { Star, Quote, Heart, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { FloatingHandwriting } from "@/components/MicroArtifacts";
 
 export default function Guestbook() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [activeCategory, setActiveCategory] = useState<string>("all");
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -31,7 +32,7 @@ export default function Guestbook() {
       tl.fromTo(
         ".gb-page",
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power3.out" },
+        { y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: "power3.out" },
         "-=0.6"
       );
     }, sectionRef);
@@ -41,40 +42,87 @@ export default function Guestbook() {
 
   const guestEntries = [
     {
-      quote: "We have been coming to Maurya for 15 years every Sunday. The Dal Makhani and Paneer Butter Masala still taste exactly like the first time.",
-      author: "Deshmukh Family",
-      meta: "Regular Guests since 2009",
+      id: "1",
+      category: "family",
+      quote: "We've been coming to Maurya every Sunday since 2009. The Dal Makhani and Paneer Butter Masala still carry the exact same rich, slow-cooked warmth as the day we first visited.",
+      author: "The Deshmukh Family",
+      meta: "Sunday Sanctuary • Guests for 15+ Years",
       handwriting: "Our Sunday Sanctuary",
       rotation: "-1.5deg",
-      image: "/editorial-food-5.png",
+      image: "/editorial-table-feast.png",
+      tag: "Sunday Tradition",
     },
     {
-      quote: "Best pure veg restaurant in Kondhwa! Unmatched tandoori rotis, incredible ambience, and authentic warm Indian hospitality.",
-      author: "Anand Sharma",
-      meta: "Verified Google Review (4.8★)",
-      handwriting: "Unmatched Taste",
+      id: "2",
+      category: "foodie",
+      quote: "Watching the chef pull piping hot tandoori rotis straight from the clay ember oven is an experience in itself. Best pure veg dining sanctuary in Kondhwa!",
+      author: "Anand Sharma & Friends",
+      meta: "Verified Google Review (4.9★)",
+      handwriting: "Fresh Tandoori Embers",
       rotation: "1.2deg",
-      image: "/editorial-food-3.png",
+      image: "/dish-butter-naan.png",
+      tag: "Clay Oven Craft",
     },
     {
-      quote: "Held our parents' 50th anniversary dinner here. The staff made everyone feel like family. Come hungry, leave with a true memory!",
+      id: "3",
+      category: "celebration",
+      quote: "We hosted my parents' 50th Wedding Anniversary here. The candle-lit dining room and traditional royal feast made everyone feel like family.",
       author: "Priya & Rahul Mehta",
-      meta: "Family Celebration",
-      handwriting: "50th Anniversary",
+      meta: "Golden Jubilee Celebration",
+      handwriting: "50th Anniversary Memory",
       rotation: "-0.8deg",
-      image: "/editorial-food-2.png",
+      image: "/inside1.jpeg",
+      tag: "50th Anniversary",
+    },
+    {
+      id: "4",
+      category: "family",
+      quote: "Whenever out-of-town guests visit Pune, Maurya is our non-negotiable first stop. The authentic Sattvik flavours and heritage timber ambience never fail to impress.",
+      author: "Dr. Kulkarni & Family",
+      meta: "Family Traditions",
+      handwriting: "First Stop in Pune",
+      rotation: "1.5deg",
+      image: "/inside3.png",
+      tag: "Heritage Dining",
+    },
+    {
+      id: "5",
+      category: "foodie",
+      quote: "Hands down the softest paneer and richest gravy in the city. You can feel the purity of real butter and hand-ground whole spices in every single bite.",
+      author: "Vikram & Neha Joshi",
+      meta: "Food Critics' Pick • 5.0★",
+      handwriting: "Pure Spice Magic",
+      rotation: "-1.2deg",
+      image: "/dish-paneer-butter-masala.png",
+      tag: "Signature Dish",
+    },
+    {
+      id: "6",
+      category: "celebration",
+      quote: "From my childhood birthday parties to now bringing my own kids here—Maurya has been the backdrop to three generations of our family's happiest moments.",
+      author: "Rohan Agarwal",
+      meta: "3rd Generation Guest",
+      handwriting: "Generations of Memories",
+      rotation: "0.8deg",
+      image: "/inside2.jpeg",
+      tag: "3 Generations",
     },
   ];
+
+  const filteredEntries =
+    activeCategory === "all"
+      ? guestEntries
+      : guestEntries.filter((e) => e.category === activeCategory);
 
   return (
     <section
       ref={sectionRef}
       className="relative w-full material-light text-[#272322] py-28 md:py-36 overflow-hidden font-sans border-t border-[#9A5C3B]/20 select-none"
     >
-      <div className="container-maurya space-y-16">
+      <div className="container-maurya space-y-12">
         
         {/* Header Block & Google Rating Summary */}
-        <div className="gb-header content-grid text-center space-y-6 max-w-3xl">
+        <div className="gb-header content-grid text-center space-y-6 max-w-3xl mx-auto">
           
           <div className="inline-flex items-center gap-2 px-5 py-2 bg-[#F8F5EF] border border-[#9A5C3B]/30 rounded-full shadow-sm">
             <div className="flex items-center gap-1 text-[#9A5C3B]">
@@ -82,55 +130,87 @@ export default function Guestbook() {
                 <Star key={i} className="w-3.5 h-3.5 fill-[#9A5C3B] stroke-none" />
               ))}
             </div>
-            <span className="font-mono text-[11px] font-bold text-[#272322]">4.8★</span>
+            <span className="font-mono text-[11px] font-bold text-[#272322]">4.9★</span>
             <span className="text-[#272322]/40 text-xs">·</span>
-            <span className="font-mono text-[10px] text-[#272322]/70 uppercase tracking-wider">Over 880+ Verified Guest Memories</span>
+            <span className="font-mono text-[10px] text-[#272322]/70 uppercase tracking-wider">Over 1,200+ Verified Guest Memories</span>
           </div>
 
           <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl text-[#272322] leading-tight font-normal">
             Dining <span className="italic text-[#9A5C3B]">Memories</span>
           </h2>
           <p className="font-sans text-sm md:text-base text-[#272322]/75 leading-relaxed max-w-xl mx-auto">
-            Pages from our guestbook and quiet notes left around the table over 28 years of pure vegetarian hospitality.
+            Pages from our guestbook and quiet notes left around the table over 35 years of pure vegetarian hospitality.
           </p>
+
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
+            {[
+              { id: "all", label: "All Memories" },
+              { id: "family", label: "Family Traditions" },
+              { id: "foodie", label: "Culinary Highlights" },
+              { id: "celebration", label: "Celebrations" },
+            ].map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`font-mono text-[10px] uppercase tracking-[0.2em] px-4 py-2 rounded-full border transition-all duration-300 ${
+                  activeCategory === cat.id
+                    ? "bg-[#9A5C3B] text-white border-[#9A5C3B] shadow-md"
+                    : "bg-[#FAF7F0] text-[#272322]/70 border-[#9A5C3B]/25 hover:border-[#9A5C3B]"
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Guestbook Polaroid Spreads */}
-        <div className="content-grid grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-          {guestEntries.map((entry, idx) => (
+        {/* Guestbook Polaroid Spreads Grid */}
+        <div className="content-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          {filteredEntries.map((entry) => (
             <div
-              key={idx}
-              className="gb-page relative bg-[#FAF7F0] border border-[#9A5C3B]/30 p-6 md:p-8 shadow-[0_12px_35px_rgba(71,32,32,0.08)] flex flex-col justify-between space-y-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:z-10"
+              key={entry.id}
+              className="gb-page relative bg-[#FAF7F0] border border-[#9A5C3B]/30 p-6 md:p-7 shadow-[0_12px_35px_rgba(71,32,32,0.08)] flex flex-col justify-between space-y-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:z-10 rounded-sm"
               style={{ transform: `rotate(${entry.rotation})` }}
             >
               {/* Polaroid Image Header with Tape Effect */}
-              <div className="relative w-full aspect-[4/3] bg-[#EFE8DB] overflow-hidden border border-[#9A5C3B]/20 shadow-inner group">
+              <div className="relative w-full aspect-[4/3] bg-[#EFE8DB] overflow-hidden border border-[#9A5C3B]/20 shadow-inner group rounded-xs">
                 {/* Washi Tape Accent */}
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-[#EFE8DB]/80 border border-[#9A5C3B]/20 rotate-[-2deg] z-20 shadow-xs pointer-events-none" />
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-[#EFE8DB]/90 border border-[#9A5C3B]/30 rotate-[-2deg] z-20 shadow-xs pointer-events-none" />
+                
                 <img
                   src={entry.image}
                   alt={entry.author}
-                  className="w-full h-full object-cover grayscale-[15%] group-hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover grayscale-[10%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#272322]/50 via-transparent to-transparent" />
+
+                {/* Top Right Tag */}
+                <div className="absolute top-3 right-3 bg-[#272322]/80 backdrop-blur-md px-2.5 py-0.5 rounded text-[8.5px] font-mono uppercase tracking-wider text-[#F8F5EF] z-10 border border-white/20">
+                  {entry.tag}
+                </div>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-[#272322]/60 via-transparent to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[#F8F5EF] z-10">
                   <FloatingHandwriting text={entry.handwriting} rotate="0deg" className="text-white text-sm font-semibold drop-shadow-md" />
                   <Heart className="w-3.5 h-3.5 fill-[#9A5C3B] stroke-none" />
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <Quote className="w-7 h-7 text-[#9A5C3B]/30 stroke-[1.5]" />
-                <p className="font-heading italic text-lg md:text-xl text-[#272322] leading-relaxed">
+              <div className="space-y-3">
+                <Quote className="w-6 h-6 text-[#9A5C3B]/40 stroke-[1.5]" />
+                <p className="font-heading italic text-base sm:text-lg text-[#272322] leading-relaxed">
                   "{entry.quote}"
                 </p>
               </div>
 
-              <div className="border-t border-[#9A5C3B]/20 pt-4">
-                <p className="font-sans font-bold text-sm text-[#272322]">{entry.author}</p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#9A5C3B] mt-0.5">
-                  {entry.meta}
-                </p>
+              <div className="border-t border-[#9A5C3B]/20 pt-3 flex items-center justify-between">
+                <div>
+                  <p className="font-sans font-bold text-sm text-[#272322]">{entry.author}</p>
+                  <p className="font-mono text-[9.5px] uppercase tracking-[0.15em] text-[#9A5C3B] mt-0.5">
+                    {entry.meta}
+                  </p>
+                </div>
+                <Sparkles className="w-4 h-4 text-[#9A5C3B]/50" />
               </div>
             </div>
           ))}
