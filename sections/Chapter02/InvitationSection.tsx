@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { motion, useSpring, useMotionValue, useMotionTemplate } from "framer-motion";
 import Link from "next/link";
 import SteamMotif from "@/components/SteamMotif";
@@ -18,8 +18,7 @@ export default function InvitationSection() {
   const lightXSpring = useSpring(lightX, { stiffness: 120, damping: 25 });
   const lightYSpring = useSpring(lightY, { stiffness: 120, damping: 25 });
 
-  // 3D Receipt flip state
-  const [isReceiptFlipped, setIsReceiptFlipped] = useState(false);
+
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     if (!containerRef.current) return;
@@ -194,18 +193,22 @@ export default function InvitationSection() {
               className="relative w-full max-w-[500px] aspect-[4/3] sm:aspect-auto sm:h-[450px] transform-gpu"
             >
               {/* Material: Walnut wood/Paper base backboard layer */}
-              <div className="absolute inset-0 bg-[#F4EFE6] border border-[#B98532]/35 shadow-xl rounded-xl sm:rounded-sm p-2 sm:p-4 overflow-hidden">
-                {/* Large Dining Image (Main Centerpiece with uploaded home.png) */}
+              <div 
+                className="absolute inset-0 bg-[#F4EFE6] border border-[#B98532]/35 shadow-xl rounded-xl sm:rounded-sm p-2 sm:p-4 overflow-hidden"
+                style={{
+                  backgroundImage: `url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjAwIDIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48ZmlsdGVyIGlkPSdub2lzZSc+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuNjUnIG51bU9jdGF2ZXM9JzMnIHN0aXRjaFRpbGVzPSdzdGl0Y2gnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9J3VybCgjbm9pc2UpJyBvcGFjaXR5PScwLjA0Jy8+PC9zdmc+")`,
+                }}
+              >
+                {/* Large Dining Image (Original home.png Centerpiece at Full 100% Opacity) */}
                 <div className="relative w-full h-full rounded-lg sm:rounded-sm overflow-hidden group">
                   <img
                     src="/home.png"
                     alt="Maurya Pure Veg Dining Atmosphere"
-                    className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[6s] ease-out"
+                    className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-all duration-[6s] ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#F8F6F1]/30 to-transparent mix-blend-overlay" />
                   
-                  {/* Floating Photo Tag for Mobile Visual Richness */}
-                  <div className="absolute top-2.5 left-2.5 bg-[#350709]/90 backdrop-blur-md px-2.5 py-1 rounded text-[8.5px] font-mono tracking-widest text-[#F8F6F1] border border-[#B98532]/40 uppercase font-extrabold shadow-md flex items-center gap-1.5">
+                  {/* Floating Photo Tag */}
+                  <div className="absolute top-2.5 left-2.5 bg-[#350709]/90 backdrop-blur-md px-2.5 py-1 rounded text-[8.5px] font-mono tracking-widest text-[#F8F5EF] border border-[#B98532]/40 uppercase font-extrabold shadow-md flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#164C2B] animate-pulse" />
                     <span>MAIN DINING HALL</span>
                   </div>
@@ -215,78 +218,7 @@ export default function InvitationSection() {
                 </div>
               </div>
 
-              {/* 3D Flip Vintage Restaurant Receipt Card */}
-              <motion.div
-                onClick={() => setIsReceiptFlipped(!isReceiptFlipped)}
-                className="absolute right-0 sm:-right-8 top-[-15px] sm:top-[-20px] w-32 sm:w-44 h-48 sm:h-64 cursor-pointer z-20 [perspective:1000px] select-none"
-                animate={{ rotateY: isReceiptFlipped ? 180 : 6 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              >
-                <div className="relative w-full h-full [transform-style:preserve-3d] transform-gpu">
-                  {/* Front Side: Receipt */}
-                  <div className="absolute inset-0 w-full h-full bg-[#F4EFE6] p-3.5 sm:p-4 shadow-2xl border border-[#B98532]/40 rounded-sm font-mono text-[8px] text-[#350709]/75 flex flex-col justify-between [backface-visibility:hidden] transform-gpu">
-                    <div>
-                      <div className="text-center font-bold tracking-widest text-[#8F1115] border-b border-dashed border-[#B98532]/35 pb-1">
-                        MAURYA VEG
-                      </div>
-                      <div className="flex justify-between mt-2 opacity-60">
-                        <span>TBL 12 / GST 4</span>
-                        <span>2026</span>
-                      </div>
-                      <div className="border-b border-dashed border-[#B98532]/35 my-1.5" />
-                      <ul className="space-y-1">
-                        <li className="flex justify-between">
-                          <span>1x Cheese Masala Dosa</span>
-                          <span>160</span>
-                        </li>
-                        <li className="flex justify-between">
-                          <span>1x Paneer Tikka Masala</span>
-                          <span>280</span>
-                        </li>
-                        <li className="flex justify-between">
-                          <span>2x Butter Naan</span>
-                          <span>120</span>
-                        </li>
-                      </ul>
-                      <div className="border-b border-dashed border-[#B98532]/35 my-1.5" />
-                      <div className="flex justify-between font-bold text-[#8F1115]">
-                        <span>TOTAL</span>
-                        <span>INR 560</span>
-                      </div>
-                    </div>
-                    
-                    {/* Stamp & Ink Logo */}
-                    <div className="mt-2 flex justify-between items-center border-t border-dashed border-[#B98532]/20 pt-1">
-                      <svg width="20" height="20" viewBox="0 0 40 40" className="text-[#8F1115] opacity-75">
-                        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
-                        <text x="5" y="24" className="text-[7px] font-sans fill-current font-bold tracking-tighter">MAURYA</text>
-                      </svg>
-                      <span className="text-[7.5px] italic font-sans animate-pulse font-bold text-[#8F1115]">Tap to Flip ↺</span>
-                    </div>
-                  </div>
 
-                  {/* Back Side: Handwritten Postcard note */}
-                  <div className="absolute inset-0 w-full h-full bg-[#FAF7F2] p-3.5 sm:p-4 shadow-2xl border border-[#B98532]/40 rounded-sm flex flex-col justify-between [backface-visibility:hidden] [transform:rotateY(180deg)] transform-gpu">
-                    <div className="text-left font-serif text-[10px] text-[#350709] leading-relaxed flex-1 flex flex-col justify-between">
-                      <div>
-                        <div className="border-b border-[#B98532]/25 pb-1 mb-2 font-sans text-[7px] uppercase tracking-wider text-[#8F1115] font-bold">
-                          GUEST NOTE / TBL 12
-                        </div>
-                        <p className="italic text-[#8F1115] font-semibold text-[11px] leading-tight font-instrument mt-1">
-                          "The best Cheese Dosa in Pune! Reminds me of family Sunday dinners."
-                        </p>
-                        <p className="text-[8px] mt-2 opacity-75 font-sans">
-                          - The Patil Family
-                        </p>
-                      </div>
-                      <div className="border-t border-[#B98532]/20 pt-1.5 flex justify-between items-center text-[7px] font-sans opacity-60">
-                        <span>★ ★ ★ ★ ★</span>
-                        <span>Jul 2026</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
 
               {/* Chef Signature Overlay */}
               <div className="absolute right-4 bottom-[-15px] z-30 pointer-events-none">

@@ -130,11 +130,7 @@ export default function Home() {
           >
             {/* Core Emotional Hook */}
             <div className="content-grid my-auto flex flex-col justify-center">
-              {/* Eyebrow Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#350709]/80 border border-[#9A5C3B]/40 text-[#9A5C3B] font-mono text-[10px] uppercase tracking-[0.2em] w-fit mb-3 md:mb-4 shadow-lg backdrop-blur-md">
-                <span className="w-2 h-2 rounded-full bg-[#164C2B] animate-pulse" />
-                <span>MAURYA • ESTD 1989</span>
-              </div>
+
 
               <h1 className="font-heading text-[32px] sm:text-[64px] md:text-[84px] lg:text-[96px] leading-[0.94] tracking-tight text-[#F8F5EF] max-w-[900px]">
                 Every Table<br />
@@ -243,27 +239,7 @@ export default function Home() {
 
           </div>
 
-          {/* Vintage Red Page-Like Frame */}
-          <div className="absolute inset-4 md:inset-8 border-[3px] border-[#8F1115]/35 z-30 pointer-events-none rounded-sm shadow-[inset_0_0_30px_rgba(143,17,21,0.15),0_0_20px_rgba(143,17,21,0.1)]">
-            {/* Inner thin border */}
-            <div className="absolute inset-1.5 border border-[#8F1115]/20">
-              {/* Decorative corner dots */}
-              <div className="absolute top-2 left-2 w-1.5 h-1.5 rounded-full bg-[#8F1115]/40" />
-              <div className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-[#8F1115]/40" />
-              <div className="absolute bottom-2 left-2 w-1.5 h-1.5 rounded-full bg-[#8F1115]/40" />
-              <div className="absolute bottom-2 right-2 w-1.5 h-1.5 rounded-full bg-[#8F1115]/40" />
-            </div>
-            
-            {/* Corner Bracket Flourishes */}
-            {/* Top Left */}
-            <div className="absolute top-0 left-0 w-8 h-8 border-t-[3px] border-l-[3px] border-[#8F1115] -translate-x-[3px] -translate-y-[3px]" />
-            {/* Top Right */}
-            <div className="absolute top-0 right-0 w-8 h-8 border-t-[3px] border-r-[3px] border-[#8F1115] translate-x-[3px] -translate-y-[3px]" />
-            {/* Bottom Left */}
-            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-[3px] border-l-[3px] border-[#8F1115] -translate-x-[3px] translate-y-[3px]" />
-            {/* Bottom Right */}
-            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-[3px] border-r-[3px] border-[#8F1115] translate-x-[3px] translate-y-[3px]" />
-          </div>
+
 
         </section>
 

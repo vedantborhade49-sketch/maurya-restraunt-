@@ -61,11 +61,7 @@ export default function Chapter03() {
               <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-white/20 pointer-events-none" />
             </div>
 
-            {/* Floating Top Badge Pill */}
-            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-30 bg-white/90 backdrop-blur-md px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[9px] sm:text-[10px] font-mono tracking-widest text-[#8F1115] border border-[#9A5C3B]/30 uppercase font-extrabold shadow-sm flex items-center gap-1.5 sm:gap-2">
-              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#164C2B] animate-pulse" />
-              <span>MAURYA CULINARY FILM</span>
-            </div>
+
 
             {/* Minimal Editorial Corner Note */}
             <MarginNote
