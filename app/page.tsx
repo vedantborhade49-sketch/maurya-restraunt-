@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import InvitationSection from "@/sections/Chapter02/InvitationSection";
 import Chapter03 from "@/sections/Chapter03/Chapter03";
 import PureVegPromise from "@/sections/PureVegPromise/PureVegPromise";
@@ -124,24 +125,31 @@ export default function Home() {
           {/* Foreground Hero Content Grid */}
           <div
             ref={heroContentRef}
-            className="relative z-[20] container-maurya h-full flex flex-col justify-between pt-24 pb-12 md:pb-16"
+            className="relative z-[20] container-maurya h-full flex flex-col justify-between pt-16 pb-8 md:pt-24 md:pb-16"
             style={{ opacity: 0 }}
           >
             {/* Core Emotional Hook */}
             <div className="content-grid my-auto flex flex-col justify-center">
               {/* Eyebrow Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#350709]/80 border border-[#9A5C3B]/40 text-[#9A5C3B] font-mono text-[10px] uppercase tracking-[0.2em] w-fit mb-4 shadow-lg backdrop-blur-md">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#350709]/80 border border-[#9A5C3B]/40 text-[#9A5C3B] font-mono text-[10px] uppercase tracking-[0.2em] w-fit mb-3 md:mb-4 shadow-lg backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-[#164C2B] animate-pulse" />
                 <span>MAURYA • ESTD 1989</span>
               </div>
 
-              <h1 className="font-heading text-[40px] sm:text-[64px] md:text-[84px] lg:text-[96px] leading-[0.92] tracking-tight text-[#F8F5EF] max-w-[900px]">
+              <h1 className="font-heading text-[32px] sm:text-[64px] md:text-[84px] lg:text-[96px] leading-[0.94] tracking-tight text-[#F8F5EF] max-w-[900px]">
                 Every Table<br />
                 <span className="italic text-[#9A5C3B]">Has A Story.</span>
               </h1>
 
-              {/* Popped-Out 3D Glassmorphism Mobile Video Reel Frame (< md) */}
-              <div className="md:hidden relative w-full aspect-video rounded-2xl overflow-hidden border-2 border-[#9A5C3B]/70 shadow-[0_25px_60px_rgba(143,17,21,0.5),0_10px_20px_rgba(0,0,0,0.8)] my-5 bg-black group transform transition-transform active:scale-[0.98]">
+              {/* Popped-Out 3D Glassmorphism Mobile Video Reel Frame (< md) with Motion Scroll & Touch Feedback */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.94, y: 15 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                whileTap={{ scale: 0.97 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="md:hidden relative w-full aspect-video rounded-2xl overflow-hidden border-2 border-[#9A5C3B]/70 shadow-[0_20px_50px_rgba(143,17,21,0.45),0_8px_16px_rgba(0,0,0,0.8)] my-4 bg-black group"
+              >
                 {/* Metallic Gold Top Shimmer Line */}
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#9A5C3B] to-transparent z-20" />
                 
@@ -173,39 +181,60 @@ export default function Home() {
                     HD 1080p
                   </span>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Mobile Quick Highlight Stats Bar */}
               <div className="grid grid-cols-3 gap-2 my-2 md:hidden">
-                <div className="bg-[#1C1414]/90 border border-[#9A5C3B]/30 p-2.5 rounded-xl text-center backdrop-blur-md shadow-md">
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileTap={{ scale: 0.95 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="bg-[#1C1414]/90 border border-[#9A5C3B]/40 p-2.5 rounded-xl text-center backdrop-blur-md shadow-md active:border-[#9A5C3B]"
+                >
                   <span className="block font-mono text-base font-bold text-[#9A5C3B]">35+</span>
                   <span className="font-sans text-[9px] uppercase tracking-wider text-[#F8F5EF]/70">Years Legend</span>
-                </div>
-                <div className="bg-[#1C1414]/90 border border-[#9A5C3B]/30 p-2.5 rounded-xl text-center backdrop-blur-md shadow-md">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileTap={{ scale: 0.95 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.08 }}
+                  className="bg-[#1C1414]/90 border border-[#9A5C3B]/40 p-2.5 rounded-xl text-center backdrop-blur-md shadow-md active:border-[#164C2B]"
+                >
                   <span className="block font-mono text-base font-bold text-[#164C2B]">100%</span>
                   <span className="font-sans text-[9px] uppercase tracking-wider text-[#F8F5EF]/70">Pure Veg</span>
-                </div>
-                <div className="bg-[#1C1414]/90 border border-[#9A5C3B]/30 p-2.5 rounded-xl text-center backdrop-blur-md shadow-md">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileTap={{ scale: 0.95 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.16 }}
+                  className="bg-[#1C1414]/90 border border-[#9A5C3B]/40 p-2.5 rounded-xl text-center backdrop-blur-md shadow-md active:border-amber-400"
+                >
                   <span className="block font-mono text-base font-bold text-amber-400">4.9 ★</span>
                   <span className="font-sans text-[9px] uppercase tracking-wider text-[#F8F5EF]/70">Rating</span>
-                </div>
+                </motion.div>
               </div>
 
-              <p className="mt-4 md:mt-6 font-sans text-[14px] sm:text-[17px] md:text-[19px] leading-[1.6] text-[#F8F5EF]/80 max-w-[540px]">
+              <p className="mt-3 md:mt-6 font-sans text-[14px] sm:text-[17px] md:text-[19px] leading-[1.55] text-[#F8F5EF]/80 max-w-[540px]">
                 A sanctuary of pure vegetarian dining, where families return for generations, friends celebrate, and every meal becomes a memory.
               </p>
 
               {/* Action Buttons */}
-              <div className="mt-6 md:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 max-w-[480px]">
+              <div className="mt-5 md:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 max-w-[480px]">
                 <Link
                   href="/visit#reserve"
-                  className="cta-button font-mono text-[11px] uppercase tracking-[0.25em] px-8 py-4 inline-flex items-center justify-center text-center font-bold shadow-[0_10px_30px_rgba(143,17,21,0.5)] active:scale-[0.98] transition-transform"
+                  className="cta-button font-mono text-[11px] uppercase tracking-[0.25em] px-8 py-3.5 sm:py-4 inline-flex items-center justify-center text-center font-bold shadow-[0_10px_30px_rgba(143,17,21,0.5)] active:scale-[0.98] transition-transform"
                 >
                   Reserve a Table
                 </Link>
                 <Link
                   href="/menu"
-                  className="cta-button-secondary font-mono text-[11px] uppercase tracking-[0.25em] px-8 py-4 inline-flex items-center justify-center text-center font-bold active:scale-[0.98] transition-transform"
+                  className="cta-button-secondary font-mono text-[11px] uppercase tracking-[0.25em] px-8 py-3.5 sm:py-4 inline-flex items-center justify-center text-center font-bold active:scale-[0.98] transition-transform"
                 >
                   View the Menu
                 </Link>

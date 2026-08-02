@@ -50,7 +50,7 @@ export default function InvitationSection() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full bg-[#F8F6F1] text-[#350709] overflow-hidden py-24 md:py-36 border-b border-[#B98532]/25 select-none"
+      className="relative w-full bg-[#F8F6F1] text-[#350709] overflow-hidden py-12 md:py-36 border-b border-[#B98532]/25 select-none"
       style={{
         backgroundImage: `url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjAwIDIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48ZmlsdGVyIGlkPSdub2lzZSc+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuNjUnIG51bU9jdGF2ZXM9JzMnIHN0aXRjaFRpbGVzPSdzdGl0Y2gnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9J3VybCgjbm9pc2UpJyBvcGFjaXR5PScwLjAzJy8+PC9zdmc+")`,
       }}
@@ -120,7 +120,7 @@ export default function InvitationSection() {
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         {/* PHASE 3 — Chapter Label */}
-        <div className="mb-12 flex flex-col items-center md:items-start">
+        <div className="mb-6 md:mb-12 flex flex-col items-center md:items-start">
           <span className="font-sans text-[10px] tracking-[0.35em] text-[#8F1115] font-bold uppercase mb-1.5">
             CHAPTER 01 / THE LIVING TABLE
           </span>
@@ -128,18 +128,18 @@ export default function InvitationSection() {
         </div>
 
         {/* PHASE 2 — Asymmetrical Grid Composition */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-12 items-center">
           
           {/* Left Column: Typography Statement & Paragraph */}
-          <div className="lg:col-span-5 space-y-8 flex flex-col justify-center text-center md:text-left">
+          <div className="lg:col-span-5 space-y-5 md:space-y-8 flex flex-col justify-center text-center md:text-left">
             {/* PHASE 4 & 7 — Typography Hierarchy & Overlapping */}
             <div className="relative inline-block text-left w-full">
-              <h2 className="font-heading text-4xl sm:text-6xl md:text-8xl tracking-tight leading-[0.9] text-[#350709] font-bold uppercase">
+              <h2 className="font-heading text-3xl sm:text-6xl md:text-8xl tracking-tight leading-[0.92] text-[#350709] font-bold uppercase">
                 TABLES<br />
                 WERE NEVER<br />
                 <span className="inline-flex flex-wrap items-baseline gap-x-2 sm:gap-x-3 md:gap-x-5">
                   <span>MADE FOR</span>
-                  <span className="font-instrument italic text-5xl sm:text-7xl md:text-9xl text-[#8F1115] font-normal normal-case select-none flex translate-y-1 md:translate-y-2 tracking-normal">
+                  <span className="font-instrument italic text-4xl sm:text-7xl md:text-9xl text-[#8F1115] font-normal normal-case select-none flex translate-y-1 md:translate-y-2 tracking-normal">
                     {"Silence.".split("").map((char, idx) => (
                       <motion.span
                         key={idx}
@@ -156,12 +156,12 @@ export default function InvitationSection() {
             </div>
 
             {/* PHASE 5 — Editorial Paragraph (60-80 words) */}
-            <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] leading-[1.65] text-[#350709]/80 font-light pt-8 max-w-[460px] mx-auto md:mx-0">
+            <p className="font-sans text-[14px] sm:text-[17px] md:text-[18px] leading-[1.6] text-[#350709]/80 font-light pt-3 md:pt-8 max-w-[460px] mx-auto md:mx-0">
               At Maurya, every table carries a story. Some celebrate milestones, some reconnect old friends, and some simply bring families together over a warm meal. Long after the food is finished, those moments remain.
             </p>
 
             {/* PHASE 13 — Call To Experience */}
-            <div className="pt-6 flex flex-col sm:flex-row items-center gap-6 font-sans text-xs font-bold uppercase tracking-[0.2em] justify-center md:justify-start">
+            <div className="pt-3 md:pt-6 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 font-sans text-xs font-bold uppercase tracking-[0.2em] justify-center md:justify-start">
               <Link
                 href="/visit#reserve"
                 className="group flex items-center gap-2 text-[#8F1115] hover:text-[#B98532] transition-colors"
@@ -180,14 +180,21 @@ export default function InvitationSection() {
             </div>
           </div>
 
-          {/* Right Column: Layered Scrapbook Composition */}
-          <div className="lg:col-span-7 flex justify-center relative py-6 md:py-12 w-full">
+          {/* Right Column: Layered Scrapbook Composition with Mobile Scroll Entrance & Touch Animation */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.93, y: 25 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-7 flex justify-center relative py-4 md:py-12 w-full"
+          >
             <motion.div
               style={{ rotateX, rotateY }}
+              whileTap={{ scale: 0.98 }}
               className="relative w-full max-w-[500px] aspect-[4/3] sm:aspect-auto sm:h-[450px] transform-gpu"
             >
               {/* Material: Walnut wood/Paper base backboard layer */}
-              <div className="absolute inset-0 bg-[#F4EFE6] border border-[#B98532]/25 shadow-xl rounded-xl sm:rounded-sm p-2.5 sm:p-4 overflow-hidden">
+              <div className="absolute inset-0 bg-[#F4EFE6] border border-[#B98532]/35 shadow-xl rounded-xl sm:rounded-sm p-2 sm:p-4 overflow-hidden">
                 {/* Large Dining Image (Main Centerpiece with uploaded home.png) */}
                 <div className="relative w-full h-full rounded-lg sm:rounded-sm overflow-hidden group">
                   <img
@@ -197,6 +204,12 @@ export default function InvitationSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#F8F6F1]/30 to-transparent mix-blend-overlay" />
                   
+                  {/* Floating Photo Tag for Mobile Visual Richness */}
+                  <div className="absolute top-2.5 left-2.5 bg-[#350709]/90 backdrop-blur-md px-2.5 py-1 rounded text-[8.5px] font-mono tracking-widest text-[#F8F6F1] border border-[#B98532]/40 uppercase font-extrabold shadow-md flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#164C2B] animate-pulse" />
+                    <span>MAIN DINING HALL</span>
+                  </div>
+
                   {/* Subtle Steam Rising Overlay */}
                   <SteamMotif className="absolute inset-0 w-full h-full mix-blend-screen opacity-15 pointer-events-none" />
                 </div>
@@ -211,7 +224,7 @@ export default function InvitationSection() {
               >
                 <div className="relative w-full h-full [transform-style:preserve-3d] transform-gpu">
                   {/* Front Side: Receipt */}
-                  <div className="absolute inset-0 w-full h-full bg-[#F4EFE6] p-4 shadow-2xl border border-[#B98532]/30 rounded-sm font-mono text-[8px] text-[#350709]/75 flex flex-col justify-between [backface-visibility:hidden] transform-gpu">
+                  <div className="absolute inset-0 w-full h-full bg-[#F4EFE6] p-3.5 sm:p-4 shadow-2xl border border-[#B98532]/40 rounded-sm font-mono text-[8px] text-[#350709]/75 flex flex-col justify-between [backface-visibility:hidden] transform-gpu">
                     <div>
                       <div className="text-center font-bold tracking-widest text-[#8F1115] border-b border-dashed border-[#B98532]/35 pb-1">
                         MAURYA VEG
@@ -248,12 +261,12 @@ export default function InvitationSection() {
                         <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
                         <text x="5" y="24" className="text-[7px] font-sans fill-current font-bold tracking-tighter">MAURYA</text>
                       </svg>
-                      <span className="text-[7px] italic opacity-50 font-sans">Click to Flip</span>
+                      <span className="text-[7.5px] italic font-sans animate-pulse font-bold text-[#8F1115]">Tap to Flip ↺</span>
                     </div>
                   </div>
 
                   {/* Back Side: Handwritten Postcard note */}
-                  <div className="absolute inset-0 w-full h-full bg-[#FAF7F2] p-4 shadow-2xl border border-[#B98532]/30 rounded-sm flex flex-col justify-between [backface-visibility:hidden] [transform:rotateY(180deg)] transform-gpu">
+                  <div className="absolute inset-0 w-full h-full bg-[#FAF7F2] p-3.5 sm:p-4 shadow-2xl border border-[#B98532]/40 rounded-sm flex flex-col justify-between [backface-visibility:hidden] [transform:rotateY(180deg)] transform-gpu">
                     <div className="text-left font-serif text-[10px] text-[#350709] leading-relaxed flex-1 flex flex-col justify-between">
                       <div>
                         <div className="border-b border-[#B98532]/25 pb-1 mb-2 font-sans text-[7px] uppercase tracking-wider text-[#8F1115] font-bold">
@@ -285,7 +298,7 @@ export default function InvitationSection() {
               </div>
 
             </motion.div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

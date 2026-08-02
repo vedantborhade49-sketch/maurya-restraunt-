@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { motion } from "framer-motion";
 import { MarginNote } from "@/components/MicroArtifacts";
 
 export default function Chapter03() {
@@ -10,26 +11,33 @@ export default function Chapter03() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-screen bg-[#EFE8DB] text-[#272322] py-16 md:py-24 overflow-hidden flex flex-col justify-center select-none"
+      className="relative w-full bg-[#EFE8DB] text-[#272322] py-12 md:py-24 overflow-hidden flex flex-col justify-center select-none"
     >
       {/* Background Texture - Warm Paper Grain */}
       <div className="absolute inset-0 z-0 opacity-40 texture-ch3-paper pointer-events-none mix-blend-multiply" />
 
-      <div className="relative w-full flex flex-col items-center gap-8 md:gap-12 container-maurya z-10 my-auto">
+      <div className="relative w-full flex flex-col items-center gap-6 md:gap-12 container-maurya z-10 my-auto">
         
-        {/* Layer 1: Editorial Typography (Preserved 100% identically) */}
+        {/* Layer 1: Editorial Typography */}
         <div className="content-grid w-full text-center max-w-[900px] mx-auto">
-          <span className="font-mono text-[9px] uppercase tracking-[0.35em] text-[#9A5C3B] font-bold mb-3 block">
+          <span className="font-mono text-[9px] uppercase tracking-[0.35em] text-[#9A5C3B] font-bold mb-2.5 block">
             02 &nbsp;·&nbsp; THE CRAFT & THE TABLE
           </span>
-          <h2 className="font-heading text-[40px] sm:text-[60px] md:text-[76px] text-[#272322] leading-[0.98] tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-[60px] md:text-[76px] text-[#272322] leading-[0.98] tracking-tight">
             Freshly Crafted.<br/>
             <span className="italic text-[#9A5C3B]">Lovingly Served.</span>
           </h2>
         </div>
 
-        {/* Layer 2: White Background Smooth Video Canvas Container (maurya2.mp4) */}
-        <div className="relative w-full max-w-[900px] mx-auto z-10">
+        {/* Layer 2: White Background Smooth Video Canvas Container (maurya2.mp4) with Motion Scroll Reveal */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.94, y: 20 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          whileTap={{ scale: 0.98 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="relative w-full max-w-[900px] mx-auto z-10"
+        >
           
           <div className="overflow-hidden bg-white relative shadow-[0_20px_60px_rgba(0,0,0,0.08)] rounded-2xl w-full aspect-video md:aspect-auto md:h-[65vh] border border-[#9A5C3B]/20 transform-gpu flex flex-col items-center justify-center p-1.5 sm:p-4 group">
             
@@ -54,19 +62,19 @@ export default function Chapter03() {
             </div>
 
             {/* Floating Top Badge Pill */}
-            <div className="absolute top-6 left-6 z-30 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full text-[10px] font-mono tracking-widest text-[#8F1115] border border-[#9A5C3B]/30 uppercase font-extrabold shadow-sm flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#164C2B] animate-pulse" />
+            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-30 bg-white/90 backdrop-blur-md px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[9px] sm:text-[10px] font-mono tracking-widest text-[#8F1115] border border-[#9A5C3B]/30 uppercase font-extrabold shadow-sm flex items-center gap-1.5 sm:gap-2">
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#164C2B] animate-pulse" />
               <span>MAURYA CULINARY FILM</span>
             </div>
 
             {/* Minimal Editorial Corner Note */}
             <MarginNote
               text="The Living Craft"
-              className="absolute bottom-6 right-6 text-[#272322]/70 z-30 font-mono text-[9px]"
+              className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 text-[#272322]/70 z-30 font-mono text-[8px] sm:text-[9px]"
               rotate="0deg"
             />
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

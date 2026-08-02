@@ -110,23 +110,23 @@ const GalleryArchive = memo(function GalleryArchive() {
   };
 
   return (
-    <section ref={containerRef} className="relative w-full overflow-visible content-visibility-auto pt-16 z-20">
+    <section ref={containerRef} className="relative w-full overflow-visible content-visibility-auto pt-8 md:pt-16 z-20">
       
       {/* The Master Archive Content */}
-      <div className="relative w-full min-h-[70vh] flex flex-col justify-start items-center pt-8 pb-32 px-4 md:px-12">
+      <div className="relative w-full min-h-[60vh] flex flex-col justify-start items-center pt-4 pb-16 md:pt-8 md:pb-32 px-4 md:px-12">
         
         {/* Ambient Dust/Paper texture layer */}
         <div className="absolute inset-0 z-0 bg-[url('https://www.transparenttextures.com/patterns/dust.png')] opacity-20 mix-blend-overlay pointer-events-none" />
 
-        <div className="relative w-full max-w-[1350px] z-10 flex flex-col items-center gap-16 md:gap-24">
+        <div className="relative w-full max-w-[1350px] z-10 flex flex-col items-center gap-10 md:gap-24">
           
           {/* Integrated Editorial Header */}
-          <div className="w-full flex flex-col items-center justify-center text-center pb-6 border-b border-black/10">
+          <div className="w-full flex flex-col items-center justify-center text-center pb-4 md:pb-6 border-b border-black/10">
             <ColorfulGanpatiIcon />
-            <span className="font-mono text-[10px] md:text-xs uppercase tracking-[0.35em] text-[#8F1115] font-bold block mb-2">
+            <span className="font-mono text-[9px] md:text-xs uppercase tracking-[0.35em] text-[#8F1115] font-bold block mb-1.5 md:mb-2">
               • THE MASTER ARCHIVE •
             </span>
-            <h2 ref={breakTextRef} className="font-serif text-4xl md:text-7xl italic opacity-95 tracking-tight mix-blend-multiply text-black">
+            <h2 ref={breakTextRef} className="font-serif text-3xl sm:text-5xl md:text-7xl italic opacity-95 tracking-tight mix-blend-multiply text-black">
               Cinematic Heritage Since 1989.
             </h2>
           </div>
@@ -136,10 +136,10 @@ const GalleryArchive = memo(function GalleryArchive() {
               Left: video.mp4 (in actual vertical reel size, aspect-[9/16])
               Right & Below: The 4 architectural core photographs
              ═════════════════════════════════════════════════════════════════ */}
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-start">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-14 items-start">
             
             {/* 1. LEFT COLUMN: VIDEO.MP4 (VERTICAL REEL IN ACTUAL PROPORTIONS) */}
-            <div ref={setItemRef(0)} className="w-full aspect-[9/16] md:aspect-[9/14] relative bg-[#1c1a18] p-4 md:p-5 shadow-[0_25px_60px_rgba(0,0,0,0.3)] rounded-sm transform transition-all duration-700 hover:scale-[1.01] hover:shadow-[0_35px_80px_rgba(0,0,0,0.4)] cursor-pointer group border-2 border-black/80 flex flex-col justify-between">
+            <div ref={setItemRef(0)} className="w-full aspect-[9/16] md:aspect-[9/14] relative bg-[#1c1a18] p-3 sm:p-4 md:p-5 shadow-[0_20px_50px_rgba(0,0,0,0.25)] rounded-sm transform transition-all duration-700 hover:scale-[1.01] active:scale-[0.98] hover:shadow-[0_35px_80px_rgba(0,0,0,0.4)] cursor-pointer group border-2 border-black/80 flex flex-col justify-between">
               
               {/* Metallic Director Binder Mount */}
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-6 bg-gradient-to-b from-stone-200 via-stone-400 to-stone-600 rounded-t-md shadow-lg z-30 border-t border-white/60 flex items-center justify-center">
@@ -178,10 +178,10 @@ const GalleryArchive = memo(function GalleryArchive() {
             </div>
 
             {/* RIGHT COLUMN: OUTSIDE.JPEG & COOKING.JPEG STACKED */}
-            <div className="w-full flex flex-col gap-10 md:gap-14">
+            <div className="w-full flex flex-col gap-6 md:gap-14">
               
               {/* 2. OUTSIDE.JPEG (HERITAGE ENTRANCE ON THE RIGHT) */}
-              <div ref={setItemRef(1)} className="w-full aspect-[16/10] relative bg-[#1c1a18] p-4 shadow-[0_20px_50px_rgba(0,0,0,0.25)] transform -rotate-1 transition-all duration-500 hover:rotate-0 hover:scale-[1.02] hover:shadow-2xl cursor-pointer group border border-black">
+              <div ref={setItemRef(1)} className="w-full aspect-[16/10] relative bg-[#1c1a18] p-3 sm:p-4 shadow-[0_20px_50px_rgba(0,0,0,0.25)] transform -rotate-1 transition-all duration-500 hover:rotate-0 hover:scale-[1.02] active:scale-[0.98] hover:shadow-2xl cursor-pointer group border border-black rounded-sm">
                 {/* Kodak Sprocket Holes */}
                 <div className="absolute top-1 inset-x-4 flex justify-between px-2 pointer-events-none z-20">
                   {Array.from({ length: 8 }).map((_, i) => (
@@ -218,7 +218,7 @@ const GalleryArchive = memo(function GalleryArchive() {
               </div>
 
               {/* 3. COOKING.JPEG (LIVE KITCHEN CRAFT ON THE RIGHT BELOW OUTSIDE) */}
-              <div ref={setItemRef(2)} className="w-full aspect-[16/10] relative bg-[#fdfbf7] p-4 shadow-[0_20px_50px_rgba(0,0,0,0.2)] transform rotate-1 transition-all duration-500 hover:rotate-0 hover:scale-[1.02] hover:shadow-2xl cursor-pointer group border border-black/10">
+              <div ref={setItemRef(2)} className="w-full aspect-[16/10] relative bg-[#fdfbf7] p-3 sm:p-4 shadow-[0_20px_50px_rgba(0,0,0,0.2)] transform rotate-1 transition-all duration-500 hover:rotate-0 hover:scale-[1.02] active:scale-[0.98] hover:shadow-2xl cursor-pointer group border border-black/10 rounded-sm">
                 <div className="absolute -top-3 left-8 w-24 h-6 bg-[#8F1115] text-white shadow-md z-30 flex items-center justify-center rounded-sm">
                   <span className="font-mono text-[8px] font-bold tracking-widest">CHEF'S JOURNAL</span>
                 </div>
@@ -248,11 +248,11 @@ const GalleryArchive = memo(function GalleryArchive() {
 
           {/* ═════════════════════════════════════════════════════════════════
               BOTTOM ROW: INSIDE1.JPEG & INSIDE2.JPEG
-             ═════════════════════════════════════════════════════════════════ */}
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-start mt-2">
+              ═════════════════════════════════════════════════════════════════ */}
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-14 items-start mt-2">
             
             {/* 4. INSIDE1.JPEG (MAIN DINING HALL) */}
-            <div ref={setItemRef(3)} className="w-full aspect-[16/10] relative bg-[#fdfbf7] p-4 shadow-[0_20px_50px_rgba(0,0,0,0.2)] transform rotate-1 transition-all duration-500 hover:rotate-0 hover:scale-[1.02] hover:shadow-2xl cursor-pointer group border border-black/10">
+            <div ref={setItemRef(3)} className="w-full aspect-[16/10] relative bg-[#fdfbf7] p-3 sm:p-4 shadow-[0_20px_50px_rgba(0,0,0,0.2)] transform rotate-1 transition-all duration-500 hover:rotate-0 hover:scale-[1.02] active:scale-[0.98] hover:shadow-2xl cursor-pointer group border border-black/10 rounded-sm">
               <div className="absolute -top-3 right-10 w-28 h-6 bg-[#e4decb]/95 -rotate-2 shadow-md z-30 flex items-center justify-center">
                 <span className="font-mono text-[8px] text-black font-bold tracking-widest">FAMILY SANCTUARY</span>
               </div>
@@ -277,7 +277,7 @@ const GalleryArchive = memo(function GalleryArchive() {
             </div>
 
             {/* 5. INSIDE2.JPEG (EVENING DINING AMBIENCE) */}
-            <div ref={setItemRef(4)} className="w-full aspect-[16/10] relative bg-[#1c1a18] p-4 shadow-[0_20px_50px_rgba(0,0,0,0.25)] transform -rotate-1 transition-all duration-500 hover:rotate-0 hover:scale-[1.02] hover:shadow-2xl cursor-pointer group border border-black">
+            <div ref={setItemRef(4)} className="w-full aspect-[16/10] relative bg-[#1c1a18] p-3 sm:p-4 shadow-[0_20px_50px_rgba(0,0,0,0.25)] transform -rotate-1 transition-all duration-500 hover:rotate-0 hover:scale-[1.02] active:scale-[0.98] hover:shadow-2xl cursor-pointer group border border-black rounded-sm">
               <div className="absolute -top-3 left-10 w-28 h-6 bg-[#FFCC00] text-black shadow-md z-30 flex items-center justify-center rounded-sm rotate-2">
                 <span className="font-mono text-[8px] font-extrabold tracking-widest">WARM EVENINGS</span>
               </div>

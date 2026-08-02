@@ -102,7 +102,7 @@ const GalleryHero = memo(function GalleryHero() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full min-h-[70vh] flex flex-col justify-center items-center pt-32 pb-12 px-6 md:px-12 overflow-visible content-visibility-auto [contain-intrinsic-size:70vh]">
+    <section ref={containerRef} className="relative w-full min-h-[60vh] flex flex-col justify-center items-center pt-20 pb-8 px-4 sm:px-6 md:pt-32 md:pb-12 md:px-12 overflow-visible content-visibility-auto [contain-intrinsic-size:70vh]">
       
       {/* Animated Warm Spotlight */}
       <div 
@@ -121,10 +121,10 @@ const GalleryHero = memo(function GalleryHero() {
         </div>
 
         {/* The Gallery Header with Colorful Animated Ganpati Icon */}
-        <div className="w-full flex flex-col items-center text-center z-20 mt-12 mb-20">
+        <div className="w-full flex flex-col items-center text-center z-20 mt-6 mb-10 md:mt-12 md:mb-20">
           <ColorfulGanpatiIcon />
-          <span className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.4em] opacity-80 mb-4 block">The Gallery</span>
-          <h1 className="font-serif text-5xl md:text-8xl leading-[0.9] tracking-tighter">
+          <span className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.4em] opacity-80 mb-3 md:mb-4 block">The Gallery</span>
+          <h1 className="font-serif text-4xl sm:text-6xl md:text-8xl leading-[0.92] tracking-tighter">
             Visual<br />
             <span className="italic opacity-80">Moments.</span>
           </h1>
@@ -133,9 +133,9 @@ const GalleryHero = memo(function GalleryHero() {
         {/* Museum Mounted Hero Photograph: OUTSIDE.JPEG IN STARTING */}
         <div 
           ref={heroImgRef}
-          className="relative w-full md:w-[75%] aspect-[16/9] md:aspect-[21/9] bg-[#F6EFE6] p-4 md:p-8 shadow-[0_40px_80px_rgba(0,0,0,0.25)] z-30 transform transition-transform duration-1000 hover:scale-[1.02] hover:shadow-[0_50px_100px_rgba(0,0,0,0.35)] border border-black/10"
+          className="relative w-full md:w-[75%] aspect-[16/9] md:aspect-[21/9] bg-[#F6EFE6] p-3 sm:p-4 md:p-8 shadow-[0_30px_70px_rgba(0,0,0,0.22)] z-30 transform transition-transform duration-700 hover:scale-[1.02] hover:shadow-[0_50px_100px_rgba(0,0,0,0.35)] border border-black/10 rounded-sm"
         >
-          <div className="relative w-full h-full overflow-hidden border border-black/10 bg-black">
+          <div className="relative w-full h-full overflow-hidden border border-black/10 bg-black rounded-xs">
             <Image 
               src="/outside.jpeg" 
               alt="The Maurya Exterior at Start" 
@@ -149,9 +149,9 @@ const GalleryHero = memo(function GalleryHero() {
             <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/15 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           </div>
           {/* Museum Mount Plaque */}
-          <div className="absolute -bottom-16 md:-bottom-20 right-0 md:right-10 flex flex-col items-end text-right">
-            <span className="font-mono text-[9px] uppercase tracking-widest opacity-75 font-bold">The Entrance • Kondhwa, Pune</span>
-            <span className="font-serif text-sm italic mt-1 text-[#8F1115] font-semibold">Since 1989</span>
+          <div className="absolute -bottom-12 md:-bottom-20 right-2 md:right-10 flex flex-col items-end text-right">
+            <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-widest opacity-75 font-bold">The Entrance • Kondhwa, Pune</span>
+            <span className="font-serif text-xs sm:text-sm italic mt-0.5 md:mt-1 text-[#8F1115] font-semibold">Since 1989</span>
           </div>
         </div>
 

@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Star, Quote, Heart, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { FloatingHandwriting } from "@/components/MicroArtifacts";
 
 export default function Guestbook() {
@@ -117,33 +118,33 @@ export default function Guestbook() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full material-light text-[#272322] py-28 md:py-36 overflow-hidden font-sans border-t border-[#9A5C3B]/20 select-none"
+      className="relative w-full material-light text-[#272322] py-12 md:py-36 overflow-hidden font-sans border-t border-[#9A5C3B]/20 select-none"
     >
-      <div className="container-maurya space-y-12">
+      <div className="container-maurya space-y-8 md:space-y-12">
         
         {/* Header Block & Google Rating Summary */}
-        <div className="gb-header content-grid text-center space-y-6 max-w-3xl mx-auto">
+        <div className="gb-header content-grid text-center space-y-4 md:space-y-6 max-w-3xl mx-auto">
           
-          <div className="inline-flex items-center gap-2 px-5 py-2 bg-[#F8F5EF] border border-[#9A5C3B]/30 rounded-full shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 sm:px-5 sm:py-2 bg-[#F8F5EF] border border-[#9A5C3B]/30 rounded-full shadow-sm">
             <div className="flex items-center gap-1 text-[#9A5C3B]">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-3.5 h-3.5 fill-[#9A5C3B] stroke-none" />
+                <Star key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-[#9A5C3B] stroke-none" />
               ))}
             </div>
-            <span className="font-mono text-[11px] font-bold text-[#272322]">4.9★</span>
+            <span className="font-mono text-[10px] sm:text-[11px] font-bold text-[#272322]">4.9★</span>
             <span className="text-[#272322]/40 text-xs">·</span>
-            <span className="font-mono text-[10px] text-[#272322]/70 uppercase tracking-wider">Over 1,200+ Verified Guest Memories</span>
+            <span className="font-mono text-[9px] sm:text-[10px] text-[#272322]/70 uppercase tracking-wider">Over 1,200+ Verified Guest Memories</span>
           </div>
 
-          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl text-[#272322] leading-tight font-normal">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl text-[#272322] leading-tight font-normal">
             Dining <span className="italic text-[#9A5C3B]">Memories</span>
           </h2>
-          <p className="font-sans text-sm md:text-base text-[#272322]/75 leading-relaxed max-w-xl mx-auto">
+          <p className="font-sans text-xs sm:text-sm md:text-base text-[#272322]/75 leading-relaxed max-w-xl mx-auto">
             Pages from our guestbook and quiet notes left around the table over 35 years of pure vegetarian hospitality.
           </p>
 
           {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-1 md:pt-2">
             {[
               { id: "all", label: "All Memories" },
               { id: "family", label: "Family Traditions" },
@@ -153,7 +154,7 @@ export default function Guestbook() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`font-mono text-[10px] uppercase tracking-[0.2em] px-4 py-2 rounded-full border transition-all duration-300 ${
+                className={`font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.2em] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full border transition-all duration-300 ${
                   activeCategory === cat.id
                     ? "bg-[#9A5C3B] text-white border-[#9A5C3B] shadow-md"
                     : "bg-[#FAF7F0] text-[#272322]/70 border-[#9A5C3B]/25 hover:border-[#9A5C3B]"
@@ -165,12 +166,17 @@ export default function Guestbook() {
           </div>
         </div>
 
-        {/* Guestbook Polaroid Spreads Grid */}
-        <div className="content-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+        {/* Guestbook Polaroid Spreads Grid with Motion Scroll & Touch Animations */}
+        <div className="content-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10">
           {filteredEntries.map((entry) => (
-            <div
+            <motion.div
               key={entry.id}
-              className="gb-page relative bg-[#FAF7F0] border border-[#9A5C3B]/30 p-6 md:p-7 shadow-[0_12px_35px_rgba(71,32,32,0.08)] flex flex-col justify-between space-y-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:z-10 rounded-sm"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileTap={{ scale: 0.97, rotate: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.5 }}
+              className="gb-page relative bg-[#FAF7F0] border border-[#9A5C3B]/30 p-5 md:p-7 shadow-[0_10px_30px_rgba(71,32,32,0.08)] flex flex-col justify-between space-y-5 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:z-10 rounded-sm"
               style={{ transform: `rotate(${entry.rotation})` }}
             >
               {/* Polaroid Image Header with Tape Effect */}
@@ -196,31 +202,31 @@ export default function Guestbook() {
                 </div>
               </div>
 
-              <div className="space-y-3">
-                <Quote className="w-6 h-6 text-[#9A5C3B]/40 stroke-[1.5]" />
-                <p className="font-heading italic text-base sm:text-lg text-[#272322] leading-relaxed">
+              <div className="space-y-2.5">
+                <Quote className="w-5 h-5 md:w-6 md:h-6 text-[#9A5C3B]/40 stroke-[1.5]" />
+                <p className="font-heading italic text-sm sm:text-lg text-[#272322] leading-relaxed">
                   "{entry.quote}"
                 </p>
               </div>
 
               <div className="border-t border-[#9A5C3B]/20 pt-3 flex items-center justify-between">
                 <div>
-                  <p className="font-sans font-bold text-sm text-[#272322]">{entry.author}</p>
-                  <p className="font-mono text-[9.5px] uppercase tracking-[0.15em] text-[#9A5C3B] mt-0.5">
+                  <p className="font-sans font-bold text-xs sm:text-sm text-[#272322]">{entry.author}</p>
+                  <p className="font-mono text-[9px] sm:text-[9.5px] uppercase tracking-[0.15em] text-[#9A5C3B] mt-0.5">
                     {entry.meta}
                   </p>
                 </div>
                 <Sparkles className="w-4 h-4 text-[#9A5C3B]/50" />
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Action button to view all reviews */}
-        <div className="content-grid text-center pt-4">
+        <div className="content-grid text-center pt-2 md:pt-4">
           <Link
             href="/reviews"
-            className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] font-bold text-[#272322] border-b border-[#9A5C3B] pb-1 hover:text-[#9A5C3B] transition-colors"
+            className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.25em] font-bold text-[#272322] border-b border-[#9A5C3B] pb-1 hover:text-[#9A5C3B] transition-colors"
           >
             Read All Guest Stories & Google Reviews →
           </Link>
