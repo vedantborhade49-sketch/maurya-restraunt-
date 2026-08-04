@@ -91,7 +91,7 @@ export default function Navbar() {
             <img
               src="/morya-logo.png"
               alt="Maurya"
-              className="md:hidden h-8 w-auto object-contain transition-transform duration-300 active:scale-95"
+              className="md:hidden h-14 w-auto object-contain scale-[1.2] transition-transform duration-300 active:scale-95"
             />
           </Link>
 
@@ -172,7 +172,7 @@ export default function Navbar() {
             <img 
               src="/morya-logo.png"
               alt="Maurya"
-              className="h-10 w-auto object-contain"
+              className="h-16 w-auto object-contain scale-[1.2]"
             />
             <button 
               onClick={() => {

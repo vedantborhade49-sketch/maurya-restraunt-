@@ -51,12 +51,15 @@ export default function MobileEditorial() {
         transition={{ duration: 0.6, delay: 0.4 }}
         className="w-full flex flex-col gap-4 max-w-[340px]"
       >
-        <Link 
-          href="/visit#reserve" 
+        <button 
+          onClick={() => {
+            const { useTableStore } = require("@/stores/table-store");
+            useTableStore.getState().setIsOpen(true);
+          }}
           className="w-full h-[56px] bg-[#6D2323] text-[#F8F6F1] rounded-full flex items-center justify-center font-sans text-[16px] font-bold shadow-md active:scale-[0.98] transition-transform"
         >
-          Reserve A Table
-        </Link>
+          Order Online
+        </button>
         <Link 
           href="/menu" 
           className="w-full h-[56px] bg-transparent border border-[#B98532]/40 text-[#1F1F1F] rounded-full flex items-center justify-center font-sans text-[16px] font-bold active:scale-[0.98] transition-transform"

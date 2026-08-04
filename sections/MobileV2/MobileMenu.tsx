@@ -6,16 +6,16 @@ import { motion, useScroll, useTransform } from "framer-motion";
 const CATEGORIES = ["Starters", "Chinese", "Punjabi", "South Indian", "Rice", "Desserts"];
 
 const FEATURED_DISHES = [
-  { category: "Starters", name: "Paneer Tikka Ajwaini", desc: "Cottage cheese marinated in carom seeds, yogurt & ground spices, roasted in clay oven.", price: "₹395", img: "/dish-paneer-butter-masala.png" },
-  { category: "Chinese", name: "Kung Pao Paneer", desc: "Crispy paneer tossed with peanuts, dry red chillies, and classic kung pao sauce.", price: "₹375", img: "/dish-manchurian.png" },
-  { category: "Punjabi", name: "Dal Makhani", desc: "Our signature black lentils simmered overnight with tomatoes, butter and cream.", price: "₹345", img: "/editorial-table-feast.png" },
+  { id: "paneer-tikka", category: "Starters", name: "Paneer Tikka Ajwaini", desc: "Cottage cheese marinated in carom seeds, yogurt & ground spices, roasted in clay oven.", price: 395, img: "/dish-paneer-butter-masala.png" },
+  { id: "kung-pao", category: "Chinese", name: "Kung Pao Paneer", desc: "Crispy paneer tossed with peanuts, dry red chillies, and classic kung pao sauce.", price: 375, img: "/dish-manchurian.png" },
+  { id: "dal-makhani", category: "Punjabi", name: "Dal Makhani", desc: "Our signature black lentils simmered overnight with tomatoes, butter and cream.", price: 345, img: "/editorial-table-feast.png" },
 ];
 
 export default function MobileMenu() {
   const [activeCategory, setActiveCategory] = useState("Starters");
   
   return (
-    <section className="relative w-full bg-[#F8F6F1] pt-24 pb-32 text-[#1F1F1F]">
+    <section id="menu" className="relative w-full bg-[#F8F6F1] pt-24 pb-32 text-[#1F1F1F]">
       
       {/* Section Header */}
       <div className="px-5 mb-8 text-center">
@@ -74,8 +74,23 @@ export default function MobileMenu() {
                 {dish.desc}
               </p>
               <div className="flex items-center justify-between w-full border-t border-[#B98532]/20 pt-6">
-                <span className="font-sans text-[20px] font-bold text-[#6D2323]">{dish.price}</span>
-                <button className="h-[48px] px-8 bg-[#1F1F1F] text-[#F8F6F1] rounded-full font-sans text-[14px] font-bold uppercase tracking-wider active:scale-95 transition-transform shadow-md">
+                <span className="font-sans text-[20px] font-bold text-[#6D2323]">₹{dish.price}</span>
+                <button 
+                  onClick={() => {
+                    const { useTableStore } = require("@/stores/table-store");
+                    useTableStore.getState().addItem({
+                      id: dish.id,
+                      name: dish.name,
+                      price: dish.price,
+                      description: dish.desc,
+                      image_url: dish.img,
+                      category: dish.category,
+                      is_veg: true
+                    });
+                    useTableStore.getState().setIsOpen(true);
+                  }}
+                  className="h-[48px] px-8 bg-[#1F1F1F] text-[#F8F6F1] rounded-full font-sans text-[14px] font-bold uppercase tracking-wider active:scale-95 transition-transform shadow-md"
+                >
                   Add +
                 </button>
               </div>

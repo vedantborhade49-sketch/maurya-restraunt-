@@ -113,12 +113,15 @@ export default function MobileHero() {
             Order Online <ArrowRight className="w-4 h-4 stroke-[2.5]" />
           </button>
           
-          <Link
-            href="/menu"
+          <button
+            onClick={() => {
+              const el = document.getElementById("menu");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }}
             className="flex items-center justify-center gap-2 w-full bg-transparent text-[#F8F6F1] px-6 py-4 rounded-full font-sans text-[12px] font-extrabold uppercase tracking-[0.15em] border border-[#F8F6F1]/20 backdrop-blur-sm transition-colors active:bg-white/10"
           >
             Explore Menu
-          </Link>
+          </button>
         </motion.div>
       </div>
 
