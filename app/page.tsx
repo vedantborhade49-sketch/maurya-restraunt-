@@ -58,7 +58,7 @@ export default function Home() {
         </filter>
       </svg>
 
-      <main className="relative w-full bg-[#161413] text-[#F8F5EF] selection:bg-[#C62828] selection:text-[#F8F5EF]">
+      <main className="relative w-full bg-[#F8F6F1] md:bg-[#161413] text-[#1E1A17] md:text-[#F8F5EF] selection:bg-[#6D2323] selection:text-[#F8F5EF]">
 
         {/* Film grain */}
         <div
@@ -67,8 +67,8 @@ export default function Home() {
         />
 
 
-        {/* ── 1. HERO (Dark Vintage) ─────────────────────────────────── */}
-        <section className="sticky top-0 w-full min-h-[100dvh] md:h-[100dvh] overflow-hidden bg-[#1C1414] z-0 flex flex-col justify-between">
+        {/* ── 1. DESKTOP HERO (Dark Vintage) ─────────────────────────────────── */}
+        <section className="hidden md:flex sticky top-0 w-full min-h-[100dvh] md:h-[100dvh] overflow-hidden bg-[#1C1414] z-0 flex-col justify-between">
 
           {/* Background Layer 1: Mobile-Optimized Video Container */}
           <div className="absolute inset-0 w-full h-full overflow-hidden bg-[#1C1414]">
@@ -240,6 +240,77 @@ export default function Home() {
 
 
 
+        </section>
+
+        {/* ── 1. MOBILE HERO (Editorial Luxury - MAURYA V15) ───────────────── */}
+        <section className="md:hidden relative w-full min-h-[110vh] bg-[#F8F6F1] z-10 flex flex-col items-center pt-28 pb-12 px-5 text-[#1E1A17] overflow-hidden">
+          {/* Paper Texture Overlay */}
+          <div className="absolute inset-0 pointer-events-none opacity-[0.02]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")` }} />
+
+          {/* Chapter Label */}
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
+            className="flex flex-col items-center mb-8"
+          >
+            <span className="font-sans text-[9px] tracking-[0.3em] font-bold text-[#6D2323] uppercase mb-2">
+              WELCOME HOME
+            </span>
+            <div className="w-8 h-[1px] bg-[#B98532]" />
+          </motion.div>
+
+          {/* Large Serif Heading */}
+          <motion.h1 
+            initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }}
+            className="font-serif italic text-5xl leading-[1.1] text-center text-[#1E1A17] max-w-[280px] mx-auto mb-10"
+          >
+            Every Table<br/>Has A Story.
+          </motion.h1>
+
+          {/* Cinematic Photograph */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.2 }}
+            className="w-full aspect-[4/5] rounded-[24px] overflow-hidden mb-10 shadow-[0_10px_40px_rgba(0,0,0,0.08)]"
+          >
+            <img src="/home.png" alt="Maurya Elegant Dining Setup" className="w-full h-full object-cover" />
+          </motion.div>
+
+          {/* Statistic Cards */}
+          <div className="w-full grid grid-cols-3 gap-2 mb-10">
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }} className="bg-[#F8F6F1] border border-[#B98532]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center shadow-sm">
+              <span className="font-serif italic text-lg text-[#6D2323]">35+</span>
+              <span className="font-sans text-[8px] uppercase tracking-wider text-[#5A3A22] mt-1">Years of Legacy</span>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }} className="bg-[#F8F6F1] border border-[#B98532]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center shadow-sm">
+              <span className="font-serif italic text-lg text-[#6D2323]">100%</span>
+              <span className="font-sans text-[8px] uppercase tracking-wider text-[#5A3A22] mt-1">Pure Vegetarian</span>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.5 }} className="bg-[#F8F6F1] border border-[#B98532]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center shadow-sm">
+              <span className="font-serif italic text-lg text-[#6D2323]">4.9★</span>
+              <span className="font-sans text-[8px] uppercase tracking-wider text-[#5A3A22] mt-1">Google Rating</span>
+            </motion.div>
+          </div>
+
+          {/* Minimal Emotional Copy */}
+          <motion.p 
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.6 }}
+            className="font-sans font-light text-[15px] leading-[1.6] text-center text-[#5A3A22] max-w-[300px] mb-10"
+          >
+            Every meal begins with fresh ingredients, warm hospitality and ends with another beautiful memory.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.7 }}
+            className="w-full flex flex-col gap-3"
+          >
+            <Link href="/visit#reserve" className="w-full h-[56px] bg-[#6D2323] text-[#F8F6F1] rounded-full flex items-center justify-center gap-2 font-sans text-[11px] font-bold uppercase tracking-[0.15em] shadow-md active:scale-95 transition-transform">
+              Reserve A Table
+              <span className="text-[#B98532]">→</span>
+            </Link>
+            <Link href="/menu" className="w-full h-[56px] bg-transparent border border-[#B98532]/40 text-[#5A3A22] rounded-full flex items-center justify-center font-sans text-[11px] font-bold uppercase tracking-[0.15em] active:scale-95 transition-transform">
+              Explore Menu
+            </Link>
+          </motion.div>
         </section>
 
         {/* ── 2. STORY (Warm Ivory Paper) ───────────────────────────── */}

@@ -190,7 +190,7 @@ export default function InvitationSection() {
             <motion.div
               style={{ rotateX, rotateY }}
               whileTap={{ scale: 0.98 }}
-              className="relative w-full max-w-[500px] aspect-[4/3] sm:aspect-auto sm:h-[450px] transform-gpu"
+              className="relative w-full max-w-[600px] aspect-[4/3] sm:aspect-auto sm:h-[550px] transform-gpu"
             >
               {/* Material: Walnut wood/Paper base backboard layer */}
               <div 
