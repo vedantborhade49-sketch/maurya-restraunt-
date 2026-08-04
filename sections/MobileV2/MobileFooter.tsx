@@ -37,45 +37,45 @@ export default function MobileFooter() {
         </div>
 
         {/* Quick Nav Links */}
-        <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 mb-8 text-center w-full max-w-[280px]">
-          <Link href="/" className="font-mono text-[11px] uppercase tracking-widest font-bold text-[#350709]/70 hover:text-[#350709] transition-all">
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 mb-6 text-center w-full max-w-[280px]">
+          <Link href="/" className="font-mono text-[12px] uppercase tracking-widest font-bold text-[#350709]/80 hover:text-[#350709] transition-all min-h-[44px] inline-flex items-center px-2">
             Home
           </Link>
-          <Link href="/menu" className="font-mono text-[11px] uppercase tracking-widest font-bold text-[#350709]/70 hover:text-[#350709] transition-all">
+          <Link href="/menu" className="font-mono text-[12px] uppercase tracking-widest font-bold text-[#350709]/80 hover:text-[#350709] transition-all min-h-[44px] inline-flex items-center px-2">
             Menu
           </Link>
-          <Link href="/our-story" className="font-mono text-[11px] uppercase tracking-widest font-bold text-[#350709]/70 hover:text-[#350709] transition-all">
+          <Link href="/our-story" className="font-mono text-[12px] uppercase tracking-widest font-bold text-[#350709]/80 hover:text-[#350709] transition-all min-h-[44px] inline-flex items-center px-2">
             Story
           </Link>
-          <Link href="/gallery" className="font-mono text-[11px] uppercase tracking-widest font-bold text-[#350709]/70 hover:text-[#350709] transition-all">
+          <Link href="/gallery" className="font-mono text-[12px] uppercase tracking-widest font-bold text-[#350709]/80 hover:text-[#350709] transition-all min-h-[44px] inline-flex items-center px-2">
             Gallery
           </Link>
         </div>
 
         {/* Tiny Divider */}
-        <div className="w-8 h-[1px] bg-[#350709]/20 mb-8" />
+        <div className="w-8 h-[1px] bg-[#350709]/20 mb-6" />
 
         {/* Navigation Links */}
-        <div className="grid grid-cols-2 gap-x-12 gap-y-6 mb-[64px] text-center w-full max-w-[240px]">
-          <a href="https://maps.google.com/?q=Maurya+Pure+Veg+Restaurant+Kondhwa+Pune" target="_blank" rel="noopener noreferrer" className="font-sans text-[15px] font-normal tracking-wide text-[#350709] hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-3 mb-[48px] text-center w-full max-w-[260px]">
+          <a href="https://maps.google.com/?q=Maurya+Pure+Veg+Restaurant+Kondhwa+Pune" target="_blank" rel="noopener noreferrer" className="font-sans text-[15px] font-medium tracking-wide text-[#350709] min-h-[44px] inline-flex items-center justify-center hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
             Visit &rarr;
           </a>
-          <a href="tel:+917030777051" className="font-sans text-[15px] font-normal tracking-wide text-[#350709] hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
+          <a href="tel:+917030777051" className="font-sans text-[15px] font-medium tracking-wide text-[#350709] min-h-[44px] inline-flex items-center justify-center hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
             Call &rarr;
           </a>
-          <a href="https://www.instagram.com/restaurant_mauryaveg?igsh=djFnNDV6N2c1dTN1" target="_blank" rel="noopener noreferrer" className="font-sans text-[15px] font-normal tracking-wide text-[#350709] hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
+          <a href="https://www.instagram.com/restaurant_mauryaveg?igsh=djFnNDV6N2c1dTN1" target="_blank" rel="noopener noreferrer" className="font-sans text-[15px] font-medium tracking-wide text-[#350709] min-h-[44px] inline-flex items-center justify-center hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
             Instagram &rarr;
           </a>
-          <a href="https://www.google.com/search?client=ubuntu-chr&hs=vEl&sca_esv=dc96f26ba5476417&sxsrf=APpeQnuV0GUDvT8XWVnicsUZ6xpXKzHolw:1785874281776&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_6LJNp3rs9TdnT_8kcseuspc2A6dnaNwtKacpGWK-1Bi2QCIWbcOg6GIZMix8k6FLXz8dI2IJiD36h2k-M7dxNiYrTIlG4GzQg2nQutwGg54I1FFhQ%3D%3D&q=Maurya+Veg+Family+Restaurant+Reviews&sa=X&ved=2ahUKEwiY27aR5IeWAxWKkeEIHaJEOq4Q0bkNegQIOxAH&biw=1366&bih=649&dpr=1#lrd=0x3bc2eb08e54c74ed:0xc584a87476215455,3,,,," target="_blank" rel="noopener noreferrer" className="font-sans text-[15px] font-normal tracking-wide text-[#350709] hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
+          <a href="https://www.google.com/search?client=ubuntu-chr&hs=vEl&sca_esv=dc96f26ba5476417&sxsrf=APpeQnuV0GUDvT8XWVnicsUZ6xpXKzHolw:1785874281776&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_6LJNp3rs9TdnT_8kcseuspc2A6dnaNwtKacpGWK-1Bi2QCIWbcOg6GIZMix8k6FLXz8dI2IJiD36h2k-M7dxNiYrTIlG4GzQg2nQutwGg54I1FFhQ%3D%3D&q=Maurya+Veg+Family+Restaurant+Reviews&sa=X&ved=2ahUKEwiY27aR5IeWAxWKkeEIHaJEOq4Q0bkNegQIOxAH&biw=1366&bih=649&dpr=1#lrd=0x3bc2eb08e54c74ed:0xc584a87476215455,3,,,," target="_blank" rel="noopener noreferrer" className="font-sans text-[15px] font-medium tracking-wide text-[#350709] min-h-[44px] inline-flex items-center justify-center hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
             Reviews &rarr;
           </a>
         </div>
 
         {/* Order Online CTA */}
-        <div className="mb-[64px]">
+        <div className="mb-[48px]">
           <button 
             onClick={() => useTableStore.getState().setIsOpen(true)}
-            className="font-sans text-[15px] font-normal tracking-wide text-[#350709] hover:underline underline-offset-4 decoration-[#350709]/40 transition-all cursor-pointer"
+            className="font-sans text-[16px] font-bold tracking-wide text-[#8F1115] hover:underline underline-offset-4 min-h-[44px] inline-flex items-center px-4 transition-all cursor-pointer"
           >
             Order Online &rarr;
           </button>

@@ -12,12 +12,12 @@ const GALLERY_IMAGES = [
 
 export default function MobileGallery() {
   return (
-    <section className="relative w-full bg-[#F8F6F1] py-24 overflow-hidden">
-      <div className="px-5 mb-10">
-        <h2 className="font-sans text-[15px] tracking-[0.25em] font-bold text-[#6D2323] uppercase mb-4">
+    <section id="gallery" className="relative w-full bg-[#1C1414] py-20 text-[#F8F6F1] overflow-hidden">
+      <div className="px-6 mb-8 text-center">
+        <h2 className="font-sans text-[12px] tracking-[0.25em] font-bold text-[#B98532] uppercase mb-2">
           Atmosphere
         </h2>
-        <h3 className="font-serif italic text-[36px] leading-tight text-[#1F1F1F]">
+        <h3 className="font-serif italic text-[32px] leading-tight text-[#F8F6F1]">
           The Dining <br/>Room
         </h3>
       </div>
@@ -40,7 +40,7 @@ export default function MobileGallery() {
       {/* Scroll Hint */}
       <div className="flex justify-center mt-2 gap-2">
         {GALLERY_IMAGES.map((_, i) => (
-          <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#1F1F1F]/20" />
+          <div key={i} className="w-1.5 h-1.5 rounded-full bg-white/20" />
         ))}
       </div>
     </section>

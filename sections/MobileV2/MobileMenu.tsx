@@ -15,29 +15,29 @@ export default function MobileMenu() {
   const [activeCategory, setActiveCategory] = useState("Starters");
   
   return (
-    <section id="menu" className="relative w-full bg-[#F8F6F1] pt-24 pb-32 text-[#1F1F1F]">
+    <section id="menu" className="relative w-full bg-[#F8F6F1] pt-20 pb-24 text-[#1F1F1F]">
       
       {/* Section Header */}
-      <div className="px-5 mb-8 text-center">
-        <h2 className="font-sans text-[15px] tracking-[0.25em] font-bold text-[#6D2323] uppercase mb-4">
+      <div className="px-6 mb-8 text-center">
+        <h2 className="font-sans text-[12px] tracking-[0.25em] font-bold text-[#6D2323] uppercase mb-2">
           Culinary Journey
         </h2>
-        <h3 className="font-serif italic text-[36px] leading-tight text-[#1F1F1F]">
+        <h3 className="font-serif italic text-[32px] leading-tight text-[#1F1F1F]">
           A Taste of <br/>Heritage
         </h3>
       </div>
 
       {/* Sticky Category Rail */}
-      <div className="sticky top-[68px] z-40 w-full bg-[#F8F6F1]/95 backdrop-blur-md border-y border-[#B98532]/20 shadow-sm py-4 mb-10">
-        <div className="flex overflow-x-auto gap-6 px-5 no-scrollbar scroll-smooth snap-x">
+      <div className="sticky top-[68px] z-40 w-full bg-[#F8F6F1]/95 backdrop-blur-md border-y border-[#B98532]/20 shadow-sm py-3.5 mb-10">
+        <div className="flex overflow-x-auto gap-5 px-6 no-scrollbar scroll-smooth snap-x">
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`whitespace-nowrap font-sans text-[16px] transition-colors snap-center ${
+              className={`whitespace-nowrap font-sans text-[15px] transition-colors snap-center ${
                 activeCategory === cat 
-                  ? "text-[#6D2323] font-bold border-b-2 border-[#6D2323] pb-1" 
-                  : "text-[#1F1F1F]/60 font-medium pb-1"
+                  ? "text-[#6D2323] font-bold border-b-2 border-[#6D2323] pb-0.5" 
+                  : "text-[#1F1F1F]/60 font-medium pb-0.5"
               }`}
             >
               {cat}
@@ -47,34 +47,34 @@ export default function MobileMenu() {
       </div>
 
       {/* Featured Dishes List */}
-      <div className="px-5 flex flex-col gap-12">
+      <div className="px-6 flex flex-col gap-10 max-w-[420px] mx-auto">
         {FEATURED_DISHES.map((dish, i) => (
           <motion.div 
             key={i}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col w-full"
+            className="flex flex-col w-full bg-white p-5 rounded-[24px] shadow-md border border-[#B98532]/15"
           >
-            {/* Large Image */}
-            <div className="w-full aspect-square rounded-[24px] overflow-hidden mb-6 shadow-md border border-[#B98532]/10 bg-white">
+            {/* Dish Image */}
+            <div className="w-full aspect-[4/3] rounded-[18px] overflow-hidden mb-5 bg-[#1C1414] relative">
               <img src={dish.img} alt={dish.name} className="w-full h-full object-cover" />
             </div>
             
             {/* Dish Info */}
-            <div className="flex flex-col items-center text-center px-4">
-              <span className="font-sans text-[12px] uppercase tracking-widest text-[#B98532] font-bold mb-3">
+            <div className="flex flex-col items-start text-left">
+              <span className="font-sans text-[11px] uppercase tracking-widest text-[#B98532] font-bold mb-1">
                 {dish.category}
               </span>
-              <h4 className="font-serif text-[28px] text-[#1F1F1F] mb-3 leading-tight">
+              <h4 className="font-serif text-[24px] text-[#1F1F1F] mb-2 leading-tight">
                 {dish.name}
               </h4>
-              <p className="font-sans text-[16px] leading-[1.6] text-[#1F1F1F]/70 mb-6">
+              <p className="font-sans text-[14px] leading-[1.5] text-[#1F1F1F]/70 mb-5">
                 {dish.desc}
               </p>
-              <div className="flex items-center justify-between w-full border-t border-[#B98532]/20 pt-6">
-                <span className="font-sans text-[20px] font-bold text-[#6D2323]">₹{dish.price}</span>
+              <div className="flex items-center justify-between w-full border-t border-[#B98532]/10 pt-4">
+                <span className="font-sans text-[18px] font-bold text-[#6D2323]">₹{dish.price}</span>
                 <button 
                   onClick={() => {
                     const { useTableStore } = require("@/stores/table-store");
@@ -89,7 +89,7 @@ export default function MobileMenu() {
                     });
                     useTableStore.getState().setIsOpen(true);
                   }}
-                  className="h-[48px] px-8 bg-[#1F1F1F] text-[#F8F6F1] rounded-full font-sans text-[14px] font-bold uppercase tracking-wider active:scale-95 transition-transform shadow-md"
+                  className="h-[44px] px-6 bg-[#1F1F1F] text-[#F8F6F1] rounded-full font-sans text-[12px] font-bold uppercase tracking-wider active:scale-95 transition-transform shadow-sm flex items-center justify-center"
                 >
                   Add +
                 </button>
