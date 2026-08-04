@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 
 const GALLERY_IMAGES = [
   "/home.png",
-  "/paneer.jpg",
-  "/chinese.png",
-  "/dal.png"
+  "/inside1.jpeg",
+  "/inside2.jpeg",
+  "/inside3.png"
 ];
 
 export default function MobileGallery() {

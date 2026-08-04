@@ -6,9 +6,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 const CATEGORIES = ["Starters", "Chinese", "Punjabi", "South Indian", "Rice", "Desserts"];
 
 const FEATURED_DISHES = [
-  { category: "Starters", name: "Paneer Tikka Ajwaini", desc: "Cottage cheese marinated in carom seeds, yogurt & ground spices, roasted in clay oven.", price: "₹395", img: "/paneer.jpg" },
-  { category: "Chinese", name: "Kung Pao Paneer", desc: "Crispy paneer tossed with peanuts, dry red chillies, and classic kung pao sauce.", price: "₹375", img: "/chinese.png" },
-  { category: "Punjabi", name: "Dal Makhani", desc: "Our signature black lentils simmered overnight with tomatoes, butter and cream.", price: "₹345", img: "/dal.png" },
+  { category: "Starters", name: "Paneer Tikka Ajwaini", desc: "Cottage cheese marinated in carom seeds, yogurt & ground spices, roasted in clay oven.", price: "₹395", img: "/dish-paneer-butter-masala.png" },
+  { category: "Chinese", name: "Kung Pao Paneer", desc: "Crispy paneer tossed with peanuts, dry red chillies, and classic kung pao sauce.", price: "₹375", img: "/dish-manchurian.png" },
+  { category: "Punjabi", name: "Dal Makhani", desc: "Our signature black lentils simmered overnight with tomatoes, butter and cream.", price: "₹345", img: "/editorial-table-feast.png" },
 ];
 
 export default function MobileMenu() {

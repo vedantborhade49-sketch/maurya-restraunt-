@@ -5,7 +5,6 @@ import gsap from "gsap";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import InvitationSection from "@/sections/Chapter02/InvitationSection";
-import PureVegPromise from "@/sections/PureVegPromise/PureVegPromise";
 import Chapter04 from "@/sections/Chapter04/Chapter04";
 import Guestbook from "@/sections/Guestbook/Guestbook";
 
@@ -264,11 +263,6 @@ export default function Home() {
         {/* ── 3. DESKTOP STORY (Warm Ivory Paper) ──────────────────────── */}
         <div className="hidden md:block">
           <InvitationSection />
-        </div>
-
-        {/* ── 4. DESKTOP PROMISE (Forest Green) ────────────────────────── */}
-        <div className="hidden md:block">
-          <PureVegPromise />
         </div>
 
         {/* ── 5. DESKTOP GALLERY / SPACE (Dark Wood Grain) ─────────────── */}

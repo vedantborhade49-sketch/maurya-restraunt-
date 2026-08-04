@@ -44,7 +44,7 @@ export default function MobileStory() {
           className="flex flex-col px-5"
         >
           <div className="w-full aspect-[3/4] rounded-[24px] overflow-hidden mb-8 shadow-xl">
-            <img src="/paneer.jpg" alt="Craftsmanship" className="w-full h-full object-cover filter brightness-90 grayscale-[20%]" />
+            <img src="/editorial-spices.png" alt="Craftsmanship" className="w-full h-full object-cover filter brightness-90 grayscale-[20%]" />
           </div>
           <h4 className="font-serif text-[28px] text-[#F8F6F1] mb-4 leading-tight">
             The Craft

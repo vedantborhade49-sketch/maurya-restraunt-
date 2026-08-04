@@ -120,7 +120,16 @@ export default function Guestbook() {
       ref={sectionRef}
       className="relative w-full material-light text-[#272322] py-12 md:py-36 overflow-hidden font-sans border-t border-[#9A5C3B]/20 select-none"
     >
-      <div className="container-maurya space-y-8 md:space-y-12">
+      {/* Subtle Journal Dot Pattern Background */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.15]"
+        style={{
+          backgroundImage: `radial-gradient(#9A5C3B 1px, transparent 1px)`,
+          backgroundSize: '24px 24px'
+        }}
+      />
+
+      <div className="relative z-10 container-maurya space-y-8 md:space-y-12">
         
         {/* Header Block & Google Rating Summary */}
         <div className="gb-header content-grid text-center space-y-4 md:space-y-6 max-w-3xl mx-auto">

@@ -97,15 +97,19 @@ export default function Chapter04() {
       ref={containerRef} 
       className={`relative w-full bg-[#141010] text-[#F8F5EF] overflow-hidden z-20 flex flex-col items-center justify-center ${isMobile ? "py-12 min-h-[420px]" : "h-screen"}`}
     >
+      {/* Subtle Dark Background Pattern */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.06] mix-blend-overlay"
+        style={{
+          backgroundImage: `radial-gradient(#9A5C3B 1.5px, transparent 1.5px)`,
+          backgroundSize: '32px 32px'
+        }}
+      />
+
       {/* Real-time Atmospheric Culinary Smoke & Spice Embers Effect */}
       <CulinarySmokeEffect />
 
-      {/* Decorative Vintage Ring Frame around center content */}
-      <div className="absolute inset-8 sm:inset-16 md:inset-24 border border-[#9A5C3B]/20 pointer-events-none rounded-sm z-10 hidden sm:block">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#141010] px-4 font-mono text-[9px] uppercase tracking-[0.3em] text-[#9A5C3B]/60">
-          MAURYA • HERITAGE CRAFT
-        </div>
-      </div>
+
 
       {/* Typography and Layout */}
       <div className={`relative z-20 container-maurya flex flex-col items-center justify-center text-center my-auto ${isMobile ? "py-4" : "py-16 md:py-24"}`}>
