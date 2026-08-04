@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Clock, MessageSquare, Calendar, Users, CheckCircle2, Navigation } from "lucide-react";
+import { MapPin, Phone, Clock, MessageSquare, Calendar, Users, CheckCircle2, Navigation, Leaf, Car, Wind, Star, Sparkles } from "lucide-react";
 
 export default function MobileVisit() {
   const [formData, setFormData] = useState({
@@ -269,31 +269,47 @@ export default function MobileVisit() {
         </div>
       </section>
 
-      {/* ─── 5. DINING AMENITIES ─── */}
+      {/* ─── 5. DINING AMENITIES (LUXURY BADGES) ─── */}
       <div className="px-6 py-6 w-full max-w-[440px] mx-auto">
-        <div className="grid grid-cols-2 gap-3">
-          <div className="bg-[#1C1414] border border-white/10 rounded-2xl p-4 flex flex-col items-center text-center">
-            <span className="text-[#164C2B] text-xl font-bold mb-1">🌿 100%</span>
-            <span className="font-sans text-[12px] font-bold text-[#F8F6F1]">Pure Vegetarian</span>
-            <span className="font-sans text-[10px] text-[#F8F6F1]/60 mt-0.5">Strict satvik & veg kitchen</span>
+        <div className="grid grid-cols-2 gap-3.5">
+          {/* Card 1 */}
+          <div className="bg-gradient-to-b from-[#2A0E11] to-[#1A0A0C] border border-[#B98532]/30 rounded-[20px] p-4 flex flex-col items-center text-center shadow-lg relative overflow-hidden">
+            <div className="w-10 h-10 rounded-full bg-[#164C2B]/30 border border-[#4ADE80]/40 flex items-center justify-center mb-2.5 shadow-inner">
+              <Leaf className="w-5 h-5 text-[#4ADE80]" />
+            </div>
+            <span className="font-mono text-[11px] uppercase tracking-wider text-[#4ADE80] font-extrabold">100% Satvik</span>
+            <span className="font-sans text-[13px] font-bold text-[#F8F6F1] mt-0.5">Pure Vegetarian</span>
+            <span className="font-sans text-[10px] text-[#F8F6F1]/60 mt-0.5 leading-tight">Strict pure veg kitchen</span>
           </div>
 
-          <div className="bg-[#1C1414] border border-white/10 rounded-2xl p-4 flex flex-col items-center text-center">
-            <span className="text-[#B98532] text-xl font-bold mb-1">🚗 Valet</span>
-            <span className="font-sans text-[12px] font-bold text-[#F8F6F1]">Ample Parking</span>
-            <span className="font-sans text-[10px] text-[#F8F6F1]/60 mt-0.5">Hassle-free family arrival</span>
+          {/* Card 2 */}
+          <div className="bg-gradient-to-b from-[#2A0E11] to-[#1A0A0C] border border-[#B98532]/30 rounded-[20px] p-4 flex flex-col items-center text-center shadow-lg relative overflow-hidden">
+            <div className="w-10 h-10 rounded-full bg-[#B98532]/20 border border-[#FFCC00]/40 flex items-center justify-center mb-2.5 shadow-inner">
+              <Car className="w-5 h-5 text-[#FFCC00]" />
+            </div>
+            <span className="font-mono text-[11px] uppercase tracking-wider text-[#FFCC00] font-extrabold">Valet Parking</span>
+            <span className="font-sans text-[13px] font-bold text-[#F8F6F1] mt-0.5">Ample Space</span>
+            <span className="font-sans text-[10px] text-[#F8F6F1]/60 mt-0.5 leading-tight">Hassle-free arrival</span>
           </div>
 
-          <div className="bg-[#1C1414] border border-white/10 rounded-2xl p-4 flex flex-col items-center text-center">
-            <span className="text-[#B98532] text-xl font-bold mb-1">❄️ AC Dining</span>
-            <span className="font-sans text-[12px] font-bold text-[#F8F6F1]">Comfortable Hall</span>
-            <span className="font-sans text-[10px] text-[#F8F6F1]/60 mt-0.5">Spacious & family friendly</span>
+          {/* Card 3 */}
+          <div className="bg-gradient-to-b from-[#2A0E11] to-[#1A0A0C] border border-[#B98532]/30 rounded-[20px] p-4 flex flex-col items-center text-center shadow-lg relative overflow-hidden">
+            <div className="w-10 h-10 rounded-full bg-[#0284C7]/20 border border-[#38BDF8]/40 flex items-center justify-center mb-2.5 shadow-inner">
+              <Wind className="w-5 h-5 text-[#38BDF8]" />
+            </div>
+            <span className="font-mono text-[11px] uppercase tracking-wider text-[#38BDF8] font-extrabold">AC Dining</span>
+            <span className="font-sans text-[13px] font-bold text-[#F8F6F1] mt-0.5">Luxury Ambience</span>
+            <span className="font-sans text-[10px] text-[#F8F6F1]/60 mt-0.5 leading-tight">Family dining hall</span>
           </div>
 
-          <div className="bg-[#1C1414] border border-white/10 rounded-2xl p-4 flex flex-col items-center text-center">
-            <span className="text-[#4285F4] text-xl font-bold mb-1">⭐ 4.9★</span>
-            <span className="font-sans text-[12px] font-bold text-[#F8F6F1]">Top Rated</span>
-            <span className="font-sans text-[10px] text-[#F8F6F1]/60 mt-0.5">Over 3,000+ happy reviews</span>
+          {/* Card 4 */}
+          <div className="bg-gradient-to-b from-[#2A0E11] to-[#1A0A0C] border border-[#B98532]/30 rounded-[20px] p-4 flex flex-col items-center text-center shadow-lg relative overflow-hidden">
+            <div className="w-10 h-10 rounded-full bg-[#B98532]/20 border border-[#F59E0B]/40 flex items-center justify-center mb-2.5 shadow-inner">
+              <Star className="w-5 h-5 text-[#F59E0B] fill-[#F59E0B]" />
+            </div>
+            <span className="font-mono text-[11px] uppercase tracking-wider text-[#F59E0B] font-extrabold">4.9 ★ Rating</span>
+            <span className="font-sans text-[13px] font-bold text-[#F8F6F1] mt-0.5">Top Rated</span>
+            <span className="font-sans text-[10px] text-[#F8F6F1]/60 mt-0.5 leading-tight">3,000+ happy reviews</span>
           </div>
         </div>
       </div>
