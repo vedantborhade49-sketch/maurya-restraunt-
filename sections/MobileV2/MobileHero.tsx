@@ -114,15 +114,12 @@ export default function MobileHero() {
             Order Online <ArrowRight className="w-4 h-4 stroke-[2.5]" />
           </button>
           
-          <button
-            onClick={() => {
-              const el = document.getElementById("menu");
-              if (el) el.scrollIntoView({ behavior: "smooth" });
-            }}
+          <Link
+            href="/menu"
             className="flex items-center justify-center gap-2 w-full h-[52px] bg-white/10 hover:bg-white/20 text-[#F8F6F1] px-6 rounded-full font-sans text-[13px] font-extrabold uppercase tracking-[0.15em] border border-[#F8F6F1]/20 backdrop-blur-md transition-all active:scale-[0.98]"
           >
             Explore Menu
-          </button>
+          </Link>
         </motion.div>
       </div>
 

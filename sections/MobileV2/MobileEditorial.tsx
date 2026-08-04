@@ -60,15 +60,12 @@ export default function MobileEditorial() {
         >
           Order Online
         </button>
-        <button 
-          onClick={() => {
-            const el = document.getElementById("menu");
-            if (el) el.scrollIntoView({ behavior: "smooth" });
-          }}
+        <Link 
+          href="/menu" 
           className="w-full h-[52px] bg-transparent border border-[#B98532]/40 text-[#1F1F1F] rounded-full flex items-center justify-center font-sans text-[14px] font-bold tracking-wider uppercase active:scale-[0.98] transition-transform"
         >
           Explore Menu
-        </button>
+        </Link>
       </motion.div>
     </section>
   );
