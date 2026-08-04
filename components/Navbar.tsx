@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { useTableStore } from "../stores/table-store";
 import { Menu, X } from "lucide-react";
 
@@ -14,6 +15,13 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [mounted, setMounted] = useState(false);
+  
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   const isAdmin = pathname?.startsWith("/admin");
 
@@ -55,12 +63,16 @@ export default function Navbar() {
 
   return (
     <>
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[2px] bg-[#9A5C3B] origin-left z-[60]"
+        style={{ scaleX }}
+      />
       <header
         ref={navRef}
-        className={`fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[94%] max-w-6xl z-50 flex items-center transition-all duration-500 rounded-full border border-[#9A5C3B]/45 shadow-[0_25px_60px_rgba(0,0,0,0.6)] ${
+        className={`fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[94%] max-w-6xl z-50 flex items-center transition-all duration-500 rounded-full border border-[#9A5C3B]/45 shadow-sm md:shadow-[0_25px_60px_rgba(0,0,0,0.6)] ${
           isExpanded
-            ? "h-14 md:h-16 bg-[#472020]/95 backdrop-blur-md px-5 md:px-8"
-            : "h-16 md:h-20 bg-[#161413]/95 backdrop-blur-md px-5 md:px-8"
+            ? "h-[64px] md:h-16 bg-[#F8F5EF]/90 md:bg-[#472020]/95 backdrop-blur-md px-5 md:px-8 text-[#1C1414] md:text-white"
+            : "h-[64px] md:h-20 bg-[#F8F5EF]/90 md:bg-[#161413]/95 backdrop-blur-md px-5 md:px-8 text-[#1C1414] md:text-white"
         }`}
         id="main-navbar"
         style={{
@@ -70,10 +82,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between w-full">
           {/* Logo on Left */}
           <Link href="/" className="flex items-center shrink-0 pl-1 md:pl-2">
-            <img
               src="/morya-logo.png"
               alt="Maurya"
-              className="h-8 md:h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              className="h-8 md:h-10 w-auto object-contain transition-transform duration-300 hover:scale-105 md:filter-none brightness-0 md:brightness-100"
             />
           </Link>
 
@@ -121,22 +132,20 @@ export default function Navbar() {
             </button>
 
             {/* Mobile View Order Button */}
-            <button
-              onClick={() => setIsOpen(true)}
-              className="flex md:hidden items-center gap-1.5 px-4 py-2 bg-[#8F1115] hover:bg-[#A3161A] text-[#F8F5EF] border border-[#FFCC00]/50 rounded-full font-sans text-[10px] font-bold uppercase tracking-wider transition-all shadow-md"
+            <Link
+              href="/visit#reserve"
+              className="flex md:hidden items-center gap-1.5 px-5 py-2.5 bg-[#472020] text-[#F8F5EF] border border-[#9A5C3B]/30 rounded-full font-sans text-[11px] font-bold uppercase tracking-[0.1em] transition-all"
             >
-              <span>ORDER &rarr;</span>
-              {itemCount > 0 && (
-                <span className="font-mono text-[9px] bg-[#FFCC00] text-black font-extrabold px-1.5 py-0.5 rounded-full">
-                  {itemCount}
-                </span>
-              )}
-            </button>
+              Reserve
+            </Link>
 
             {/* Mobile Hamburger Trigger */}
             <button
-              onClick={() => setMobileMenuOpen(true)}
-              className="text-[#F8F5EF] hover:text-[#FFCC00] transition-colors md:hidden p-1.5 ml-1 rounded-full bg-white/5 border border-white/10"
+              onClick={() => {
+                setMobileMenuOpen(true);
+                if (navigator.vibrate) navigator.vibrate(10); // Haptic feedback
+              }}
+              className="text-[#1C1414] hover:text-[#9A5C3B] transition-colors md:hidden p-2 ml-1 rounded-full bg-black/5"
               aria-label="Open Menu"
             >
               <Menu className="w-5 h-5" />
@@ -145,21 +154,21 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Drawer Menu (Wine Red full screen panel) */}
+      {/* Mobile Drawer Menu (Warm Ivory full screen panel sliding from right) */}
       <div 
-        className={`fixed inset-0 z-[100] bg-[#472020] flex flex-col justify-between p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden ${
-          mobileMenuOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-full pointer-events-none"
+        className={`fixed inset-0 z-[100] bg-[#F8F5EF] flex flex-col justify-between p-8 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden ${
+          mobileMenuOpen ? "translate-x-0 shadow-[-20px_0_40px_rgba(0,0,0,0.1)] pointer-events-auto" : "translate-x-full pointer-events-none"
         }`}
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E")`,
-        }}
       >
         <div>
-          <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-12">
-            <img src="/morya-logo.png" alt="Maurya" className="h-10 w-auto object-contain brightness-0 invert" />
+          <div className="flex items-center justify-between border-b border-[#472020]/10 pb-6 mb-12">
+            <img src="/morya-logo.png" alt="Maurya" className="h-10 w-auto object-contain brightness-0" />
             <button 
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-[#F8F5EF] hover:text-[#9A5C3B] transition-colors"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                if (navigator.vibrate) navigator.vibrate(10);
+              }}
+              className="text-[#472020] hover:text-[#9A5C3B] transition-colors p-2"
             >
               <X className="w-6 h-6" />
             </button>
@@ -174,8 +183,8 @@ export default function Navbar() {
                 <Link 
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-baseline gap-4 hover:text-[#9A5C3B] text-[#F8F5EF] transition-all duration-500 transform ${
-                    mobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+                  className={`flex items-baseline gap-4 hover:text-[#472020] text-[#1C1414] transition-all duration-500 transform ${
+                    mobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
                   }`}
                   style={{ 
                     transitionDelay: mobileMenuOpen ? `${i * 80}ms` : "0ms",
@@ -184,7 +193,7 @@ export default function Navbar() {
                   <span className="font-sans text-xs tracking-widest text-[#9A5C3B] font-bold">
                     {item.prefix}
                   </span>
-                  <span className="font-serif font-bold italic text-4xl sm:text-5xl tracking-tight">
+                  <span className="font-serif font-bold italic text-4xl sm:text-5xl tracking-tight text-[#472020]">
                     {item.label}
                   </span>
                 </Link>
@@ -193,7 +202,7 @@ export default function Navbar() {
           </nav>
         </div>
 
-        <div className="border-t border-white/5 pt-6 text-[10px] tracking-[0.18em] uppercase text-[#F8F5EF]/40 font-sans">
+        <div className="border-t border-[#472020]/10 pt-6 text-[10px] tracking-[0.18em] uppercase text-[#1C1414]/60 font-sans">
           KONDHWA · PUNE
         </div>
       </div>

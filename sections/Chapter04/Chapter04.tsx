@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
 import { MarginNote } from "@/components/MicroArtifacts";
 import CulinarySmokeEffect from "@/components/CulinarySmokeEffect";
 
@@ -60,8 +59,9 @@ export default function Chapter04() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
+          pin: true,
           start: "top top",
-          end: "bottom top",
+          end: "+=120%",
           scrub: 1,
         }
       });
@@ -95,7 +95,7 @@ export default function Chapter04() {
   return (
     <section 
       ref={containerRef} 
-      className={`relative w-full bg-[#141010] text-[#F8F5EF] overflow-hidden z-20 flex flex-col items-center justify-start ${isMobile ? "py-12" : "py-24"}`}
+      className={`relative w-full bg-[#141010] text-[#F8F5EF] overflow-hidden z-20 flex flex-col items-center justify-center ${isMobile ? "py-12 min-h-[420px]" : "h-screen"}`}
     >
       {/* Real-time Atmospheric Culinary Smoke & Spice Embers Effect */}
       <CulinarySmokeEffect />
@@ -141,56 +141,6 @@ export default function Chapter04() {
 
         </div>
 
-      </div>
-
-      {/* Gallery Showcase Grid */}
-      <div className="relative w-full max-w-[1400px] mx-auto mt-12 md:mt-24 px-4 sm:px-6 md:px-12 z-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-          
-          {/* Main Large Image */}
-          <div className="reveal-line md:col-span-2 relative aspect-[4/3] w-full overflow-hidden rounded-sm group">
-            <Image 
-              src="/editorial-living-table.png"
-              alt="Dining Atmosphere"
-              fill
-              className="object-cover scale-105 group-hover:scale-100 transition-transform duration-[8s] ease-out opacity-90 group-hover:opacity-100"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none opacity-80" />
-            <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 font-mono text-[9px] md:text-[10px] uppercase tracking-widest text-[#F8F5EF]/80">
-              01 // The Ambiance
-            </div>
-          </div>
-
-          {/* Side Stack */}
-          <div className="flex flex-col gap-4 md:gap-8">
-            <div className="reveal-line relative aspect-square md:aspect-auto md:h-full w-full overflow-hidden rounded-sm group">
-              <Image 
-                src="/inside3.png"
-                alt="Interior Detail"
-                fill
-                className="object-cover scale-105 group-hover:scale-100 transition-transform duration-[8s] ease-out opacity-90 group-hover:opacity-100"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none opacity-80" />
-              <div className="absolute bottom-4 left-4 font-mono text-[9px] uppercase tracking-widest text-[#F8F5EF]/80">
-                02 // The Craft
-              </div>
-            </div>
-
-            <div className="reveal-line relative aspect-square md:aspect-auto md:h-full w-full overflow-hidden rounded-sm group">
-              <Image 
-                src="/editorial-spices.png"
-                alt="Culinary Ingredients"
-                fill
-                className="object-cover scale-105 group-hover:scale-100 transition-transform duration-[8s] ease-out opacity-90 group-hover:opacity-100"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none opacity-80" />
-              <div className="absolute bottom-4 left-4 font-mono text-[9px] uppercase tracking-widest text-[#F8F5EF]/80">
-                03 // The Ingredients
-              </div>
-            </div>
-          </div>
-
-        </div>
       </div>
 
     </section>

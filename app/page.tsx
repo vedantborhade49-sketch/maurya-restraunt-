@@ -5,6 +5,7 @@ import gsap from "gsap";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import InvitationSection from "@/sections/Chapter02/InvitationSection";
+import Chapter03 from "@/sections/Chapter03/Chapter03";
 import PureVegPromise from "@/sections/PureVegPromise/PureVegPromise";
 import Chapter04 from "@/sections/Chapter04/Chapter04";
 import Guestbook from "@/sections/Guestbook/Guestbook";
@@ -244,6 +245,9 @@ export default function Home() {
 
         {/* ── 2. STORY (Warm Ivory Paper) ───────────────────────────── */}
         <InvitationSection />
+
+        {/* ── 3. MENU PREVIEW (Warm Beige) ──────────────────────────── */}
+        <Chapter03 />
 
         {/* ── 4. PROMISE (Forest Green) ─────────────────────────────── */}
         <PureVegPromise />
