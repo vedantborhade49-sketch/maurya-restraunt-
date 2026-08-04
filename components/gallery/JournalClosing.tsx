@@ -52,12 +52,12 @@ export default function JournalClosing() {
         
         {/* Cinematic Full-Width Photo */}
         <div className="absolute inset-0 z-0 bg-[#161413]">
-          <div ref={imageRef} className="absolute inset-[-5%] w-[110%] h-[110%]">
+          <div ref={imageRef} className="absolute inset-0 w-full h-full p-4 md:p-12">
             <Image
               src="/new-outside.jpg.png"
               alt="Maurya Night Ambience"
               fill
-              className="object-cover"
+              className="object-contain"
               style={{ objectPosition: "center center" }}
               sizes="100vw"
             />
