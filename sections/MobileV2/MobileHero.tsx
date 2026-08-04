@@ -8,9 +8,17 @@ import { useTableStore } from "@/stores/table-store";
 
 const slides = [
   "/editorial-table-feast.png",
-  "/outside.jpeg",
+  "/editorial-food-1.png",
+  "/editorial-food-2.png",
+  "/editorial-food-3.png",
   "/inside1.jpeg",
-  "/editorial-food-1.png"
+  "/editorial-food-4.png",
+  "/editorial-food-5.png",
+  "/dish-paneer-butter-masala.png",
+  "/cooking.jpeg",
+  "/outside.jpeg",
+  "/dish-veg-biryani.png",
+  "/dish-masala-dosa.png"
 ];
 
 export default function MobileHero() {
@@ -34,7 +42,7 @@ export default function MobileHero() {
   return (
     <section 
       ref={containerRef} 
-      className="relative w-full h-[100dvh] bg-[#1C1414] flex flex-col justify-end overflow-hidden"
+      className="relative w-full h-[100svh] bg-[#1C1414] flex flex-col justify-end overflow-hidden"
     >
       {/* Background Cinematic Slideshow */}
       <motion.div 
