@@ -68,7 +68,7 @@ export default function Chapter03FarmToPlate() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-28 md:py-36 px-6 md:px-12 bg-[#F6F1E8] text-[#350709] overflow-hidden"
+      className="relative w-full pt-16 pb-28 md:pt-20 md:pb-36 px-6 md:px-12 bg-[#F6F1E8] text-[#350709] overflow-hidden"
     >
       <div className="max-w-[1320px] mx-auto space-y-16">
         

@@ -53,7 +53,7 @@ export default function Chapter02LivingTable() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-28 md:py-40 px-6 md:px-16 bg-[#F8F6F1] text-[#350709] overflow-hidden"
+      className="relative w-full pt-28 pb-16 md:pt-40 md:pb-20 px-6 md:px-16 bg-[#F8F6F1] text-[#350709] overflow-hidden"
     >
       <div className="max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
         
