@@ -71,8 +71,8 @@ export default function Navbar() {
         ref={navRef}
         className={`fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[94%] max-w-6xl z-50 flex items-center transition-all duration-500 rounded-full border border-[#B98532]/50 shadow-[0_8px_20px_rgba(0,0,0,0.06)] md:shadow-[0_25px_60px_rgba(0,0,0,0.6)] ${
           isExpanded
-            ? "h-[68px] md:h-16 bg-[#F8F6F1]/95 md:bg-[#472020]/95 backdrop-blur-md px-5 md:px-8 text-[#1F1F1F] md:text-white"
-            : "h-[68px] md:h-20 bg-[#F8F6F1]/95 md:bg-[#161413]/95 backdrop-blur-md px-5 md:px-8 text-[#1F1F1F] md:text-white"
+            ? "h-[68px] md:h-16 bg-[#161413]/95 md:bg-[#472020]/95 backdrop-blur-md px-5 md:px-8 text-white"
+            : "h-[68px] md:h-20 bg-[#161413]/95 backdrop-blur-md px-5 md:px-8 text-white"
         }`}
         id="main-navbar"
         style={{
@@ -85,7 +85,22 @@ export default function Navbar() {
             <img
               src="/morya-logo.png"
               alt="Maurya"
-              className="h-8 md:h-10 w-auto object-contain transition-transform duration-300 hover:scale-105 md:filter-none brightness-0 md:brightness-100"
+              className="hidden md:block h-8 md:h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
+            />
+            {/* Mobile Logo masked in pure red */}
+            <div 
+              className="md:hidden h-8 w-24 bg-[#FF0000]"
+              style={{
+                WebkitMaskImage: 'url(/morya-logo.png)',
+                WebkitMaskSize: 'contain',
+                WebkitMaskRepeat: 'no-repeat',
+                WebkitMaskPosition: 'left center',
+                maskImage: 'url(/morya-logo.png)',
+                maskSize: 'contain',
+                maskRepeat: 'no-repeat',
+                maskPosition: 'left center'
+              }}
+              aria-label="Maurya"
             />
           </Link>
 
@@ -146,7 +161,7 @@ export default function Navbar() {
                 setMobileMenuOpen(true);
                 if (navigator.vibrate) navigator.vibrate(10); // Haptic feedback
               }}
-              className="flex items-center justify-center text-[#1F1F1F] hover:text-[#B98532] transition-colors md:hidden p-2 ml-2 rounded-full border border-[#B98532]/20"
+              className="flex items-center justify-center text-white hover:text-[#B98532] transition-colors md:hidden p-2 ml-2 rounded-full border border-[#B98532]/20"
               aria-label="Open Menu"
             >
               <Menu className="w-5 h-5 stroke-[1.5]" />
