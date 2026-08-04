@@ -36,11 +36,11 @@ export default function JournalHero() {
       <div className="absolute inset-0 z-0">
         <div ref={imageRef} className="absolute inset-[-10%] w-[120%] h-[120%]">
           <Image
-            src="/editorial-table-feast.png"
-            alt="A Grand Feast at Maurya"
+            src="/inside1.jpeg"
+            alt="Maurya Dining Room Ambience"
             fill
             className="object-cover"
-            style={{ objectPosition: "center 30%" }}
+            style={{ objectPosition: "center 40%" }}
             priority
             sizes="100vw"
           />
