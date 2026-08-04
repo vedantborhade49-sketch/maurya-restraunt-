@@ -54,7 +54,7 @@ export default function JournalClosing() {
         <div className="absolute inset-0 z-0 bg-[#161413]">
           <div ref={imageRef} className="absolute inset-[-5%] w-[110%] h-[110%]">
             <Image
-              src="/outside.jpeg"
+              src="/new-outside.jpg.png"
               alt="Maurya Night Ambience"
               fill
               className="object-cover"
@@ -69,10 +69,6 @@ export default function JournalClosing() {
 
         {/* Closing Sentence */}
         <div className="relative z-10 w-full h-full flex flex-col items-center justify-end pb-12 md:pb-24 px-6 gap-6 md:gap-8">
-          <p ref={textRef} className="font-serif text-4xl sm:text-6xl md:text-8xl italic text-[#F8F5EF] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] text-center">
-            Hungry?
-          </p>
-          
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
             <Link
               href="/menu"
