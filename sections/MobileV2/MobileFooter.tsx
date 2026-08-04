@@ -35,6 +35,22 @@ export default function MobileFooter() {
           </p>
         </div>
 
+        {/* Navigation Links */}
+        <div className="grid grid-cols-2 gap-x-12 gap-y-6 mb-[64px] text-center w-full max-w-[240px]">
+          <a href="https://maps.google.com/?q=Maurya+Pure+Veg+Restaurant+Kondhwa+Pune" target="_blank" rel="noopener noreferrer" className="font-sans text-[15px] font-normal tracking-wide text-[#350709] hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
+            Visit &rarr;
+          </a>
+          <a href="tel:+917030777051" className="font-sans text-[15px] font-normal tracking-wide text-[#350709] hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
+            Call &rarr;
+          </a>
+          <a href="https://www.instagram.com/restaurant_mauryaveg?igsh=djFnNDV6N2c1dTN1" target="_blank" rel="noopener noreferrer" className="font-sans text-[15px] font-normal tracking-wide text-[#350709] hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
+            Instagram &rarr;
+          </a>
+          <a href="https://www.google.com/search?client=ubuntu-chr&hs=vEl&sca_esv=dc96f26ba5476417&sxsrf=APpeQnuV0GUDvT8XWVnicsUZ6xpXKzHolw:1785874281776&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_6LJNp3rs9TdnT_8kcseuspc2A6dnaNwtKacpGWK-1Bi2QCIWbcOg6GIZMix8k6FLXz8dI2IJiD36h2k-M7dxNiYrTIlG4GzQg2nQutwGg54I1FFhQ%3D%3D&q=Maurya+Veg+Family+Restaurant+Reviews&sa=X&ved=2ahUKEwiY27aR5IeWAxWKkeEIHaJEOq4Q0bkNegQIOxAH&biw=1366&bih=649&dpr=1#lrd=0x3bc2eb08e54c74ed:0xc584a87476215455,3,,,," target="_blank" rel="noopener noreferrer" className="font-sans text-[15px] font-normal tracking-wide text-[#350709] hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
+            Reviews &rarr;
+          </a>
+        </div>
+
         {/* Reserve CTA */}
         <div className="mb-[64px]">
           <Link href="/reservation" className="font-sans text-[15px] font-normal tracking-wide text-[#350709] hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
