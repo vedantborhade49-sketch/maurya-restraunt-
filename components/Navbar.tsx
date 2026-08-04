@@ -87,9 +87,9 @@ export default function Navbar() {
               alt="Maurya"
               className="hidden md:block h-8 md:h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
-            {/* Mobile Logo masked in pure red */}
+            {/* Mobile Logo masked in cream */}
             <div 
-              className="md:hidden h-8 w-24 bg-[#FF0000]"
+              className="md:hidden h-7 w-24 bg-[#F8F5EF]"
               style={{
                 WebkitMaskImage: 'url(/morya-logo.png)',
                 WebkitMaskSize: 'contain',
@@ -179,7 +179,7 @@ export default function Navbar() {
         <div>
           <div className="flex items-center justify-between border-b border-[#8B0000]/10 pb-6 mb-12">
             <div 
-              className="h-10 w-32 bg-[#8B0000]"
+              className="h-9 w-28 bg-[#6D2323]"
               style={{
                 WebkitMaskImage: 'url(/morya-logo.png)',
                 WebkitMaskSize: 'contain',
@@ -197,7 +197,7 @@ export default function Navbar() {
                 setMobileMenuOpen(false);
                 if (navigator.vibrate) navigator.vibrate(10);
               }}
-              className="text-[#8B0000] hover:text-[#B98532] transition-colors p-2"
+              className="text-[#6D2323] hover:text-[#B98532] transition-colors p-2"
             >
               <X className="w-6 h-6" />
             </button>
@@ -212,7 +212,7 @@ export default function Navbar() {
                 <Link 
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-baseline gap-4 hover:text-[#8B0000] text-[#1C1414] transition-all duration-500 transform ${
+                  className={`flex items-baseline gap-4 hover:text-[#6D2323] text-[#1C1414] transition-all duration-500 transform ${
                     mobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
                   }`}
                   style={{ 
@@ -222,7 +222,7 @@ export default function Navbar() {
                   <span className="font-sans text-xs tracking-widest text-[#B98532] font-bold">
                     {item.prefix}
                   </span>
-                  <span className="font-serif font-bold italic text-4xl sm:text-5xl tracking-tight text-[#8B0000]">
+                  <span className="font-serif font-bold italic text-4xl sm:text-5xl tracking-tight text-[#6D2323]">
                     {item.label}
                   </span>
                 </Link>
@@ -231,7 +231,7 @@ export default function Navbar() {
           </nav>
         </div>
 
-        <div className="border-t border-[#8B0000]/10 pt-6 text-[10px] tracking-[0.18em] uppercase text-[#1C1414]/60 font-sans">
+        <div className="border-t border-[#6D2323]/10 pt-6 text-[10px] tracking-[0.18em] uppercase text-[#1C1414]/60 font-sans">
           KONDHWA · PUNE
         </div>
       </div>

@@ -20,7 +20,7 @@ export default function MobileFooter() {
         <img 
           src="/morya-logo.png" 
           alt="Maurya" 
-          className="h-12 w-auto object-contain mb-[64px]"
+          className="h-24 md:h-28 w-auto object-contain mb-[64px]"
         />
 
         {/* The Poem */}

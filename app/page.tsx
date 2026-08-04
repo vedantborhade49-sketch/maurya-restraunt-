@@ -15,7 +15,6 @@ import MobileMenu from "@/sections/MobileV2/MobileMenu";
 import MobileStory from "@/sections/MobileV2/MobileStory";
 import MobileGallery from "@/sections/MobileV2/MobileGallery";
 import MobileReviews from "@/sections/MobileV2/MobileReviews";
-import MobileReservation from "@/sections/MobileV2/MobileReservation";
 
 export default function Home() {
   const videoRef       = useRef<HTMLVideoElement>(null);
@@ -257,7 +256,6 @@ export default function Home() {
           <MobileStory />
           <MobileGallery />
           <MobileReviews />
-          <MobileReservation />
         </div>
 
         {/* ── 3. DESKTOP STORY (Warm Ivory Paper) ──────────────────────── */}
