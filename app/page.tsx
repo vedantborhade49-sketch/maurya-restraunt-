@@ -247,10 +247,6 @@ export default function Home() {
 
           </div>
 
-
-
-        </section>
-
         </section>
 
         {/* ── 2. MOBILE V2 REBUILD ─────────────────────────────────────── */}
