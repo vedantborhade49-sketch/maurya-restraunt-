@@ -87,20 +87,11 @@ export default function Navbar() {
               alt="Maurya"
               className="hidden md:block h-8 md:h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
-            {/* Mobile Logo masked in cream */}
-            <div 
-              className="md:hidden h-7 w-24 bg-[#F8F5EF]"
-              style={{
-                WebkitMaskImage: 'url(/morya-logo.png)',
-                WebkitMaskSize: 'contain',
-                WebkitMaskRepeat: 'no-repeat',
-                WebkitMaskPosition: 'left center',
-                maskImage: 'url(/morya-logo.png)',
-                maskSize: 'contain',
-                maskRepeat: 'no-repeat',
-                maskPosition: 'left center'
-              }}
-              aria-label="Maurya"
+            {/* Mobile Logo */}
+            <img
+              src="/morya-logo.png"
+              alt="Maurya"
+              className="md:hidden h-8 w-auto object-contain transition-transform duration-300 active:scale-95"
             />
           </Link>
 
@@ -178,19 +169,10 @@ export default function Navbar() {
       >
         <div>
           <div className="flex items-center justify-between border-b border-[#8B0000]/10 pb-6 mb-12">
-            <div 
-              className="h-9 w-28 bg-[#6D2323]"
-              style={{
-                WebkitMaskImage: 'url(/morya-logo.png)',
-                WebkitMaskSize: 'contain',
-                WebkitMaskRepeat: 'no-repeat',
-                WebkitMaskPosition: 'center left',
-                maskImage: 'url(/morya-logo.png)',
-                maskSize: 'contain',
-                maskRepeat: 'no-repeat',
-                maskPosition: 'center left'
-              }}
-              aria-label="Maurya"
+            <img 
+              src="/morya-logo.png"
+              alt="Maurya"
+              className="h-10 w-auto object-contain"
             />
             <button 
               onClick={() => {
