@@ -4,60 +4,65 @@ import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+const testimonials = [
+  {
+    quote: "Our Sunday tradition for the last ten years.",
+    meta: "TABLE 04",
+  },
+  {
+    quote: "Celebrated our 25th anniversary here. Unforgettable.",
+    meta: "PRIVATE DINING",
+    image: true
+  },
+  {
+    quote: "The warmth of a home, the precision of fine dining.",
+    meta: "GUEST BOOK",
+  },
+  {
+    quote: "Every flavor tells a story of heritage and passion.",
+    meta: "EVENING SERVICE",
+  }
+];
+
 export default function Scene4Testimonials() {
-  const containerRef = useRef<HTMLElement>(null);
-  const notesRef = useRef<HTMLDivElement[]>([]);
+  const sectionRef = useRef<HTMLElement>(null);
+  const scrollWrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     
     const ctx = gsap.context(() => {
-      
-      // Notes settling into place on scroll
-      notesRef.current.forEach((note, i) => {
-        if (!note) return;
-        
-        gsap.fromTo(note,
-          { 
-            y: 100, 
-            opacity: 0, 
-            rotationZ: gsap.utils.random(-15, 15),
-            rotationX: 45 // 3D paper lift effect
-          },
-          {
-            y: 0,
-            opacity: 1,
-            rotationX: 0,
-            rotationZ: gsap.utils.random(-5, 5), // Settles at a slight organic angle
-            duration: 1.5,
-            ease: "back.out(1.2)",
-            scrollTrigger: {
-              trigger: note,
-              start: "top 85%",
-            }
-          }
-        );
+      const wrapper = scrollWrapperRef.current;
+      if (!wrapper) return;
 
-        // Continuous paper breeze effect
-        gsap.to(note, {
-          rotationX: gsap.utils.random(-5, 5),
-          rotationY: gsap.utils.random(-5, 5),
-          z: gsap.utils.random(0, 20),
-          duration: gsap.utils.random(3, 5),
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-          delay: i * 0.2
-        });
+      // Calculate how far to scroll horizontally
+      const getScrollAmount = () => {
+        let wrapperWidth = wrapper.scrollWidth;
+        return -(wrapperWidth - window.innerWidth);
+      };
+
+      const tween = gsap.to(wrapper, {
+        x: getScrollAmount,
+        ease: "none"
       });
 
-    }, containerRef);
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: "top top",
+        end: () => `+=${getScrollAmount() * -1}`,
+        pin: true,
+        animation: tween,
+        scrub: 1,
+        invalidateOnRefresh: true,
+      });
+
+    }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full min-h-[150vh] bg-[#FDFBF7] overflow-hidden flex flex-col items-center py-32 perspective-[1000px]">
+    <section ref={sectionRef} className="relative w-full h-screen bg-[#FDFBF7] overflow-hidden flex flex-col items-center justify-center z-10">
       
       {/* ─── BACKGROUND: CREAM LINEN WALL ─── */}
       <div className="absolute inset-0 pointer-events-none">
@@ -67,71 +72,57 @@ export default function Scene4Testimonials() {
         <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-transparent to-[#E8DCC7]/30" />
       </div>
 
-      <div className="relative w-full max-w-[1200px] flex flex-col items-center px-6 md:px-12 z-10">
-        
-        {/* Section Header */}
-        <div className="text-center mb-24 md:mb-32">
-          <span className="font-mono text-[9px] uppercase tracking-[0.4em] text-[#A65B3E] mb-6 block">The Ledger</span>
-          <h2 className="font-serif text-4xl md:text-6xl text-[#292421] font-normal tracking-tight">
-            Why People <span className="italic text-[#8A4B38]">Return.</span>
-          </h2>
-        </div>
-
-        {/* ─── ORGANIC WALL OF NOTES ─── */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mt-4 items-center justify-items-center relative">
-          
-          {/* Note 1: Sunday Tradition */}
-          <div 
-            ref={el => { notesRef.current[0] = el!; }}
-            className="w-full max-w-[300px] p-10 bg-[#F6F0E7] shadow-[10px_20px_30px_rgba(41,36,33,0.15)] transform-style-3d border border-[#E8DCC7] relative md:-mt-12"
-          >
-            {/* Wax Seal */}
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-[#582028] shadow-md border-2 border-[#582028]/80 flex items-center justify-center">
-              <span className="font-serif text-[10px] text-white/90">M</span>
-            </div>
-            <p className="font-serif italic text-xl text-[#292421] leading-relaxed text-center mt-2">
-              "Our Sunday tradition for the last ten years."
-            </p>
-            <div className="mt-8 text-center font-mono text-[9px] uppercase tracking-widest text-[#A65B3E]">
-              Table 04
-            </div>
-          </div>
-
-          {/* Note 2: Anniversary (Polaroid style) */}
-          <div 
-            ref={el => { notesRef.current[1] = el!; }}
-            className="w-full max-w-[300px] p-5 pb-14 bg-white shadow-[15px_30px_50px_rgba(41,36,33,0.12)] transform-style-3d relative md:mt-24 z-10"
-          >
-            <div className="w-full aspect-[4/3] bg-[#E8DCC7] mb-6 relative overflow-hidden">
-               {/* Abstract blur to simulate a faded polaroid photo */}
-               <div className="absolute inset-0 bg-gradient-to-br from-[#A65B3E]/40 to-[#292421]/60 mix-blend-multiply" />
-               <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" />
-            </div>
-            <p className="font-serif italic text-[17px] text-[#292421] text-center leading-snug px-2">
-              "Celebrated our 25th anniversary here. Unforgettable."
-            </p>
-          </div>
-
-          {/* Note 3: Family Dinner */}
-          <div 
-            ref={el => { notesRef.current[2] = el!; }}
-            className="w-full max-w-[320px] p-10 bg-[#FDFBF7] shadow-[5px_15px_25px_rgba(41,36,33,0.1)] transform-style-3d border-t-2 border-[#B8893F] relative md:-mt-32"
-          >
-            {/* Paper texture overlay */}
-            <div className="absolute inset-0 opacity-[0.2] pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")` }} />
-            
-            <p className="font-serif italic text-2xl text-[#292421] leading-relaxed text-center relative z-10">
-              "The warmth of a home, the precision of fine dining."
-            </p>
-            <div className="mt-8 flex justify-center items-center gap-3 relative z-10">
-               <div className="w-6 h-[1px] bg-[#A65B3E]/50" />
-               <span className="font-sans text-[9px] uppercase tracking-widest text-[#292421]/60">Guest Book</span>
-               <div className="w-6 h-[1px] bg-[#A65B3E]/50" />
-            </div>
-          </div>
-
-        </div>
+      {/* Floating Header */}
+      <div className="absolute top-16 md:top-24 left-6 md:left-12 z-20 pointer-events-none">
+        <span className="font-mono text-[9px] uppercase tracking-[0.4em] text-[#A65B3E] mb-4 block">The Ledger</span>
+        <h2 className="font-serif text-3xl md:text-5xl text-[#292421] font-normal tracking-tight">
+          Why People <span className="italic text-[#8A4B38]">Return.</span>
+        </h2>
       </div>
+
+      {/* ─── HORIZONTAL SCROLL TRACK ─── */}
+      <div 
+        ref={scrollWrapperRef} 
+        className="flex items-center gap-16 md:gap-32 px-[10vw] md:px-[20vw] mt-20 md:mt-32"
+        style={{ width: "fit-content" }}
+      >
+        
+        {testimonials.map((t, i) => (
+          <div 
+            key={i} 
+            className="w-[320px] md:w-[480px] shrink-0 p-10 md:p-16 bg-[#F6F0E7]/80 backdrop-blur-sm shadow-[10px_20px_40px_rgba(41,36,33,0.08)] border border-[#E8DCC7]/60 flex flex-col items-center text-center relative group overflow-hidden"
+          >
+            {/* Top decorative line */}
+            <div className="w-12 h-[1px] bg-[#A65B3E]/40 mb-10" />
+            
+            {t.image && (
+              <div className="w-full aspect-[21/9] bg-[#E8DCC7] mb-10 relative overflow-hidden shadow-inner">
+                 <div className="absolute inset-0 bg-gradient-to-br from-[#A65B3E]/30 to-[#292421]/50 mix-blend-multiply" />
+                 <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" />
+              </div>
+            )}
+
+            <p className="font-serif italic text-2xl md:text-3xl lg:text-4xl text-[#292421] leading-relaxed">
+              "{t.quote}"
+            </p>
+            
+            <div className="mt-12 flex items-center justify-center gap-4 w-full">
+              <div className="h-[1px] flex-grow bg-[#A65B3E]/20" />
+              <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#A65B3E] shrink-0">
+                {t.meta}
+              </span>
+              <div className="h-[1px] flex-grow bg-[#A65B3E]/20" />
+            </div>
+
+            {/* Subtle overlay on hover to give depth */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+          </div>
+        ))}
+        
+        {/* Spacer at the end of the track to allow overscroll padding */}
+        <div className="w-[10vw] md:w-[20vw] shrink-0" />
+      </div>
+      
     </section>
   );
 }
