@@ -42,7 +42,7 @@ export default function MobileHero() {
   return (
     <section 
       ref={containerRef} 
-      className="relative w-full h-[90svh] min-h-[580px] bg-[#1C1414] flex flex-col justify-end overflow-hidden"
+      className="relative w-full h-[100svh] min-h-[640px] bg-[#1C1414] flex flex-col justify-end overflow-hidden"
     >
       {/* Background Cinematic Slideshow */}
       <motion.div 
@@ -72,7 +72,7 @@ export default function MobileHero() {
       </motion.div>
 
       {/* Overlay Content */}
-      <div className="relative z-10 px-6 pb-12 w-full flex flex-col items-start">
+      <div className="relative z-10 px-6 pb-8 w-full flex flex-col items-start">
         
         {/* Progress Indicators */}
         <div className="flex gap-1.5 mb-6">
