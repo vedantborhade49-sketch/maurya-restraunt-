@@ -61,6 +61,14 @@ export default function Navbar() {
     { label: "VISIT", href: "/visit", prefix: "05" },
   ];
 
+  const mobileNavItems = [
+    { label: "THE MENU", href: "/menu", prefix: "01" },
+    { label: "AROUND OUR TABLE", href: "/our-story", prefix: "02" },
+    { label: "GALLERY", href: "/gallery", prefix: "03" },
+    { label: "REVIEWS", href: "/reviews", prefix: "04" },
+    { label: "VISIT", href: "/visit", prefix: "05" },
+  ];
+
   return (
     <>
       <motion.div
@@ -186,7 +194,7 @@ export default function Navbar() {
           </div>
 
           <nav className="flex flex-col gap-6">
-            {navItems.map((item, i) => (
+            {mobileNavItems.map((item, i) => (
               <div 
                 key={i} 
                 className="overflow-hidden"
