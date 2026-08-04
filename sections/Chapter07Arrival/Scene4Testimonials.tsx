@@ -78,21 +78,21 @@ export default function Scene4Testimonials() {
         </div>
 
         {/* ─── ORGANIC WALL OF NOTES ─── */}
-        <div className="w-full relative min-h-[80vh]">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mt-4 items-center justify-items-center relative">
           
           {/* Note 1: Sunday Tradition */}
           <div 
             ref={el => { notesRef.current[0] = el!; }}
-            className="absolute top-0 left-[5%] md:left-[10%] w-[260px] p-8 bg-[#F6F0E7] shadow-[10px_20px_30px_rgba(41,36,33,0.15)] transform-style-3d border border-[#E8DCC7]"
+            className="w-full max-w-[300px] p-10 bg-[#F6F0E7] shadow-[10px_20px_30px_rgba(41,36,33,0.15)] transform-style-3d border border-[#E8DCC7] relative md:-mt-12"
           >
             {/* Wax Seal */}
             <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-[#582028] shadow-md border-2 border-[#582028]/80 flex items-center justify-center">
               <span className="font-serif text-[10px] text-white/90">M</span>
             </div>
-            <p className="font-serif italic text-xl text-[#292421] leading-relaxed text-center mt-4">
+            <p className="font-serif italic text-xl text-[#292421] leading-relaxed text-center mt-2">
               "Our Sunday tradition for the last ten years."
             </p>
-            <div className="mt-6 text-center font-mono text-[8px] uppercase tracking-widest text-[#A65B3E]">
+            <div className="mt-8 text-center font-mono text-[9px] uppercase tracking-widest text-[#A65B3E]">
               Table 04
             </div>
           </div>
@@ -100,14 +100,14 @@ export default function Scene4Testimonials() {
           {/* Note 2: Anniversary (Polaroid style) */}
           <div 
             ref={el => { notesRef.current[1] = el!; }}
-            className="absolute top-[30%] md:top-[20%] right-[5%] md:right-[15%] w-[280px] p-4 pb-12 bg-white shadow-[15px_25px_40px_rgba(41,36,33,0.12)] transform-style-3d"
+            className="w-full max-w-[300px] p-5 pb-14 bg-white shadow-[15px_30px_50px_rgba(41,36,33,0.12)] transform-style-3d relative md:mt-24 z-10"
           >
-            <div className="w-full aspect-square bg-[#E8DCC7] mb-6 relative overflow-hidden">
+            <div className="w-full aspect-[4/3] bg-[#E8DCC7] mb-6 relative overflow-hidden">
                {/* Abstract blur to simulate a faded polaroid photo */}
                <div className="absolute inset-0 bg-gradient-to-br from-[#A65B3E]/40 to-[#292421]/60 mix-blend-multiply" />
                <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" />
             </div>
-            <p className="font-serif italic text-lg text-[#292421] text-center">
+            <p className="font-serif italic text-[17px] text-[#292421] text-center leading-snug px-2">
               "Celebrated our 25th anniversary here. Unforgettable."
             </p>
           </div>
@@ -115,7 +115,7 @@ export default function Scene4Testimonials() {
           {/* Note 3: Family Dinner */}
           <div 
             ref={el => { notesRef.current[2] = el!; }}
-            className="absolute top-[60%] md:top-[50%] left-[10%] md:left-[30%] w-[320px] p-10 bg-[#FDFBF7] shadow-[5px_15px_25px_rgba(41,36,33,0.1)] transform-style-3d border-t-2 border-[#B8893F]"
+            className="w-full max-w-[320px] p-10 bg-[#FDFBF7] shadow-[5px_15px_25px_rgba(41,36,33,0.1)] transform-style-3d border-t-2 border-[#B8893F] relative md:-mt-32"
           >
             {/* Paper texture overlay */}
             <div className="absolute inset-0 opacity-[0.2] pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")` }} />
@@ -123,10 +123,10 @@ export default function Scene4Testimonials() {
             <p className="font-serif italic text-2xl text-[#292421] leading-relaxed text-center relative z-10">
               "The warmth of a home, the precision of fine dining."
             </p>
-            <div className="mt-8 flex justify-center items-center gap-2 relative z-10">
-               <div className="w-4 h-[1px] bg-[#A65B3E]" />
-               <span className="font-sans text-[9px] uppercase tracking-widest text-[#292421]/60">Guest Book Entry</span>
-               <div className="w-4 h-[1px] bg-[#A65B3E]" />
+            <div className="mt-8 flex justify-center items-center gap-3 relative z-10">
+               <div className="w-6 h-[1px] bg-[#A65B3E]/50" />
+               <span className="font-sans text-[9px] uppercase tracking-widest text-[#292421]/60">Guest Book</span>
+               <div className="w-6 h-[1px] bg-[#A65B3E]/50" />
             </div>
           </div>
 
