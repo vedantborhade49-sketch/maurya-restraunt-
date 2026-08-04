@@ -28,7 +28,7 @@ export default function MobileMenu() {
       </div>
 
       {/* Sticky Category Rail */}
-      <div className="sticky top-[68px] z-40 w-full bg-[#F8F6F1]/95 backdrop-blur-md border-y border-[#B98532]/20 shadow-sm py-4 mb-10 overflow-hidden">
+      <div className="sticky top-[68px] z-40 w-full bg-[#F8F6F1]/95 backdrop-blur-md border-y border-[#B98532]/20 shadow-sm py-4 mb-10">
         <div className="flex overflow-x-auto gap-6 px-5 no-scrollbar scroll-smooth snap-x">
           {CATEGORIES.map((cat) => (
             <button

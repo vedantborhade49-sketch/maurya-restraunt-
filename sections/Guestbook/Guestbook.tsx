@@ -122,10 +122,10 @@ export default function Guestbook() {
     >
       {/* Subtle Journal Dot Pattern Background */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.15]"
+        className="absolute inset-0 pointer-events-none opacity-[0.05]"
         style={{
-          backgroundImage: `radial-gradient(#9A5C3B 1px, transparent 1px)`,
-          backgroundSize: '24px 24px'
+          backgroundImage: `radial-gradient(#9A5C3B 1.5px, transparent 1.5px)`,
+          backgroundSize: '36px 36px'
         }}
       />
 
@@ -145,15 +145,22 @@ export default function Guestbook() {
             <span className="font-mono text-[9px] sm:text-[10px] text-[#272322]/70 uppercase tracking-wider">Over 1,200+ Verified Guest Memories</span>
           </div>
 
-          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl text-[#272322] leading-tight font-normal">
-            Dining <span className="italic text-[#9A5C3B]">Memories</span>
+          <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl text-[#272322] leading-tight font-normal tracking-tight">
+            Dining <span className="italic text-[#9A5C3B] font-serif pr-2">Memories</span>
           </h2>
-          <p className="font-sans text-xs sm:text-sm md:text-base text-[#272322]/75 leading-relaxed max-w-xl mx-auto">
+          
+          <div className="flex items-center justify-center gap-4 py-2 opacity-60">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#9A5C3B]" />
+            <div className="w-1.5 h-1.5 rounded-full bg-[#9A5C3B]" />
+            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#9A5C3B]" />
+          </div>
+
+          <p className="font-sans text-sm md:text-lg text-[#272322]/80 leading-relaxed max-w-2xl mx-auto font-light">
             Pages from our guestbook and quiet notes left around the table over 35 years of pure vegetarian hospitality.
           </p>
 
           {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-1 md:pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-4 md:pt-6">
             {[
               { id: "all", label: "All Memories" },
               { id: "family", label: "Family Traditions" },
@@ -163,10 +170,10 @@ export default function Guestbook() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.2em] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full border transition-all duration-300 ${
+                className={`font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] px-5 py-2.5 sm:px-6 sm:py-3 rounded-full border transition-all duration-300 font-bold ${
                   activeCategory === cat.id
-                    ? "bg-[#9A5C3B] text-white border-[#9A5C3B] shadow-md"
-                    : "bg-[#FAF7F0] text-[#272322]/70 border-[#9A5C3B]/25 hover:border-[#9A5C3B]"
+                    ? "bg-[#9A5C3B] text-white border-[#9A5C3B] shadow-[0_4px_15px_rgba(154,92,59,0.3)] scale-105"
+                    : "bg-[#F8F5EF] text-[#272322]/60 border-[#9A5C3B]/20 hover:border-[#9A5C3B]/60 hover:text-[#9A5C3B]"
                 }`}
               >
                 {cat.label}
