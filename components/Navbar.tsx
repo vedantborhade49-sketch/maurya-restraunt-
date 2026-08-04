@@ -162,14 +162,14 @@ export default function Navbar() {
         }`}
       >
         <div>
-          <div className="flex items-center justify-between border-b border-[#D32F2F]/10 pb-6 mb-12">
+          <div className="flex items-center justify-between border-b border-[#FF0000]/10 pb-6 mb-12">
             <img src="/morya-logo.png" alt="Maurya" className="h-10 w-auto object-contain brightness-0" />
             <button 
               onClick={() => {
                 setMobileMenuOpen(false);
                 if (navigator.vibrate) navigator.vibrate(10);
               }}
-              className="text-[#D32F2F] hover:text-[#B98532] transition-colors p-2"
+              className="text-[#FF0000] hover:text-[#B98532] transition-colors p-2"
             >
               <X className="w-6 h-6" />
             </button>
@@ -184,7 +184,7 @@ export default function Navbar() {
                 <Link 
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-baseline gap-4 hover:text-[#D32F2F] text-[#1C1414] transition-all duration-500 transform ${
+                  className={`flex items-baseline gap-4 hover:text-[#FF0000] text-[#1C1414] transition-all duration-500 transform ${
                     mobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
                   }`}
                   style={{ 
@@ -194,7 +194,7 @@ export default function Navbar() {
                   <span className="font-sans text-xs tracking-widest text-[#B98532] font-bold">
                     {item.prefix}
                   </span>
-                  <span className="font-serif font-bold italic text-4xl sm:text-5xl tracking-tight text-[#D32F2F]">
+                  <span className="font-serif font-bold italic text-4xl sm:text-5xl tracking-tight text-[#FF0000]">
                     {item.label}
                   </span>
                 </Link>
@@ -203,7 +203,7 @@ export default function Navbar() {
           </nav>
         </div>
 
-        <div className="border-t border-[#D32F2F]/10 pt-6 text-[10px] tracking-[0.18em] uppercase text-[#1C1414]/60 font-sans">
+        <div className="border-t border-[#FF0000]/10 pt-6 text-[10px] tracking-[0.18em] uppercase text-[#1C1414]/60 font-sans">
           KONDHWA · PUNE
         </div>
       </div>
