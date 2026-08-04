@@ -8,22 +8,22 @@ const slides = [
   {
     quote: "Our Sunday tradition for the last ten years.",
     meta: "TABLE 04",
-    image: "/editorial-living-table.png",
+    image: "/outside.jpeg",
   },
   {
     quote: "Celebrated our 25th anniversary here. Unforgettable.",
     meta: "PRIVATE DINING",
-    image: "/editorial-table-feast.png",
+    image: "/inside1.jpeg",
   },
   {
     quote: "The warmth of a home, the precision of fine dining.",
     meta: "GUEST BOOK",
-    image: "/inside1.jpeg",
+    image: "/inside2.jpeg",
   },
   {
     quote: "Every flavor tells a story of heritage and passion.",
     meta: "EVENING SERVICE",
-    image: "/editorial-food-1.png",
+    image: "/inside3.png",
   }
 ];
 
