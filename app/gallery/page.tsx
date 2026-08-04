@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import dynamic from "next/dynamic";
 
 const JournalHero = dynamic(() => import("@/components/gallery/JournalHero"), { ssr: true });
-const JournalGrid = dynamic(() => import("@/components/gallery/JournalGrid"), { ssr: false });
+const SignatureCollection = dynamic(() => import("@/components/gallery/SignatureCollection"), { ssr: false });
 const JournalClosing = dynamic(() => import("@/components/gallery/JournalClosing"), { ssr: false });
 
 export default function GalleryPage() {
@@ -34,7 +34,7 @@ export default function GalleryPage() {
 
       <div className="relative z-10">
         <JournalHero />
-        <JournalGrid />
+        <SignatureCollection />
         <JournalClosing />
       </div>
 

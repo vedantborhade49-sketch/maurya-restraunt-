@@ -54,11 +54,11 @@ export default function JournalHero() {
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col items-center text-center">
         <div className="bg-[#FAF7F2]/90 backdrop-blur-md px-8 py-10 md:px-16 md:py-16 inline-flex flex-col items-center shadow-xl border border-[#B98532]/20">
           <span className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.4em] text-[#8F1115] font-bold mb-6">
-            • The Maurya Collection •
+            CHAPTER 04
           </span>
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-8xl tracking-tight text-[#2a2420] leading-[0.9]">
-            Captured Around<br />
-            <span className="italic text-[#8F1115]">The Table.</span>
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl tracking-tight text-[#2a2420] leading-[1.0] max-w-2xl mx-auto">
+            THE SIGNATURE<br />
+            <span className="italic text-[#8F1115]">COLLECTION</span>
           </h1>
           
           <div className="mt-8 max-w-sm">
