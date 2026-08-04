@@ -82,6 +82,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between w-full">
           {/* Logo on Left */}
           <Link href="/" className="flex items-center shrink-0 pl-1 md:pl-2">
+            <img
               src="/morya-logo.png"
               alt="Maurya"
               className="h-8 md:h-10 w-auto object-contain transition-transform duration-300 hover:scale-105 md:filter-none brightness-0 md:brightness-100"
