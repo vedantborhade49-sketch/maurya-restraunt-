@@ -240,11 +240,13 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
           const categoryName = (topSection as Element).getAttribute("data-category");
           if (categoryName) {
             setSelectedCategory(categoryName);
-            // Auto scroll rail element smoothly without jumping
+            // Auto scroll rail element smoothly without jumping vertically
             const slug = categoryName.replace(/[^a-z0-9]+/g, "-");
             const railBtn = document.getElementById(`rail-btn-${slug}`);
-            if (railBtn) {
-              railBtn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+            const railContainer = railBtn?.parentElement;
+            if (railBtn && railContainer) {
+              const scrollLeft = railBtn.offsetLeft - (railContainer.offsetWidth / 2) + (railBtn.offsetWidth / 2);
+              railContainer.scrollTo({ left: scrollLeft, behavior: "smooth" });
             }
           }
         }
