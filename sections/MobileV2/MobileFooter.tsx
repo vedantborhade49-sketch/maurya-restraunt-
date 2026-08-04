@@ -8,11 +8,12 @@ export default function MobileFooter() {
   return (
     <footer className="w-full bg-[#1B1715] pt-24 pb-12 px-4 md:px-8 flex flex-col items-center">
       
-      {/* Floating Luxury Business Card */}
-      <div className="w-full max-w-sm md:max-w-md bg-[#F8F6F1] text-[#350709] rounded-sm flex flex-col items-center text-center py-24 px-6 md:px-12 relative overflow-hidden">
+      {/* Vintage Scroll */}
+      <div className="w-full max-w-sm md:max-w-md bg-[#F4EFE6] bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] text-[#350709] rounded-sm flex flex-col items-center text-center py-24 px-6 md:px-12 relative overflow-hidden shadow-[inset_0_30px_30px_-20px_rgba(0,0,0,0.25),inset_0_-30px_30px_-20px_rgba(0,0,0,0.25),0_20px_50px_rgba(0,0,0,0.8)] border-y-[12px] border-[#2A1810]">
         
-        {/* Top Divider */}
-        <div className="absolute top-0 left-6 right-6 h-[1px] bg-[#350709]/10" />
+        {/* Subtle inner line to separate wood from paper */}
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-black/20" />
+        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-black/20" />
 
         {/* Logo */}
         <img 
@@ -54,9 +55,6 @@ export default function MobileFooter() {
           </a>
         </div>
         
-        {/* Bottom Divider (absolute bottom) */}
-        <div className="absolute bottom-0 left-6 right-6 h-[1px] bg-[#350709]/10" />
-
       </div>
     </footer>
   );
