@@ -65,7 +65,15 @@ export default function Chapter05KitchenCare() {
       ref={containerRef}
       className="relative w-full py-28 md:py-40 px-6 md:px-12 bg-[#350709] text-[#F8F6F1] overflow-hidden"
     >
-      <div className="max-w-[1320px] mx-auto space-y-16">
+      {/* Gold Dot Pattern Background */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]"
+        style={{
+          backgroundImage: `radial-gradient(#B98532 1.5px, transparent 1.5px)`,
+          backgroundSize: '36px 36px'
+        }}
+      />
+      <div className="relative z-10 max-w-[1320px] mx-auto space-y-16">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
@@ -90,9 +98,6 @@ export default function Chapter05KitchenCare() {
             >
               <div className="relative w-full aspect-[4/5] overflow-hidden border border-[#B98532]/20">
                 <EditorialImage src={item.image} alt={item.title} />
-                <div className="absolute top-3 right-3 font-mono text-[8px] uppercase tracking-[0.2em] text-[#F8F6F1] bg-[#350709]/80 px-2 py-0.5 border border-[#B98532]/30">
-                  {item.caption}
-                </div>
               </div>
 
               <div className="space-y-1 pt-1">

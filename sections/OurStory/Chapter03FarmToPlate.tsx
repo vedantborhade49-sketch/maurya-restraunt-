@@ -43,25 +43,25 @@ export default function Chapter03FarmToPlate() {
       step: "02",
       title: "Daily Preparation",
       desc: "Whole spices stone-ground daily for authentic aroma & depth.",
-      image: "/editorial-food-3.png",
+      image: "/cooking.jpeg",
     },
     {
       step: "03",
       title: "Traditional Recipes",
       desc: "Time-honoured recipes preserved across generations.",
-      image: "/editorial-food-2.png",
+      image: "/dish-veg-biryani.png",
     },
     {
       step: "04",
       title: "Clay Oven & Embers",
       desc: "Curries simmered over gentle tandoori embers.",
-      image: "/editorial-food-4.png",
+      image: "/dish-butter-naan.png",
     },
     {
       step: "05",
       title: "Served With Care",
       desc: "Brought piping hot to your table with genuine warmth.",
-      image: "/editorial-food-starters.png",
+      image: "/editorial-table-feast.png",
     },
   ];
 
