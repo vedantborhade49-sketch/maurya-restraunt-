@@ -148,12 +148,12 @@ export default function Navbar() {
             </button>
 
             {/* Mobile View Order Button */}
-            <Link
-              href="/visit#reserve"
-              className="flex md:hidden items-center justify-center px-5 py-2.5 bg-[#6D2323] text-[#F8F6F1] rounded-full font-sans text-[11px] font-bold uppercase tracking-[0.1em] transition-all"
+            <button
+              onClick={() => setIsOpen(true)}
+              className="flex md:hidden items-center justify-center px-4 py-2 bg-[#6D2323] text-[#F8F6F1] rounded-full font-sans text-[10px] font-bold uppercase tracking-[0.1em] transition-all"
             >
-              Reserve
-            </Link>
+              Order Online
+            </button>
 
             {/* Mobile Hamburger Trigger */}
             <button

@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTableStore } from "@/stores/table-store";
 
 export default function MobileFooter() {
   return (
@@ -70,11 +71,14 @@ export default function MobileFooter() {
           </a>
         </div>
 
-        {/* Reserve CTA */}
+        {/* Order Online CTA */}
         <div className="mb-[64px]">
-          <Link href="/reservation" className="font-sans text-[15px] font-normal tracking-wide text-[#350709] hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
-            Reserve &rarr;
-          </Link>
+          <button 
+            onClick={() => useTableStore.getState().setIsOpen(true)}
+            className="font-sans text-[15px] font-normal tracking-wide text-[#350709] hover:underline underline-offset-4 decoration-[#350709]/40 transition-all cursor-pointer"
+          >
+            Order Online &rarr;
+          </button>
         </div>
 
         {/* Bottom Divider */}
