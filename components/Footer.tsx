@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import ButtonPrimary from "@/components/ui/ButtonPrimary";
 import ButtonSecondary from "@/components/ui/ButtonSecondary";
+import MobileFooter from "@/sections/MobileV2/MobileFooter";
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
@@ -43,9 +44,10 @@ export default function Footer() {
   }, []);
 
   return (
+    <>
     <footer
       ref={footerRef}
-      className="relative w-full bg-[#161413] text-[#F8F5EF] pt-20 pb-16 font-sans select-none z-30"
+      className="hidden md:block relative w-full bg-[#161413] text-[#F8F5EF] pt-20 pb-16 font-sans select-none z-30"
     >
       {/* ── AUTHENTIC ORGANIC TORN PAPER EDGE TRANSITION ────────────────── */}
       <div className="absolute top-0 left-0 w-full -translate-y-[99%] pointer-events-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.25)] z-30 leading-none">
@@ -209,5 +211,11 @@ export default function Footer() {
 
       </div>
     </footer>
+
+    {/* Mobile Footer for V2 Rebuild */}
+    <div className="md:hidden">
+      <MobileFooter />
+    </div>
+    </>
   );
 }

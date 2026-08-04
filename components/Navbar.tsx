@@ -69,10 +69,10 @@ export default function Navbar() {
       />
       <header
         ref={navRef}
-        className={`fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[94%] max-w-6xl z-50 flex items-center transition-all duration-500 rounded-full border border-[#9A5C3B]/45 shadow-sm md:shadow-[0_25px_60px_rgba(0,0,0,0.6)] ${
+        className={`fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[94%] max-w-6xl z-50 flex items-center transition-all duration-500 rounded-full border border-[#B98532]/50 shadow-[0_8px_20px_rgba(0,0,0,0.06)] md:shadow-[0_25px_60px_rgba(0,0,0,0.6)] ${
           isExpanded
-            ? "h-[64px] md:h-16 bg-[#F8F5EF]/90 md:bg-[#472020]/95 backdrop-blur-md px-5 md:px-8 text-[#1C1414] md:text-white"
-            : "h-[64px] md:h-20 bg-[#F8F5EF]/90 md:bg-[#161413]/95 backdrop-blur-md px-5 md:px-8 text-[#1C1414] md:text-white"
+            ? "h-[68px] md:h-16 bg-[#F8F6F1]/95 md:bg-[#472020]/95 backdrop-blur-md px-5 md:px-8 text-[#1F1F1F] md:text-white"
+            : "h-[68px] md:h-20 bg-[#F8F6F1]/95 md:bg-[#161413]/95 backdrop-blur-md px-5 md:px-8 text-[#1F1F1F] md:text-white"
         }`}
         id="main-navbar"
         style={{
@@ -135,7 +135,7 @@ export default function Navbar() {
             {/* Mobile View Order Button */}
             <Link
               href="/visit#reserve"
-              className="flex md:hidden items-center gap-1.5 px-5 py-2.5 bg-[#472020] text-[#F8F5EF] border border-[#9A5C3B]/30 rounded-full font-sans text-[11px] font-bold uppercase tracking-[0.1em] transition-all"
+              className="flex md:hidden items-center justify-center px-5 py-2.5 bg-[#6D2323] text-[#F8F6F1] rounded-full font-sans text-[11px] font-bold uppercase tracking-[0.1em] transition-all"
             >
               Reserve
             </Link>
@@ -146,10 +146,10 @@ export default function Navbar() {
                 setMobileMenuOpen(true);
                 if (navigator.vibrate) navigator.vibrate(10); // Haptic feedback
               }}
-              className="text-[#1C1414] hover:text-[#9A5C3B] transition-colors md:hidden p-2 ml-1 rounded-full bg-black/5"
+              className="flex items-center justify-center text-[#1F1F1F] hover:text-[#B98532] transition-colors md:hidden p-2 ml-2 rounded-full border border-[#B98532]/20"
               aria-label="Open Menu"
             >
-              <Menu className="w-5 h-5" />
+              <Menu className="w-5 h-5 stroke-[1.5]" />
             </button>
           </div>
         </div>
