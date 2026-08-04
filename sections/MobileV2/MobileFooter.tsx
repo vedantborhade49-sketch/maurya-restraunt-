@@ -35,6 +35,25 @@ export default function MobileFooter() {
           </p>
         </div>
 
+        {/* Quick Nav Links */}
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 mb-8 text-center w-full max-w-[280px]">
+          <Link href="/" className="font-mono text-[11px] uppercase tracking-widest font-bold text-[#350709]/70 hover:text-[#350709] transition-all">
+            Home
+          </Link>
+          <Link href="/menu" className="font-mono text-[11px] uppercase tracking-widest font-bold text-[#350709]/70 hover:text-[#350709] transition-all">
+            Menu
+          </Link>
+          <Link href="/our-story" className="font-mono text-[11px] uppercase tracking-widest font-bold text-[#350709]/70 hover:text-[#350709] transition-all">
+            Story
+          </Link>
+          <Link href="/gallery" className="font-mono text-[11px] uppercase tracking-widest font-bold text-[#350709]/70 hover:text-[#350709] transition-all">
+            Gallery
+          </Link>
+        </div>
+
+        {/* Tiny Divider */}
+        <div className="w-8 h-[1px] bg-[#350709]/20 mb-8" />
+
         {/* Navigation Links */}
         <div className="grid grid-cols-2 gap-x-12 gap-y-6 mb-[64px] text-center w-full max-w-[240px]">
           <a href="https://maps.google.com/?q=Maurya+Pure+Veg+Restaurant+Kondhwa+Pune" target="_blank" rel="noopener noreferrer" className="font-sans text-[15px] font-normal tracking-wide text-[#350709] hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
