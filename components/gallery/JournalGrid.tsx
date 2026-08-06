@@ -11,7 +11,7 @@ const galleryData: (GalleryImage & { category: string; className?: string })[] =
   // --- THE RESTAURANT ---
   {
     category: "THE RESTAURANT",
-    src: "/inside-1.jpeg",
+    src: "/inside-1.jpg",
     alt: "The Warm Dining Room",
     caption: "Our dining room on a quiet afternoon.",
     aspectRatio: "portrait",
@@ -20,7 +20,7 @@ const galleryData: (GalleryImage & { category: string; className?: string })[] =
   },
   {
     category: "THE RESTAURANT",
-    src: "/inside-2.jpeg",
+    src: "/inside-2.jpg",
     alt: "Detailed Woodwork",
     caption: "Hand-carved woodwork separating the booths.",
     aspectRatio: "portrait",

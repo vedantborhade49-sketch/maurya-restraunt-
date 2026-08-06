@@ -72,7 +72,7 @@ export default function Guestbook() {
       meta: "Golden Jubilee Celebration",
       handwriting: "50th Anniversary Memory",
       rotation: "-0.8deg",
-      image: "/inside-1.jpeg",
+      image: "/inside-1.jpg",
       tag: "50th Anniversary",
     },
     {
@@ -105,7 +105,7 @@ export default function Guestbook() {
       meta: "3rd Generation Guest",
       handwriting: "Generations of Memories",
       rotation: "0.8deg",
-      image: "/inside-2.jpeg",
+      image: "/inside-2.jpg",
       tag: "3 Generations",
     },
   ];
