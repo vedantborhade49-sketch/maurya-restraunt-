@@ -8,7 +8,7 @@ const isSupabaseConfigured = supabaseUrl && supabaseAnonKey;
 export const supabase = isSupabaseConfigured ? createClient(supabaseUrl, supabaseAnonKey) : null;
 
 // Mock database state for client-side fallback
-const MOCK_STORAGE_KEY = "maurya_mock_db_v6_bestsellers_only";
+const MOCK_STORAGE_KEY = "maurya_mock_db_v8_webp";
 
 interface Category {
   id: string;
@@ -92,7 +92,7 @@ export const resolveDishImage = (dishName?: string, catName?: string, existingUr
     return "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80";
   }
   if (lowerName.includes("pav") && lowerName.includes("bhaji")) {
-    return "/dish-pav-bhaji.png";
+    return "/dish-pav-bhaji.webp";
   }
   if (lowerName.includes("bhaji") || lowerName.includes("sabzi") || lowerName.includes("subzi") || lowerName.includes("bharta") || lowerName.includes("fry")) {
     return "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80";
@@ -144,31 +144,31 @@ export const resolveDishImage = (dishName?: string, catName?: string, existingUr
   }
 
   // 13. Dosa
-  if (lowerName.includes("dosa")) return "/dish-masala-dosa.png";
+  if (lowerName.includes("dosa")) return "/dish-masala-dosa.webp";
 
   // 14. Uttapam
-  if (lowerName.includes("uttapam")) return "/dish-uttapam.png";
+  if (lowerName.includes("uttapam")) return "/dish-uttapam.webp";
 
   // 15. Idli / Vada / Medu Vada
-  if (lowerName.includes("idli") || lowerName.includes("vada") || lowerName.includes("wada")) return "/dish-idli-vada.png";
+  if (lowerName.includes("idli") || lowerName.includes("vada") || lowerName.includes("wada")) return "/dish-idli-vada.webp";
 
   // 16. Biryani / Pulao
-  if (lowerName.includes("biryani") || lowerName.includes("pulao")) return "/dish-veg-biryani.png";
+  if (lowerName.includes("biryani") || lowerName.includes("pulao")) return "/dish-veg-biryani.webp";
 
   // 17. Paneer / Curries / Mains
-  if (lowerName.includes("paneer") || lowerName.includes("maratha") || lowerName.includes("jaipuri") || lowerName.includes("kofta") || lowerName.includes("kadhai") || lowerName.includes("masala") || lowerName.includes("handi") || lowerName.includes("kolhapuri") || lowerName.includes("korma")) return "/dish-paneer-butter-masala.png";
+  if (lowerName.includes("paneer") || lowerName.includes("maratha") || lowerName.includes("jaipuri") || lowerName.includes("kofta") || lowerName.includes("kadhai") || lowerName.includes("masala") || lowerName.includes("handi") || lowerName.includes("kolhapuri") || lowerName.includes("korma")) return "/dish-paneer-butter-masala.webp";
 
   // 18. Manchurian / Starters
-  if (lowerName.includes("manchurian") || lowerName.includes("crispy") || lowerName.includes("65") || lowerName.includes("chilli")) return "/dish-manchurian.png";
+  if (lowerName.includes("manchurian") || lowerName.includes("crispy") || lowerName.includes("65") || lowerName.includes("chilli")) return "/dish-manchurian.webp";
 
   // 19. Breads / Naan / Roti
-  if (lowerName.includes("naan") || lowerName.includes("roti") || lowerName.includes("kulcha") || lowerName.includes("paratha") || lowerName.includes("bread") || lowerName.includes("phulka") || lowerName.includes("chapati")) return "/dish-butter-naan.png";
+  if (lowerName.includes("naan") || lowerName.includes("roti") || lowerName.includes("kulcha") || lowerName.includes("paratha") || lowerName.includes("bread") || lowerName.includes("phulka") || lowerName.includes("chapati")) return "/dish-butter-naan.webp";
 
   // 20. Soup
-  if (lowerName.includes("soup") || lowerCat.includes("soup")) return "/dish-hot-sour-soup.png";
+  if (lowerName.includes("soup") || lowerCat.includes("soup")) return "/dish-hot-sour-soup.webp";
 
   // 21. Sandwich
-  if (lowerName.includes("sandwich") || lowerName.includes("toast") || lowerCat.includes("sandwich")) return "/dish-club-sandwich.png";
+  if (lowerName.includes("sandwich") || lowerName.includes("toast") || lowerCat.includes("sandwich")) return "/dish-club-sandwich.webp";
 
   // 20. Existing valid custom URLs
   if (existingUrl && existingUrl.trim() !== "" && !existingUrl.includes("hashtagloyalty.com")) {
@@ -176,14 +176,14 @@ export const resolveDishImage = (dishName?: string, catName?: string, existingUr
   }
 
   // 21. Category Fallbacks
-  if (lowerCat.includes("starter") || lowerCat.includes("soup")) return "/editorial-food-starters.png";
-  if (lowerCat.includes("dosa") || lowerCat.includes("uttapam")) return "/editorial-food-dosa.png";
-  if (lowerCat.includes("main")) return "/editorial-food-mains.png";
+  if (lowerCat.includes("starter") || lowerCat.includes("soup")) return "/editorial-food-starters.webp";
+  if (lowerCat.includes("dosa") || lowerCat.includes("uttapam")) return "/editorial-food-dosa.webp";
+  if (lowerCat.includes("main")) return "/editorial-food-mains.webp";
   if (lowerCat.includes("rice")) return "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80";
   if (lowerCat.includes("dessert")) return "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80";
   if (lowerCat.includes("beverage")) return "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=600&q=80";
 
-  return "/editorial-food-starters.png";
+  return "/editorial-food-starters.webp";
 };
 
 // Seed the mock database

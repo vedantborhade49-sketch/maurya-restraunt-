@@ -48,12 +48,13 @@ export default function Chapter03() {
             <div className="relative w-full h-full rounded-xl overflow-hidden bg-white flex items-center justify-center">
               <video
                 ref={videoRef}
-                src="/logo3.mp4"
+                src="/morya-hero.mp4"
+                poster="/morya-hero-poster.webp"
                 playsInline
                 autoPlay
                 loop
                 muted
-                preload="auto"
+                preload="metadata"
                 className="w-full h-full object-cover sm:object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
               />
 
