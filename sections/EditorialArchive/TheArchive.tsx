@@ -111,7 +111,7 @@ export default function TheArchive() {
       <section className="spread1 relative w-full min-h-[150vh] flex flex-col items-center justify-center py-40">
         <div className="relative w-[85vw] md:w-[45vw] aspect-[3/4] overflow-hidden shadow-2xl group cursor-none">
           <div className="spread1-img w-full h-[120%] -top-[10%] relative">
-            <EditorialImage src="/editorial-entrance.png" alt="The Monolith" priority />
+            <EditorialImage src="/editorial-entrance.webp" alt="The Monolith" priority />
           </div>
           {/* Custom hover interaction */}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-700 pointer-events-none" />
@@ -143,31 +143,31 @@ export default function TheArchive() {
         {/* 5 Floating Tiny Images */}
         <div className="spread2-tiny absolute top-[10%] left-[5%] md:left-[15%] w-32 md:w-48 aspect-[4/5] shadow-xl p-2 bg-white">
           <div className="relative w-full h-full">
-            <EditorialImage src="/editorial-food-1.png" alt="Preparation" />
+            <EditorialImage src="/editorial-food-1.webp" alt="Preparation" />
           </div>
         </div>
 
         <div className="spread2-tiny absolute top-[30%] right-[10%] md:right-[20%] w-40 md:w-56 aspect-[16/9] shadow-xl p-2 bg-white">
           <div className="relative w-full h-full">
-            <EditorialImage src="/editorial-texture.png" alt="Texture" />
+            <EditorialImage src="/editorial-texture.webp" alt="Texture" />
           </div>
         </div>
 
         <div className="spread2-tiny absolute top-[60%] left-[15%] md:left-[25%] w-24 md:w-32 aspect-square shadow-xl p-2 bg-white">
           <div className="relative w-full h-full">
-            <EditorialImage src="/editorial-spices.png" alt="Spices" />
+            <EditorialImage src="/editorial-spices.webp" alt="Spices" />
           </div>
         </div>
 
         <div className="spread2-tiny absolute top-[80%] right-[5%] md:right-[30%] w-36 md:w-48 aspect-[3/4] shadow-xl p-2 bg-white">
           <div className="relative w-full h-full">
-            <EditorialImage src="/editorial-food-2.png" alt="Details" />
+            <EditorialImage src="/editorial-food-2.webp" alt="Details" />
           </div>
         </div>
 
         <div className="spread2-tiny absolute top-[45%] left-[5%] md:left-[5%] w-48 md:w-64 aspect-[21/9] shadow-xl p-2 bg-white">
           <div className="relative w-full h-full">
-            <EditorialImage src="/editorial-food-3.png" alt="Food" />
+            <EditorialImage src="/editorial-food-3.webp" alt="Food" />
           </div>
         </div>
 
@@ -181,7 +181,7 @@ export default function TheArchive() {
       <section className="spread3 relative w-full min-h-[120vh] flex flex-col justify-center overflow-hidden py-40">
         
         <div className="relative w-[90vw] md:w-[70vw] h-[60vh] md:h-[80vh] ml-auto mr-0 shadow-2xl">
-           <EditorialImage src="/editorial-entrance.png" alt="Panoramic Ambience" />
+           <EditorialImage src="/editorial-entrance.webp" alt="Panoramic Ambience" />
            {/* Dark vignette to make overlapping text pop */}
            <div className="absolute inset-0 bg-gradient-to-r from-[#1A050A]/80 to-transparent mix-blend-multiply pointer-events-none" />
         </div>
@@ -221,14 +221,14 @@ export default function TheArchive() {
           
           <div className="spread5-img absolute top-[10%] left-[10%] w-[50vw] md:w-[35vw] aspect-[4/5] bg-white p-3 shadow-[0_30px_60px_rgba(0,0,0,0.15)] z-10 transition-transform hover:z-50 hover:scale-105 duration-500">
              <div className="relative w-full h-full">
-               <EditorialImage src="/editorial-food-starters.png" alt="Friends" />
+               <EditorialImage src="/editorial-food-starters.webp" alt="Friends" />
              </div>
              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#1F1F1F]/50 mt-4 px-2">Table 12. Laughter.</p>
           </div>
 
           <div className="spread5-img absolute top-[30%] right-[5%] md:right-[15%] w-[60vw] md:w-[45vw] aspect-[16/9] bg-white p-3 shadow-[0_40px_80px_rgba(0,0,0,0.2)] z-20 transition-transform hover:z-50 hover:scale-105 duration-500">
              <div className="relative w-full h-full">
-               <EditorialImage src="/editorial-food-mains.png" alt="Family" />
+               <EditorialImage src="/editorial-food-mains.webp" alt="Family" />
              </div>
              <div className="absolute -top-6 -right-6 font-serif italic text-4xl text-[#B98555]/80 pointer-events-none -rotate-12">
                Forever.
@@ -237,7 +237,7 @@ export default function TheArchive() {
 
           <div className="spread5-img absolute top-[60%] left-[20%] md:left-[30%] w-[45vw] md:w-[25vw] aspect-square bg-[#F6F1E8] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.1)] z-30 transition-transform hover:z-50 hover:scale-105 duration-500 border border-[#3A0F16]/10">
              <div className="relative w-full h-full">
-               <EditorialImage src="/editorial-food-4.png" alt="Dish" />
+               <EditorialImage src="/editorial-food-4.webp" alt="Dish" />
              </div>
              <p className="font-serif italic text-lg text-center mt-4 text-[#3A0F16]">A memory preserved.</p>
           </div>
@@ -252,7 +252,7 @@ export default function TheArchive() {
       */}
       <section className="spread6 relative w-full h-[120vh] bg-[#111111] overflow-hidden">
         <div className="spread6-bleed w-full h-full relative">
-          <EditorialImage src="/editorial-food-5.png" alt="Enormous Bleed" />
+          <EditorialImage src="/editorial-food-5.webp" alt="Enormous Bleed" />
         </div>
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none mix-blend-overlay">
           <h2 className="font-serif text-[20vw] md:text-[15vw] text-white opacity-20 tracking-tighter">
@@ -270,7 +270,7 @@ export default function TheArchive() {
         
         <div className="w-48 md:w-64 aspect-[3/4] bg-white p-2 shadow-2xl rotate-[-2deg]">
           <div className="relative w-full h-full">
-             <EditorialImage src="/editorial-food-dosa.png" alt="Detail" />
+             <EditorialImage src="/editorial-food-dosa.webp" alt="Detail" />
           </div>
         </div>
 

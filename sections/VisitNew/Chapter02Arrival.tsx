@@ -87,7 +87,7 @@ export default function Chapter02Arrival() {
         <div ref={imageRef} className="lg:col-span-6 relative">
           <div className="relative w-full aspect-[4/5] bg-[#350709] border border-[#B98532]/30 p-3 shadow-2xl overflow-hidden group">
             <div className="relative w-full h-full overflow-hidden">
-              <EditorialImage src="/editorial-entrance.png" alt="Maurya Entrance Golden Hour" />
+              <EditorialImage src="/editorial-entrance.webp" alt="Maurya Entrance Golden Hour" />
             </div>
             <div className="absolute top-6 right-6 font-mono text-[9px] uppercase tracking-[0.2em] text-[#F8F6F1] bg-[#350709]/80 px-3 py-1 border border-[#B98532]/30 backdrop-blur-md">
               GOLDEN HOUR ENTRANCE

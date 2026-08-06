@@ -37,31 +37,31 @@ export default function Chapter03FarmToPlate() {
       step: "01",
       title: "Fresh Vegetables",
       desc: "Hand-selected produce sourced fresh from local markets at dawn.",
-      image: "/editorial-spices.png",
+      image: "/editorial-spices.webp",
     },
     {
       step: "02",
       title: "Daily Preparation",
       desc: "Whole spices stone-ground daily for authentic aroma & depth.",
-      image: "/cooking.jpeg",
+      image: "/editorial-food-mains.webp",
     },
     {
       step: "03",
       title: "Traditional Recipes",
       desc: "Time-honoured recipes preserved across generations.",
-      image: "/dish-veg-biryani.png",
+      image: "/dish-veg-biryani.webp",
     },
     {
       step: "04",
       title: "Clay Oven & Embers",
       desc: "Curries simmered over gentle tandoori embers.",
-      image: "/dish-butter-naan.png",
+      image: "/dish-butter-naan.webp",
     },
     {
       step: "05",
       title: "Served With Care",
       desc: "Brought piping hot to your table with genuine warmth.",
-      image: "/editorial-table-feast.png",
+      image: "/editorial-table-feast.webp",
     },
   ];
 

@@ -51,7 +51,7 @@ export default function BrassDivider({ showLogo = true, className = "" }: BrassD
       {showLogo && (
         <div className="relative z-10 bg-[#F8F6F1] px-6 py-1 flex items-center justify-center">
           <img
-            src="/morya-logo.png"
+            src="/morya-logo.webp"
             alt="Maurya"
             className="h-10 md:h-12 w-auto object-contain"
           />

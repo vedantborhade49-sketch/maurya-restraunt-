@@ -166,7 +166,7 @@ export default function Chapter07Arrival() {
           >
             {/* Inner Plate Detail */}
             <div className="w-[72%] h-[72%] rounded-full shadow-[inset_5px_10px_25px_rgba(0,0,0,0.2)] overflow-hidden relative border border-[#E8DCC7]/20">
-              <Image src="/editorial-food-2.png" alt="Prepared Dish" fill className="object-cover sepia-[0.1] contrast-110 brightness-[1.05]" />
+              <Image src="/editorial-food-2.webp" alt="Prepared Dish" fill className="object-cover sepia-[0.1] contrast-110 brightness-[1.05]" />
               
               {/* Steam Particles */}
               <div className="absolute inset-0 pointer-events-none">

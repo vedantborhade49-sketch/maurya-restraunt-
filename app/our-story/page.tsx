@@ -1,34 +1,27 @@
-"use client";
+import type { Metadata } from "next";
+import OurStoryClient from "@/components/story/OurStoryClient";
 
-import React, { useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Chapter01Opening from "@/sections/OurStory/Chapter01Opening";
-import Chapter02LivingTable from "@/sections/OurStory/Chapter02LivingTable";
-import Chapter03FarmToPlate from "@/sections/OurStory/Chapter03FarmToPlate";
-import Chapter04PromiseManifesto from "@/sections/OurStory/Chapter04PromiseManifesto";
-import Chapter05KitchenCare from "@/sections/OurStory/Chapter05KitchenCare";
-import Chapter06MemoryWall from "@/sections/OurStory/Chapter06MemoryWall";
-import Chapter07ClosingQuote from "@/sections/OurStory/Chapter07ClosingQuote";
+export const metadata: Metadata = {
+  title: "Our Heritage & Pure Vegetarian Philosophy",
+  description: "Discover the heritage of Maurya Pure Veg Restaurant in Kondhwa, Pune. 35+ years of pure vegetarian culinary dedication, farm-fresh ingredients, and multi-generational hospitality.",
+  alternates: {
+    canonical: "/our-story",
+  },
+  openGraph: {
+    title: "Our Story & Satvik Heritage | Maurya Pure Veg Pune",
+    description: "Every table has a story. Discover how Maurya brings together traditional Indian culinary wisdom and warm family hospitality.",
+    url: "https://mauryaveg.com/our-story",
+    images: [
+      {
+        url: "/editorial-living-table.webp",
+        width: 1200,
+        height: 630,
+        alt: "Maurya Living Table and Heritage Philosophy",
+      },
+    ],
+  },
+};
 
-export default function AroundOurTablePage() {
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const timeoutId = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 500);
-    return () => clearTimeout(timeoutId);
-  }, []);
-
-  return (
-    <main className="relative w-full bg-[#F8F6F1] text-[#350709] selection:bg-[#350709] selection:text-[#F8F6F1]">
-      <Chapter01Opening />
-      <Chapter02LivingTable />
-      <Chapter03FarmToPlate />
-      <Chapter04PromiseManifesto />
-      <Chapter05KitchenCare />
-      <Chapter06MemoryWall />
-      <Chapter07ClosingQuote />
-    </main>
-  );
+export default function OurStoryPage() {
+  return <OurStoryClient />;
 }

@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-const ch6Image = "/editorial-entrance.png";
+const ch6Image = "/editorial-entrance.webp";
 
 export default function Chapter06Archive() {
   const containerRef = useRef<HTMLElement>(null);

@@ -36,7 +36,7 @@ export default function JournalHero() {
       <div className="absolute inset-0 z-0">
         <div ref={imageRef} className="absolute inset-[-10%] w-[120%] h-[120%]">
           <Image
-            src="/inside-1.jpg"
+            src="/inside-1.webp"
             alt="Maurya Dining Room Ambience"
             fill
             className="object-cover"

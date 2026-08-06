@@ -202,7 +202,7 @@ export default function InvitationSection() {
                 {/* Large Dining Image (Original home.png Centerpiece at Full 100% Opacity) */}
                 <div className="relative w-full h-full rounded-lg sm:rounded-sm overflow-hidden group">
                   <img
-                    src="/home.png"
+                    src="/home.webp"
                     alt="Maurya Pure Veg Dining Atmosphere"
                     className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-all duration-[6s] ease-out"
                   />

@@ -15,7 +15,7 @@ export default function MobileEditorial() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="w-full max-w-[360px] aspect-[4/5] rounded-[24px] overflow-hidden mb-10 shadow-lg border border-[#B98532]/20 relative"
       >
-        <img src="/home.png" alt="Maurya Editorial" className="w-full h-full object-cover" />
+        <img src="/home.webp" alt="Maurya Editorial" className="w-full h-full object-cover" />
       </motion.div>
 
       {/* 2. Heading */}

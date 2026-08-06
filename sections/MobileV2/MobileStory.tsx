@@ -25,7 +25,7 @@ export default function MobileStory() {
           className="flex flex-col"
         >
           <div className="w-full aspect-[4/3] rounded-[20px] overflow-hidden mb-6 shadow-xl border border-[#B98532]/20">
-            <img src="/home.png" alt="Generations" className="w-full h-full object-cover filter brightness-90 grayscale-[10%]" />
+            <img src="/home.webp" alt="Generations" className="w-full h-full object-cover filter brightness-90 grayscale-[10%]" />
           </div>
           <h4 className="font-serif text-[24px] text-[#F8F6F1] mb-2 leading-tight">
             The Beginning
@@ -44,7 +44,7 @@ export default function MobileStory() {
           className="flex flex-col"
         >
           <div className="w-full aspect-[4/3] rounded-[20px] overflow-hidden mb-6 shadow-xl border border-[#B98532]/20">
-            <img src="/editorial-spices.png" alt="Craftsmanship" className="w-full h-full object-cover filter brightness-90 grayscale-[10%]" />
+            <img src="/editorial-spices.webp" alt="Craftsmanship" className="w-full h-full object-cover filter brightness-90 grayscale-[10%]" />
           </div>
           <h4 className="font-serif text-[24px] text-[#F8F6F1] mb-2 leading-tight">
             The Craft

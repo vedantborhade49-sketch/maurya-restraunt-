@@ -30,12 +30,12 @@ export default function Chapter05Experience() {
   }, []);
 
   const timelineItems = [
-    { label: "01. Arrival", desc: "Walking through open doors into warm golden ambient light.", image: "/editorial-entrance.png" },
-    { label: "02. Hospitality", desc: "A smiling welcome and immediate seating at your prepared table.", image: "/editorial-food-starters.png" },
-    { label: "03. Crispy Appetizers", desc: "Sizzling paneer tikka and hot tandoori starters brought to the table.", image: "/editorial-food-dosa.png" },
-    { label: "04. Shared Main Course", desc: "Creamy butter Paneer Maratha, dal tadka, and hot garlic naans.", image: "/editorial-food-mains.png" },
-    { label: "05. Fragrant Rice", desc: "Aromatic Hyderabadi veg biryani served in traditional copper handis.", image: "/editorial-food-rice.png" },
-    { label: "06. Sweet Finale", desc: "Hot gulab jamuns and chilled rabdi to complete your evening.", image: "/editorial-food-desserts.png" },
+    { label: "01. Arrival", desc: "Walking through open doors into warm golden ambient light.", image: "/editorial-entrance.webp" },
+    { label: "02. Hospitality", desc: "A smiling welcome and immediate seating at your prepared table.", image: "/editorial-food-starters.webp" },
+    { label: "03. Crispy Appetizers", desc: "Sizzling paneer tikka and hot tandoori starters brought to the table.", image: "/editorial-food-dosa.webp" },
+    { label: "04. Shared Main Course", desc: "Creamy butter Paneer Maratha, dal tadka, and hot garlic naans.", image: "/editorial-food-mains.webp" },
+    { label: "05. Fragrant Rice", desc: "Aromatic Hyderabadi veg biryani served in traditional copper handis.", image: "/editorial-food-rice.webp" },
+    { label: "06. Sweet Finale", desc: "Hot gulab jamuns and chilled rabdi to complete your evening.", image: "/editorial-food-desserts.webp" },
   ];
 
   return (

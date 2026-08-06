@@ -89,7 +89,7 @@ export default function Chapter02LivingTable() {
         <div ref={imageRef} className="lg:col-span-6 relative">
           <div className="relative w-full aspect-[4/5] bg-[#350709] border border-[#B98532]/30 p-3 shadow-2xl overflow-hidden group">
             <div className="relative w-full h-full overflow-hidden">
-              <EditorialImage src="/bulk.png" alt="The Living Table Experience" />
+              <EditorialImage src="/bulk.webp" alt="The Living Table Experience" />
             </div>
             {/* Corner brass accent */}
             <div className="absolute top-6 right-6 font-mono text-[10px] uppercase tracking-[0.25em] text-[#F8F6F1] bg-[#350709]/80 px-3 py-1 border border-[#B98532]/30 backdrop-blur-md">

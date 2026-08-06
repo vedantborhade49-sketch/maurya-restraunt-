@@ -88,7 +88,7 @@ export default function Scene3Ambience() {
             className="absolute left-[10%] md:left-[20%] top-[10%] w-[50%] md:w-[40%] aspect-[3/4] shadow-[0_30px_60px_rgba(0,0,0,0.8)] z-10 border border-[#FDFBF7]/5"
           >
             <div className="w-full h-full relative overflow-hidden bg-[#1A1A14]">
-              <Image src="/editorial-entrance.png" alt="Interior Details" fill className="object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000" />
+              <Image src="/editorial-entrance.webp" alt="Interior Details" fill className="object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000" />
             </div>
           </div>
 
@@ -98,7 +98,7 @@ export default function Scene3Ambience() {
             className="absolute right-[5%] md:right-[10%] top-[40%] md:top-[30%] w-[60%] md:w-[50%] aspect-[16/9] shadow-[0_40px_80px_rgba(0,0,0,0.9)] z-20 border border-[#FDFBF7]/10"
           >
             <div className="w-full h-full relative overflow-hidden bg-[#1A1A14]">
-              <Image src="/editorial-food-2.png" alt="Warm Atmosphere" fill className="object-cover sepia-[0.3] contrast-125" />
+              <Image src="/editorial-food-2.webp" alt="Warm Atmosphere" fill className="object-cover sepia-[0.3] contrast-125" />
             </div>
             {/* Cinematic Caption */}
             <div className="absolute -bottom-8 right-0 font-mono text-[8px] uppercase tracking-widest text-[#FDFBF7]/40">

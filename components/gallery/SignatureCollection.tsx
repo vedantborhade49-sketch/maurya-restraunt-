@@ -9,35 +9,35 @@ const DISHES = [
   {
     name: "Veg Maratha",
     story: "Spicy vegetable koftas simmered in our signature fiery red gravy.",
-    image: "/editorial-food-mains.png",
+    image: "/editorial-food-mains.webp",
     layoutType: "imageLeft",
     bgPattern: "ivory",
   },
   {
     name: "Paneer Tikka Masala",
     story: "Charcoal-smoked paneer cubes in a rich, buttery tomato sauce.",
-    image: "/dish-paneer-butter-masala.png",
+    image: "/dish-paneer-butter-masala.webp",
     layoutType: "fullWidth",
     bgPattern: "charcoal",
   },
   {
     name: "Dal Makhani",
     story: "Slow-cooked for 12 hours over tandoori embers. A Maurya classic.",
-    image: "/editorial-food-1.png",
+    image: "/editorial-food-1.webp",
     layoutType: "portrait",
     bgPattern: "ivory",
   },
   {
     name: "Subz Biryani",
     story: "Aromatic basmati rice layered with saffron, fresh vegetables, and dum-cooked.",
-    image: "/dish-veg-biryani.png",
+    image: "/dish-veg-biryani.webp",
     layoutType: "landscape",
     bgPattern: "wine",
   },
   {
     name: "Stuffed Kulcha",
     story: "Crisp, golden, and packed with aromatic spiced potatoes and herbs.",
-    image: "/dish-butter-naan.png",
+    image: "/dish-butter-naan.webp",
     layoutType: "fullWidth",
     bgPattern: "ivory",
   }
@@ -162,7 +162,7 @@ export default function SignatureCollection() {
             
             {/* Texture overlay for depth */}
             <div className="absolute inset-0 z-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] mix-blend-multiply pointer-events-none" />
-            <div className="absolute inset-0 z-0 opacity-[0.05] md:opacity-[0.07] bg-[url('/food-pattern-collage-bg.png')] bg-repeat mix-blend-multiply pointer-events-none" />
+            <div className="absolute inset-0 z-0 opacity-[0.05] md:opacity-[0.07] bg-[url('/food-pattern-collage-bg.webp')] bg-repeat mix-blend-multiply pointer-events-none" />
             
             <div className="relative z-10 w-full max-w-[1600px] mx-auto px-0 md:px-12">
               

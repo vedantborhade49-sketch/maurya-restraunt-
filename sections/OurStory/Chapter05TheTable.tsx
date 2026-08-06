@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-const ch5Image = "/editorial-food-3.png";
+const ch5Image = "/editorial-food-3.webp";
 
 export default function Chapter05TheTable() {
   const containerRef = useRef<HTMLElement>(null);

@@ -11,7 +11,7 @@ const galleryData: (GalleryImage & { category: string; className?: string })[] =
   // --- THE RESTAURANT ---
   {
     category: "THE RESTAURANT",
-    src: "/inside-1.jpg",
+    src: "/inside-1.webp",
     alt: "The Warm Dining Room",
     caption: "Our dining room on a quiet afternoon.",
     aspectRatio: "portrait",
@@ -20,7 +20,7 @@ const galleryData: (GalleryImage & { category: string; className?: string })[] =
   },
   {
     category: "THE RESTAURANT",
-    src: "/inside-2.jpg",
+    src: "/inside-2.webp",
     alt: "Detailed Woodwork",
     caption: "Hand-carved woodwork separating the booths.",
     aspectRatio: "portrait",
@@ -29,7 +29,7 @@ const galleryData: (GalleryImage & { category: string; className?: string })[] =
   },
   {
     category: "THE RESTAURANT",
-    src: "/inside3.png",
+    src: "/inside3.webp",
     alt: "Heritage Ambience",
     caption: "A table waiting for its guests.",
     aspectRatio: "landscape",
@@ -38,7 +38,7 @@ const galleryData: (GalleryImage & { category: string; className?: string })[] =
   },
   {
     category: "THE RESTAURANT",
-    src: "/outside.jpeg",
+    src: "/outside.webp",
     alt: "Maurya Exterior",
     caption: "Welcoming you since 1999.",
     aspectRatio: "square",
@@ -50,7 +50,7 @@ const galleryData: (GalleryImage & { category: string; className?: string })[] =
 
   {
     category: "THE KITCHEN",
-    src: "/editorial-food-3.png",
+    src: "/editorial-food-3.webp",
     alt: "Food Prep",
     caption: "Delicate garnishing.",
     aspectRatio: "portrait",
@@ -59,7 +59,7 @@ const galleryData: (GalleryImage & { category: string; className?: string })[] =
   },
   {
     category: "THE KITCHEN",
-    src: "/editorial-spices.png",
+    src: "/editorial-spices.webp",
     alt: "Fresh Spices",
     caption: "The foundation of flavor.",
     aspectRatio: "landscape",
@@ -70,7 +70,7 @@ const galleryData: (GalleryImage & { category: string; className?: string })[] =
   // --- SIGNATURE DISHES ---
   {
     category: "SIGNATURE DISHES",
-    src: "/dish-masala-dosa.png",
+    src: "/dish-masala-dosa.webp",
     alt: "Masala Dosa",
     caption: "The golden crisp of our Masala Dosa.",
     aspectRatio: "landscape",
@@ -79,7 +79,7 @@ const galleryData: (GalleryImage & { category: string; className?: string })[] =
   },
   {
     category: "SIGNATURE DISHES",
-    src: "/dish-paneer-butter-masala.png",
+    src: "/dish-paneer-butter-masala.webp",
     alt: "Paneer Butter Masala",
     caption: "Rich, creamy, unforgettable.",
     aspectRatio: "square",
@@ -88,7 +88,7 @@ const galleryData: (GalleryImage & { category: string; className?: string })[] =
   },
   {
     category: "SIGNATURE DISHES",
-    src: "/dish-veg-biryani.png",
+    src: "/dish-veg-biryani.webp",
     alt: "Veg Biryani",
     caption: "Aromatic layers of saffron and spice.",
     aspectRatio: "square",
@@ -97,7 +97,7 @@ const galleryData: (GalleryImage & { category: string; className?: string })[] =
   },
   {
     category: "SIGNATURE DISHES",
-    src: "/dish-hot-sour-soup.png",
+    src: "/dish-hot-sour-soup.webp",
     alt: "Hot & Sour Soup",
     caption: "The perfect start.",
     aspectRatio: "landscape",
@@ -106,7 +106,7 @@ const galleryData: (GalleryImage & { category: string; className?: string })[] =
   },
   {
     category: "SIGNATURE DISHES",
-    src: "/editorial-table-feast.png",
+    src: "/editorial-table-feast.webp",
     alt: "A Grand Feast",
     caption: "Our signature spread, meant to be shared.",
     aspectRatio: "landscape",
@@ -117,7 +117,7 @@ const galleryData: (GalleryImage & { category: string; className?: string })[] =
   // --- THE DETAILS ---
   {
     category: "THE DETAILS",
-    src: "/editorial-texture.png",
+    src: "/editorial-texture.webp",
     alt: "Wall Texture",
     caption: "Imperfections that tell a story.",
     aspectRatio: "portrait",

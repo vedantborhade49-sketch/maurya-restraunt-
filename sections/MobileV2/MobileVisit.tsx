@@ -37,7 +37,7 @@ export default function MobileVisit() {
         {/* Background Image Scrim */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/outside.jpeg" 
+            src="/outside.webp" 
             alt="Maurya Pure Veg Restaurant" 
             className="w-full h-full object-cover brightness-[0.35] scale-105"
           />

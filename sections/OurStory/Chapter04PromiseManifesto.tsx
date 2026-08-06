@@ -60,7 +60,7 @@ export default function Chapter04PromiseManifesto() {
       <div 
         className="absolute inset-0 z-0 opacity-[0.07] mix-blend-overlay pointer-events-none"
         style={{
-          backgroundImage: `url('/food-pattern-collage-bg.png')`,
+          backgroundImage: `url('/food-pattern-collage-bg.webp')`,
           backgroundSize: '300px',
           backgroundRepeat: 'repeat',
         }}

@@ -259,7 +259,7 @@ export default function Chapter02() {
                 {/* Image 1: The Food (Close up) */}
                 <img 
                   ref={image1Ref}
-                  src="/editorial-food-3.png" 
+                  src="/editorial-food-3.webp" 
                   alt="Steaming vegetarian dish" 
                   className={`absolute inset-0 w-full h-full object-cover transform-origin-center grayscale-[10%] sepia-[10%] ${isMobile ? "opacity-0" : "opacity-90"}`}
                   loading="lazy"
@@ -268,7 +268,7 @@ export default function Chapter02() {
                 {/* Image 2: The Family Table (Wide) */}
                 <img 
                   ref={image2Ref}
-                  src="/editorial-food-5.png" 
+                  src="/editorial-food-5.webp" 
                   alt="Families gathering at the table" 
                   className={`absolute inset-0 w-full h-full object-cover transform-origin-center grayscale-[15%] sepia-[15%] ${isMobile ? "opacity-100" : "opacity-0"}`}
                   loading="lazy"

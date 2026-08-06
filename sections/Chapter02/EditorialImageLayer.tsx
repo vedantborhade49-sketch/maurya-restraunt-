@@ -63,7 +63,7 @@ const COMPOSITIONS: Composition[] = [
     // Large portrait image anchored to the left margin.
     // The existing centered typography lives in the right 40%.
     // Feels like opening a magazine to the feature story.
-    src: "/editorial-food-1.png",
+    src: "/editorial-food-1.webp",
     alt: "Signature thali — brass plate, warm natural light",
     position: {
       left: "4%",
@@ -80,7 +80,7 @@ const COMPOSITIONS: Composition[] = [
     // By this scroll point, text has separated up and down,
     // leaving the middle open for a cinematic landscape strip.
     // Feels like a full-bleed spread across a centrefold.
-    src: "/editorial-food-2.png",
+    src: "/editorial-food-2.webp",
     alt: "Charred paneer — texture detail, shallow depth of field",
     position: {
       left: "8%",
@@ -97,7 +97,7 @@ const COMPOSITIONS: Composition[] = [
     // Tall portrait anchored to the right margin.
     // Strong negative space on the left balances the annotations.
     // Feels like the closing spread of a magazine feature.
-    src: "/editorial-food-5.png",
+    src: "/editorial-food-5.webp",
     alt: "Gulab jamun with gold leaf — editorial dessert finale",
     position: {
       right: "4%",

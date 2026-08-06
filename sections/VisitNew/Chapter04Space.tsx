@@ -48,7 +48,7 @@ export default function Chapter04Space() {
         <div ref={leftColRef} className="space-y-16 pt-8">
           <div className="space-y-4 group">
             <div className="relative w-full aspect-[4/5] bg-[#350709] border border-[#B98532]/30 p-2 shadow-xl overflow-hidden">
-              <EditorialImage src="/editorial-food-1.png" alt="Main Dining Hall" />
+              <EditorialImage src="/editorial-food-1.webp" alt="Main Dining Hall" />
             </div>
             <div className="flex items-center justify-between border-b border-[#B98532]/20 pb-2">
               <h3 className="font-serif text-2xl text-[#350709]">Main Dining Hall</h3>
@@ -61,7 +61,7 @@ export default function Chapter04Space() {
 
           <div className="space-y-4 group">
             <div className="relative w-full aspect-square bg-[#350709] border border-[#B98532]/30 p-2 shadow-xl overflow-hidden">
-              <EditorialImage src="/editorial-spices.png" alt="Spiced Kitchen View" />
+              <EditorialImage src="/editorial-spices.webp" alt="Spiced Kitchen View" />
             </div>
             <div className="flex items-center justify-between border-b border-[#B98532]/20 pb-2">
               <h3 className="font-serif text-2xl text-[#350709]">The Spice Kitchen View</h3>
@@ -77,7 +77,7 @@ export default function Chapter04Space() {
         <div ref={rightColRef} className="space-y-16">
           <div className="space-y-4 group">
             <div className="relative w-full aspect-[4/5] bg-[#350709] border border-[#B98532]/30 p-2 shadow-xl overflow-hidden">
-              <EditorialImage src="/editorial-food-3.png" alt="Private Family Booths" />
+              <EditorialImage src="/editorial-food-3.webp" alt="Private Family Booths" />
             </div>
             <div className="flex items-center justify-between border-b border-[#B98532]/20 pb-2">
               <h3 className="font-serif text-2xl text-[#350709]">Private Family Booths</h3>

@@ -91,13 +91,13 @@ export default function Navbar() {
           {/* Logo on Left */}
           <Link href="/" className="flex items-center shrink-0 pl-1 md:pl-2">
             <img
-              src="/morya-logo.png"
+              src="/morya-logo.webp"
               alt="Maurya"
               className="hidden md:block h-8 md:h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
             {/* Mobile Logo */}
             <img
-              src="/morya-logo.png"
+              src="/morya-logo.webp"
               alt="Maurya"
               className="md:hidden h-14 w-auto object-contain scale-[1.2] transition-transform duration-300 active:scale-95"
             />
@@ -178,7 +178,7 @@ export default function Navbar() {
         <div>
           <div className="flex items-center justify-between border-b border-[#8B0000]/10 pb-6 mb-12">
             <img 
-              src="/morya-logo.png"
+              src="/morya-logo.webp"
               alt="Maurya"
               className="h-16 w-auto object-contain scale-[1.2]"
             />

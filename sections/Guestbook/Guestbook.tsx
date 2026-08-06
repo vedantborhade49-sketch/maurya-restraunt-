@@ -50,7 +50,7 @@ export default function Guestbook() {
       meta: "Sunday Sanctuary • Guests for 15+ Years",
       handwriting: "Our Sunday Sanctuary",
       rotation: "-1.5deg",
-      image: "/editorial-table-feast.png",
+      image: "/editorial-table-feast.webp",
       tag: "Sunday Tradition",
     },
     {
@@ -61,7 +61,7 @@ export default function Guestbook() {
       meta: "Verified Google Review (4.9★)",
       handwriting: "Fresh Tandoori Embers",
       rotation: "1.2deg",
-      image: "/dish-butter-naan.png",
+      image: "/dish-butter-naan.webp",
       tag: "Clay Oven Craft",
     },
     {
@@ -72,7 +72,7 @@ export default function Guestbook() {
       meta: "Golden Jubilee Celebration",
       handwriting: "50th Anniversary Memory",
       rotation: "-0.8deg",
-      image: "/inside-1.jpg",
+      image: "/inside-1.webp",
       tag: "50th Anniversary",
     },
     {
@@ -83,7 +83,7 @@ export default function Guestbook() {
       meta: "Family Traditions",
       handwriting: "First Stop in Pune",
       rotation: "1.5deg",
-      image: "/inside3.png",
+      image: "/inside3.webp",
       tag: "Heritage Dining",
     },
     {
@@ -94,7 +94,7 @@ export default function Guestbook() {
       meta: "Food Critics' Pick • 5.0★",
       handwriting: "Pure Spice Magic",
       rotation: "-1.2deg",
-      image: "/dish-paneer-butter-masala.png",
+      image: "/dish-paneer-butter-masala.webp",
       tag: "Signature Dish",
     },
     {
@@ -105,7 +105,7 @@ export default function Guestbook() {
       meta: "3rd Generation Guest",
       handwriting: "Generations of Memories",
       rotation: "0.8deg",
-      image: "/inside-2.jpg",
+      image: "/inside-2.webp",
       tag: "3 Generations",
     },
   ];
@@ -203,6 +203,8 @@ export default function Guestbook() {
                 <img
                   src={entry.image}
                   alt={entry.author}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover grayscale-[10%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                 />
 

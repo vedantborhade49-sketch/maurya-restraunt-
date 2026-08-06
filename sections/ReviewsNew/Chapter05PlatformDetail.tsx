@@ -66,7 +66,7 @@ export default function Chapter05PlatformDetail() {
 
         {/* Signature */}
         <div className="detail-item mt-32 flex flex-col items-center">
-          <img src="/morya-logo.png" alt="Maurya Signature" className="h-6 md:h-8 w-auto brightness-0 invert opacity-60 mb-6" />
+          <img src="/morya-logo.webp" alt="Maurya Signature" className="h-6 md:h-8 w-auto brightness-0 invert opacity-60 mb-6" />
           <p className="font-mono text-[8px] uppercase tracking-[0.4em] text-[#F6F1E8]/40 text-center leading-loose">
             Maurya Veg Family Restaurant<br />
             Authentic Taste Since 2003

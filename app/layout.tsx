@@ -9,13 +9,15 @@ import Footer from "../components/Footer";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "600", "700"],
+  display: "swap",
   variable: "--font-cormorant",
 });
 
 const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
   variable: "--font-manrope",
 });
 
@@ -23,13 +25,162 @@ const instrument = Instrument_Serif({
   subsets: ["latin"],
   weight: ["400"],
   style: ["normal", "italic"],
+  display: "swap",
   variable: "--font-instrument",
 });
 
 export const metadata: Metadata = {
-  title: "Maurya | Pure Veg, Pure Indulgence",
-  description: "Experience premium vegetarian dining at Maurya in Kondhwa, Pune. Explore North Indian, South Indian, Maharashtrian and Chinese favourites. Order directly for home delivery.",
-  keywords: ["pure veg restaurant in Kondhwa", "veg restaurant Kondhwa Pune", "family restaurant Kondhwa", "pure vegetarian restaurant Pune", "Maurya Veg", "Maurya Pune"],
+  metadataBase: new URL("https://mauryaveg.com"),
+  title: {
+    default: "Maurya | Pure Vegetarian Restaurant in Kondhwa, Pune",
+    template: "%s | Maurya Pure Veg Pune",
+  },
+  description: "Experience Pune's finest pure vegetarian culinary sanctuary. Authentic North Indian curries, Maharashtrian specialties, Mysore dosas, and Chinese delicacies near ISKCON Temple, Kondhwa, Pune. Book a table or order directly.",
+  keywords: [
+    "pure veg restaurant in Kondhwa",
+    "veg restaurant Kondhwa Pune",
+    "pure vegetarian restaurant Pune",
+    "family restaurant Kondhwa",
+    "best veg thali Pune",
+    "Maurya Veg Kondhwa",
+    "Maurya Restaurant Pune",
+    "satvik restaurant Pune",
+    "veg dinner Kondhwa Khurd"
+  ],
+  authors: [{ name: "Maurya Pure Veg Restaurant" }],
+  creator: "Maurya Pure Veg",
+  publisher: "Maurya Pure Veg",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Maurya | Pure Vegetarian Restaurant in Kondhwa, Pune",
+    description: "Experience Pune's finest pure vegetarian culinary sanctuary in Kondhwa. Authentic curries, dosas, thalis, and family dining.",
+    url: "https://mauryaveg.com",
+    siteName: "Maurya Pure Veg Restaurant",
+    images: [
+      {
+        url: "/outside.webp",
+        width: 1200,
+        height: 630,
+        alt: "Maurya Pure Veg Restaurant Exterior Kondhwa Pune",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Maurya | Pure Vegetarian Restaurant in Kondhwa, Pune",
+    description: "Experience Pune's finest pure vegetarian dining near ISKCON Temple, Kondhwa.",
+    images: ["/outside.webp"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+const restaurantStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Maurya Pure Veg Restaurant",
+  "image": [
+    "https://mauryaveg.com/outside.webp",
+    "https://mauryaveg.com/editorial-table-feast.webp",
+    "https://mauryaveg.com/inside-1.webp"
+  ],
+  "@id": "https://mauryaveg.com/#restaurant",
+  "url": "https://mauryaveg.com",
+  "telephone": "+917030777051",
+  "priceRange": "₹₹",
+  "menu": "https://mauryaveg.com/menu",
+  "servesCuisine": [
+    "Pure Vegetarian",
+    "North Indian",
+    "South Indian",
+    "Maharashtrian",
+    "Chinese"
+  ],
+  "acceptsReservations": "True",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Tilekar Nagar, Kondhwa Khurd, Near ISKCON Temple",
+    "addressLocality": "Pune",
+    "addressRegion": "Maharashtra",
+    "postalCode": "411048",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 18.4682,
+    "longitude": 73.8907
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "11:00",
+      "closes": "23:00"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "3240",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "potentialAction": [
+    {
+      "@type": "ReserveAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://mauryaveg.com/visit#reserve",
+        "inLanguage": "en-US",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform"
+        ]
+      },
+      "result": {
+        "@type": "FoodEstablishmentReservation",
+        "name": "Table Reservation at Maurya Pure Veg"
+      }
+    },
+    {
+      "@type": "OrderAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://mauryaveg.com/order",
+        "inLanguage": "en-US",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform"
+        ]
+      }
+    }
+  ]
 };
 
 export default function RootLayout({
@@ -39,6 +190,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${manrope.variable} ${instrument.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantStructuredData) }}
+        />
+      </head>
       <body className="antialiased bg-midnight text-soft-ivory font-sans">
         <PreloaderProvider>
           <SmoothScroll>

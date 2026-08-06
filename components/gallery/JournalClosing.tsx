@@ -54,7 +54,7 @@ export default function JournalClosing() {
         <div className="absolute inset-0 z-0 bg-[#161413]">
           <div ref={imageRef} className="absolute inset-0 w-full h-full p-4 md:p-12">
             <Image
-              src="/new-outside.jpg.png"
+              src="/new-outside.webp"
               alt="Maurya Night Ambience"
               fill
               className="object-contain"

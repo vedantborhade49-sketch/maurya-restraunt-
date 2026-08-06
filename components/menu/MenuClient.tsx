@@ -400,7 +400,7 @@ export default function MenuClient({ initialCategories, initialItems }: MenuClie
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 scale-105"
-          style={{ backgroundImage: `url('/food-pattern-collage-bg.png')` }}
+          style={{ backgroundImage: `url('/food-pattern-collage-bg.webp')` }}
         />
         {/* Soft Vignette & Warm Parchment Overlay for Perfect Text Contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#F8F6F1]/90 via-[#F8F6F1]/85 to-[#F8F6F1]/92" />

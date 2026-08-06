@@ -44,7 +44,7 @@ export default function Chapter01Invitation() {
         <div
           ref={bgRef}
           className="w-full h-full bg-cover bg-center bg-no-repeat transition-transform opacity-50"
-          style={{ backgroundImage: `url('/editorial-entrance.png')` }}
+          style={{ backgroundImage: `url('/editorial-entrance.webp')` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B0908]/85 via-[#350709]/60 to-[#0B0908]/90" />
       </div>

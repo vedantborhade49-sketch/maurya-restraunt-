@@ -58,7 +58,7 @@ export default function Chapter01Opening() {
         <div
           ref={bgRef}
           className="w-full h-full bg-cover bg-center bg-no-repeat transition-transform will-change-transform opacity-60"
-          style={{ backgroundImage: `url('/editorial-entrance.png')` }}
+          style={{ backgroundImage: `url('/editorial-entrance.webp')` }}
         />
         {/* Soft Vignette & Warm Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B0908]/80 via-[#350709]/65 to-[#0B0908]/90" />

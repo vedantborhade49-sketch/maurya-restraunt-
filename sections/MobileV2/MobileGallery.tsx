@@ -4,10 +4,10 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const GALLERY_IMAGES = [
-  "/home.png",
-  "/inside-1.jpg",
-  "/inside-2.jpg",
-  "/inside3.png"
+  { src: "/home.webp", alt: "Maurya Restaurant Dining Room Atmosphere" },
+  { src: "/inside-1.webp", alt: "Warm interior seating and heritage decor" },
+  { src: "/inside-2.webp", alt: "Family table arrangement and ambient lighting" },
+  { src: "/inside3.webp", alt: "Artisan dining space at Maurya Pure Veg" }
 ];
 
 export default function MobileGallery() {
@@ -23,7 +23,7 @@ export default function MobileGallery() {
       </div>
 
       <div className="w-full flex overflow-x-auto gap-4 px-5 pb-8 no-scrollbar snap-x snap-mandatory scroll-smooth">
-        {GALLERY_IMAGES.map((src, i) => (
+        {GALLERY_IMAGES.map((item, i) => (
           <motion.div 
             key={i}
             initial={{ opacity: 0, scale: 0.95 }}
@@ -32,7 +32,7 @@ export default function MobileGallery() {
             transition={{ duration: 0.6 }}
             className="w-[85vw] shrink-0 aspect-[4/5] rounded-[24px] overflow-hidden shadow-lg snap-center border border-[#B98532]/20"
           >
-            <img src={src} alt="Gallery" className="w-full h-full object-cover" />
+            <img src={item.src} alt={item.alt} loading="lazy" decoding="async" className="w-full h-full object-cover" />
           </motion.div>
         ))}
       </div>

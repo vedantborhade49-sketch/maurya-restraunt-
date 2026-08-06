@@ -148,7 +148,7 @@ export default function TheSpace() {
       */}
       <section className="scene2 relative w-full min-h-screen py-24 md:py-40">
         <div className="w-[85vw] md:w-[60vw] h-[80vh] md:h-[120vh] relative shadow-[0_40px_100px_rgba(0,0,0,0.1)] -ml-[10vw]">
-          <EditorialImage src="/editorial-entrance.png" alt="Morning Light Entrance" priority />
+          <EditorialImage src="/editorial-entrance.webp" alt="Morning Light Entrance" priority />
         </div>
       </section>
 
@@ -169,7 +169,7 @@ export default function TheSpace() {
           {/* Layer 3: Photography */}
           <div className="scene3-img-layer absolute top-[20%] left-[20%] w-[60vw] md:w-[35vw] aspect-[4/5] bg-white p-3 z-10 shadow-xl rotate-[-2deg]">
              <div className="relative w-full h-full">
-               <EditorialImage src="/editorial-food-4.png" alt="Afternoon Lunch" />
+               <EditorialImage src="/editorial-food-4.webp" alt="Afternoon Lunch" />
              </div>
           </div>
 
@@ -232,12 +232,12 @@ export default function TheSpace() {
         <div className="relative w-full max-w-[1200px] mx-auto flex items-end">
           {/* Massive detail shot */}
           <div className="w-[70vw] md:w-[45vw] aspect-[4/3] shadow-2xl relative z-0">
-             <EditorialImage src="/editorial-food-1.png" alt="Craftsmanship" />
+             <EditorialImage src="/editorial-food-1.webp" alt="Craftsmanship" />
           </div>
 
           {/* Tiny detail shot hugging the bottom edge */}
           <div className="scene4-img-small w-[35vw] md:w-[20vw] aspect-[3/4] shadow-xl relative z-10 -ml-[15vw] -mb-[10vw]">
-             <EditorialImage src="/editorial-food-3.png" alt="Copper Bowls" />
+             <EditorialImage src="/editorial-food-3.webp" alt="Copper Bowls" />
           </div>
         </div>
 

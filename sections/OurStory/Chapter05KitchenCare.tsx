@@ -37,25 +37,25 @@ export default function Chapter05KitchenCare() {
     {
       title: "Hand-Rolled Dough",
       subtitle: "Fresh flatbreads cooked on iron griddles.",
-      image: "/editorial-food-dosa.png",
+      image: "/editorial-food-dosa.webp",
       caption: "FIG 05-A. PRECISION",
     },
     {
       title: "Simmered Over Embers",
       subtitle: "Rich gravy curries infused with slow tandoori heat.",
-      image: "/editorial-food-mains.png",
+      image: "/editorial-food-mains.webp",
       caption: "FIG 05-B. SLOW CRAFT",
     },
     {
       title: "Seared Tandoori Kebabs",
       subtitle: "Marinated paneer seared over hot clay oven coals.",
-      image: "/editorial-food-starters.png",
+      image: "/editorial-food-starters.webp",
       caption: "FIG 05-C. FIRE & SMOKE",
     },
     {
       title: "Hand-Garnished Finishing",
       subtitle: "Fresh herbs, fragrant oils & raw aromatic spices.",
-      image: "/editorial-spices.png",
+      image: "/editorial-spices.webp",
       caption: "FIG 05-D. FINAL TOUCH",
     },
   ];

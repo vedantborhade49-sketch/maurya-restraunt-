@@ -7,18 +7,18 @@ import { ArrowRight } from "lucide-react";
 import { useTableStore } from "@/stores/table-store";
 
 const slides = [
-  "/editorial-table-feast.png",
-  "/editorial-food-1.png",
-  "/editorial-food-2.png",
-  "/editorial-food-3.png",
-  "/inside-1.jpg",
-  "/inside-2.jpg",
-  "/editorial-food-4.png",
-  "/editorial-food-5.png",
-  "/dish-paneer-butter-masala.png",
-  "/outside.jpeg",
-  "/dish-veg-biryani.png",
-  "/dish-masala-dosa.png"
+  "/editorial-table-feast.webp",
+  "/editorial-food-1.webp",
+  "/editorial-food-2.webp",
+  "/editorial-food-3.webp",
+  "/inside-1.webp",
+  "/inside-2.webp",
+  "/editorial-food-4.webp",
+  "/editorial-food-5.webp",
+  "/dish-paneer-butter-masala.webp",
+  "/outside.webp",
+  "/dish-veg-biryani.webp",
+  "/dish-masala-dosa.webp"
 ];
 
 export default function MobileHero() {
@@ -62,6 +62,8 @@ export default function MobileHero() {
             <img 
               src={slides[currentIndex]} 
               alt="Maurya Experience" 
+              fetchPriority={currentIndex === 0 ? "high" : "low"}
+              decoding="async"
               className="w-full h-full object-cover object-center brightness-[0.85]"
             />
           </motion.div>

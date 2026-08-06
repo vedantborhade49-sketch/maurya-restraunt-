@@ -18,7 +18,7 @@ export default function MobileFooter() {
 
         {/* Logo */}
         <img 
-          src="/morya-logo.png" 
+          src="/morya-logo.webp" 
           alt="Maurya" 
           className="h-36 md:h-48 w-auto object-contain mb-[64px] scale-[1.2]"
         />

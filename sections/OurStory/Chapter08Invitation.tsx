@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import Image from "next/image";
-const ch8Image = "/editorial-entrance.png";
+const ch8Image = "/editorial-entrance.webp";
 
 export default function Chapter08Invitation() {
   const containerRef = useRef<HTMLElement>(null);

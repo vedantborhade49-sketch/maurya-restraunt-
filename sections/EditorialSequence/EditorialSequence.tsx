@@ -133,7 +133,7 @@ export default function EditorialSequence() {
               
               <div className="relative w-[85%] md:w-[85%] aspect-[4/5] bg-[#0b0908] overflow-visible">
                 <img 
-                  src="/editorial-food-3.png" 
+                  src="/editorial-food-3.webp" 
                   alt="Family sharing food" 
                   className="w-full h-full object-cover grayscale-[30%] opacity-90"
                 />

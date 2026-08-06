@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-const ch4Image = "/editorial-spices.png";
+const ch4Image = "/editorial-spices.webp";
 
 export default function Chapter04Kitchen() {
   const containerRef = useRef<HTMLElement>(null);
@@ -66,7 +66,7 @@ export default function Chapter04Kitchen() {
         ref={steamRef} 
         className="absolute inset-0 z-0 pointer-events-none mix-blend-screen opacity-0"
         style={{
-          backgroundImage: `url('/editorial-texture.png')`,
+          backgroundImage: `url('/editorial-texture.webp')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
@@ -87,7 +87,7 @@ export default function Chapter04Kitchen() {
         <div ref={imageGridRef} className="w-full flex items-end justify-end gap-6 md:gap-12 relative z-10 h-[40vh] md:h-[50vh]">
           <div className="kitchen-macro relative w-1/3 md:w-1/4 aspect-square rounded-full overflow-hidden shadow-2xl">
             <Image
-              src="/editorial-spices.png"
+              src="/editorial-spices.webp"
               alt="Fresh Spices"
               fill
               className="object-cover sepia-[20%] opacity-90"

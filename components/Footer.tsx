@@ -81,7 +81,7 @@ export default function Footer() {
           <div className="quiet-goodbye-col space-y-4">
             <Link href="/" className="inline-block">
               <img
-                src="/morya-logo.png"
+                src="/morya-logo.webp"
                 alt="Maurya"
                 className="h-12 md:h-14 w-auto object-contain transition-transform duration-300 hover:scale-105"
               />

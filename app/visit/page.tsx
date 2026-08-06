@@ -1,41 +1,27 @@
-"use client";
+import type { Metadata } from "next";
+import VisitClient from "@/components/visit/VisitClient";
 
-import React, { useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Chapter07Arrival from "@/sections/Chapter07Arrival/Chapter07Arrival";
-import Scene2Chef from "@/sections/Chapter07Arrival/Scene2Chef";
-import Scene3Ambience from "@/sections/Chapter07Arrival/Scene3Ambience";
-import Scene4Testimonials from "@/sections/Chapter07Arrival/Scene4Testimonials";
-import Scene5Location from "@/sections/Chapter07Arrival/Scene5Location";
-import MobileVisit from "@/sections/MobileV2/MobileVisit";
+export const metadata: Metadata = {
+  title: "Visit Us & Reserve a Table | Kondhwa, Pune",
+  description: "Visit Maurya Pure Veg Restaurant at Tilekar Nagar, Kondhwa Khurd, Pune (Near ISKCON Temple). Open 11:00 AM – 11:00 PM daily. Book your family table in advance or get driving directions.",
+  alternates: {
+    canonical: "/visit",
+  },
+  openGraph: {
+    title: "Visit Maurya Pure Veg | Kondhwa Khurd, Pune",
+    description: "Find your way to Pune's timeless pure vegetarian dining hall. Valet parking, AC family dining, and satvik cuisine.",
+    url: "https://mauryaveg.com/visit",
+    images: [
+      {
+        url: "/outside.webp",
+        width: 1200,
+        height: 630,
+        alt: "Maurya Restaurant Location and Directions",
+      },
+    ],
+  },
+};
 
 export default function VisitPage() {
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    
-    const timeoutId = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 500);
-
-    return () => clearTimeout(timeoutId);
-  }, []);
-
-  return (
-    <main className="relative w-full bg-[#292421] text-[#FDFBF7] overflow-hidden">
-      {/* Mobile Visit Experience */}
-      <div className="md:hidden w-full">
-        <MobileVisit />
-      </div>
-
-      {/* Desktop Cinematic GSAP Experience */}
-      <div className="hidden md:block">
-        <Chapter07Arrival />
-        <Scene2Chef />
-        <Scene3Ambience />
-        <Scene4Testimonials />
-        <Scene5Location />
-      </div>
-    </main>
-  );
+  return <VisitClient />;
 }

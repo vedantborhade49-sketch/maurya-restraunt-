@@ -211,7 +211,7 @@ export default function DiningMemories() {
             <div className="bg-[#FAF7F0] p-4 border border-[#9A5C3B]/30 shadow-md rotate-[-2deg] hover:rotate-0 transition-transform duration-500 relative">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-5 bg-[#EFE8DB]/80 border border-[#9A5C3B]/20 rotate-[-1deg] z-20 shadow-xs pointer-events-none" />
               <div className="relative w-full aspect-[4/3] overflow-hidden mb-3 border border-[#9A5C3B]/20">
-                <EditorialImage src="/editorial-food-starters.png" alt="Starters" />
+                <EditorialImage src="/editorial-food-starters.webp" alt="Starters" />
               </div>
               <p className="font-heading italic text-base text-center text-[#272322]">"The Paneer Tikka was unforgettable."</p>
               <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#9A5C3B] block text-center mt-2">— Table 8 Memories</span>
@@ -230,7 +230,7 @@ export default function DiningMemories() {
             <div className="bg-[#FAF7F0] p-4 border border-[#9A5C3B]/30 shadow-md rotate-[2deg] hover:rotate-0 transition-transform duration-500 relative">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-5 bg-[#EFE8DB]/80 border border-[#9A5C3B]/20 rotate-[1deg] z-20 shadow-xs pointer-events-none" />
               <div className="relative w-full aspect-[4/3] overflow-hidden mb-3 border border-[#9A5C3B]/20">
-                <EditorialImage src="/editorial-food-dosa.png" alt="Crispy Dosa" />
+                <EditorialImage src="/editorial-food-dosa.webp" alt="Crispy Dosa" />
               </div>
               <p className="font-heading italic text-base text-center text-[#272322]">"Crispy dosa & filter coffee on Sunday."</p>
               <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#9A5C3B] block text-center mt-2">— Sunday Breakfast Club</span>

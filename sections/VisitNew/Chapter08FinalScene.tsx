@@ -35,7 +35,7 @@ export default function Chapter08FinalScene() {
       
       {/* Night Scene Background Image */}
       <div className="absolute inset-0 w-full h-full z-0 opacity-40">
-        <EditorialImage src="/editorial-entrance.png" alt="Night Scene at Maurya" />
+        <EditorialImage src="/editorial-entrance.webp" alt="Night Scene at Maurya" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B0908]/90 via-[#350709]/70 to-[#0B0908]/95" />
       </div>
 
