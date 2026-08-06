@@ -13,12 +13,12 @@ const slides = [
   {
     quote: "Celebrated our 25th anniversary here. Unforgettable.",
     meta: "PRIVATE DINING",
-    image: "/inside1.jpeg",
+    image: "/inside-1.jpeg",
   },
   {
     quote: "The warmth of a home, the precision of fine dining.",
     meta: "GUEST BOOK",
-    image: "/inside2.jpeg",
+    image: "/inside-2.jpeg",
   },
   {
     quote: "Every flavor tells a story of heritage and passion.",

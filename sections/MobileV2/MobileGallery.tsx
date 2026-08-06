@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 const GALLERY_IMAGES = [
   "/home.png",
-  "/inside1.jpeg",
-  "/inside2.jpeg",
+  "/inside-1.jpeg",
+  "/inside-2.jpeg",
   "/inside3.png"
 ];
 

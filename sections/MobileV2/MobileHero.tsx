@@ -11,11 +11,11 @@ const slides = [
   "/editorial-food-1.png",
   "/editorial-food-2.png",
   "/editorial-food-3.png",
-  "/inside1.jpeg",
+  "/inside-1.jpeg",
+  "/inside-2.jpeg",
   "/editorial-food-4.png",
   "/editorial-food-5.png",
   "/dish-paneer-butter-masala.png",
-  "/cooking.jpeg",
   "/outside.jpeg",
   "/dish-veg-biryani.png",
   "/dish-masala-dosa.png"
