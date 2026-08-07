@@ -12,10 +12,10 @@ const Chapter04 = dynamic(() => import("@/sections/Chapter04/Chapter04"), { ssr:
 const Guestbook = dynamic(() => import("@/sections/Guestbook/Guestbook"), { ssr: true });
 
 import MobileHero from "@/sections/MobileV2/MobileHero";
-import MobileEditorial from "@/sections/MobileV2/MobileEditorial";
-import MobileStats from "@/sections/MobileV2/MobileStats";
-import MobileMenu from "@/sections/MobileV2/MobileMenu";
-import MobileStory from "@/sections/MobileV2/MobileStory";
+const MobileEditorial = dynamic(() => import("@/sections/MobileV2/MobileEditorial"), { ssr: true });
+const MobileStats = dynamic(() => import("@/sections/MobileV2/MobileStats"), { ssr: true });
+const MobileMenu = dynamic(() => import("@/sections/MobileV2/MobileMenu"), { ssr: true });
+const MobileStory = dynamic(() => import("@/sections/MobileV2/MobileStory"), { ssr: true });
 const MobileGallery = dynamic(() => import("@/sections/MobileV2/MobileGallery"), { ssr: true });
 const MobileReviews = dynamic(() => import("@/sections/MobileV2/MobileReviews"), { ssr: true });
 
@@ -134,85 +134,6 @@ export default function HomeClient() {
                 Every Table<br />
                 <span className="italic text-[#9A5C3B]">Has A Story.</span>
               </h1>
-
-              {/* Popped-Out 3D Glassmorphism Mobile Video Reel Frame (< md) with Motion Scroll & Touch Feedback */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.94, y: 15 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                whileTap={{ scale: 0.97 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="md:hidden relative w-full aspect-video rounded-2xl overflow-hidden border-2 border-[#9A5C3B]/70 shadow-[0_20px_50px_rgba(143,17,21,0.45),0_8px_16px_rgba(0,0,0,0.8)] my-4 bg-black group"
-              >
-                {/* Metallic Gold Top Shimmer Line */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#9A5C3B] to-transparent z-20" />
-                
-                <video
-                  src="/morya-hero.mp4"
-                  playsInline
-                  autoPlay
-                  loop
-                  muted
-                  className="w-full h-full object-cover"
-                />
-
-                {/* Gradient Overlays for Cinematic Touch */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
-
-                {/* Top Badge */}
-                <div className="absolute top-3 left-3 bg-[#1C1414]/90 backdrop-blur-md px-3 py-1 rounded-full text-[9px] font-mono tracking-widest text-[#F8F5EF] border border-[#9A5C3B]/50 uppercase font-extrabold shadow-lg flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-red-600 animate-ping" />
-                  <span className="text-[#9A5C3B]">REC</span>
-                  <span>• HERITAGE FILM</span>
-                </div>
-
-                {/* Bottom Overlay Label */}
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-                  <span className="font-serif italic text-xs text-[#F8F5EF]/90 tracking-wide">
-                    Pure Vegetarian Dining Sanctuary
-                  </span>
-                  <span className="font-mono text-[9px] text-[#9A5C3B] uppercase tracking-widest bg-black/60 px-2 py-0.5 rounded border border-[#9A5C3B]/30">
-                    HD 1080p
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* Mobile Quick Highlight Stats Bar */}
-              <div className="grid grid-cols-3 gap-2 my-2 md:hidden">
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileTap={{ scale: 0.95 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4 }}
-                  className="bg-[#1C1414]/90 border border-[#9A5C3B]/40 p-2.5 rounded-xl text-center backdrop-blur-md shadow-md active:border-[#9A5C3B]"
-                >
-                  <span className="block font-mono text-base font-bold text-[#9A5C3B]">35+</span>
-                  <span className="font-sans text-[9px] uppercase tracking-wider text-[#F8F5EF]/70">Years Legend</span>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileTap={{ scale: 0.95 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.08 }}
-                  className="bg-[#1C1414]/90 border border-[#9A5C3B]/40 p-2.5 rounded-xl text-center backdrop-blur-md shadow-md active:border-[#164C2B]"
-                >
-                  <span className="block font-mono text-base font-bold text-[#164C2B]">100%</span>
-                  <span className="font-sans text-[9px] uppercase tracking-wider text-[#F8F5EF]/70">Pure Veg</span>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileTap={{ scale: 0.95 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.16 }}
-                  className="bg-[#1C1414]/90 border border-[#9A5C3B]/40 p-2.5 rounded-xl text-center backdrop-blur-md shadow-md active:border-amber-400"
-                >
-                  <span className="block font-mono text-base font-bold text-amber-400">4.9 ★</span>
-                  <span className="font-sans text-[9px] uppercase tracking-wider text-[#F8F5EF]/70">Rating</span>
-                </motion.div>
-              </div>
 
               <p className="mt-3 md:mt-6 font-sans text-[14px] sm:text-[17px] md:text-[19px] leading-[1.55] text-[#F8F5EF]/80 max-w-[540px]">
                 A sanctuary of pure vegetarian dining, where families return for generations, friends celebrate, and every meal becomes a memory.

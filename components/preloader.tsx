@@ -34,7 +34,7 @@ export function PreloaderProvider({ children }: { children: React.ReactNode }) {
         });
         tl.to(".micro-loader-bar", {
           width: "100%",
-          duration: 0.5,
+          duration: 0.3,
           ease: "power2.out",
         }).to(".loader-bg", {
           opacity: 0,
@@ -42,35 +42,30 @@ export function PreloaderProvider({ children }: { children: React.ReactNode }) {
         });
       } else {
         const tl = gsap.timeline({
-          onComplete: () => {
-            gsap.timeline({
-              onComplete: () => setLoading(false)
-            })
-            .to(".loader-logo", { 
-              scale: 2.5, 
-              opacity: 0, 
-              duration: 0.8, 
-              ease: "power3.inOut" 
-            })
-            .to(".loader-bg", { 
-              opacity: 0, 
-              duration: 0.4, 
-              ease: "power2.out" 
-            }, "-=0.4");
-          }
+          onComplete: () => setLoading(false),
         });
 
         tl.to(".loader-line-draw", {
           x: "0%",
-          duration: 1.0,
+          duration: 0.4,
           ease: "power2.inOut",
-        });
-
-        tl.to(".loader-m-path", {
+        })
+        .to(".loader-m-path", {
           strokeDashoffset: 0,
-          duration: 1.5,
+          duration: 0.5,
           ease: "power2.inOut",
-        }, "-=0.5");
+        }, "-=0.2")
+        .to(".loader-logo", { 
+          scale: 1.1, 
+          opacity: 0, 
+          duration: 0.3, 
+          ease: "power2.inOut" 
+        })
+        .to(".loader-bg", { 
+          opacity: 0, 
+          duration: 0.25, 
+          ease: "power2.out" 
+        }, "-=0.15");
       }
     }, containerRef);
 
@@ -80,8 +75,8 @@ export function PreloaderProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (isReturning) return;
     
-    // Progress counter updates
-    const steps = [1, 12, 28, 47, 73, 100];
+    // Quick progress counter updates
+    const steps = [1, 35, 78, 100];
     let stepIndex = 0;
     
     const interval = setInterval(() => {
@@ -91,7 +86,7 @@ export function PreloaderProvider({ children }: { children: React.ReactNode }) {
       } else {
         clearInterval(interval);
       }
-    }, 350);
+    }, 120);
 
     return () => clearInterval(interval);
   }, [isReturning]);
@@ -100,7 +95,7 @@ export function PreloaderProvider({ children }: { children: React.ReactNode }) {
     <PreloaderContext.Provider value={{ loading }}>
       <div ref={containerRef} className="contents">
         {loading && (
-          <div className="loader-bg fixed inset-0 z-[9999] bg-midnight flex flex-col items-center justify-center select-none overflow-hidden">
+          <div className="loader-bg fixed inset-0 z-[9999] bg-[#161413] flex flex-col items-center justify-center select-none overflow-hidden transition-opacity duration-300">
           {isReturning ? (
             // Simple micro loader
             <div className="flex flex-col items-center">
@@ -130,7 +125,7 @@ export function PreloaderProvider({ children }: { children: React.ReactNode }) {
               <h1 className="text-3xl md:text-4xl font-heading text-gold tracking-[0.25em] mb-2 text-center">
                 MAURYA
               </h1>
-              <p className="text-[10px] tracking-[0.35em] text-royal-ivory opacity-60 mb-12">
+              <p className="text-[10px] tracking-[0.35em] text-royal-ivory opacity-60 mb-8">
                 PURE VEG
               </p>
 
@@ -138,14 +133,14 @@ export function PreloaderProvider({ children }: { children: React.ReactNode }) {
                 PREPARING YOUR TABLE
               </div>
               
-              <div className="font-heading text-3xl text-gold tabular-nums">
+              <div className="font-heading text-2xl text-gold tabular-nums">
                 {String(progress).padStart(2, "0")}
               </div>
             </div>
           )}
         </div>
       )}
-        <div className={loading ? "invisible opacity-0" : "visible opacity-100 transition-opacity duration-1000"}>
+        <div className="w-full">
           {children}
         </div>
       </div>

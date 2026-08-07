@@ -187,6 +187,7 @@ export default function Navbar() {
                 setMobileMenuOpen(false);
                 if (navigator.vibrate) navigator.vibrate(10);
               }}
+              aria-label="Close menu"
               className="text-[#6D2323] hover:text-[#B98532] transition-colors p-2"
             >
               <X className="w-6 h-6" />

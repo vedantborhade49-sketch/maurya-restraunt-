@@ -63,7 +63,7 @@ export default function MobileReviews() {
               {REVIEWS[currentIndex].verified && (
                 <div className="flex items-center gap-1.5 px-3 py-1 bg-white rounded-full border border-[#B98532]/20 shadow-sm">
                   <span className="text-[#4285F4] font-bold text-xs">G</span>
-                  <span className="font-sans text-[9px] uppercase tracking-wider text-[#1F1F1F]/60">Google Verified</span>
+                  <span className="font-sans text-[9px] uppercase tracking-wider text-[#1F1F1F]/90 font-semibold">Google Verified</span>
                 </div>
               )}
             </div>
