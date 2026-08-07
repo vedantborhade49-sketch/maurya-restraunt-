@@ -66,7 +66,7 @@ export default function HomeClient() {
       <main className="relative w-full bg-[#161413] text-[#F8F5EF] selection:bg-[#C62828] selection:text-[#F8F5EF]">
 
         {/* ── 1. DESKTOP HERO (Dark Vintage) ─────────────────────────────────── */}
-        <section className="hidden md:flex sticky top-0 w-full min-h-[100dvh] md:h-[100dvh] overflow-hidden bg-[#1C1414] z-0 flex-col justify-between">
+        <section className="hidden md:flex relative w-full min-h-[100dvh] md:h-[100dvh] overflow-hidden bg-[#1C1414] z-0 flex-col justify-between">
 
           {/* Background Layer 1: Desktop Hero Video Container */}
           <div className="absolute inset-0 w-full h-full overflow-hidden bg-[#1C1414]">
