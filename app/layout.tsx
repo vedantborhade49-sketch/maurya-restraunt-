@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Cormorant_Garamond, Manrope, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
@@ -184,6 +185,8 @@ const restaurantStructuredData = {
   ]
 };
 
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-4VQQQGRRGM";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -195,6 +198,25 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantStructuredData) }}
+        />
+        {/* Google Analytics GA4 */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
         />
       </head>
       <body className="antialiased bg-midnight text-soft-ivory font-sans">
