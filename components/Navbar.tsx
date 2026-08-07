@@ -71,17 +71,17 @@ export default function Navbar() {
       >
         <div className="flex items-center justify-between w-full">
           {/* Logo on Left */}
-          <Link href="/" className="flex items-center shrink-0 pl-1 md:pl-2">
+          <Link href="/" className="flex items-center shrink-0 pl-1 md:pl-2 py-1">
             <img
               src="/morya-logo.webp"
               alt="Maurya"
-              className="hidden md:block h-8 md:h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              className="hidden md:block h-11 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
             {/* Mobile Logo */}
             <img
               src="/morya-logo.webp"
               alt="Maurya"
-              className="md:hidden h-14 w-auto object-contain scale-[1.2] transition-transform duration-300 active:scale-95"
+              className="md:hidden h-16 w-auto object-contain scale-[1.25] transition-transform duration-300 active:scale-95"
             />
           </Link>
 
@@ -162,7 +162,7 @@ export default function Navbar() {
             <img 
               src="/morya-logo.webp"
               alt="Maurya"
-              className="h-16 w-auto object-contain scale-[1.2]"
+              className="h-20 w-auto object-contain scale-[1.25]"
             />
             <button 
               onClick={() => {

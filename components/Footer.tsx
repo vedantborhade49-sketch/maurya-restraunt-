@@ -83,7 +83,7 @@ export default function Footer() {
               <img
                 src="/morya-logo.webp"
                 alt="Maurya"
-                className="h-12 md:h-14 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                className="h-14 md:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105"
               />
             </Link>
             <div className="space-y-2.5 text-sm md:text-base font-light text-[#F8F5EF]/80 leading-relaxed">
