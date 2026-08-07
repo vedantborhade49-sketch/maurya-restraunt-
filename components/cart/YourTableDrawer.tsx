@@ -42,9 +42,6 @@ export default function YourTableDrawer() {
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 28, stiffness: 220 }}
             className="fixed top-0 right-0 bottom-0 z-[100] w-full sm:w-[460px] bg-[#F3E8D4] text-[#350709] border-l border-[#350709]/20 shadow-2xl flex flex-col font-sans select-none"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E")`,
-            }}
           >
             {/* Header: Vintage Receipt Design */}
             <div className="p-8 border-b border-[#350709]/20">

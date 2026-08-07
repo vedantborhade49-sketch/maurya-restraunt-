@@ -60,21 +60,7 @@ export default function HomeClient() {
 
   return (
     <>
-      {/* SVG film grain */}
-      <svg className="hidden" aria-hidden="true">
-        <filter id="grain">
-          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
-          <feColorMatrix type="saturate" values="0"/>
-        </filter>
-      </svg>
-
       <main className="relative w-full bg-[#161413] text-[#F8F5EF] selection:bg-[#C62828] selection:text-[#F8F5EF]">
-
-        {/* Film grain */}
-        <div
-          className="pointer-events-none fixed inset-0 z-[100] opacity-[0.035] mix-blend-multiply"
-          style={{ filter: "url(#grain)", backgroundColor: "#a09070" }}
-        />
 
         {/* ── 1. DESKTOP HERO (Dark Vintage) ─────────────────────────────────── */}
         <section className="hidden md:flex sticky top-0 w-full min-h-[100dvh] md:h-[100dvh] overflow-hidden bg-[#1C1414] z-0 flex-col justify-between">
