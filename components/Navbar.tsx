@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, useScroll, useSpring } from "framer-motion";
 import { useTableStore } from "../stores/table-store";
 import { Menu, X } from "lucide-react";
 
@@ -14,37 +12,24 @@ export default function Navbar() {
   const { setIsOpen, getItemCount } = useTableStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [mounted, setMounted] = useState(false);
-  
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
 
   const isAdmin = pathname?.startsWith("/admin");
 
   useEffect(() => {
-    // Entrance animation
-    if (navRef.current) {
-      gsap.fromTo(
-        navRef.current,
-        { y: -100, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.0, delay: 0.2, ease: "power4.out" }
-      );
-    }
+    setMounted(true);
 
-    // Scroll listener for desktop navbar expansion
     const handleScroll = () => {
-      if (window.scrollY > 150) {
-        setIsExpanded(true);
-      } else {
-        setIsExpanded(false);
+      const scrollY = window.scrollY;
+      setIsExpanded(scrollY > 150);
+
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        setScrollProgress(Math.min(1, Math.max(0, scrollY / totalHeight)));
       }
     };
 
-    setMounted(true);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -71,9 +56,9 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-[2px] bg-[#9A5C3B] origin-left z-[60]"
-        style={{ scaleX }}
+      <div
+        className="fixed top-0 left-0 right-0 h-[2px] bg-[#9A5C3B] origin-left z-[60] transition-transform duration-75 will-change-transform"
+        style={{ transform: `scaleX(${scrollProgress})` }}
       />
       <header
         ref={navRef}
