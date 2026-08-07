@@ -60,7 +60,7 @@ export default function MobileFooter() {
           <a href="https://maps.google.com/?q=Maurya+Pure+Veg+Restaurant+Kondhwa+Pune" target="_blank" rel="noopener noreferrer" className="font-sans text-[15px] font-medium tracking-wide text-[#350709] min-h-[44px] inline-flex items-center justify-center hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
             Visit &rarr;
           </a>
-          <a href="tel:+917030777051" className="font-sans text-[15px] font-medium tracking-wide text-[#350709] min-h-[44px] inline-flex items-center justify-center hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
+          <a href="tel:+918329895846" className="font-sans text-[15px] font-medium tracking-wide text-[#350709] min-h-[44px] inline-flex items-center justify-center hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">
             Call &rarr;
           </a>
           <a href="https://www.instagram.com/restaurant_mauryaveg?igsh=djFnNDV6N2c1dTN1" target="_blank" rel="noopener noreferrer" className="font-sans text-[15px] font-medium tracking-wide text-[#350709] min-h-[44px] inline-flex items-center justify-center hover:underline underline-offset-4 decoration-[#350709]/40 transition-all">

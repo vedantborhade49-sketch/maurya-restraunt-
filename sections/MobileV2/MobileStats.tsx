@@ -17,9 +17,9 @@ export default function MobileStats() {
       sub: "Satvik Kitchen",
     },
     {
-      num: "4.9★",
+      num: "4.5★",
       label: "Top Rated",
-      sub: "3,000+ Reviews",
+      sub: "933+ Reviews",
     },
   ];
 

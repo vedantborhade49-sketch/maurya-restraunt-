@@ -60,7 +60,7 @@ export default function Chapter06Reservation() {
           </Link>
 
           <a
-            href="https://wa.me/917030777051"
+            href="https://wa.me/918329895846"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto"

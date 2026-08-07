@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import ReviewsClient from "@/components/reviews/ReviewsClient";
 
 export const metadata: Metadata = {
-  title: "Guest Reviews & Dining Memories (4.8★)",
-  description: "Read real dining experiences and reviews from families and guests at Maurya Pure Veg Restaurant, Kondhwa, Pune. Rated 4.8/5 across 3,200+ visits.",
+  title: "Guest Reviews & Dining Memories (4.5★)",
+  description: "Read genuine dining experiences and reviews from guests at Maurya Pure Veg Restaurant, Khadi Machine Chowk, Kondhwa, Pune. Rated 4.5/5 with 933+ Google Reviews.",
   alternates: {
     canonical: "/reviews",
   },

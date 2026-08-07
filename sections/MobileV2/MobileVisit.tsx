@@ -25,7 +25,7 @@ export default function MobileVisit() {
     // Create WhatsApp message for reservation
     const text = `*New Table Reservation Request*%0A%0A*Name:* ${encodeURIComponent(formData.name)}%0A*Phone:* ${encodeURIComponent(formData.phone)}%0A*Date:* ${encodeURIComponent(formData.date || "Today")}%0A*Time:* ${encodeURIComponent(formData.time)}%0A*Guests:* ${encodeURIComponent(formData.guests)}%0A*Notes:* ${encodeURIComponent(formData.notes || "None")}`;
     
-    window.open(`https://wa.me/917030777051?text=${text}`, "_blank");
+    window.open(`https://wa.me/918329895846?text=${text}`, "_blank");
     setSubmitted(true);
   };
 
@@ -53,7 +53,7 @@ export default function MobileVisit() {
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B98532]/20 border border-[#B98532]/40 text-[#B98532] text-[10px] font-mono uppercase tracking-[0.2em] font-bold mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-[#B98532] animate-ping" />
-            Kondhwa · Pune
+            Khadi Machine Chowk · Kondhwa · Pune
           </div>
 
           <h1 className="font-heading text-[40px] leading-[1.05] text-[#F8F6F1] tracking-tight mb-3">
@@ -76,7 +76,7 @@ export default function MobileVisit() {
               Directions
             </a>
             <a 
-              href="tel:+917030777051"
+              href="tel:+918329895846"
               className="flex items-center justify-center gap-2 h-[48px] bg-white/10 hover:bg-white/20 text-[#F8F6F1] rounded-xl font-sans text-[12px] font-bold uppercase tracking-wider backdrop-blur-md active:scale-95 transition-all border border-white/20"
             >
               <Phone className="w-4 h-4 text-[#B98532]" />
@@ -97,7 +97,7 @@ export default function MobileVisit() {
             <div className="flex flex-col">
               <span className="font-mono text-[10px] uppercase tracking-widest text-[#B98532] font-bold">Address</span>
               <span className="font-sans text-[14px] text-[#F8F6F1] font-medium mt-0.5">
-                Tilekar Nagar, Kondhwa Khurd, Near ISKCON Temple, Pune, Maharashtra 411048
+                Shop 5,6 Sun Radiant Commercial Society, Khadi Machine Chowk, Kondhwa, Pune 411048
               </span>
             </div>
           </div>
@@ -111,8 +111,8 @@ export default function MobileVisit() {
             <div className="flex flex-col">
               <span className="font-mono text-[10px] uppercase tracking-widest text-[#B98532] font-bold">Dining Hours</span>
               <span className="font-sans text-[14px] text-[#F8F6F1] font-medium mt-0.5">
-                11:00 AM — 11:00 PM <br/>
-                <span className="text-[12px] text-[#F8F6F1]/60">Open all 7 days for Lunch & Dinner</span>
+                8:00 AM — 11:30 PM <br/>
+                <span className="text-[12px] text-[#F8F6F1]/60">Open all 7 days for Breakfast, Lunch & Dinner</span>
               </span>
             </div>
           </div>
@@ -124,9 +124,9 @@ export default function MobileVisit() {
               <Phone className="w-5 h-5 text-[#B98532]" />
             </div>
             <div className="flex flex-col">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-[#B98532] font-bold">Inquiries & Takeaway</span>
-              <a href="tel:+917030777051" className="font-sans text-[15px] text-[#F8F6F1] font-bold mt-0.5 hover:text-[#B98532] transition-colors">
-                +91 70307 77051
+              <span className="font-mono text-[10px] uppercase tracking-widest text-[#B98532] font-bold">Inquiries & Orders</span>
+              <a href="tel:+918329895846" className="font-sans text-[15px] text-[#F8F6F1] font-bold mt-0.5 hover:text-[#B98532] transition-colors">
+                +91 83298 95846
               </a>
             </div>
           </div>

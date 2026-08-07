@@ -136,7 +136,7 @@ Please confirm my order.`;
 
         // 4. Redirect to WhatsApp universal link
         const encodedText = encodeURIComponent(message);
-        const whatsappNumber = "917030777051"; // Maurya primary restaurant number
+        const whatsappNumber = "918329895846"; // Maurya primary restaurant number
         const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
         
         window.open(whatsappUrl, "_blank");
@@ -171,7 +171,7 @@ Please confirm my order.`;
           </p>
           <div className="space-y-3">
             <a
-              href={`https://wa.me/917030777051?text=${encodeURIComponent(
+              href={`https://wa.me/918329895846?text=${encodeURIComponent(
                 `Hi, checking on order status for ID: ${orderSuccess.order_number}`
               )}`}
               target="_blank"

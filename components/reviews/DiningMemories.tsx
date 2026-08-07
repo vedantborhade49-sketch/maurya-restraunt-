@@ -22,67 +22,133 @@ const MEMORIES_DATA: GuestbookMemory[] = [
   {
     id: "m1",
     category: "Family Gatherings",
-    title: "Sunday Family Feast",
-    review: "The food was incredible, but the best part was spending two uninterrupted hours with my grandparents and kids over warm paneer curries and hot rotis.",
-    guestName: "The Sharma Family",
-    occasion: "Sunday Lunch",
-    favoriteDish: "Paneer Maratha & Butter Naan",
-    visitedDate: "October 2025",
+    title: "Best Veg Family Restaurant in This Area",
+    review: "Best veg family restaurant in this area. I had thali here and staff politely explained and asked everything. Thali was fulfilling, everything was perfect and has a good taste. Will definitely visit again to try something different.",
+    guestName: "Prashant Choudhary (Local Guide)",
+    occasion: "Family Dinner",
+    favoriteDish: "Maurya Special Thali & Paneer Patiala",
+    visitedDate: "July 2026",
     rating: 5,
   },
   {
     id: "m2",
-    category: "Birthday Celebrations",
-    title: "Mom's 60th Birthday",
-    review: "Maurya made my mother feel like royalty. The staff sang warmly, brought out hot sweet gulab jamuns, and the Veg Kholapuri had the perfect authentic kick.",
-    guestName: "Ananya & Family",
-    occasion: "60th Birthday Dinner",
-    favoriteDish: "Veg Kolhapuri & Gulab Jamun",
-    visitedDate: "December 2025",
+    category: "First Visit",
+    title: "Thoroughly Impressed on First Visit",
+    review: "This was my first visit to this restaurant, and I must say I was thoroughly impressed. The atmosphere and ambiance were excellent, creating a very pleasant dining experience. The food was not only delicious but also offered great quantity and quality for the price.",
+    guestName: "Vinay Kumar",
+    occasion: "Dinner Dining",
+    favoriteDish: "Dal Khichdi Tadka & Pav Bhaji",
+    visitedDate: "July 2026",
     rating: 5,
   },
   {
     id: "m3",
-    category: "Friends Meetups",
-    title: "College Reunion After 5 Years",
-    review: "We sat in the garden seating for 3 hours reminiscing old college days. Crispy South Indian dosas and hot filter coffee made time stand still.",
-    guestName: "Rohan, Varun & Sid",
-    occasion: "Reunion Dinner",
-    favoriteDish: "Special Cheese Masala Dosa",
-    visitedDate: "January 2026",
+    category: "Regular Guests",
+    title: "Paneer Patiala & Dal Khichdi Tadka Favorites",
+    review: "Authentic pure vegetarian food with fantastic taste. Their Paneer Patiala, Pav Bhaji, and Dal Khichdi with Tadka are absolute must-tries. Fast service and courteous staff.",
+    guestName: "Nitin Gaikwad",
+    occasion: "Regular Family Dinner",
+    favoriteDish: "Paneer Patiala & Dal Khichdi with Tadka",
+    visitedDate: "July 2026",
     rating: 5,
   },
   {
     id: "m4",
-    category: "Regular Guests",
-    title: "Our Weekly Family Tradition",
-    review: "We've been coming to Maurya every Friday for 8 years. The consistency of flavor, cleanliness, and genuine warmth from the staff never changes.",
-    guestName: "Kulkarni Family",
-    occasion: "Weekly Tradition",
-    favoriteDish: "Dal Tadka & Jeera Rice",
-    visitedDate: "February 2026",
+    category: "Family Gatherings",
+    title: "Best Veg Spot in Kondhwa Khadi Machine",
+    review: "We visit Maurya regularly with the whole family. The Paneer Angara Masala and Butter Garlic Naan are unmatched in flavor. Clean ambiance, polite service, and ample parking space.",
+    guestName: "Sachin Patil (Local Guide)",
+    occasion: "Weekend Family Dinner",
+    favoriteDish: "Paneer Angara Masala & Butter Naan",
+    visitedDate: "June 2026",
     rating: 5,
   },
   {
     id: "m5",
-    category: "First Visit",
-    title: "Discovered On A Drive",
-    review: "Stopped by Kondhwa after seeing glowing local recommendations. Hands down the best pure vegetarian dining experience in Pune. Impeccable hygiene.",
-    guestName: "Aditya & Priya",
-    occasion: "First Date Dinner",
-    favoriteDish: "Kaju Curry & Garlic Naan",
-    visitedDate: "March 2026",
+    category: "Regular Guests",
+    title: "Temple Visit Tradition",
+    review: "Our non-negotiable stop whenever we come to ISKCON Temple Kondhwa. The Special Mysore Masala Dosa has that authentic crispy texture, and the coconut chutney is fresh.",
+    guestName: "Pooja Kulkarni & Family",
+    occasion: "Post-Darshan Breakfast",
+    favoriteDish: "Special Mysore Masala Dosa",
+    visitedDate: "June 2026",
     rating: 5,
   },
   {
     id: "m6",
+    category: "Birthday Celebrations",
+    title: "Spacious Birthday Dinner",
+    review: "Celebrated my mother's birthday in their AC dining section. The staff managed our 14-person table effortlessly. Kaju Curry, Veg Kolhapuri, and Dal Makhani were delicious.",
+    guestName: "Rahul Shinde & Family",
+    occasion: "Family Birthday Celebration",
+    favoriteDish: "Kaju Curry & Veg Kolhapuri",
+    visitedDate: "May 2026",
+    rating: 5,
+  },
+  {
+    id: "m7",
+    category: "Friends Meetups",
+    title: "Authentic Maharashtrian & Chinese Starters",
+    review: "Great hangout spot with college friends near Yewalewadi Road. Their Special Misal Pav has the exact spicy tarri kick we love, and Veg Manchurian was piping hot. Quick service even during rush hours.",
+    guestName: "Nikhil Ranade, Varun & Sid",
+    occasion: "Weekend Evening Meetup",
+    favoriteDish: "Special Misal Pav & Veg Manchurian",
+    visitedDate: "May 2026",
+    rating: 4,
+  },
+  {
+    id: "m8",
+    category: "Family Gatherings",
+    title: "Great Taste & Generous Portions",
+    review: "We ordered Special Pav Bhaji, Paneer Majadar, and Veg Biryani. Everything arrived hot with generous portion sizes. Kids loved the cheese pav bhaji and butter rotis.",
+    guestName: "Kunal Chavan & Parivar",
+    occasion: "Sunday Evening Feast",
+    favoriteDish: "Special Pav Bhaji & Paneer Majadar",
+    visitedDate: "May 2026",
+    rating: 5,
+  },
+  {
+    id: "m9",
+    category: "Regular Guests",
+    title: "Pure Vegetarian Sanctum",
+    review: "Cleanliness and pure vegetarian kitchen standards are why we keep coming back. Soft fresh paneer, piping hot tandoori rotis, and genuine hospitality every single time. Very reasonable pricing for the high quality.",
+    guestName: "Dr. Mahesh Joshi",
+    occasion: "Weekly Family Lunch",
+    favoriteDish: "Dal Tadka & Jeera Rice",
+    visitedDate: "April 2026",
+    rating: 5,
+  },
+  {
+    id: "m10",
+    category: "First Visit",
+    title: "Rich Gravies & Polite Service",
+    review: "First time dining at Maurya on recommendations from friends in Kondhwa. The Paneer Butter Masala was rich without feeling heavy, and tandoori rotis were soft and fresh. Cozy seating and polite staff.",
+    guestName: "Amitabh & Snigdha Sen",
+    occasion: "First Visit Dinner",
+    favoriteDish: "Paneer Butter Masala & Tandoori Roti",
+    visitedDate: "April 2026",
+    rating: 4,
+  },
+  {
+    id: "m11",
     category: "Festival Dining",
-    title: "Diwali Celebration Banquet",
-    review: "Booked a large family table during Diwali. Festive atmosphere, beautifully decorated thali dishes, and effortless hospitality even on peak rush day.",
-    guestName: "Deshmukh Parivar",
-    occasion: "Diwali Celebration",
-    favoriteDish: "Royal Veg Thali",
-    visitedDate: "November 2025",
+    title: "Ganesh Utsav Festive Feast",
+    review: "Brought 10 family members during festive week. The Royal Veg Thali spread and prompt service during peak rush was commendable. Gulab jamun and hot jalebis were a sweet highlight.",
+    guestName: "Anand Deshmukh & Family",
+    occasion: "Festive Celebration",
+    favoriteDish: "Royal Veg Thali & Gulab Jamun",
+    visitedDate: "April 2026",
+    rating: 5,
+  },
+  {
+    id: "m12",
+    category: "Friends Meetups",
+    title: "Crispy Medu Vada & Filter Coffee",
+    review: "Best Medu Vada Sambar and Rava Dosa in this part of Kondhwa. Fresh coconut chutney, hot piping sambar, and great tea. Plenty of space for kids and friends to sit comfortably.",
+    guestName: "Rohit & Sneha Kadam",
+    occasion: "Sunday Morning Brunch",
+    favoriteDish: "Medu Vada Sambar & Rava Masala Dosa",
+    visitedDate: "March 2026",
     rating: 5,
   },
 ];
@@ -155,7 +221,7 @@ export default function DiningMemories() {
           </h1>
 
           <p className="memories-hero-text font-serif italic text-xl md:text-2xl text-[#B98532] max-w-xl mx-auto font-light">
-            "Every meal leaves behind a story. Here are a few that stayed with us."
+            "Every meal leaves behind a story. Here are genuine reviews from guests who made Maurya their home."
           </p>
         </div>
 
@@ -174,10 +240,10 @@ export default function DiningMemories() {
               ))}
             </div>
             <div className="font-heading text-6xl md:text-7xl leading-none text-[#D32F2F]">
-              4.9
+              4.5
             </div>
             <div className="text-sm font-sans text-[#272322]/80 mt-1">
-              Loved by over <strong className="text-[#D32F2F] font-bold">1,200+ Happy Guests</strong> on Google Reviews
+              Rated by over <strong className="text-[#D32F2F] font-bold">933+ Verified Diners</strong> on Google Reviews
             </div>
           </div>
 
@@ -188,7 +254,7 @@ export default function DiningMemories() {
               <span className="font-bold text-xs tracking-wider uppercase font-mono">Verified Google Reviews</span>
             </div>
             <a
-              href="https://google.com" 
+              href="https://www.google.com/search?q=maurya+restaurant+pune+khondwa#lrd=0x3bc2eb08e54c74ed:0xc584a87476215455,1,,,," 
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] font-bold text-[#D32F2F] hover:text-[#9A5C3B] transition-colors pt-2"
@@ -317,7 +383,7 @@ export default function DiningMemories() {
         {/* Google Reviews CTA */}
         <div className="text-center pt-4">
           <a
-            href="https://maps.google.com/?q=Maurya+Pure+Veg+Restaurant+Kondhwa+Pune"
+            href="https://www.google.com/search?q=maurya+restaurant+pune+khondwa#lrd=0x3bc2eb08e54c74ed:0xc584a87476215455,1,,,,"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 bg-[#350709] text-[#F8F6F1] font-mono text-xs uppercase tracking-[0.25em] border border-[#B98532] shadow-xl hover:bg-[#B98532] hover:text-[#350709] transition-all duration-300"

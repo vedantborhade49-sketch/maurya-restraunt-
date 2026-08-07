@@ -104,7 +104,8 @@ const restaurantStructuredData = {
   ],
   "@id": "https://mauryaveg.in/#restaurant",
   "url": "https://mauryaveg.in",
-  "telephone": "+917030777051",
+  "telephone": "+918329895846",
+  "email": "mauryaveg@gmail.com",
   "priceRange": "₹₹",
   "menu": "https://mauryaveg.in/menu",
   "servesCuisine": [
@@ -117,7 +118,7 @@ const restaurantStructuredData = {
   "acceptsReservations": "True",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Tilekar Nagar, Kondhwa Khurd, Near ISKCON Temple",
+    "streetAddress": "Shop 5,6 Sun Radiant Commercial Society, Khadi Machine Chowk, Kondhwa",
     "addressLocality": "Pune",
     "addressRegion": "Maharashtra",
     "postalCode": "411048",
@@ -140,14 +141,14 @@ const restaurantStructuredData = {
         "Saturday",
         "Sunday"
       ],
-      "opens": "11:00",
-      "closes": "23:00"
+      "opens": "08:00",
+      "closes": "23:30"
     }
   ],
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "reviewCount": "3240",
+    "ratingValue": "4.5",
+    "reviewCount": "933",
     "bestRating": "5",
     "worstRating": "1"
   },

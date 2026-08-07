@@ -56,9 +56,9 @@ export default function Chapter03Journey() {
               <span className="font-mono text-xs uppercase tracking-widest font-bold">ADDRESS</span>
             </div>
             <p className="font-serif text-lg leading-snug text-[#F8F6F1]">
-              Shop 1/2, Near Tilekar Nagar, Kamthe Pat, Kondhwa Khurd, Pune 411048
+              Shop 5,6 Sun Radiant Commercial Society, Khadi Machine Chowk, Kondhwa, Pune 411048
             </p>
-            <p className="font-sans text-xs text-[#F8F6F1]/70">Landmark: Opposite NIBM Road Junction</p>
+            <p className="font-sans text-xs text-[#F8F6F1]/70">Landmark: Khadi Machine Chowk Junction</p>
           </div>
         </div>
 

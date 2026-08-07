@@ -70,7 +70,7 @@ export default function DesktopReservationSection() {
 Please confirm my table reservation.`;
 
       const encodedText = encodeURIComponent(message);
-      const whatsappUrl = `https://wa.me/917030777051?text=${encodedText}`;
+      const whatsappUrl = `https://wa.me/918329895846?text=${encodedText}`;
 
       // Open WhatsApp chat in new window
       window.open(whatsappUrl, "_blank");
@@ -147,7 +147,7 @@ Please confirm my table reservation.`;
                       Book Another Table
                     </button>
                     <a
-                      href="https://wa.me/917030777051"
+                      href="https://wa.me/918329895846"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1 py-3 px-6 rounded-full bg-[#164C2B] hover:bg-[#164C2B]/90 text-xs font-bold uppercase tracking-wider text-white text-center transition-all flex items-center justify-center gap-2"
@@ -323,13 +323,13 @@ Please confirm my table reservation.`;
                 </div>
                 <div>
                   <span className="font-mono text-[9px] uppercase tracking-widest text-[#B98532] block">Direct Host Desk</span>
-                  <a href="tel:+917030777051" className="font-sans text-base font-bold text-[#F8F6F1] hover:text-[#B98532] transition-colors">
-                    +91 70307 77051
+                  <a href="tel:+918329895846" className="font-sans text-base font-bold text-[#F8F6F1] hover:text-[#B98532] transition-colors">
+                    +91 83298 95846
                   </a>
                 </div>
               </div>
               <a
-                href="https://wa.me/917030777051"
+                href="https://wa.me/918329895846"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2 rounded-xl bg-[#164C2B] hover:bg-[#164C2B]/90 text-[10px] uppercase tracking-wider font-bold text-white transition-all"

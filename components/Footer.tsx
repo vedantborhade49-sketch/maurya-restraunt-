@@ -88,8 +88,8 @@ export default function Footer() {
             </Link>
             <div className="space-y-2.5 text-sm md:text-base font-light text-[#F8F5EF]/80 leading-relaxed">
               <p className="font-serif italic font-medium text-base md:text-lg text-[#F8F5EF]">Pure Veg Heritage</p>
-              <p>Shop 1/2, Near Tilekar Nagar, Kamthe Pat, Kondhwa Khurd, Pune 411048</p>
-              <p className="text-[#9A5C3B] font-mono text-xs sm:text-sm pt-1">Open Daily: 11:00 AM – 11:00 PM</p>
+              <p>Shop 5,6 Sun Radiant Commercial Society, Khadi Machine Chowk, Kondhwa, Pune 411048</p>
+              <p className="text-[#9A5C3B] font-mono text-xs sm:text-sm pt-1">Open Daily: 8:00 AM – 11:30 PM</p>
               <div className="pt-2">
                 <a
                   href="https://maps.google.com/?q=Maurya+Pure+Veg+Restaurant+Kondhwa+Pune"
@@ -140,21 +140,21 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 text-sm md:text-base font-light text-[#F8F5EF]/80">
               <li>
-                <a href="tel:+917030777051" className="inline-flex items-center gap-2.5 hover:text-[#9A5C3B] transition-colors">
+                <a href="tel:+918329895846" className="inline-flex items-center gap-2.5 hover:text-[#9A5C3B] transition-colors">
                   <Phone className="w-4 h-4 text-[#9A5C3B]" />
-                  <span>+91 70307 77051</span>
+                  <span>+91 83298 95846</span>
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/917030777051" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 hover:text-[#9A5C3B] transition-colors">
+                <a href="https://wa.me/918329895846" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 hover:text-[#9A5C3B] transition-colors">
                   <MessageSquare className="w-4 h-4 text-[#9A5C3B]" />
-                  <span>WhatsApp Booking</span>
+                  <span>WhatsApp Booking & Orders</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:info@mauryapureveg.com" className="inline-flex items-center gap-2.5 hover:text-[#9A5C3B] transition-colors">
+                <a href="mailto:mauryaveg@gmail.com" className="inline-flex items-center gap-2.5 hover:text-[#9A5C3B] transition-colors">
                   <Mail className="w-4 h-4 text-[#9A5C3B]" />
-                  <span>info@mauryapureveg.com</span>
+                  <span>mauryaveg@gmail.com</span>
                 </a>
               </li>
             </ul>
@@ -179,12 +179,12 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://www.google.com/search?client=ubuntu-chr&hs=vEl&sca_esv=dc96f26ba5476417&sxsrf=APpeQnuV0GUDvT8XWVnicsUZ6xpXKzHolw:1785874281776&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_6LJNp3rs9TdnT_8kcseuspc2A6dnaNwtKacpGWK-1Bi2QCIWbcOg6GIZMix8k6FLXz8dI2IJiD36h2k-M7dxNiYrTIlG4GzQg2nQutwGg54I1FFhQ%3D%3D&q=Maurya+Veg+Family+Restaurant+Reviews&sa=X&ved=2ahUKEwiY27aR5IeWAxWKkeEIHaJEOq4Q0bkNegQIOxAH&biw=1366&bih=649&dpr=1#lrd=0x3bc2eb08e54c74ed:0xc584a87476215455,3,,,,"
+                  href="https://www.google.com/search?q=maurya+restaurant+pune+khondwa#lrd=0x3bc2eb08e54c74ed:0xc584a87476215455,1,,,,"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#9A5C3B] transition-colors"
                 >
-                  <span>Google Reviews (4.8★)</span>
+                  <span>Google Reviews (4.5★ · 933+ Reviews)</span>
                 </a>
               </li>
             </ul>

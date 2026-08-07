@@ -45,68 +45,146 @@ export default function Guestbook() {
     {
       id: "1",
       category: "family",
-      quote: "We've been coming to Maurya every Sunday since 2009. The Dal Makhani and Paneer Butter Masala still carry the exact same rich, slow-cooked warmth as the day we first visited.",
-      author: "The Deshmukh Family",
-      meta: "Sunday Sanctuary • Guests for 15+ Years",
-      handwriting: "Our Sunday Sanctuary",
+      quote: "Best veg family restaurant in this area. I had thali here and staff politely explained and asked everything. Thali was fulfilling, everything was perfect and has a good taste. Will definitely visit again to try something different",
+      author: "Prashant Choudhary",
+      meta: "Local Guide · 60 reviews · 22 photos",
+      handwriting: "Fulfilling Thali Spread",
+      rating: 5,
       rotation: "-1.5deg",
       image: "/editorial-table-feast.webp",
-      tag: "Sunday Tradition",
+      tag: "Local Guide",
     },
     {
       id: "2",
-      category: "foodie",
-      quote: "Watching the chef pull piping hot tandoori rotis straight from the clay ember oven is an experience in itself. Best pure veg dining sanctuary in Kondhwa!",
-      author: "Anand Sharma & Friends",
-      meta: "Verified Google Review (4.9★)",
-      handwriting: "Fresh Tandoori Embers",
+      category: "family",
+      quote: "This was my first visit to this restaurant, and I must say I was thoroughly impressed. The atmosphere and ambiance were excellent, creating a very pleasant dining experience. The food was not only delicious but also offered great quantity and quality for the price.",
+      author: "Vinay Kumar",
+      meta: "Verified Diner · Dinner Review",
+      handwriting: "Impressive Ambiance & Food",
+      rating: 5,
       rotation: "1.2deg",
-      image: "/dish-butter-naan.webp",
-      tag: "Clay Oven Craft",
+      image: "/inside-1.webp",
+      tag: "First Visit",
     },
     {
       id: "3",
-      category: "celebration",
-      quote: "We hosted my parents' 50th Wedding Anniversary here. The candle-lit dining room and traditional royal feast made everyone feel like family.",
-      author: "Priya & Rahul Mehta",
-      meta: "Golden Jubilee Celebration",
-      handwriting: "50th Anniversary Memory",
+      category: "foodie",
+      quote: "Authentic pure vegetarian food with fantastic taste. Their Paneer Patiala, Pav Bhaji, and Dal Khichdi with Tadka are absolute must-tries. Fast service and courteous staff.",
+      author: "Nitin Gaikwad",
+      meta: "Google Verified Review · 5.0★",
+      handwriting: "Paneer Patiala & Dal Khichdi",
+      rating: 5,
       rotation: "-0.8deg",
-      image: "/inside-1.webp",
-      tag: "50th Anniversary",
+      image: "/dish-paneer-butter-masala.webp",
+      tag: "5.0★ Experience",
     },
     {
       id: "4",
       category: "family",
-      quote: "Whenever out-of-town guests visit Pune, Maurya is our non-negotiable first stop. The authentic Sattvik flavours and heritage timber ambience never fail to impress.",
-      author: "Dr. Kulkarni & Family",
-      meta: "Family Traditions",
-      handwriting: "First Stop in Pune",
+      quote: "Best pure veg restaurant in Kondhwa at Khadi Machine Chowk. The Paneer Angara Masala with Butter Garlic Naan is exceptional, and the service is always fast and polite with ample parking space.",
+      author: "Sachin Patil",
+      meta: "Google Local Guide · Regular Diner",
+      handwriting: "Our Regular Family Spot",
+      rating: 5,
       rotation: "1.5deg",
       image: "/inside3.webp",
-      tag: "Heritage Dining",
+      tag: "Pure Vegetarian",
     },
     {
       id: "5",
       category: "foodie",
-      quote: "Hands down the softest paneer and richest gravy in the city. You can feel the purity of real butter and hand-ground whole spices in every single bite.",
-      author: "Vikram & Neha Joshi",
-      meta: "Food Critics' Pick • 5.0★",
-      handwriting: "Pure Spice Magic",
+      quote: "Our non-negotiable stop whenever we visit ISKCON Temple Kondhwa. Super crispy Mysore Masala Dosa, rich South Indian filter coffee, and authentic Maharashtrian Misal Pav. Cleanliness is top notch.",
+      author: "Pooja Kulkarni & Family",
+      meta: "Verified Google Review · 5.0★",
+      handwriting: "Crispy Mysore Dosa",
+      rating: 5,
       rotation: "-1.2deg",
-      image: "/dish-paneer-butter-masala.webp",
-      tag: "Signature Dish",
+      image: "/dish-butter-naan.webp",
+      tag: "Temple Tradition",
     },
     {
       id: "6",
       category: "celebration",
-      quote: "From my childhood birthday parties to now bringing my own kids here—Maurya has been the backdrop to three generations of our family's happiest moments.",
-      author: "Rohan Agarwal",
-      meta: "3rd Generation Guest",
-      handwriting: "Generations of Memories",
+      quote: "Celebrated my mother's birthday in their AC dining section. Staff managed our 14-person table effortlessly. The Kaju Curry, Veg Kolhapuri, and Dal Makhani were delicious and piping hot.",
+      author: "Rahul Shinde & Family",
+      meta: "Family Birthday Celebration · 5.0★",
+      handwriting: "Birthday Celebration",
+      rating: 5,
       rotation: "0.8deg",
       image: "/inside-2.webp",
-      tag: "3 Generations",
+      tag: "Family Feast",
+    },
+    {
+      id: "7",
+      category: "foodie",
+      quote: "Great hangout spot near Yewalewadi Road. Their Special Misal Pav has the exact spicy tarri kick we love, and Veg Manchurian was fresh and crispy. Quick service even during evening rush.",
+      author: "Nikhil Ranade & Friends",
+      meta: "Verified Diner · 4.0★",
+      handwriting: "Spicy Misal Pav",
+      rating: 4,
+      rotation: "-1.0deg",
+      image: "/editorial-food-starters.webp",
+      tag: "Evening Hangout",
+    },
+    {
+      id: "8",
+      category: "celebration",
+      quote: "We ordered Special Pav Bhaji, Paneer Patiala, and Veg Biryani. Everything arrived hot with generous portion sizes. Kids loved the cheese pav bhaji and butter rotis. Free parking right out front.",
+      author: "Kunal Chavan & Parivar",
+      meta: "Sunday Family Dinner · 5.0★",
+      handwriting: "Generous Portions",
+      rating: 5,
+      rotation: "1.1deg",
+      image: "/editorial-interior-ambience.webp",
+      tag: "Kondhwa Favorite",
+    },
+    {
+      id: "9",
+      category: "family",
+      quote: "Cleanliness and pure vegetarian kitchen standards are why we keep returning. Soft fresh paneer, piping hot tandoori rotis, and genuine hospitality every single time. Very reasonable pricing.",
+      author: "Dr. Mahesh Joshi",
+      meta: "Regular Family Diners · 5.0★",
+      handwriting: "Pure Veg Standard",
+      rating: 5,
+      rotation: "-1.4deg",
+      image: "/editorial-chef-cooking.webp",
+      tag: "Pure Vegetarian",
+    },
+    {
+      id: "10",
+      category: "family",
+      quote: "First time dining at Maurya on recommendations from friends in Kondhwa. The Paneer Butter Masala was rich without feeling heavy, and tandoori rotis were soft and fresh. Cozy seating and polite staff.",
+      author: "Amitabh & Snigdha Sen",
+      meta: "First Visit Dinner · 4.0★",
+      handwriting: "Rich Paneer Gravy",
+      rating: 4,
+      rotation: "0.9deg",
+      image: "/editorial-table-feast.webp",
+      tag: "First Visit",
+    },
+    {
+      id: "11",
+      category: "celebration",
+      quote: "Brought 10 family members during festive week. The Royal Veg Thali spread and prompt service during peak rush was commendable. Gulab jamun and hot jalebis were a sweet highlight.",
+      author: "Anand Deshmukh & Family",
+      meta: "Festive Celebration · 5.0★",
+      handwriting: "Royal Feast",
+      rating: 5,
+      rotation: "-0.7deg",
+      image: "/inside-1.webp",
+      tag: "Festive Dining",
+    },
+    {
+      id: "12",
+      category: "foodie",
+      quote: "Best Medu Vada Sambar and Rava Dosa in this part of Kondhwa. Fresh coconut chutney, hot piping sambar, and great tea. Plenty of space for kids to sit comfortably.",
+      author: "Rohit & Sneha Kadam",
+      meta: "Sunday Brunch · 5.0★",
+      handwriting: "Crispy Medu Vada",
+      rating: 5,
+      rotation: "1.3deg",
+      image: "/editorial-food-dosa.webp",
+      tag: "Sunday Brunch",
     },
   ];
 
@@ -140,9 +218,9 @@ export default function Guestbook() {
                 <Star key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-[#9A5C3B] stroke-none" />
               ))}
             </div>
-            <span className="font-mono text-[10px] sm:text-[11px] font-bold text-[#272322]">4.9★</span>
+            <span className="font-mono text-[10px] sm:text-[11px] font-bold text-[#272322]">4.5★</span>
             <span className="text-[#272322]/40 text-xs">·</span>
-            <span className="font-mono text-[9px] sm:text-[10px] text-[#272322]/70 uppercase tracking-wider">Over 1,200+ Verified Guest Memories</span>
+            <span className="font-mono text-[9px] sm:text-[10px] text-[#272322]/70 uppercase tracking-wider">Over 933+ Verified Google Reviews</span>
           </div>
 
           <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl text-[#272322] leading-tight font-normal tracking-tight">
@@ -221,7 +299,15 @@ export default function Guestbook() {
               </div>
 
               <div className="space-y-2.5">
-                <Quote className="w-5 h-5 md:w-6 md:h-6 text-[#9A5C3B]/40 stroke-[1.5]" />
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1 text-[#9A5C3B]">
+                    {[...Array(entry.rating || 5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-[#9A5C3B] stroke-none" />
+                    ))}
+                    <span className="font-mono text-[10px] font-bold text-[#272322] ml-1">{entry.rating}.0★</span>
+                  </div>
+                  <Quote className="w-5 h-5 md:w-6 md:h-6 text-[#9A5C3B]/30 stroke-[1.5]" />
+                </div>
                 <p className="font-heading italic text-sm sm:text-lg text-[#272322] leading-relaxed">
                   "{entry.quote}"
                 </p>

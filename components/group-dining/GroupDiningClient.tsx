@@ -67,7 +67,7 @@ ${data.specialInstructions ? `Notes: ${data.specialInstructions}\n` : ""}
 Please confirm availability and package options.`;
 
       const encodedText = encodeURIComponent(message);
-      const whatsappNumber = "917030777051"; // Maurya primary number
+      const whatsappNumber = "918329895846"; // Maurya primary number
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
 
       // Open WhatsApp chat
@@ -102,7 +102,7 @@ Please confirm availability and package options.`;
           </div>
           <div className="space-y-3">
             <a
-              href={`https://wa.me/917030777051?text=${encodeURIComponent(
+              href={`https://wa.me/918329895846?text=${encodeURIComponent(
                 `Checking availability for group booking: ${success.organizerName} on ${success.eventDate}`
               )}`}
               target="_blank"
@@ -231,9 +231,10 @@ Please confirm availability and package options.`;
                   {...register("eventTime")}
                   className="w-full px-4 py-3 rounded-xl bg-[#0B0908] border border-[#B98532]/20 text-[#F3E8D4] focus:outline-none focus:border-[#B98532]/50 text-sm font-sans"
                 >
+                  <option value="Breakfast Slot (8:00 AM - 11:30 AM)">Breakfast (8:00 AM - 11:30 AM)</option>
                   <option value="Lunch Slot (11:30 AM - 3:30 PM)">Lunch (11:30 AM - 3:30 PM)</option>
                   <option value="Hi-Tea Slot (4:00 PM - 6:30 PM)">Hi-Tea (4:00 PM - 6:30 PM)</option>
-                  <option value="Dinner Slot (7:00 PM - 11:00 PM)">Dinner (7:00 PM - 11:00 PM)</option>
+                  <option value="Dinner Slot (7:00 PM - 11:30 PM)">Dinner (7:00 PM - 11:30 PM)</option>
                 </select>
               </div>
             </div>

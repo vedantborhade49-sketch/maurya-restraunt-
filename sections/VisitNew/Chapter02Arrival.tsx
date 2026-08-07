@@ -62,8 +62,8 @@ export default function Chapter02Arrival() {
           </span>
 
           <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#350709] font-normal leading-[1.05] tracking-tight">
-            As You Turn Off<br />
-            NIBM Road <span className="italic text-[#B98532]">Into Tilekar Nagar.</span>
+            As You Arrive At<br />
+            Khadi Machine Chowk <span className="italic text-[#B98532]">In Kondhwa.</span>
           </h2>
 
           <div className="w-16 h-[2px] bg-[#B98532]/40" />
@@ -73,11 +73,11 @@ export default function Chapter02Arrival() {
           </p>
 
           <p className="font-sans text-sm md:text-base text-[#1F1F1F]/80 leading-relaxed max-w-lg">
-            Whether arriving for a quiet weekday lunch or a lively Sunday family dinner, our staff receives every guest with genuine warmth and attentive hospitality.
+            Whether arriving for a quiet weekday breakfast or a lively Sunday family dinner, our staff receives every guest with genuine warmth and attentive hospitality.
           </p>
 
           <div className="flex items-center gap-4 text-xs font-mono uppercase tracking-[0.25em] text-[#B98532] font-bold pt-2">
-            <span>KONDHWA KHURD</span>
+            <span>KHADI MACHINE CHOWK · KONDHWA</span>
             <span className="w-1.5 h-1.5 rounded-full bg-[#B98532]" />
             <span>PUNE</span>
           </div>

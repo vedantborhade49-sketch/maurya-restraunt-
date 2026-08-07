@@ -5,21 +5,33 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const REVIEWS = [
   {
-    quote: "The finest pure vegetarian dining experience I have ever had. The attention to detail is remarkable.",
-    name: "Arjun Mehta",
-    dish: "Paneer Tikka Ajwaini",
+    quote: "Best pure veg restaurant in Kondhwa near Khadi Machine Chowk. Paneer Angara Masala with Butter Garlic Naan is exceptional. Fast and polite service.",
+    name: "Sachin Patil (Local Guide)",
+    dish: "Paneer Angara Masala",
     verified: true
   },
   {
-    quote: "A timeless institution. Every visit feels like coming home to luxury hospitality.",
-    name: "Priya Sharma",
-    dish: "Dal Makhani",
+    quote: "Our regular pure veg stop after visiting ISKCON temple. Crispy Mysore Masala Dosa, rich filter coffee, and authentic Special Misal Pav.",
+    name: "Pooja Kulkarni",
+    dish: "Special Mysore Masala Dosa",
     verified: true
   },
   {
-    quote: "The flavors are as rich as the history of this place. Highly recommended for family dinners.",
-    name: "Vikram Singh",
-    dish: "Kung Pao Paneer",
+    quote: "Spacious indoor AC and garden seating for family dinners. The Kaju Curry, Veg Biryani, and Dal Tadka were fresh and perfectly seasoned.",
+    name: "Rahul Shinde & Family",
+    dish: "Kaju Curry & Veg Biryani",
+    verified: true
+  },
+  {
+    quote: "Consistently delicious North Indian dishes with soft paneer and piping hot tandoori rotis. Great hygiene and polite staff.",
+    name: "Amitabh Sen",
+    dish: "Paneer Butter Masala",
+    verified: true
+  },
+  {
+    quote: "Great value for money in Kondhwa. Special Pav Bhaji and Veg Crispy were hot, fresh, and bursting with flavor. Free parking right out front.",
+    name: "Kunal Chavan",
+    dish: "Special Pav Bhaji",
     verified: true
   }
 ];

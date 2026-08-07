@@ -50,19 +50,19 @@ export default function Chapter07Contact() {
           <div className="contact-card bg-white border border-[#B98532]/30 p-8 space-y-4 shadow-sm text-center">
             <Phone className="w-6 h-6 text-[#B98532] mx-auto stroke-[1.5]" />
             <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#B98532] font-bold block">RESERVATIONS & HELPLINE</span>
-            <a href="tel:+917030777051" className="font-serif text-2xl text-[#350709] hover:text-[#B98532] transition-colors block">
-              +91 70307 77051
+            <a href="tel:+918329895846" className="font-serif text-2xl text-[#350709] hover:text-[#B98532] transition-colors block">
+              +91 83298 95846
             </a>
-            <p className="font-sans text-xs text-[#1F1F1F]/60">Available 11 AM — 11 PM daily</p>
+            <p className="font-sans text-xs text-[#1F1F1F]/60">Available 8:00 AM — 11:30 PM daily</p>
           </div>
 
           <div className="contact-card bg-[#350709] text-[#F8F6F1] border border-[#B98532]/40 p-8 space-y-4 shadow-xl text-center">
             <MapPin className="w-6 h-6 text-[#B98532] mx-auto stroke-[1.5]" />
             <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#B98532] font-bold block">RESTAURANT ADDRESS</span>
             <p className="font-serif text-xl leading-relaxed text-[#F8F6F1]">
-              Shop 1/2, Near Tilekar Nagar, Kamthe Pat, Kondhwa Khurd, Pune 411048
+              Shop 5,6 Sun Radiant Commercial Society, Khadi Machine Chowk, Kondhwa, Pune 411048
             </p>
-            <p className="font-sans text-xs text-[#B98532]">Opposite NIBM Road Junction</p>
+            <p className="font-sans text-xs text-[#B98532]">Khadi Machine Chowk Junction</p>
           </div>
 
           <div className="contact-card bg-white border border-[#B98532]/30 p-8 space-y-4 shadow-sm text-center">
@@ -71,7 +71,7 @@ export default function Chapter07Contact() {
             <p className="font-serif text-2xl text-[#350709]">
               Open Daily
             </p>
-            <p className="font-sans text-xs text-[#1F1F1F]/70">11:00 AM — 11:00 PM</p>
+            <p className="font-sans text-xs text-[#1F1F1F]/70">8:00 AM — 11:30 PM</p>
           </div>
 
         </div>

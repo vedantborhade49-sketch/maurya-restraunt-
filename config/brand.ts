@@ -44,9 +44,10 @@ export const BRAND_COPY = {
   emotional: "TABLES WERE NEVER MADE FOR SILENCE.",
   philosophy: "PURE VEG. FULL OF LIFE.",
   since: "Since 1998",
-  location: "Kondhwa Khurd, Pune",
-  phone: "+91 70307 77051",
-  whatsappUrl: "https://wa.me/917030777051",
+  location: "Shop 5,6 Sun Radiant Commercial Society, Khadi Machine Chowk, Kondhwa, Pune 411048",
+  phone: "+91 83298 95846",
+  email: "mauryaveg@gmail.com",
+  whatsappUrl: "https://wa.me/918329895846",
   instagramUrl: "https://www.instagram.com/restaurant_mauryaveg?igsh=djFnNDV6N2c1dTN1",
 } as const;
 

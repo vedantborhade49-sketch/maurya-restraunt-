@@ -211,11 +211,11 @@ export default function Chapter07Arrival() {
           <div className="space-y-6 mb-12 relative">
             <div className="flex flex-col">
               <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-[#292421]/50 mb-1">Location</span>
-              <span className="font-serif italic text-lg text-[#292421]">Tilekar Nagar, Kondhwa Khurd</span>
+              <span className="font-serif italic text-lg text-[#292421]">Khadi Machine Chowk, Kondhwa</span>
             </div>
             <div className="flex flex-col">
               <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-[#292421]/50 mb-1">Hours</span>
-              <span className="font-serif italic text-lg text-[#292421]">11:00 AM — 11:00 PM</span>
+              <span className="font-serif italic text-lg text-[#292421]">8:00 AM — 11:30 PM</span>
             </div>
             
             {/* Natural Trust Markers */}
@@ -228,7 +228,7 @@ export default function Chapter07Arrival() {
                 <span className="font-serif text-[#FDFBF7] text-xs">M</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-serif text-sm text-[#292421] font-bold">4.8 ★ Google Rating</span>
+                <span className="font-serif text-sm text-[#292421] font-bold">4.5 ★ Google Rating</span>
                 <span className="font-mono text-[8px] uppercase tracking-[0.15em] text-[#A65B3E]">Loved Across Pune</span>
               </div>
             </div>

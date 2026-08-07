@@ -64,7 +64,7 @@ export default function Chapter01Invitation() {
         </h1>
 
         <p className="font-sans text-sm md:text-base lg:text-lg text-[#F8F6F1]/80 max-w-xl font-light leading-relaxed pt-2">
-          Tilekar Nagar, Kondhwa Khurd, Pune — Open Daily from 11:00 AM to 11:00 PM.
+          Shop 5,6 Sun Radiant Commercial Society, Khadi Machine Chowk, Kondhwa, Pune — Open Daily from 8:00 AM to 11:30 PM.
         </p>
       </div>
     </section>
