@@ -25,6 +25,9 @@ export default function HomeClient() {
   const heroContentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Only initialize video animations on desktop viewports
+    if (typeof window !== "undefined" && window.innerWidth < 768) return;
+
     const video = videoRef.current;
     if (!video) return;
 
