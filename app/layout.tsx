@@ -195,28 +195,24 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cormorant.variable} ${manrope.variable} ${instrument.variable}`}>
       <head>
+        {/* Google tag (gtag.js) - Google Analytics */}
         <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantStructuredData) }}
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-4VQQQGRRGM"
         />
-        {/* Google Analytics GA4 */}
-        <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${GA_MEASUREMENT_ID}', {
-                page_path: window.location.pathname,
-              });
+              gtag('config', 'G-4VQQQGRRGM');
             `,
           }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantStructuredData) }}
         />
       </head>
       <body className="antialiased bg-midnight text-soft-ivory font-sans">
