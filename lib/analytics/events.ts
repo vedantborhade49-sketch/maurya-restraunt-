@@ -25,15 +25,17 @@ export type MauryaEventName =
 export const trackEvent = (eventName: MauryaEventName, params?: Record<string, any>) => {
   if (typeof window === "undefined") return;
 
-  // Log to console for development audit tracking
-  console.log(`[Maurya Analytics] Event fired: "${eventName}"`, params || "");
+  // Log to console in development mode only
+  if (process.env.NODE_ENV === "development") {
+    console.log(`[Maurya Analytics] Event fired: "${eventName}"`, params || "");
+  }
 
   // Push to Google Analytics (gtag) if loaded
   if (typeof (window as any).gtag === "function") {
     try {
       (window as any).gtag("event", eventName, params);
-    } catch (e) {
-      console.warn("Failed to log event to Google Analytics:", e);
+    } catch {
+      // Silently catch in production
     }
   }
 };
