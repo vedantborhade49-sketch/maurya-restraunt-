@@ -7,17 +7,17 @@ import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 
 // Dynamically import below-the-fold sections to optimize initial bundle & LCP
-const InvitationSection = dynamic(() => import("@/sections/Chapter02/InvitationSection"), { ssr: true });
-const Chapter04 = dynamic(() => import("@/sections/Chapter04/Chapter04"), { ssr: true });
-const Guestbook = dynamic(() => import("@/sections/Guestbook/Guestbook"), { ssr: true });
+const InvitationSection = dynamic(() => import("@/sections/Chapter02/InvitationSection"), { ssr: false });
+const Chapter04 = dynamic(() => import("@/sections/Chapter04/Chapter04"), { ssr: false });
+const Guestbook = dynamic(() => import("@/sections/Guestbook/Guestbook"), { ssr: false });
 
 import MobileHero from "@/sections/MobileV2/MobileHero";
-const MobileEditorial = dynamic(() => import("@/sections/MobileV2/MobileEditorial"), { ssr: true });
-const MobileStats = dynamic(() => import("@/sections/MobileV2/MobileStats"), { ssr: true });
-const MobileMenu = dynamic(() => import("@/sections/MobileV2/MobileMenu"), { ssr: true });
-const MobileStory = dynamic(() => import("@/sections/MobileV2/MobileStory"), { ssr: true });
-const MobileGallery = dynamic(() => import("@/sections/MobileV2/MobileGallery"), { ssr: true });
-const MobileReviews = dynamic(() => import("@/sections/MobileV2/MobileReviews"), { ssr: true });
+const MobileEditorial = dynamic(() => import("@/sections/MobileV2/MobileEditorial"), { ssr: false });
+const MobileStats = dynamic(() => import("@/sections/MobileV2/MobileStats"), { ssr: false });
+const MobileMenu = dynamic(() => import("@/sections/MobileV2/MobileMenu"), { ssr: false });
+const MobileStory = dynamic(() => import("@/sections/MobileV2/MobileStory"), { ssr: false });
+const MobileGallery = dynamic(() => import("@/sections/MobileV2/MobileGallery"), { ssr: false });
+const MobileReviews = dynamic(() => import("@/sections/MobileV2/MobileReviews"), { ssr: false });
 
 export default function HomeClient() {
   const videoRef       = useRef<HTMLVideoElement>(null);
