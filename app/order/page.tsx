@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Order Online & WhatsApp Delivery | Maurya Pure Veg Pune",
     description: "Get piping hot thalis, paneer curries, and crispy dosas delivered straight from our kitchen.",
-    url: "https://mauryaveg.com/order",
+    url: "https://mauryaveg.in/order",
     images: [
       {
         url: "/editorial-food-mains.webp",

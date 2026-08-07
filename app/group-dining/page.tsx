@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Group Dining & Family Celebrations | Maurya Pure Veg Pune",
     description: "Celebrate milestones with lavish pure veg spreads, personalized menus, and attentive service.",
-    url: "https://mauryaveg.com/group-dining",
+    url: "https://mauryaveg.in/group-dining",
     images: [
       {
         url: "/editorial-table-feast.webp",

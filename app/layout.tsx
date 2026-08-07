@@ -30,7 +30,7 @@ const instrument = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mauryaveg.com"),
+  metadataBase: new URL("https://mauryaveg.in"),
   title: {
     default: "Maurya | Pure Vegetarian Restaurant in Kondhwa, Pune",
     template: "%s | Maurya Pure Veg Pune",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Maurya | Pure Vegetarian Restaurant in Kondhwa, Pune",
     description: "Experience Pune's finest pure vegetarian culinary sanctuary in Kondhwa. Authentic curries, dosas, thalis, and family dining.",
-    url: "https://mauryaveg.com",
+    url: "https://mauryaveg.in",
     siteName: "Maurya Pure Veg Restaurant",
     images: [
       {
@@ -98,15 +98,15 @@ const restaurantStructuredData = {
   "@type": "Restaurant",
   "name": "Maurya Pure Veg Restaurant",
   "image": [
-    "https://mauryaveg.com/outside.webp",
-    "https://mauryaveg.com/editorial-table-feast.webp",
-    "https://mauryaveg.com/inside-1.webp"
+    "https://mauryaveg.in/outside.webp",
+    "https://mauryaveg.in/editorial-table-feast.webp",
+    "https://mauryaveg.in/inside-1.webp"
   ],
-  "@id": "https://mauryaveg.com/#restaurant",
-  "url": "https://mauryaveg.com",
+  "@id": "https://mauryaveg.in/#restaurant",
+  "url": "https://mauryaveg.in",
   "telephone": "+917030777051",
   "priceRange": "₹₹",
-  "menu": "https://mauryaveg.com/menu",
+  "menu": "https://mauryaveg.in/menu",
   "servesCuisine": [
     "Pure Vegetarian",
     "North Indian",
@@ -156,7 +156,7 @@ const restaurantStructuredData = {
       "@type": "ReserveAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://mauryaveg.com/visit#reserve",
+        "urlTemplate": "https://mauryaveg.in/visit#reserve",
         "inLanguage": "en-US",
         "actionPlatform": [
           "http://schema.org/DesktopWebPlatform",
@@ -172,7 +172,7 @@ const restaurantStructuredData = {
       "@type": "OrderAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://mauryaveg.com/order",
+        "urlTemplate": "https://mauryaveg.in/order",
         "inLanguage": "en-US",
         "actionPlatform": [
           "http://schema.org/DesktopWebPlatform",

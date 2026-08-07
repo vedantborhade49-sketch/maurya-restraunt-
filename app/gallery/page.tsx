@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Visual Gallery & Atmosphere | Maurya Pure Veg Pune",
     description: "Immerse yourself in the culinary artistry, royal ambience, and hospitality of Maurya.",
-    url: "https://mauryaveg.com/gallery",
+    url: "https://mauryaveg.in/gallery",
     images: [
       {
         url: "/inside-2.webp",

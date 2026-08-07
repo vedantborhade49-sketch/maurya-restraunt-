@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Visit Maurya Pure Veg | Kondhwa Khurd, Pune",
     description: "Find your way to Pune's timeless pure vegetarian dining hall. Valet parking, AC family dining, and satvik cuisine.",
-    url: "https://mauryaveg.com/visit",
+    url: "https://mauryaveg.in/visit",
     images: [
       {
         url: "/outside.webp",

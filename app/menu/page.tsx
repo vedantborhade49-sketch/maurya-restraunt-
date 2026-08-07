@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Pure Vegetarian Menu | Maurya Pure Veg Kondhwa Pune",
     description: "Explore 100+ authentic pure vegetarian dishes, North Indian gravies, South Indian tiffin, and Maharashtrian specialties.",
-    url: "https://mauryaveg.com/menu",
+    url: "https://mauryaveg.in/menu",
     images: [
       {
         url: "/editorial-table-feast.webp",

@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/admin", "/admin/*", "/api/*"],
     },
-    sitemap: "https://mauryaveg.com/sitemap.xml",
-    host: "https://mauryaveg.com",
+    sitemap: "https://mauryaveg.in/sitemap.xml",
+    host: "https://mauryaveg.in",
   };
 }

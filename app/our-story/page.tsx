@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Our Story & Satvik Heritage | Maurya Pure Veg Pune",
     description: "Every table has a story. Discover how Maurya brings together traditional Indian culinary wisdom and warm family hospitality.",
-    url: "https://mauryaveg.com/our-story",
+    url: "https://mauryaveg.in/our-story",
     images: [
       {
         url: "/editorial-living-table.webp",
