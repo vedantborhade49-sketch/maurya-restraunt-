@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope, Instrument_Serif } from "next/font/google";
 import "./globals.css";
-import dynamic from "next/dynamic";
 import Navbar from "../components/Navbar";
 import SmoothScroll from "../components/SmoothScroll";
-const YourTableDrawer = dynamic(() => import("../components/cart/YourTableDrawer"), { ssr: false });
+import YourTableDrawer from "../components/cart/YourTableDrawer";
 import { PreloaderProvider } from "../components/preloader";
 import Footer from "../components/Footer";
 
