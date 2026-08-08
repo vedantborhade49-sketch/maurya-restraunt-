@@ -1,2352 +1,2440 @@
 {
-  "Recommended": [
+  "MAIN COURSE": [
     {
-      "id": "80288285",
-      "name": "Butter Naan",
-      "price": 50,
-      "description": "Butter Naan",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/353/original/thumb_2023_01_18_11_55_26_Butter_Naan.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_55_26_Butter_Naan.jpeg"
-    },
-    {
-      "id": "80288312",
-      "name": "Mysore Cheese Masala Dosa",
-      "price": 90,
-      "description": "Spiced potato mash enclaved in dosa with mysore chutney and Cheese grated over the surface served wi",
-      "image_url": ""
-    },
-    {
-      "id": "80288335",
-      "name": "Paneer Pav Bhaji",
-      "price": 120,
-      "description": "A spiced mixture of Paneer & mashed vegetables consisting of Cauliflower,Capsicum,Carrot,Beetroot,On",
-      "image_url": ""
-    },
-    {
-      "id": "80288242",
-      "name": "Gobi Manchurian",
-      "price": 210,
-      "description": "Gobi Manchurian is a popular Indo-Chinese dish made with deep-fried crispy cauliflower florets, toss",
-      "image_url": ""
-    },
-    {
-      "id": "80288412",
-      "name": "Veg Maratha",
-      "price": 215,
-      "description": "Veg Maratha is another classic Maharashtrian dish. Consisiting if 6 vegetable koftas deep fried whic",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/233/original/thumb_2023_01_18_12_18_15_Veg_Maratha.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_18_15_Veg_Maratha.jpg"
-    },
-    {
-      "id": "80288443",
-      "name": "Veg Jaipuri",
-      "price": 205,
-      "description": "Something which has spiciness & sweetness at the same time. Veg Jaipuri is dish to choose. Coupled w",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/254/original/thumb_2023_01_18_12_13_59_Veg_Jaipuri.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_13_59_Veg_Jaipuri.jpg"
-    },
-    {
-      "id": "80288307",
-      "name": "Veg Hakka Noodles",
-      "price": 210,
-      "description": "Veg Hakka Noodles is a famous Chinese recipe. Made with fresh noodles, it has a strong flavour of so",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/243/original/thumb_2023_01_18_12_13_16_Veg_Hakka_Noodles.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_13_16_Veg_Hakka_Noodles.jpg"
-    },
-    {
-      "id": "80288229",
-      "name": "Paneer Spring Roll",
-      "price": 240,
-      "description": "Paneer spring roll is a savory snack where a pastry sheet is filled with grated paneer,rolled and fr",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/228/original/thumb_2023_01_18_12_05_01_Paneer_Spring_Roll.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_05_01_Paneer_Spring_Roll.jpg"
-    },
-    {
-      "id": "80288361",
-      "name": "Paneer Butter Masala",
-      "price": 235,
-      "description": "The mild sweetness and tanginess from tomatoes and onions; richness of butter,squirt of lemon and cr",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/197/original/thumb_2023_01_18_12_05_49_Paneer_Butter_Masala.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_05_49_Paneer_Butter_Masala.jpeg"
-    },
-    {
-      "id": "80288357",
-      "name": "Paneer Kadai",
-      "price": 240,
-      "description": "Tasty paneer kadai served medium spicy. Mixed with some veggies & paneer served in a yellow gravy. 1",
-      "image_url": ""
-    },
-    {
-      "id": "80288399",
-      "name": "Paneer Patiala",
-      "price": 240,
-      "description": "A papad roll deep fried with stuffing like grated paneer, sauces and spices. Served atop a delicious",
-      "image_url": ""
-    },
-    {
-      "id": "80288262",
-      "name": "Maurya Veg Biryani",
-      "price": 240,
-      "description": "Veg Biryani?is loaded with aromatic spices, veggies, herbs etc making it flavourful, exotic & delici",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/185/original/thumb_2023_01_18_12_12_01_Veg_Biryani.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_12_01_Veg_Biryani.jpg"
-    },
-    {
-      "id": "80288270",
-      "name": "Paneer Tikka Biriyani",
-      "price": 260,
-      "description": "Made with aromatic spices and herbs. This yogurt based curry is mixed with 8 pc of Paneer Tikka to g",
-      "image_url": ""
-    },
-    {
-      "id": "80288349",
-      "name": "Pavbhaji( Bhaji Only 1kg)",
-      "price": 360,
-      "description": "A spiced mixture of mashed vegetables consisting of Cauliflower,Capsicum,Carrot,Beetroot,Onion,Tomat",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/161/original/thumb_2023_01_18_11_53_35_Amul_Pavbhaji.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_53_35_Amul_Pavbhaji.jpeg"
-    }
-  ],
-  "South Indian": [
-    {
-      "id": "80288329",
-      "name": "Paper Cheese Masala Dosa",
-      "price": 110,
-      "description": "Nearly doubled in size with spiced potato mash enclaved in crispy brown dosa with Cheese grated over",
-      "image_url": ""
-    },
-    {
-      "id": "80288310",
-      "name": "Paper Masala Dosa",
-      "price": 95,
-      "description": "Nearly doubled in size with spiced potato mash enclaved in crispy brown dosa served with sambar and",
-      "image_url": ""
-    },
-    {
-      "id": "80288312",
-      "name": "Mysore Cheese Masala Dosa",
-      "price": 90,
-      "description": "Spiced potato mash enclaved in dosa with mysore chutney and Cheese grated over the surface served wi",
-      "image_url": ""
-    },
-    {
-      "id": "80288313",
-      "name": "Cheese Onion Tomato Uttapam",
-      "price": 105,
-      "description": "Cheese Onion Tomato Uttapam",
-      "image_url": ""
-    },
-    {
-      "id": "80288326",
-      "name": "Mysore Cheese Sada Dosa",
-      "price": 85,
-      "description": "Plain dosa with mysore chutney and Cheese grated over the surface served with sambar and coconut chu",
-      "image_url": ""
-    },
-    {
-      "id": "80288319",
-      "name": "Paper Sada Dosa",
-      "price": 85,
-      "description": "Nearly doubled in size crispy brown dosa served with sambar and chutney (1pc)",
-      "image_url": ""
-    },
-    {
-      "id": "80288317",
-      "name": "Mysore Masala Dosa",
-      "price": 85,
-      "description": "Spiced potato mash enclaved in dosa with mysore chutney spread over the surface served with sambar a",
-      "image_url": ""
-    },
-    {
-      "id": "80288311",
-      "name": "Cheese Onion Uttapam",
-      "price": 95,
-      "description": "Cheese Onion Uttapam",
-      "image_url": ""
-    },
-    {
-      "id": "80288322",
-      "name": "Cheese Cut Dosa",
-      "price": 85,
-      "description": "Onion and tomato masala with spiced potato mash,with cheese grated over the surface rolled up in a d",
-      "image_url": ""
-    },
-    {
-      "id": "80288316",
-      "name": "Sponge Dosa",
-      "price": 85,
-      "description": "Pan cake sized thick fluffy dosa served with sambar and coconut chutney (3pc)",
-      "image_url": ""
-    },
-    {
-      "id": "80288328",
-      "name": "Cheese Masala Dosa",
-      "price": 80,
-      "description": "Spiced potato mash with cheese grated over the surface of a crispy brown dosa served with sambar and",
-      "image_url": ""
-    },
-    {
-      "id": "80288325",
-      "name": "Tomato Onion Uttapam",
-      "price": 95,
-      "description": "Tomato Onion Uttapam",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/254/190/original/thumb_2023_10_15_00_00_41_onion_tomato_uttapam.JPG?w=250&h=250&image_name=thumb_2023_10_15_00_00_41_onion_tomato_uttapam.JPG"
-    },
-    {
-      "id": "80288314",
-      "name": "Cheese Dosa",
-      "price": 75,
-      "description": "Crispy plain dosa with Cheese grated all over surface served with sambar and coconut chutney (1pc)",
-      "image_url": ""
-    },
-    {
-      "id": "80288315",
-      "name": "Cheese Plain Uttapam",
-      "price": 85,
-      "description": "Cheese Plain Uttapam",
-      "image_url": ""
-    },
-    {
-      "id": "80288331",
-      "name": "Mysore Sada Dosa",
-      "price": 75,
-      "description": "Plain dosa with mysore chutney spread over the surface served with sambar and coconut chutney (1pc)",
-      "image_url": ""
-    },
-    {
-      "id": "80288333",
-      "name": "Onion Uttapam",
-      "price": 85,
-      "description": "Onion Uttapam",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/254/194/original/thumb_2023_10_15_00_00_23_onion_uttapam.JPG?w=250&h=250&image_name=thumb_2023_10_15_00_00_23_onion_uttapam.JPG"
-    },
-    {
-      "id": "80288332",
-      "name": "Cut Dosa",
-      "price": 75,
-      "description": "Onion and tomato masala with spiced potato mash rolled up in a dosa, cut in pieces to be enjoyed wit",
-      "image_url": ""
-    },
-    {
-      "id": "80288318",
-      "name": "Masala Dosa",
-      "price": 75,
-      "description": "Spiced potato mash enclaved in a crisp brown Dosa served with sambar and coconut chutney (1pc)",
-      "image_url": ""
-    },
-    {
-      "id": "80288324",
-      "name": "Sada Dosa",
-      "price": 65,
-      "description": "Plain dosa served with sambar and coconut chutney (1pc)",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/254/197/original/thumb_2023_10_14_23_59_25_sada_dosa.JPG?w=250&h=250&image_name=thumb_2023_10_14_23_59_25_sada_dosa.JPG"
-    },
-    {
-      "id": "80288321",
-      "name": "Plain Uttapam",
-      "price": 75,
-      "description": "Plain Uttapam",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/254/198/original/thumb_2023_01_18_12_11_25_Uttapam.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_11_25_Uttapam.jpg"
-    },
-    {
-      "id": "86397330",
-      "name": "Dahi Vada",
-      "price": 80,
-      "description": "Deep fried vada made from urad dal batter soaked in thick creamy dahi served with sambar and coconut",
-      "image_url": ""
-    },
-    {
-      "id": "86397331",
-      "name": "Medu Vada Sambar",
-      "price": 65,
-      "description": "Deep fried until golden crisp,made from urad dal batter mixed with chopped green chilly and some coc",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/013/426/491/original/thumb_2023_10_14_23_54_09_Medu_Vada_sambar.JPG?w=250&h=250&image_name=thumb_2023_10_14_23_54_09_Medu_Vada_sambar.JPG"
-    },
-    {
-      "id": "86397329",
-      "name": "Idli Vada",
-      "price": 110,
-      "description": "One steamed idli paired with golden crisp medu wada served with some sambar and coconut chutney (2pc",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/013/426/492/original/thumb_2023_10_14_23_54_36_Idli_Vada_Sambar.JPG?w=250&h=250&image_name=thumb_2023_10_14_23_54_36_Idli_Vada_Sambar.JPG"
-    },
-    {
-      "id": "86397332",
-      "name": "Steam Idli Sambar",
-      "price": 50,
-      "description": "A healthy breakfast option made from fermented rice and urad dal batter served with some sambar and",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/013/426/493/original/thumb_2023_10_14_23_53_46_Steam_Idli_Sambar.JPG?w=250&h=250&image_name=thumb_2023_10_14_23_53_46_Steam_Idli_Sambar.JPG"
-    },
-    {
-      "id": "9400",
-      "name": "Idli Vada Sambar",
-      "price": 60,
-      "description": "Combination of soft steamed idli and crispy medu vada with sambar.",
-      "image_url": ""
-    },
-    {
-      "id": "9401",
-      "name": "Batata Vada Sambar",
-      "price": 60,
-      "description": "Spiced potato dumplings fried in batter, served with sambar.",
-      "image_url": ""
-    },
-    {
-      "id": "9402",
-      "name": "Upma",
-      "price": 55,
-      "description": "Traditional savory semolina breakfast dish cooked with spices and herbs.",
-      "image_url": ""
-    },
-    {
-      "id": "9403",
-      "name": "Shira",
-      "price": 50,
-      "description": "Sweet semolina dessert cooked with ghee, sugar, and cardamom.",
-      "image_url": ""
-    },
-    {
-      "id": "9404",
-      "name": "Puri Bhaji (5 puri)",
-      "price": 100,
-      "description": "Five hot puffed fried puris served with spiced potato bhaji.",
-      "image_url": ""
-    },
-    {
-      "id": "9405",
-      "name": "Poha",
-      "price": 50,
-      "description": "Flattned rice tempered with mustard seeds, curry leaves, onions, and peanuts.",
-      "image_url": ""
-    },
-    {
-      "id": "9406",
-      "name": "Tomato Omlette",
-      "price": 100,
-      "description": "Savory vegetarian gram flour pancake made with juicy tomatoes.",
-      "image_url": ""
-    },
-    {
-      "id": "9407",
-      "name": "Cheese Omlette",
-      "price": 110,
-      "description": "Savory vegetarian pancake topped with generous melted cheese.",
-      "image_url": ""
-    },
-    {
-      "id": "9408",
-      "name": "Rawa Sada Dosa",
-      "price": 70,
-      "description": "Crispy semolina crepe tempered with cumin and green chillies.",
-      "image_url": ""
-    },
-    {
-      "id": "9409",
-      "name": "Rawa Masala Dosa",
-      "price": 80,
-      "description": "Crispy semolina dosa stuffed with spiced potato masala.",
-      "image_url": ""
-    }
-  ],
-  "Sandwich": [
-    {
-      "id": "80288456",
-      "name": "Veg Club Sandwich Grilled",
-      "price": 125,
-      "description": "Veg Club Sandwich Grilled",
-      "image_url": ""
-    },
-    {
-      "id": "80288454",
-      "name": "Veg Cheese Sandwich Grilled",
-      "price": 105,
-      "description": "Freshly sliced tomato,cucumber, and cheese grated within 3 grilled slices of bread (1pc)",
-      "image_url": ""
-    },
-    {
-      "id": "80288460",
-      "name": "Plain Cheese Sandwich Grilled",
-      "price": 100,
-      "description": "Pleanty of cheese grated in between 3 grilled slices of bread with spread of butter (1pc)",
-      "image_url": ""
-    },
-    {
-      "id": "80288464",
-      "name": "Veg Club Sandwich",
-      "price": 115,
-      "description": "Veg Club Sandwich",
-      "image_url": ""
-    },
-    {
-      "id": "80288466",
-      "name": "Veg Cheese Sandwich Toast",
-      "price": 95,
-      "description": "Freshly sliced tomato,cucumber and cheese grated within 3 toasted slices of bread (1pc)",
-      "image_url": ""
-    },
-    {
-      "id": "80288465",
-      "name": "Veg Sandwich Grilled",
-      "price": 90,
-      "description": "Spread made up of coriender and mint chutney on one side and butter on other while using freshly sli",
-      "image_url": ""
-    },
-    {
-      "id": "80288452",
-      "name": "Veg Cheese Sandwich",
-      "price": 80,
-      "description": "Freshly sliced tomato & cucumber and cheese grated within 3 slices of bread (1pc)",
-      "image_url": ""
-    },
-    {
-      "id": "80288463",
-      "name": "Plain Cheese Sandwich Toast",
-      "price": 90,
-      "description": "Pleanty of cheese grated in between 3 toasted slices of bread with spread of butter (1pc)",
-      "image_url": ""
-    },
-    {
-      "id": "80288455",
-      "name": "Plain Cheese Sandwich",
-      "price": 75,
-      "description": "Pleanty of cheese grated in between 3 slices of bread with spread of butter (1pc)",
-      "image_url": ""
-    },
-    {
-      "id": "80288458",
-      "name": "Veg Sandwich Toast",
-      "price": 80,
-      "description": "Spread made up of coriender and mint chutney on one side and butter on other while using freshly sli",
-      "image_url": ""
-    },
-    {
-      "id": "80288459",
-      "name": "Veg Sandwich",
-      "price": 65,
-      "description": "Spread made up of coriender and mint chutney on one side and butter on other while using freshly sli",
-      "image_url": ""
-    },
-    {
-      "id": "80288462",
-      "name": "Toast Butter",
-      "price": 55,
-      "description": "Toast Butter",
-      "image_url": ""
-    },
-    {
-      "id": "80288451",
-      "name": "Bread Butter",
-      "price": 45,
-      "description": "Bread Butter",
-      "image_url": ""
-    }
-  ],
-  "Pav Bhaji": [
-    {
-      "id": "80288349",
-      "name": "Pavbhaji( Bhaji Only 1kg)",
-      "price": 360,
-      "description": "A spiced mixture of mashed vegetables consisting of Cauliflower,Capsicum,Carrot,Beetroot,Onion,Tomat",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/161/original/thumb_2023_01_18_11_53_35_Amul_Pavbhaji.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_53_35_Amul_Pavbhaji.jpeg"
-    },
-    {
-      "id": "80288344",
-      "name": "Paneer Tawa Pulao",
-      "price": 220,
-      "description": "Pre cooked basmati rice sauted on tawa with Paneer,Onions,,Capsicum, along with Pav Bhaji Masala & C",
-      "image_url": ""
-    },
-    {
-      "id": "80288337",
-      "name": "Mushroom Tawa Pulao",
-      "price": 220,
-      "description": "Pre cooked basmati rice sauted on tawa with Mushroom,Onions,,Capsicum, along with Pav Bhaji Masala &",
-      "image_url": ""
-    },
-    {
-      "id": "80288341",
-      "name": "Tawa Pulao",
-      "price": 190,
-      "description": "Pre cooked basmati rice sauted on tawa with Onions,Tomatos,Capsicum,Green peas along with Pav Bhaji",
-      "image_url": ""
-    },
-    {
-      "id": "80288346",
-      "name": "Cheese Paneer Pav Bhaji",
-      "price": 130,
-      "description": "A spiced mixture of Paneer & mashed vegetables consisting of Cauliflower,Capsicum,Carrot,Beetroot,On",
-      "image_url": ""
-    },
-    {
-      "id": "80288336",
-      "name": "Maurya Special Pav Bhaji",
-      "price": 140,
-      "description": "A spiced mixture of Paneer,Mushroom & mashed vegetables consisting of Cauliflower,Capsicum,Carrot,Be",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/277/original/thumb_2023_01_18_12_09_27_Special_Cheese.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_09_27_Special_Cheese.jpg"
-    },
-    {
-      "id": "80288351",
-      "name": "Jain Cheese Pav Bhaji",
-      "price": 120,
-      "description": "A spiced mixture of mashed vegetables consisting of Cauliflower,Capsicum,Tomato & Green Peas in a th",
-      "image_url": ""
-    },
-    {
-      "id": "80288340",
-      "name": "Mushroom Pav Bhaji",
-      "price": 120,
-      "description": "A spiced mixture of Mushroom & mashed vegetables consisting of Cauliflower,Capsicum,Carrot,Beetroot,",
-      "image_url": ""
-    },
-    {
-      "id": "80288335",
-      "name": "Paneer Pav Bhaji",
-      "price": 120,
-      "description": "A spiced mixture of Paneer & mashed vegetables consisting of Cauliflower,Capsicum,Carrot,Beetroot,On",
-      "image_url": ""
-    },
-    {
-      "id": "80288345",
-      "name": "Cheese Pav Bhaji",
-      "price": 120,
-      "description": "A spiced mixture of mashed vegetables consisting of Cauliflower,Capsicum,Carrot,Beetroot,Onion,Tomat",
-      "image_url": ""
-    },
-    {
-      "id": "80288350",
-      "name": "Jain Pav Bhaji",
-      "price": 110,
-      "description": "A spiced mixture of mashed vegetables consisting of Cauliflower,Capsicum,Tomato & Green Peas in a th",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/295/original/thumb_2023_01_18_11_58_49_Jain_Pavbhaji.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_58_49_Jain_Pavbhaji.jpeg"
-    },
-    {
-      "id": "80288342",
-      "name": "Amul Pav Bhaji",
-      "price": 110,
-      "description": "A spiced mixture of mashed vegetables consisting of Cauliflower,Capsicum,Carrot,Beetroot,Onion,Tomat",
-      "image_url": ""
-    },
-    {
-      "id": "80288347",
-      "name": "Masala Pav Jodi",
-      "price": 60,
-      "description": "2 pieces of bread roasted in Pav Bhaji masala along with chopped onions,tomato,capsicum which is stu",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/348/original/thumb_2023_01_18_12_03_13_Masala_Pavbhaji.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_03_13_Masala_Pavbhaji.jpeg"
-    },
-    {
-      "id": "80288338",
-      "name": "Pav Jodi",
-      "price": 20,
-      "description": "2 Pieces of bread roasted in Amul butter",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/367/original/thumb_2023_01_18_12_06_10_Pav_Jodi.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_06_10_Pav_Jodi.jpg"
-    },
-    {
-      "id": "9410",
-      "name": "Pav Bhaji",
-      "price": 110,
-      "description": "Spiced mashed vegetable curry cooked in butter, served with soft toasted pav.",
-      "image_url": ""
-    }
-  ],
-  "Soup": [
-    {
-      "id": "80288476",
-      "name": "Cream Of Tomato",
-      "price": 120,
-      "description": "The?soup?has a?creamy, smooth consistency with a light tanginess from the tomatoes. The creaminess i",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/317/original/thumb_2023_01_18_11_56_47_Cream_Of_Tomato_Soup.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_56_47_Cream_Of_Tomato_Soup.jpeg"
-    },
-    {
-      "id": "80288478",
-      "name": "Cream Of Veg",
-      "price": 120,
-      "description": "Cream of Vegetable soup?is exactly as it sounds, a delicious,?creamy?soup full of healthy veggies an",
-      "image_url": ""
-    },
-    {
-      "id": "80288477",
-      "name": "Tomato Basil Soup",
-      "price": 120,
-      "description": "The?soup?has a?creamy, smooth consistency,fresh basil with a light tanginess from the tomatoes. The",
-      "image_url": ""
-    },
-    {
-      "id": "80288467",
-      "name": "Talumin Soup",
-      "price": 120,
-      "description": "Featuring healthy?veggies?like carrots, mushroom, cabbage and broccoli along with? noodles",
-      "image_url": ""
-    },
-    {
-      "id": "80288471",
-      "name": "Noodle Soup",
-      "price": 120,
-      "description": "Noodle Soup",
-      "image_url": ""
-    },
-    {
-      "id": "80288470",
-      "name": "Minestrone Soup",
-      "price": 120,
-      "description": "Minestrone is a thick soup of Italian origin packed with vegetables, pasta and beans in a tomato-y b",
-      "image_url": ""
-    },
-    {
-      "id": "80288474",
-      "name": "Cream Of Mushroom",
-      "price": 120,
-      "description": "A warm bowl of soup so deliciously creamy with tender bites of mushroom pieces. Full flavoured with",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/331/original/thumb_2023_01_18_11_56_36_Cream_Of_Mushroom_Soup.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_56_36_Cream_Of_Mushroom_Soup.jpeg"
-    },
-    {
-      "id": "80288469",
-      "name": "Veg Hot And Sour Soup",
-      "price": 115,
-      "description": "Hot and Sour soup?is a spicy and hot soup made with mixed fresh vegetables, mushrooms, spices and so",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/334/original/thumb_2023_01_18_11_58_10_Hot_And_Sour_Soup.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_58_10_Hot_And_Sour_Soup.jpeg"
-    },
-    {
-      "id": "80288479",
-      "name": "Veg Sweet Corn Soup",
-      "price": 115,
-      "description": "Sweet Corn Soup is a classic Indian-Chinese soup with sweet corn and vegetables. Warm, sweet, and sp",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/335/original/thumb_2023_01_18_12_10_11_Sweet_Corn_Soup.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_10_11_Sweet_Corn_Soup.jpg"
-    },
-    {
-      "id": "80288472",
-      "name": "Lemon Coriander Soup",
-      "price": 115,
-      "description": "?It is a clear vegetable soup flavored with lemon and coriander leaves. Lemon adds to the tangy tast",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/337/original/thumb_2023_01_18_12_02_25_Lemon_Coriander_Soup.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_02_25_Lemon_Coriander_Soup.jpeg"
-    },
-    {
-      "id": "80288473",
-      "name": "Palak Soup",
-      "price": 115,
-      "description": "?Flavorful aromatics are saut?ed with fresh spinach, then made faintly thick and mildly sweet with c",
-      "image_url": ""
-    },
-    {
-      "id": "80288468",
-      "name": "Veg Manchow Soup",
-      "price": 115,
-      "description": "?Chinese vegetarian soup made with?mixed vegetables, garlic, ginger, soya sauce, ground pepper & a f",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/339/original/thumb_2023_01_18_12_15_59_Veg_Manchow_Soup.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_15_59_Veg_Manchow_Soup.jpg"
-    },
-    {
-      "id": "80288475",
-      "name": "Veg Clear Soup",
-      "price": 115,
-      "description": "Loaded with vegetables this?vegetable soup?is light, healthy and nutritious.",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/340/original/thumb_2023_01_18_12_12_42_Veg_Clear_Soup.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_12_42_Veg_Clear_Soup.jpg"
-    }
-  ],
-  "Starters": [
-    {
-      "id": "80288230",
-      "name": "Cheese Corn Balls",
-      "price": 260,
-      "description": "The stuffing is made from sweet corn grated cheese, chopped capsicum and spices. Fried till golden b",
-      "image_url": ""
-    },
-    {
-      "id": "80288247",
-      "name": "Cheese Balls",
-      "price": 245,
-      "description": "Delicious cheese balls made from cheese mixed with chopped capsicum and spices, rolled into bread cr",
-      "image_url": ""
-    },
-    {
-      "id": "80288244",
-      "name": "Thai Paneer Crispy",
-      "price": 260,
-      "description": "Thai Paneer crispy is a dish of crispy fried paneer tossed in Thai & Schezwan flavour sauce,spicy &",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/178/original/thumb_2023_01_18_12_10_48_Thai_Paneer_Crispy.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_10_48_Thai_Paneer_Crispy.jpg"
-    },
-    {
-      "id": "80288253",
-      "name": "Paneer Karare",
-      "price": 260,
-      "description": "Paneer is sliced into thin slices were in between a stuffing of grated cheese with some spices is di",
-      "image_url": ""
-    },
-    {
-      "id": "80288237",
-      "name": "Paneer Spider",
-      "price": 250,
-      "description": "Paneer cubes are rolled with noodles. These are then dipped in batter and fries until crispy. The sa",
-      "image_url": ""
-    },
-    {
-      "id": "80288238",
-      "name": "Paneer Crispy",
-      "price": 240,
-      "description": "Paneer crispy is an Indo-Chinese dish,of crispy fried paneer tossed in Schezwan flavour sauce,spicy",
-      "image_url": ""
-    },
-    {
-      "id": "80288248",
-      "name": "Paneer Junglee",
-      "price": 240,
-      "description": "Paneer Junglee is a dish that brings some green to the platter, paneer dipped in batter & deep fried",
-      "image_url": ""
-    },
-    {
-      "id": "80288231",
-      "name": "Dragon Roll",
-      "price": 230,
-      "description": "A bit similar to veg spring roll but it has noodles wrapped around the roll and it is deep fried unt",
-      "image_url": ""
-    },
-    {
-      "id": "80288229",
-      "name": "Paneer Spring Roll",
-      "price": 240,
-      "description": "Paneer spring roll is a savory snack where a pastry sheet is filled with grated paneer,rolled and fr",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/228/original/thumb_2023_01_18_12_05_01_Paneer_Spring_Roll.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_05_01_Paneer_Spring_Roll.jpg"
-    },
-    {
-      "id": "80288254",
-      "name": "Paneer 65",
-      "price": 240,
-      "description": "A spicy and lip-smacking starter made with deep fried paneer fritters tossed in spicy curry sauce.(1",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/232/original/thumb_2023_01_18_12_04_58_Paneer_65.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_04_58_Paneer_65.jpeg"
-    },
-    {
-      "id": "80288226",
-      "name": "Veg Spring Roll",
-      "price": 220,
-      "description": "Veg spring roll is a savory snack where a pastry sheet is filled with vegetables,rolled and fried.Sp",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/250/original/thumb_2023_01_18_12_19_39_Veg_Spring_Roll.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_19_39_Veg_Spring_Roll.jpg"
-    },
-    {
-      "id": "80288257",
-      "name": "Veg Crispy",
-      "price": 220,
-      "description": "Veg crispy is an Indo-Chinese dish, assorted vegetables are battered and fried until crispy and then",
-      "image_url": ""
-    },
-    {
-      "id": "80288250",
-      "name": "Veg 65",
-      "price": 220,
-      "description": "Veg 65 is a wonderful Chinese Starter, made with Mixed Vegetables and flavored with Vinegar, Soy Sau",
-      "image_url": ""
-    },
-    {
-      "id": "80288233",
-      "name": "Mushroom Chilli",
-      "price": 210,
-      "description": "Batter coated golden fried mushroom pieces tossed in a spicy, salty, tangy and sweet sauce made with",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/374/original/thumb_2023_01_18_12_04_11_Mushroom_Chilly.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_04_11_Mushroom_Chilly.jpeg"
-    },
-    {
-      "id": "80288252",
-      "name": "Paneer Chilly",
-      "price": 240,
-      "description": "Batter coated fried paneer pieces tossed in a spicy, salty, tangy and sweet sauce made with green be",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/377/original/thumb_2023_01_18_12_16_53_Paneer_Chilly.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_16_53_Paneer_Chilly.jpg"
-    },
-    {
-      "id": "80288239",
-      "name": "Baby Corn Chilli",
-      "price": 210,
-      "description": "Batter coated babycorn pieces tossed in a spicy, salty, tangy and sweet sauce made with green bell p",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/380/original/thumb_2023_01_18_11_53_55_Baby_Corn_Chilly.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_53_55_Baby_Corn_Chilly.jpeg"
-    },
-    {
-      "id": "80288260",
-      "name": "Paneer Manchurian",
-      "price": 240,
-      "description": "Paneer Manchurian is a delicious Indo-Chinese dish of panner cubes dipped in batter, deep fired & to",
-      "image_url": ""
-    },
-    {
-      "id": "80288242",
-      "name": "Gobi Manchurian",
-      "price": 210,
-      "description": "Gobi Manchurian is a popular Indo-Chinese dish made with deep-fried crispy cauliflower florets, toss",
-      "image_url": ""
-    },
-    {
-      "id": "80288251",
-      "name": "Veg Manchurian",
-      "price": 210,
-      "description": "Veg Manchurian is a delicious Indo-Chinese dish of veggie balls tossed in a spicy, sweet, tangy, and",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/392/original/thumb_2023_01_18_12_16_12_Veg_Manchurian.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_16_12_Veg_Manchurian.jpg"
-    },
-    {
-      "id": "80288224",
-      "name": "Paneer Angara Kebab",
-      "price": 240,
-      "description": "Paneer Angara Kebab",
-      "image_url": ""
-    },
-    {
-      "id": "80288232",
-      "name": "Stuffed Mushroom",
-      "price": 250,
-      "description": "Stuffed Mushroom",
-      "image_url": ""
-    },
-    {
-      "id": "80288249",
-      "name": "Mushroom Tikka",
-      "price": 245,
-      "description": "Mushroom Tikka",
-      "image_url": ""
-    },
-    {
-      "id": "80288225",
-      "name": "Babycorn Mushroom Kebab",
-      "price": 240,
-      "description": "Babycorn Mushroom Kebab",
-      "image_url": ""
-    },
-    {
-      "id": "80288236",
-      "name": "Babycorn Tikka",
-      "price": 240,
-      "description": "Babycorn Tikka",
-      "image_url": ""
-    },
-    {
-      "id": "80288243",
-      "name": "Paneer Adraki Tikka",
-      "price": 235,
-      "description": "Paneer Adraki Tikka",
-      "image_url": ""
-    },
-    {
-      "id": "80288227",
-      "name": "Paneer Chat Patta Tikka",
-      "price": 235,
-      "description": "Paneer Chat Patta Tikka",
-      "image_url": ""
-    },
-    {
-      "id": "80288259",
-      "name": "Paneer Pahadi Tikka",
-      "price": 235,
-      "description": "Paneer Pahadi Tikka",
-      "image_url": ""
-    },
-    {
-      "id": "80288234",
-      "name": "Paneer Kasturi Tikka",
-      "price": 235,
-      "description": "Paneer Kasturi Tikka",
-      "image_url": ""
-    },
-    {
-      "id": "80288246",
-      "name": "Paneer Tikka",
-      "price": 235,
-      "description": "Paneer Tikka",
-      "image_url": ""
-    },
-    {
-      "id": "80288256",
-      "name": "Paneer Malai Tikka",
-      "price": 235,
-      "description": "Paneer Malai Tikka",
-      "image_url": ""
-    },
-    {
-      "id": "80288241",
-      "name": "Paneer Achari Tikka",
-      "price": 235,
-      "description": "Paneer Achari Tikka",
-      "image_url": ""
-    },
-    {
-      "id": "80288245",
-      "name": "Paneer Banjara Kebab",
-      "price": 235,
-      "description": "Paneer Banjara Kebab",
-      "image_url": ""
-    },
-    {
-      "id": "80288240",
-      "name": "Veg Seekh Kebab",
-      "price": 220,
-      "description": "Veg Seekh Kebab",
-      "image_url": ""
-    },
-    {
-      "id": "80288235",
-      "name": "Hara Bara Kebab",
-      "price": 230,
-      "description": "Hara Bara Kebab",
-      "image_url": ""
-    },
-    {
-      "id": "80288258",
-      "name": "Paneer Kurkure",
-      "price": 230,
-      "description": "Paneer Kurkure",
-      "image_url": ""
-    },
-    {
-      "id": "80288255",
-      "name": "Veg Chutney Wala",
-      "price": 240,
-      "description": "Veg Chutney Wala",
-      "image_url": ""
-    },
-    {
-      "id": "80288228",
-      "name": "Bindi Kurkure",
-      "price": 235,
-      "description": "Bindi Kurkure",
-      "image_url": ""
-    },
-    {
-      "id": "9433",
-      "name": "Roomali Khakra",
-      "price": 170,
-      "description": "Crispy thin roomali roti roasted like a cracker with spices.",
-      "image_url": ""
-    },
-    {
-      "id": "9434",
-      "name": "Cheese Roomali Khakra",
-      "price": 195,
-      "description": "Crispy roomali khakra topped with generous melted cheese.",
-      "image_url": ""
-    },
-    {
-      "id": "9435",
-      "name": "Soya Chap Tikka",
-      "price": 230,
-      "description": "Tender soya chaap marinated in yogurt and tandoori spices, roasted in clay oven.",
-      "image_url": ""
-    },
-    {
-      "id": "9436",
-      "name": "Soya Chap Banjara",
-      "price": 230,
-      "description": "Spiced herbal marinated soya chaap roasted over charcoals.",
-      "image_url": ""
-    },
-    {
-      "id": "9437",
-      "name": "Paneer Hill Top",
-      "price": 260,
-      "description": "Chef special stuffed paneer delicacy roasted with aromatic spices.",
-      "image_url": ""
-    },
-    {
-      "id": "9438",
-      "name": "Paneer Akbari Tikka",
-      "price": 260,
-      "description": "Royal Mughlai style rich and creamy marinated paneer kebab.",
-      "image_url": ""
-    },
-    {
-      "id": "9439",
-      "name": "Mushroom Multani",
-      "price": 250,
-      "description": "Stuffed button mushrooms coated in aromatic marinade and grilled in clay oven.",
-      "image_url": ""
-    },
-    {
-      "id": "9440",
-      "name": "Mushroom Nazakat",
-      "price": 250,
-      "description": "Delicate and juicy stuffed mushrooms roasted to smoky perfection.",
-      "image_url": ""
-    },
-    {
-      "id": "9441",
-      "name": "Paneer Seekh Kebab",
-      "price": 240,
-      "description": "Succulent skewers of spiced minced paneer roasted in tandoor.",
-      "image_url": ""
-    },
-    {
-      "id": "9442",
-      "name": "Potato Wrapped Paneer",
-      "price": 240,
-      "description": "Succulent paneer cubes wrapped in crispy potato threads and deep fried.",
-      "image_url": ""
-    },
-    {
-      "id": "9443",
-      "name": "Crunchy Masala Paneer",
-      "price": 240,
-      "description": "Crispy battered paneer tossed in special masala spices.",
-      "image_url": ""
-    },
-    {
-      "id": "9444",
-      "name": "Bbq Paneer Cheese Roll",
-      "price": 265,
-      "description": "Smoky barbecue flavored paneer and cheese stuffed rolls.",
-      "image_url": ""
-    },
-    {
-      "id": "9445",
-      "name": "Honey Chilli Potato",
-      "price": 220,
-      "description": "Crispy fried potato fingers tossed in sweet honey and spicy chili sauce.",
-      "image_url": ""
-    },
-    {
-      "id": "9446",
-      "name": "Potato Crispy",
-      "price": 220,
-      "description": "Crispy fried potato strips tossed in oriental sauces and green onions.",
-      "image_url": ""
-    },
-    {
-      "id": "9447",
-      "name": "Tangara Chilli Paneer",
-      "price": 240,
-      "description": "Tangy and spicy oriental style tossed paneer.",
-      "image_url": ""
-    },
-    {
-      "id": "9448",
-      "name": "Soya 65",
-      "price": 230,
-      "description": "Crispy fried soya chunks tossed in South Indian style 65 spices and curry leaves.",
-      "image_url": ""
-    },
-    {
-      "id": "9449",
-      "name": "Paneer Satay",
-      "price": 280,
-      "description": "Grilled skewers of marinated paneer served with peanut satay sauce.",
-      "image_url": ""
-    },
-    {
-      "id": "9450",
-      "name": "Veg Lollipop",
-      "price": 230,
-      "description": "Crispy vegetable balls on skewers tossed in spicy sauce.",
-      "image_url": ""
-    },
-    {
-      "id": "9451",
-      "name": "Mushroom Crispy",
-      "price": 240,
-      "description": "Crispy battered button mushrooms tossed in garlic chili sauce.",
-      "image_url": ""
-    },
-    {
-      "id": "9452",
-      "name": "Cheese Ball Manchurian",
-      "price": 260,
-      "description": "Crispy cheese balls simmered in savory oriental manchurian sauce.",
-      "image_url": ""
-    },
-    {
-      "id": "9453",
-      "name": "Cheese Ball 65",
-      "price": 260,
-      "description": "Crispy cheese balls tossed in spicy 65 masala with curry leaves.",
-      "image_url": ""
-    },
-    {
-      "id": "9454",
-      "name": "Veg Manchurian Dry/gravy",
-      "price": 210,
-      "description": "Deep-fried vegetable balls tossed in classic soy-garlic manchurian sauce.",
-      "image_url": ""
-    },
-    {
-      "id": "9455",
-      "name": "Gobi Manchurian Dry/gravy",
-      "price": 210,
-      "description": "Crispy cauliflower florets tossed in savory manchurian sauce.",
-      "image_url": ""
-    },
-    {
-      "id": "9456",
-      "name": "Paneer Manchurian Dry/gravy",
-      "price": 240,
-      "description": "Soft paneer cubes tossed in ginger-garlic manchurian sauce.",
-      "image_url": ""
-    },
-    {
-      "id": "9457",
-      "name": "Paneer, Chilli Dry/gravy",
-      "price": 240,
-      "description": "Classic wok-tossed paneer with green chillies, capsicum, onions, and soy sauce.",
-      "image_url": ""
-    },
-    {
-      "id": "9458",
-      "name": "Mushroom Chilli Dry/gravy",
-      "price": 210,
-      "description": "Button mushrooms tossed with chillies, peppers, and garlic sauce.",
-      "image_url": ""
-    },
-    {
-      "id": "9459",
-      "name": "Baby, Corn Chilli Dry/gravy",
-      "price": 210,
-      "description": "Crispy babycorn tossed in spicy chili-garlic sauce with peppers.",
-      "image_url": ""
-    },
-    {
-      "id": "9460",
-      "name": "Bhindi Kurkure",
-      "price": 200,
-      "description": "Thinly sliced okra deep fried until ultra crispy and seasoned with chaat masala.",
-      "image_url": ""
-    },
-    {
-      "id": "9461",
-      "name": "Babycorn Kurkure",
-      "price": 200,
-      "description": "Crispy coated tender babycorn fingers fried to perfection.",
-      "image_url": ""
-    }
-  ],
-  "Sizzlers": [
-    {
-      "id": "80288296",
-      "name": "Paneer Hot Pan",
-      "price": 245,
-      "description": "Paneer Hot Pan",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/218/original/thumb_2023_01_18_12_17_33_Paneer_Hot_Pan.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_17_33_Paneer_Hot_Pan.jpg"
-    },
-    {
-      "id": "80288295",
-      "name": "Veg Hot Pan",
-      "price": 225,
-      "description": "Veg Hot Pan",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/249/original/thumb_2023_01_18_12_13_36_Veg_Hot_Pan.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_13_36_Veg_Hot_Pan.jpg"
-    },
-    {
-      "id": "9429",
-      "name": "Veg Chinese Sizzler",
-      "price": 335,
-      "description": "Combination of Chinese fried rice, noodles, and manchurian served on a sizzling cast iron plate.",
-      "image_url": ""
-    },
-    {
-      "id": "9430",
-      "name": "Paneer, Chinese Sizzler",
-      "price": 420,
-      "description": "Ultimate Chinese sizzler loaded with paneer chilli, rice, noodles, and vegetables.",
-      "image_url": ""
-    },
-    {
-      "id": "9431",
-      "name": "Chef Special Sizzler",
-      "price": 545,
-      "description": "Our grand signature sizzler platter loaded with gourmet delicacies and sauces.",
-      "image_url": ""
-    }
-  ],
-  "Choice Of Chinese Rice And Noodles": [
-    {
-      "id": "80288306",
-      "name": "Triple Schezwan Fried Rice",
-      "price": 245,
-      "description": "Triple schezwan rice is complete meal with combination of rice and fried noodles which is served wit",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/187/original/thumb_2023_01_18_12_11_05_Triple_Schezwan_Fried_Rice.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_11_05_Triple_Schezwan_Fried_Rice.jpg"
-    },
-    {
-      "id": "80288309",
-      "name": "Triple Schezwan Noodles",
-      "price": 245,
-      "description": "Triple schezwan noodles is complete meal with combination of noodles and fried noodles which is serv",
-      "image_url": ""
-    },
-    {
-      "id": "80288301",
-      "name": "Schezwan Fried Rice",
-      "price": 205,
-      "description": "Schezwan fried rice is a zesty vegetarian stir-fried rice variant that features a bold and spicy hom",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/225/original/thumb_2023_01_18_12_07_41_Schezwan_Fried_Rice.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_07_41_Schezwan_Fried_Rice.jpg"
-    },
-    {
-      "id": "80288297",
-      "name": "Manchurian Fried Rice",
-      "price": 220,
-      "description": "a classical fusion recipe made by tossing the long grain rice in a manchurian sauce. basically a com",
-      "image_url": ""
-    },
-    {
-      "id": "80288302",
-      "name": "Veg Singapore Rice",
-      "price": 205,
-      "description": "?Singapore Fried Rice?is a Chinese?fried rice?variation made with?rice,?vegetables,peanuts, soya sau",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/242/original/thumb_2023_01_18_12_08_50_Singapore_Fried_Rice.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_08_50_Singapore_Fried_Rice.jpg"
-    },
-    {
-      "id": "80288307",
-      "name": "Veg Hakka Noodles",
-      "price": 210,
-      "description": "Veg Hakka Noodles is a famous Chinese recipe. Made with fresh noodles, it has a strong flavour of so",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/243/original/thumb_2023_01_18_12_13_16_Veg_Hakka_Noodles.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_13_16_Veg_Hakka_Noodles.jpg"
-    },
-    {
-      "id": "80288305",
-      "name": "Veg Schezwan Noodles",
-      "price": 230,
-      "description": "Veg Schezwan Noodles is a famous Chinese recipe. Made with fresh noodles, it has a strong flavour of",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/244/original/thumb_2023_01_18_12_07_51_Schezwan_Noodles.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_07_51_Schezwan_Noodles.jpg"
-    },
-    {
-      "id": "80288308",
-      "name": "Veg Hong Kong Noodles",
-      "price": 235,
-      "description": "Hong Kong noodles are pan-fried to achieve a crispy and chewy texture, and they boast a?smoky, savor",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/245/original/thumb_2023_01_18_11_57_58_Hong_Kong_Noodles.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_57_58_Hong_Kong_Noodles.jpeg"
-    },
-    {
-      "id": "80288298",
-      "name": "Veg Singapore Noodles",
-      "price": 230,
-      "description": "Singapore Fried noodles?is a Chinese?fried noodles?variation made with?noodles,?vegetables,peanuts,",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/246/original/thumb_2023_01_18_12_09_00_Singapore_Noodles.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_09_00_Singapore_Noodles.jpg"
-    },
-    {
-      "id": "80288300",
-      "name": "Veg Chow Mein",
-      "price": 225,
-      "description": "Loaded with veggies and spices, this dish boasts of glossy noodles tossed with vegetables like onion",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/247/original/thumb_2023_01_18_12_12_21_Veg_Chowmein.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_12_21_Veg_Chowmein.jpg"
-    },
-    {
-      "id": "80288299",
-      "name": "American Chopsuey",
-      "price": 220,
-      "description": "a tasty and crispy deep fried noodle recipe served with vegetable gravy. the gravy has the combinati",
-      "image_url": ""
-    },
-    {
-      "id": "80288303",
-      "name": "Veg Fried Rice",
-      "price": 190,
-      "description": "This classic Veg Fried Rice is made with a hearty mix of fresh vegetables, green onions, seasonings",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/272/original/thumb_2023_01_18_12_13_01_Veg_Fried_Rice.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_13_01_Veg_Fried_Rice.jpg"
-    },
-    {
-      "id": "80288304",
-      "name": "Chinese Bhel",
-      "price": 210,
-      "description": "Made using tasty, spicy & tangy Schezwan sauce with some cucumber, fried chopsuey, chopped cabbage,s",
-      "image_url": ""
-    },
-    {
-      "id": "9432",
-      "name": "Mushroom Fried Rice",
-      "price": 220,
-      "description": "Fragrant wok-tossed rice loaded with sliced button mushrooms and vegetables.",
-      "image_url": ""
-    }
-  ],
-  "Main Courses": [
-    {
-      "id": "80288390",
-      "name": "Kaju Paneer Masala",
-      "price": 275,
-      "description": "The best of both worlds. Wanting a dish with cashew nuts and paneer together? This North Indian dish",
-      "image_url": ""
-    },
-    {
-      "id": "80288417",
-      "name": "Kaju Curry",
-      "price": 260,
-      "description": "A rich creamy spicy curry made with cashew nuts. Curry is mild spicy is rich in ground spices and ar",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/174/original/thumb_2023_01_18_11_59_15_Kaju_Curry.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_59_15_Kaju_Curry.jpeg"
-    },
-    {
-      "id": "80288376",
-      "name": "Kaju Matar Masala",
-      "price": 260,
-      "description": "Cashew nuts are combined with green peas in brown gravy. Giving of a unique taste like never before.",
-      "image_url": ""
-    },
-    {
-      "id": "80288450",
-      "name": "Kaju Masala",
-      "price": 260,
-      "description": "A bit thick gravy compared to curry. Still having a great tangy and delicious taste served with rich",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/176/original/thumb_2023_01_18_11_59_26_Kaju_Masala.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_59_26_Kaju_Masala.jpeg"
-    },
-    {
-      "id": "80288362",
-      "name": "Paneer Lababdar",
-      "price": 240,
-      "description": "Some finely chopped cabbage is used with some capsicum, onion, tomatoes mixed in yeloow gravy provid",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/182/original/thumb_2023_01_18_12_17_53_Paneer_Lababdar.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_17_53_Paneer_Lababdar.jpg"
-    },
-    {
-      "id": "80288391",
-      "name": "Paneer Burji",
-      "price": 250,
-      "description": "Scrambled paneer tossed in the pan with chopped onions, capsicums and tomatoes and ground spices.",
-      "image_url": ""
-    },
-    {
-      "id": "80288367",
-      "name": "Mushroom Handi",
-      "price": 230,
-      "description": "Fresh veggies like diced capsicums, onions & tomatoes are used in this dish. Delicious mushrooms are",
-      "image_url": ""
-    },
-    {
-      "id": "80288387",
-      "name": "Mushroom Makhanwala",
-      "price": 230,
-      "description": "Mushroom Makhanwala",
-      "image_url": ""
-    },
-    {
-      "id": "80288414",
-      "name": "Mushroom Butter Masala",
-      "price": 230,
-      "description": "Mushroom Butter Masala",
-      "image_url": ""
-    },
-    {
-      "id": "80288421",
-      "name": "Paneer Tikka Masala",
-      "price": 240,
-      "description": "Classic Paneer Tikka Masala made with marinating onion, capsicum, tomato and paneer in spices & yogu",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/196/original/thumb_2023_01_18_12_05_26_Paneer_Tikka_Masala.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_05_26_Paneer_Tikka_Masala.jpg"
-    },
-    {
-      "id": "80288361",
-      "name": "Paneer Butter Masala",
-      "price": 235,
-      "description": "The mild sweetness and tanginess from tomatoes and onions; richness of butter,squirt of lemon and cr",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/197/original/thumb_2023_01_18_12_05_49_Paneer_Butter_Masala.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_05_49_Paneer_Butter_Masala.jpeg"
-    },
-    {
-      "id": "80288366",
-      "name": "Paneer Angara Masala",
-      "price": 240,
-      "description": "Made in Red gravy this dish is the spiciest, includes paneer, capsicun, onion, cabbage & tomatoes. 1",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/198/original/thumb_2023_01_18_12_05_27_Paneer_Angara_Masala.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_05_27_Paneer_Angara_Masala.jpeg"
-    },
-    {
-      "id": "80288437",
-      "name": "Paneer Amritsari",
-      "price": 250,
-      "description": "Paneer cubes are coated in spiced gram flour deep fried. Julienne cutting of cabbage is used. While",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/199/original/thumb_2023_01_18_12_05_16_Paneer_Amritari.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_05_16_Paneer_Amritari.jpeg"
-    },
-    {
-      "id": "80288382",
-      "name": "Paneer Handi",
-      "price": 250,
-      "description": "Made in tasty and creamy brown gravy we have some veggeis like diced capsicum onion, tomato & some c",
-      "image_url": ""
-    },
-    {
-      "id": "80288359",
-      "name": "Shahi Paneer",
-      "price": 245,
-      "description": "The most creamy dish, were paneer is shaped in diamond cuttings. The Shahi styled dish has sweet & s",
-      "image_url": ""
-    },
-    {
-      "id": "80288395",
-      "name": "Paneer Lasooni",
-      "price": 235,
-      "description": "Dominated by garlic flavor this dish is served with paneer cubes in a tasty brown gravy granished wi",
-      "image_url": ""
-    },
-    {
-      "id": "80288408",
-      "name": "Paneer Kurchan",
-      "price": 240,
-      "description": "Julienne cuttings of capsicum, onion, tomato & cabbage are sauteed then mixed with long cubes of pan",
-      "image_url": ""
-    },
-    {
-      "id": "80288368",
-      "name": "Paneer Matar Masala",
-      "price": 235,
-      "description": "A traditional Matar Paneer dish. You can recognize the it with your eyes closed by smelling the Arom",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/215/original/thumb_2023_01_18_12_04_27_Paneer_Matar_Masak.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_04_27_Paneer_Matar_Masak.jpg"
-    },
-    {
-      "id": "80288444",
-      "name": "Mushroom Paneer Masala",
-      "price": 240,
-      "description": "Traditional Mushroom and Paneer Masala. Mixed with gravy, spices giving of spicy and tangy taste.",
-      "image_url": ""
-    },
-    {
-      "id": "80288357",
-      "name": "Paneer Kadai",
-      "price": 240,
-      "description": "Tasty paneer kadai served medium spicy. Mixed with some veggies & paneer served in a yellow gravy. 1",
-      "image_url": ""
-    },
-    {
-      "id": "80288431",
-      "name": "Palak Paneer",
-      "price": 230,
-      "description": "Palak Paneer is one of the most popular Indian dish made with succulent Paneer cubes in a smooth spi",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/220/original/thumb_2023_01_18_12_04_46_Palak_Paneer.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_04_46_Palak_Paneer.jpeg"
-    },
-    {
-      "id": "80288399",
-      "name": "Paneer Patiala",
-      "price": 240,
-      "description": "A papad roll deep fried with stuffing like grated paneer, sauces and spices. Served atop a delicious",
-      "image_url": ""
-    },
-    {
-      "id": "80288386",
-      "name": "Mushroom Kadhai",
-      "price": 230,
-      "description": "Some delicious mushrooms are used with some Julienne chopped veggies like capsicum, onions, tomatoes",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/222/original/thumb_2023_01_18_12_04_21_Mushroom_Kadhai.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_04_21_Mushroom_Kadhai.jpeg"
-    },
-    {
-      "id": "80288448",
-      "name": "Mushroom Matar Masala",
-      "price": 230,
-      "description": "Mushrooms and green peas, this dish is a good change from traditional paneer dishes.",
-      "image_url": ""
-    },
-    {
-      "id": "80288380",
-      "name": "Mushroom Tawa",
-      "price": 230,
-      "description": "Diced vegetables like Capsicums, onions, tomatoes are tossed in with mushrooms, The gravy used is re",
-      "image_url": ""
-    },
-    {
-      "id": "80288412",
-      "name": "Veg Maratha",
-      "price": 215,
-      "description": "Veg Maratha is another classic Maharashtrian dish. Consisiting if 6 vegetable koftas deep fried whic",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/233/original/thumb_2023_01_18_12_18_15_Veg_Maratha.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_18_15_Veg_Maratha.jpg"
-    },
-    {
-      "id": "80288355",
-      "name": "Veg Bhuna Masala",
-      "price": 215,
-      "description": "Bhuna Masala is what we call a Chatpata dish. Made 6 with round kofta of mix vegetables and spices.",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/234/original/thumb_2023_01_18_12_11_41_Veg_Bhuna_Masala.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_11_41_Veg_Bhuna_Masala.jpg"
-    },
-    {
-      "id": "80288423",
-      "name": "Veg Diwani Handi",
-      "price": 225,
-      "description": "Veg Diwani Handi is served with 4 vegetable koftas along with vegetable curry which includes sweetco",
-      "image_url": ""
-    },
-    {
-      "id": "80288375",
-      "name": "Veg Angara",
-      "price": 205,
-      "description": "Veg Angara is a dish rich in mix vegetables and spices, combined with delicious red gravy it is a di",
-      "image_url": ""
-    },
-    {
-      "id": "80288384",
-      "name": "Sev Bhaji",
-      "price": 215,
-      "description": "A combination of spicy curry and fried besan sev soaked in it. The curry has a very unique spicy tas",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/237/original/thumb_2023_01_18_12_08_30_Sev_Bhaji.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_08_30_Sev_Bhaji.jpg"
-    },
-    {
-      "id": "80288428",
-      "name": "Veg Patiala",
-      "price": 215,
-      "description": "Mixture of veggies and spices is made & used as stuffing in a papad roll, deep fried until crispy an",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/240/original/thumb_2023_01_18_12_18_59_Veg_Patiala.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_18_59_Veg_Patiala.jpg"
-    },
-    {
-      "id": "80288442",
+      "id": "80300000",
       "name": "Veg Kolhapuri",
       "price": 205,
       "description": "Veg Kolhapuri is a mixed vegetable curry including bit of paneer and mushroom with thick and spicy r",
       "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/253/original/thumb_2023_01_18_12_15_41_Veg_Kolhapuri.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_15_41_Veg_Kolhapuri.jpg"
     },
     {
-      "id": "80288443",
+      "id": "80300001",
+      "name": "Veg Maratha",
+      "price": 215,
+      "description": "Veg Maratha is another classic Maharashtrian dish. Consisiting if 6 vegetable koftas deep fried whic",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/233/original/thumb_2023_01_18_12_18_15_Veg_Maratha.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_18_15_Veg_Maratha.jpg"
+    },
+    {
+      "id": "80300002",
+      "name": "Veg Bhuna Masala",
+      "price": 215,
+      "description": "Bhuna Masala is what we call a Chatpata dish. Made 6 with round kofta of mix vegetables and spices.",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/234/original/thumb_2023_01_18_12_11_41_Veg_Bhuna_Masala.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_11_41_Veg_Bhuna_Masala.jpg"
+    },
+    {
+      "id": "80300003",
+      "name": "Veg Angara",
+      "price": 205,
+      "description": "Veg Angara is a dish rich in mix vegetables and spices, combined with delicious red gravy it is a di",
+      "image_url": ""
+    },
+    {
+      "id": "80300004",
       "name": "Veg Jaipuri",
       "price": 205,
       "description": "Something which has spiciness & sweetness at the same time. Veg Jaipuri is dish to choose. Coupled w",
       "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/254/original/thumb_2023_01_18_12_13_59_Veg_Jaipuri.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_13_59_Veg_Jaipuri.jpg"
     },
     {
-      "id": "80288403",
-      "name": "Veg Kofta",
-      "price": 220,
-      "description": "We have mix vegetable keema mixed with spices made into 2 big koftas stuffed with some grateed chees",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/255/original/thumb_2023_01_18_12_15_18_Veg_Kofta.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_15_18_Veg_Kofta.jpg"
-    },
-    {
-      "id": "80288405",
-      "name": "Bhindi Masala",
-      "price": 215,
-      "description": "Chopped Bhindi made with tasty Indian spices and masales. Gives very unique taste with brown gravy.",
-      "image_url": ""
-    },
-    {
-      "id": "80288379",
-      "name": "Veg Kadai",
-      "price": 205,
-      "description": "The traditional brown gravy vegetable dish with mix vegetables, capsicum, paneer & mushrooms. It is",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/257/original/thumb_2023_01_18_12_14_41_Veg_Kadhai.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_14_41_Veg_Kadhai.jpg"
-    },
-    {
-      "id": "80288397",
+      "id": "80300005",
       "name": "Veg Jalfrezi",
       "price": 205,
       "description": "Veg jalfrezi has a unique taste in its own. Coupled with yellow gravy the mixture of mix vegetables,",
       "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/258/original/thumb_2023_01_18_12_14_22_Veg_Jalfrezi.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_14_22_Veg_Jalfrezi.jpg"
     },
     {
-      "id": "80288446",
-      "name": "Mix Veg",
+      "id": "80300006",
+      "name": "Veg Kadai",
       "price": 205,
-      "description": "Brown gravy with some veggies like beans, cauliflower, carrots along with some paneer served medium",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/262/original/thumb_2023_01_18_12_03_51_Mix_Veg.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_03_51_Mix_Veg.jpeg"
+      "description": "The traditional brown gravy vegetable dish with mix vegetables, capsicum, paneer & mushrooms. It is",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/257/original/thumb_2023_01_18_12_14_41_Veg_Kadhai.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_14_41_Veg_Kadhai.jpg"
     },
     {
-      "id": "80288363",
-      "name": "Veg Curry",
-      "price": 205,
-      "description": "Red curry coupled with mix vegetables such as beans, cauliflower & carrots served with medium spicin",
+      "id": "80300007",
+      "name": "Veg Diwani Handi",
+      "price": 225,
+      "description": "Veg Diwani Handi is served with 4 vegetable koftas along with vegetable curry which includes sweetco",
       "image_url": ""
     },
     {
-      "id": "80288401",
-      "name": "Veg Tawa",
+      "id": "80300008",
+      "name": "Veg Chilli Milli",
       "price": 215,
-      "description": "For someone who like more veggies and less gravy, made with Bhendi,paneer, babycorns,mushrooms,brinj",
+      "description": "",
       "image_url": ""
     },
     {
-      "id": "80288410",
-      "name": "Lasooni Palak",
-      "price": 215,
-      "description": "Boiled spinach turned into fine paste. The dish is made with some tossed ginger and garlic with cara",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/265/original/thumb_2023_01_18_12_02_11_Lasuni_Palak.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_02_11_Lasuni_Palak.jpeg"
+      "id": "80300009",
+      "name": "Veg Chingari",
+      "price": 210,
+      "description": "",
+      "image_url": ""
     },
     {
-      "id": "80288388",
+      "id": "80300010",
+      "name": "Veg Dilruba",
+      "price": 225,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300011",
+      "name": "Soya Garlic Masala",
+      "price": 230,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300012",
+      "name": "Soya Tikka Masala",
+      "price": 230,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300013",
+      "name": "Soya Chap Tikka Masala",
+      "price": 230,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300014",
+      "name": "Soya Chap Chingari",
+      "price": 230,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300015",
+      "name": "Soya Chap Butter Masala",
+      "price": 230,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300016",
+      "name": "Veg Mumtaz",
+      "price": 210,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300017",
+      "name": "Veg Dilkush",
+      "price": 260,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300018",
+      "name": "Methi Masala",
+      "price": 215,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300019",
+      "name": "Methi Matar Palak",
+      "price": 220,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300020",
+      "name": "Methi Corn Palak",
+      "price": 225,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300021",
+      "name": "Mushroom Garlic Masala",
+      "price": 235,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300022",
+      "name": "Chola Bhatura",
+      "price": 215,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300023",
+      "name": "Bhindi Fry",
+      "price": 225,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300024",
+      "name": "Bhindi Masala",
+      "price": 215,
+      "description": "Chopped Bhindi made with tasty Indian spices and masales. Gives very unique taste with brown gravy.",
+      "image_url": ""
+    },
+    {
+      "id": "80300025",
+      "name": "Methi Matar Malai",
+      "price": 235,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300026",
       "name": "Aloo Jeera",
       "price": 205,
       "description": "Aloo jeera, a flavourful & delicious North Indian side dish made with potatoes, spices and herbs. Th",
       "image_url": ""
     },
     {
-      "id": "80288426",
-      "name": "Veg Keema Masala",
+      "id": "80300027",
+      "name": "Aloo Methi",
       "price": 205,
-      "description": "Traditional Kheema of Mix vegetables served in Red gravy with medium spiciness.",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/267/original/thumb_2023_01_18_12_15_00_Veg_Keema_Masala.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_15_00_Veg_Keema_Masala.jpg"
-    },
-    {
-      "id": "80288354",
-      "name": "Aloo Gobi",
-      "price": 205,
-      "description": "Made with potatoes, cauliflower, spices and herbs. This dish packs traditional taste with brown grav",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/270/original/thumb_2023_01_18_11_53_02_Aloo_Gobi.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_53_02_Aloo_Gobi.jpeg"
-    },
-    {
-      "id": "80288439",
-      "name": "Green Peas Masala",
-      "price": 205,
-      "description": "Classic Green peas masala served with yellow curry and medium spiciness.",
+      "description": "",
       "image_url": ""
     },
     {
-      "id": "80288447",
+      "id": "80300028",
       "name": "Aloo Matar",
       "price": 205,
       "description": "A delightful dish, made with Boiled potatoes and green peas tossed in tasty gravy served with medium",
       "image_url": ""
     },
     {
-      "id": "80288372",
-      "name": "Dal Tadka",
-      "price": 150,
-      "description": "Made using Moong Dal.",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/278/original/thumb_2023_01_18_11_57_06_Dal_Tadka.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_57_06_Dal_Tadka.jpeg"
+      "id": "80300029",
+      "name": "Aloo Gobi",
+      "price": 205,
+      "description": "Made with potatoes, cauliflower, spices and herbs. This dish packs traditional taste with brown grav",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/270/original/thumb_2023_01_18_11_53_02_Aloo_Gobi.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_53_02_Aloo_Gobi.jpeg"
     },
     {
-      "id": "80288353",
-      "name": "Dal Palak",
-      "price": 140,
-      "description": "Made using Moong Dal.",
+      "id": "80300030",
+      "name": "Punjabi Kadi",
+      "price": 220,
+      "description": "",
       "image_url": ""
     },
     {
-      "id": "80288383",
-      "name": "Dal Kolhapuri",
-      "price": 140,
-      "description": "Made using Moong Dal.",
+      "id": "80300031",
+      "name": "Malai Kofta",
+      "price": 260,
+      "description": "",
       "image_url": ""
     },
     {
-      "id": "80288433",
-      "name": "Dal Fry",
-      "price": 140,
-      "description": "Made using Moong Dal.",
+      "id": "80300032",
+      "name": "Kaju Curry",
+      "price": 260,
+      "description": "A rich creamy spicy curry made with cashew nuts. Curry is mild spicy is rich in ground spices and ar",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/174/original/thumb_2023_01_18_11_59_15_Kaju_Curry.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_59_15_Kaju_Curry.jpeg"
+    },
+    {
+      "id": "80300033",
+      "name": "Kaju Matar Masala",
+      "price": 260,
+      "description": "Cashew nuts are combined with green peas in brown gravy. Giving of a unique taste like never before.",
       "image_url": ""
     },
     {
-      "id": "80288419",
-      "name": "Maurya Special Veg",
-      "price": 310,
-      "description": "This is the uniqueness of our Restaurant. Combination of two different dishes within one. One Rich i",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/159/original/thumb_2023_01_18_12_03_26_Maurya_Special_Veg.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_03_26_Maurya_Special_Veg.jpeg"
+      "id": "80300034",
+      "name": "Kaju Masala",
+      "price": 260,
+      "description": "A bit thick gravy compared to curry. Still having a great tangy and delicious taste served with rich",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/176/original/thumb_2023_01_18_11_59_26_Kaju_Masala.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_59_26_Kaju_Masala.jpeg"
     },
     {
-      "id": "80288364",
-      "name": "Paneer Makhanwala",
+      "id": "80300035",
+      "name": "Kaju Paneer Masala",
+      "price": 275,
+      "description": "The best of both worlds. Wanting a dish with cashew nuts and paneer together? This North Indian dish",
+      "image_url": ""
+    },
+    {
+      "id": "80300036",
+      "name": "Mushroom Kadhai",
+      "price": 230,
+      "description": "Some delicious mushrooms are used with some Julienne chopped veggies like capsicum, onions, tomatoes",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/222/original/thumb_2023_01_18_12_04_21_Mushroom_Kadhai.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_04_21_Mushroom_Kadhai.jpeg"
+    },
+    {
+      "id": "80300037",
+      "name": "Mushroom Matar Masala",
+      "price": 230,
+      "description": "Mushrooms and green peas, this dish is a good change from traditional paneer dishes.",
+      "image_url": ""
+    },
+    {
+      "id": "80300038",
+      "name": "Mushroom Masala",
+      "price": 230,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300039",
+      "name": "Mushroom Handi",
+      "price": 230,
+      "description": "Fresh veggies like diced capsicums, onions & tomatoes are used in this dish. Delicious mushrooms are",
+      "image_url": ""
+    },
+    {
+      "id": "80300040",
+      "name": "Mushroom Tawa",
+      "price": 230,
+      "description": "Diced vegetables like Capsicums, onions, tomatoes are tossed in with mushrooms, The gravy used is re",
+      "image_url": ""
+    },
+    {
+      "id": "80300041",
+      "name": "Mushroom Paneer Masala",
+      "price": 240,
+      "description": "Traditional Mushroom and Paneer Masala. Mixed with gravy, spices giving of spicy and tangy taste.",
+      "image_url": ""
+    },
+    {
+      "id": "80300042",
+      "name": "Mushroom Butter Masala",
+      "price": 230,
+      "description": "Mushroom Butter Masala",
+      "image_url": ""
+    },
+    {
+      "id": "80300043",
+      "name": "Mushroom Makhanwala",
+      "price": 230,
+      "description": "Mushroom Makhanwala",
+      "image_url": ""
+    },
+    {
+      "id": "80300044",
+      "name": "Veg Keema Masala",
+      "price": 205,
+      "description": "Traditional Kheema of Mix vegetables served in Red gravy with medium spiciness.",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/267/original/thumb_2023_01_18_12_15_00_Veg_Keema_Masala.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_15_00_Veg_Keema_Masala.jpg"
+    },
+    {
+      "id": "80300045",
+      "name": "Mix Veg",
+      "price": 205,
+      "description": "Brown gravy with some veggies like beans, cauliflower, carrots along with some paneer served medium",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/262/original/thumb_2023_01_18_12_03_51_Mix_Veg.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_03_51_Mix_Veg.jpeg"
+    },
+    {
+      "id": "80300046",
+      "name": "Green Peas Masala",
+      "price": 205,
+      "description": "Classic Green peas masala served with yellow curry and medium spiciness.",
+      "image_url": ""
+    },
+    {
+      "id": "80300047",
+      "name": "Veg Kofta",
+      "price": 220,
+      "description": "We have mix vegetable keema mixed with spices made into 2 big koftas stuffed with some grateed chees",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/255/original/thumb_2023_01_18_12_15_18_Veg_Kofta.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_15_18_Veg_Kofta.jpg"
+    },
+    {
+      "id": "80300048",
+      "name": "Veg Anda Curry",
+      "price": 235,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300049",
+      "name": "Veg Curry",
+      "price": 205,
+      "description": "Red curry coupled with mix vegetables such as beans, cauliflower & carrots served with medium spicin",
+      "image_url": ""
+    },
+    {
+      "id": "80300050",
+      "name": "Veg Patiala",
+      "price": 215,
+      "description": "Mixture of veggies and spices is made & used as stuffing in a papad roll, deep fried until crispy an",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/240/original/thumb_2023_01_18_12_18_59_Veg_Patiala.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_18_59_Veg_Patiala.jpg"
+    },
+    {
+      "id": "80300051",
+      "name": "Veg Tawa",
+      "price": 215,
+      "description": "For someone who like more veggies and less gravy, made with Bhendi,paneer, babycorns,mushrooms,brinj",
+      "image_url": ""
+    },
+    {
+      "id": "80300052",
+      "name": "Chana Masala",
+      "price": 225,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300053",
+      "name": "Lasooni Palak",
+      "price": 215,
+      "description": "Boiled spinach turned into fine paste. The dish is made with some tossed ginger and garlic with cara",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/265/original/thumb_2023_01_18_12_02_11_Lasuni_Palak.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_02_11_Lasuni_Palak.jpeg"
+    },
+    {
+      "id": "80300054",
+      "name": "Shev Bhaji",
+      "price": 215,
+      "description": "",
+      "image_url": ""
+    }
+  ],
+  "PANEER KI SABJI": [
+    {
+      "id": "80300055",
+      "name": "Paneer Tikka Masala",
+      "price": 240,
+      "description": "Classic Paneer Tikka Masala made with marinating onion, capsicum, tomato and paneer in spices & yogu",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/196/original/thumb_2023_01_18_12_05_26_Paneer_Tikka_Masala.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_05_26_Paneer_Tikka_Masala.jpg"
+    },
+    {
+      "id": "80300056",
+      "name": "Paneer Butter Masala",
       "price": 235,
       "description": "The mild sweetness and tanginess from tomatoes and onions; richness of butter,squirt of lemon and cr",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/166/original/thumb_2023_01_18_12_04_10_Paneer_Makanwal.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_04_10_Paneer_Makanwal.jpg"
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/197/original/thumb_2023_01_18_12_05_49_Paneer_Butter_Masala.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_05_49_Paneer_Butter_Masala.jpeg"
     },
     {
-      "id": "80288370",
-      "name": "Paneer Baby Corn Mushroom Masala",
+      "id": "80300057",
+      "name": "Paneer Angara Masala",
+      "price": 240,
+      "description": "Made in Red gravy this dish is the spiciest, includes paneer, capsicun, onion, cabbage & tomatoes. 1",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/198/original/thumb_2023_01_18_12_05_27_Paneer_Angara_Masala.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_05_27_Paneer_Angara_Masala.jpeg"
+    },
+    {
+      "id": "80300058",
+      "name": "Paneer Matar Masala",
+      "price": 235,
+      "description": "A traditional Matar Paneer dish. You can recognize the it with your eyes closed by smelling the Arom",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/215/original/thumb_2023_01_18_12_04_27_Paneer_Matar_Masak.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_04_27_Paneer_Matar_Masak.jpg"
+    },
+    {
+      "id": "80300059",
+      "name": "Paneer Lababdar",
+      "price": 240,
+      "description": "Some finely chopped cabbage is used with some capsicum, onion, tomatoes mixed in yeloow gravy provid",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/182/original/thumb_2023_01_18_12_17_53_Paneer_Lababdar.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_17_53_Paneer_Lababdar.jpg"
+    },
+    {
+      "id": "80300060",
+      "name": "Paneer Kadai",
+      "price": 240,
+      "description": "Tasty paneer kadai served medium spicy. Mixed with some veggies & paneer served in a yellow gravy. 1",
+      "image_url": ""
+    },
+    {
+      "id": "80300061",
+      "name": "Paneer Handi",
+      "price": 250,
+      "description": "Made in tasty and creamy brown gravy we have some veggeis like diced capsicum onion, tomato & some c",
+      "image_url": ""
+    },
+    {
+      "id": "80300062",
+      "name": "Paneer Chilli Milli",
+      "price": 240,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300063",
+      "name": "Paneer Reshmi",
+      "price": 240,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300064",
+      "name": "Paneer Kurchan",
+      "price": 240,
+      "description": "Julienne cuttings of capsicum, onion, tomato & cabbage are sauteed then mixed with long cubes of pan",
+      "image_url": ""
+    },
+    {
+      "id": "80300065",
+      "name": "Paneer Amritsari",
+      "price": 250,
+      "description": "Paneer cubes are coated in spiced gram flour deep fried. Julienne cutting of cabbage is used. While",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/199/original/thumb_2023_01_18_12_05_16_Paneer_Amritari.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_05_16_Paneer_Amritari.jpeg"
+    },
+    {
+      "id": "80300066",
+      "name": "Palak Paneer",
+      "price": 230,
+      "description": "Palak Paneer is one of the most popular Indian dish made with succulent Paneer cubes in a smooth spi",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/220/original/thumb_2023_01_18_12_04_46_Palak_Paneer.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_04_46_Palak_Paneer.jpeg"
+    },
+    {
+      "id": "80300067",
+      "name": "Shahi Paneer",
       "price": 245,
-      "description": "Some tender Paneer, boiled Babycorns & Mushrooms mixed well with some yellow gravy. Rich in cream an",
+      "description": "The most creamy dish, were paneer is shaped in diamond cuttings. The Shahi styled dish has sweet & s",
       "image_url": ""
     },
     {
-      "id": "80288377",
-      "name": "Paneer Maharaja",
+      "id": "80300068",
+      "name": "Paneer Chingari",
       "price": 245,
-      "description": "fairly large cut tender paneer cubes mixed with creamy and buttery Red gravy. Served medium Spicy.",
+      "description": "",
       "image_url": ""
     },
     {
-      "id": "80288371",
-      "name": "Paneer Lajawab",
+      "id": "80300069",
+      "name": "Paneer Kolhapuri",
       "price": 240,
-      "description": "Long panner cubes are used in Chef special Dish. Combined with Julienne cutting of cabbage in red an",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/171/original/thumb_2023_01_18_12_03_36_Paneer_Lajawab.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_03_36_Paneer_Lajawab.jpg"
-    },
-    {
-      "id": "80288358",
-      "name": "Paneer Dopyaza",
-      "price": 240,
-      "description": "Some Diced Onions used with Coriender in rich and flavorful brown mixed with tender paneer pieces. S",
+      "description": "",
       "image_url": ""
     },
     {
-      "id": "80288374",
-      "name": "Paneer Chatpata",
-      "price": 240,
-      "description": "Diced capsicum, onion, tomato & cabbage coupled with 12 pcs of panner gives off the traditional Chat",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/177/original/thumb_2023_01_18_12_16_33_Paneer_Chatpata.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_16_33_Paneer_Chatpata.jpg"
+      "id": "80300070",
+      "name": "Paneer Khajana",
+      "price": 255,
+      "description": "",
+      "image_url": ""
     },
     {
-      "id": "80288393",
+      "id": "80300071",
+      "name": "Paneer Masala",
+      "price": 235,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300072",
+      "name": "Paneer Musalam Masala",
+      "price": 260,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300073",
+      "name": "Paneer Musalam (Cheese Masala)",
+      "price": 290,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300074",
+      "name": "Paneer Lasooni",
+      "price": 235,
+      "description": "Dominated by garlic flavor this dish is served with paneer cubes in a tasty brown gravy granished wi",
+      "image_url": ""
+    },
+    {
+      "id": "80300075",
+      "name": "Paneer Pasanda",
+      "price": 255,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300076",
+      "name": "Paneer Rajwadi",
+      "price": 250,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300077",
+      "name": "Paneer Patiala",
+      "price": 240,
+      "description": "A papad roll deep fried with stuffing like grated paneer, sauces and spices. Served atop a delicious",
+      "image_url": ""
+    },
+    {
+      "id": "80300078",
+      "name": "Paneer Burji",
+      "price": 250,
+      "description": "Scrambled paneer tossed in the pan with chopped onions, capsicums and tomatoes and ground spices.",
+      "image_url": ""
+    },
+    {
+      "id": "80300079",
       "name": "Paneer Adra Ki Dhaniya",
       "price": 240,
       "description": "Thinly sliced ginger into many pieces to enhance the flavor with freshly chopped coriender. The grav",
       "image_url": ""
     },
     {
-      "id": "80288435",
-      "name": "Paneer Majadar",
+      "id": "80300080",
+      "name": "Paneer Lajawab",
       "price": 240,
-      "description": "Julienne cutting of Cabbage is used to give some packed taste with 12 pcs of paneer. Made in speical",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/181/original/thumb_2023_01_18_12_03_58_Paneer_Majadar.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_03_58_Paneer_Majadar.jpg"
+      "description": "Long panner cubes are used in Chef special Dish. Combined with Julienne cutting of cabbage in red an",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/171/original/thumb_2023_01_18_12_03_36_Paneer_Lajawab.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_03_36_Paneer_Lajawab.jpg"
+    },
+    {
+      "id": "80300081",
+      "name": "Paneer Makhanwala",
+      "price": 235,
+      "description": "The mild sweetness and tanginess from tomatoes and onions; richness of butter,squirt of lemon and cr",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/166/original/thumb_2023_01_18_12_04_10_Paneer_Makanwal.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_04_10_Paneer_Makanwal.jpg"
+    },
+    {
+      "id": "80300082",
+      "name": "Paneer Dopyaza",
+      "price": 240,
+      "description": "Some Diced Onions used with Coriender in rich and flavorful brown mixed with tender paneer pieces. S",
+      "image_url": ""
+    },
+    {
+      "id": "80300083",
+      "name": "Paneer Majedar",
+      "price": 240,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300084",
+      "name": "Paneer Chatpata",
+      "price": 240,
+      "description": "Diced capsicum, onion, tomato & cabbage coupled with 12 pcs of panner gives off the traditional Chat",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/177/original/thumb_2023_01_18_12_16_33_Paneer_Chatpata.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_16_33_Paneer_Chatpata.jpg"
+    },
+    {
+      "id": "80300085",
+      "name": "Paneer Maharaja",
+      "price": 245,
+      "description": "fairly large cut tender paneer cubes mixed with creamy and buttery Red gravy. Served medium Spicy.",
+      "image_url": ""
+    },
+    {
+      "id": "80300086",
+      "name": "Paneer Baby Corn Mushroom Masala",
+      "price": 245,
+      "description": "Some tender Paneer, boiled Babycorns & Mushrooms mixed well with some yellow gravy. Rich in cream an",
+      "image_url": ""
+    },
+    {
+      "id": "80300087",
+      "name": "Maurya Veg Special",
+      "price": 310,
+      "description": "",
+      "image_url": ""
     }
   ],
-  "Bread": [
+  "BREAD": [
     {
-      "id": "80288282",
-      "name": "Garlic Cheese Paratha",
-      "price": 120,
-      "description": "Garlic Cheese Paratha",
+      "id": "80300088",
+      "name": "Roti",
+      "price": 25,
+      "description": "",
       "image_url": ""
     },
     {
-      "id": "80288283",
-      "name": "Aloo Pyaaz Paratha",
-      "price": 100,
-      "description": "Aloo Pyaaz Paratha",
+      "id": "80300089",
+      "name": "Butter Roti",
+      "price": 30,
+      "description": "",
       "image_url": ""
     },
     {
-      "id": "80288291",
-      "name": "Cheese Paratha",
-      "price": 115,
-      "description": "Cheese Paratha",
-      "image_url": ""
-    },
-    {
-      "id": "80288288",
-      "name": "Paneer Paratha",
-      "price": 120,
-      "description": "Paneer Paratha",
-      "image_url": ""
-    },
-    {
-      "id": "80288294",
-      "name": "Stuff Paratha",
-      "price": 100,
-      "description": "Stuff Paratha",
-      "image_url": ""
-    },
-    {
-      "id": "80288278",
-      "name": "Gobi Paratha",
-      "price": 100,
-      "description": "Gobi Paratha",
-      "image_url": ""
-    },
-    {
-      "id": "80288277",
-      "name": "Aloo Methi Paratha",
-      "price": 100,
-      "description": "Aloo Methi Paratha",
-      "image_url": ""
-    },
-    {
-      "id": "80288286",
-      "name": "Cheese Garlic Butter Naan",
-      "price": 110,
-      "description": "Cheese Garlic Butter Naan",
-      "image_url": ""
-    },
-    {
-      "id": "80288281",
-      "name": "Aloo Paratha",
-      "price": 100,
-      "description": "Aloo Paratha",
-      "image_url": ""
-    },
-    {
-      "id": "80288290",
-      "name": "Garlic Butter Naan",
-      "price": 90,
-      "description": "Garlic Butter Naan",
-      "image_url": ""
-    },
-    {
-      "id": "80288280",
-      "name": "Methi Paratha",
-      "price": 100,
-      "description": "Methi Paratha",
-      "image_url": ""
-    },
-    {
-      "id": "80288276",
-      "name": "Cheese Naan",
-      "price": 90,
-      "description": "Cheese Naan",
-      "image_url": ""
-    },
-    {
-      "id": "80288287",
-      "name": "Garlic Naan",
-      "price": 75,
-      "description": "Garlic Naan",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/341/original/thumb_2023_01_18_11_57_32_Garlic_Naan.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_57_32_Garlic_Naan.jpeg"
-    },
-    {
-      "id": "80288293",
-      "name": "Lachha Paratha",
-      "price": 55,
-      "description": "Wheat Lachha",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/350/original/thumb_2023_01_18_12_00_24_Lacha_Paratha.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_00_24_Lacha_Paratha.jpeg"
-    },
-    {
-      "id": "80288285",
-      "name": "Butter Naan",
-      "price": 50,
-      "description": "Butter Naan",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/353/original/thumb_2023_01_18_11_55_26_Butter_Naan.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_55_26_Butter_Naan.jpeg"
-    },
-    {
-      "id": "80288284",
-      "name": "Butter Kulcha",
-      "price": 45,
-      "description": "Butter Kulcha",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/354/original/thumb_2023_01_18_11_55_02_Butter_Kulcha.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_55_02_Butter_Kulcha.jpeg"
-    },
-    {
-      "id": "80288292",
-      "name": "Naan",
-      "price": 40,
-      "description": "Naan",
-      "image_url": ""
-    },
-    {
-      "id": "80288279",
+      "id": "80300090",
       "name": "Kulcha",
       "price": 40,
       "description": "Kulcha",
       "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/358/original/thumb_2023_01_18_12_00_08_Kulcha.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_00_08_Kulcha.jpeg"
     },
     {
-      "id": "84753051",
-      "name": "Gheu Butter Roti",
-      "price": 30,
-      "description": "Wheat Roti",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/368/original/thumb_2023_01_18_11_55_37_Butter_Roti.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_55_37_Butter_Roti.jpeg"
+      "id": "80300091",
+      "name": "Butter Kulcha",
+      "price": 45,
+      "description": "Butter Kulcha",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/354/original/thumb_2023_01_18_11_55_02_Butter_Kulcha.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_55_02_Butter_Kulcha.jpeg"
     },
     {
-      "id": "84753049",
-      "name": "Gheu Roti",
-      "price": 25,
-      "description": "Wheat Roti",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/370/original/thumb_2023_01_18_12_07_19_Roti.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_07_19_Roti.jpg"
-    },
-    {
-      "id": "84753050",
-      "name": "Butter Tandoor Roti",
-      "price": 30,
-      "description": "Butter Tandoor Roti",
+      "id": "80300092",
+      "name": "Naan",
+      "price": 40,
+      "description": "Naan",
       "image_url": ""
     },
     {
-      "id": "84753048",
-      "name": "Tandoor Roti",
-      "price": 25,
-      "description": "Tandoor Roti",
+      "id": "80300093",
+      "name": "Butter Naan",
+      "price": 50,
+      "description": "Butter Naan",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/353/original/thumb_2023_01_18_11_55_26_Butter_Naan.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_55_26_Butter_Naan.jpeg"
+    },
+    {
+      "id": "80300094",
+      "name": "Garlic Naan",
+      "price": 75,
+      "description": "Garlic Naan",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/341/original/thumb_2023_01_18_11_57_32_Garlic_Naan.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_57_32_Garlic_Naan.jpeg"
+    },
+    {
+      "id": "80300095",
+      "name": "Garlic Butter Naan",
+      "price": 90,
+      "description": "Garlic Butter Naan",
+      "image_url": ""
+    },
+    {
+      "id": "80300096",
+      "name": "Cheese Naan",
+      "price": 90,
+      "description": "Cheese Naan",
+      "image_url": ""
+    },
+    {
+      "id": "80300097",
+      "name": "Cheese Garlic Butter Naan",
+      "price": 110,
+      "description": "Cheese Garlic Butter Naan",
+      "image_url": ""
+    },
+    {
+      "id": "80300098",
+      "name": "Chapati",
+      "price": 15,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300099",
+      "name": "Butter Chapati",
+      "price": 20,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300100",
+      "name": "Lachcha Paratha",
+      "price": 55,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300101",
+      "name": "Aloo Paratha",
+      "price": 100,
+      "description": "Aloo Paratha",
+      "image_url": ""
+    },
+    {
+      "id": "80300102",
+      "name": "Paneer Paratha",
+      "price": 120,
+      "description": "Paneer Paratha",
+      "image_url": ""
+    },
+    {
+      "id": "80300103",
+      "name": "Methi Paratha",
+      "price": 100,
+      "description": "Methi Paratha",
+      "image_url": ""
+    },
+    {
+      "id": "80300104",
+      "name": "Aloo Methi Paratha",
+      "price": 100,
+      "description": "Aloo Methi Paratha",
+      "image_url": ""
+    },
+    {
+      "id": "80300105",
+      "name": "Aloo Pyaaz Paratha",
+      "price": 100,
+      "description": "Aloo Pyaaz Paratha",
+      "image_url": ""
+    },
+    {
+      "id": "80300106",
+      "name": "Gobi Paratha",
+      "price": 100,
+      "description": "Gobi Paratha",
+      "image_url": ""
+    },
+    {
+      "id": "80300107",
+      "name": "Cheese Paratha",
+      "price": 115,
+      "description": "Cheese Paratha",
+      "image_url": ""
+    },
+    {
+      "id": "80300108",
+      "name": "Garlic Cheese Paratha",
+      "price": 120,
+      "description": "Garlic Cheese Paratha",
+      "image_url": ""
+    },
+    {
+      "id": "80300109",
+      "name": "Stuff Paratha",
+      "price": 100,
+      "description": "Stuff Paratha",
       "image_url": ""
     }
   ],
-  "Rice": [
+  "CHOICE OF DAL": [
     {
-      "id": "80288271",
-      "name": "Paneer Tikka Matka Biryani",
-      "price": 280,
-      "description": "Paneer Tikka Matka Biryani",
+      "id": "80300110",
+      "name": "Dal Fry",
+      "price": 140,
+      "description": "Made using Moong Dal.",
       "image_url": ""
     },
     {
-      "id": "80288274",
-      "name": "Matka Biriyani",
-      "price": 270,
-      "description": "Matka Biriyani",
+      "id": "80300111",
+      "name": "Dal Tadka",
+      "price": 150,
+      "description": "Made using Moong Dal.",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/278/original/thumb_2023_01_18_11_57_06_Dal_Tadka.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_57_06_Dal_Tadka.jpeg"
+    },
+    {
+      "id": "80300112",
+      "name": "Dal Kolhapuri",
+      "price": 140,
+      "description": "Made using Moong Dal.",
       "image_url": ""
     },
     {
-      "id": "80288270",
-      "name": "Paneer Tikka Biriyani",
-      "price": 260,
-      "description": "Made with aromatic spices and herbs. This yogurt based curry is mixed with 8 pc of Paneer Tikka to g",
+      "id": "80300113",
+      "name": "Dal Palak",
+      "price": 140,
+      "description": "Made using Moong Dal.",
+      "image_url": ""
+    }
+  ],
+  "CHOICE OF BASMATI": [
+    {
+      "id": "80300114",
+      "name": "Steam Rice (Half)",
+      "price": 85,
+      "description": "",
       "image_url": ""
     },
     {
-      "id": "80288262",
-      "name": "Maurya Veg Biryani",
-      "price": 240,
-      "description": "Veg Biryani?is loaded with aromatic spices, veggies, herbs etc making it flavourful, exotic & delici",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/185/original/thumb_2023_01_18_12_12_01_Veg_Biryani.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_12_01_Veg_Biryani.jpg"
-    },
-    {
-      "id": "80288264",
-      "name": "Hyderabadi Biryani",
-      "price": 240,
-      "description": "Yogurt based curry made with herbs and spices with spinach paste cooked with Mix Veggies. Sided with",
+      "id": "80300115",
+      "name": "Steam Rice (Full)",
+      "price": 140,
+      "description": "",
       "image_url": ""
     },
     {
-      "id": "80288269",
-      "name": "Kashmiri Pulao",
-      "price": 230,
-      "description": "Rich in Pineapples, Cashew nuts, Raisins. This rice dish is traditional sweet and has no spiciness t",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/214/original/thumb_2023_01_18_11_59_54_Kashmiri_Pulao.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_59_54_Kashmiri_Pulao.jpeg"
-    },
-    {
-      "id": "80288263",
-      "name": "Paneer Pulao",
-      "price": 220,
-      "description": "Chopped Paneer is used along with some spices and herbs. This flavorful Basmati Rice is finished off",
+      "id": "80300116",
+      "name": "Jeera Rice (Half)",
+      "price": 95,
+      "description": "",
       "image_url": ""
     },
     {
-      "id": "80288266",
-      "name": "Dal Khichadi With Tadka",
-      "price": 215,
-      "description": "Moong Dal Khichdi is a?healthy and comforting meal made with rice and lentils. Made using Ghee, Butt",
+      "id": "80300117",
+      "name": "Jeera Rice (Full)",
+      "price": 150,
+      "description": "",
       "image_url": ""
     },
     {
-      "id": "80288273",
+      "id": "80300118",
       "name": "Veg Pulao",
       "price": 200,
       "description": "Spiced Basmati Rice used with Mix veggies with some cashew nuts, raisins, and onions. Giving off som",
       "image_url": ""
     },
     {
-      "id": "80288265",
-      "name": "Dal Khichadi",
-      "price": 205,
-      "description": "Moong Dal Khichdi is a?healthy and comforting meal made with rice and lentils. Made using Ghee, Butt",
+      "id": "80300119",
+      "name": "Paneer Pulao",
+      "price": 220,
+      "description": "Chopped Paneer is used along with some spices and herbs. This flavorful Basmati Rice is finished off",
       "image_url": ""
     },
     {
-      "id": "80288272",
+      "id": "80300120",
+      "name": "Kashmiri Pulao",
+      "price": 230,
+      "description": "Rich in Pineapples, Cashew nuts, Raisins. This rice dish is traditional sweet and has no spiciness t",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/214/original/thumb_2023_01_18_11_59_54_Kashmiri_Pulao.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_59_54_Kashmiri_Pulao.jpeg"
+    },
+    {
+      "id": "80300121",
       "name": "Masala Rice",
       "price": 200,
       "description": "Very similar to Masala Bhat. Made with Tasty Mix veggies, Spices & Roasted Peanuts. A really good di",
       "image_url": ""
     },
     {
-      "id": "80288261",
+      "id": "80300122",
+      "name": "Dal Khichadi",
+      "price": 205,
+      "description": "Moong Dal Khichdi is a?healthy and comforting meal made with rice and lentils. Made using Ghee, Butt",
+      "image_url": ""
+    },
+    {
+      "id": "80300123",
+      "name": "Dal Khichadi With Tadka",
+      "price": 215,
+      "description": "Moong Dal Khichdi is a?healthy and comforting meal made with rice and lentils. Made using Ghee, Butt",
+      "image_url": ""
+    },
+    {
+      "id": "80300124",
+      "name": "Palak Khicadi",
+      "price": 215,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300125",
+      "name": "Palak Khicadi With Tadka",
+      "price": 225,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300126",
       "name": "Curd Rice",
       "price": 190,
       "description": "Curd Rice?is prepared with steamed rice and plain curd or with additional tempering of mustard seeds",
       "image_url": ""
     },
     {
-      "id": "80288268",
-      "name": "Jeera Rice",
-      "price": 150,
-      "description": "Jeera Rice",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/383/original/thumb_2023_01_18_11_59_02_Jeera_Rice.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_59_02_Jeera_Rice.jpeg"
-    },
-    {
-      "id": "80288267",
-      "name": "Steam Rice",
-      "price": 140,
-      "description": "Steam Rice",
-      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/395/original/thumb_2023_01_18_12_09_46_Steam_Rice.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_09_46_Steam_Rice.jpg"
-    }
-  ],
-  "Milkshakes": [
-    {
-      "id": "86638121",
-      "name": "Dry Fruit Milkshake",
-      "price": 175,
-      "description": "350ML",
+      "id": "80300127",
+      "name": "Veg Biryani",
+      "price": 240,
+      "description": "",
       "image_url": ""
     },
     {
-      "id": "86638119",
-      "name": "Mango Milkshake",
-      "price": 170,
-      "description": "350ML",
+      "id": "80300128",
+      "name": "Paneer Tikka Biriyani",
+      "price": 260,
+      "description": "Made with aromatic spices and herbs. This yogurt based curry is mixed with 8 pc of Paneer Tikka to g",
       "image_url": ""
     },
     {
-      "id": "86638122",
-      "name": "Chocolate Milkshake",
-      "price": 170,
-      "description": "350ML",
+      "id": "80300129",
+      "name": "Hyderabadi Biryani",
+      "price": 240,
+      "description": "Yogurt based curry made with herbs and spices with spinach paste cooked with Mix Veggies. Sided with",
       "image_url": ""
     },
     {
-      "id": "86638118",
-      "name": "Sitafal Milkshake",
-      "price": 190,
-      "description": "Sitafal Milkshake",
+      "id": "80300130",
+      "name": "Veg Matka Biryani",
+      "price": 270,
+      "description": "",
       "image_url": ""
     },
     {
-      "id": "86638120",
-      "name": "Strawberry Milkshake",
-      "price": 175,
-      "description": "Strawberry Milkshake",
-      "image_url": ""
-    },
-    {
-      "id": "86638123",
-      "name": "Chiku Milkshake",
-      "price": 175,
-      "description": "Chiku Milkshake",
+      "id": "80300131",
+      "name": "Paneer Tikka Matka Biryani",
+      "price": 280,
+      "description": "Paneer Tikka Matka Biryani",
       "image_url": ""
     }
   ],
-  "Freshly Squeezed": [
+  "FRESHLY SQUEEZED": [
     {
-      "id": "91000001",
+      "id": "80300132",
       "name": "Apple Juice",
       "price": 105,
       "description": "Freshly squeezed apple juice made to order without artificial additives.",
       "image_url": ""
     },
     {
-      "id": "91000002",
+      "id": "80300133",
       "name": "Orange Juice",
       "price": 105,
       "description": "Freshly squeezed orange juice packed with citrus vitamins and natural sweetness.",
       "image_url": ""
     },
     {
-      "id": "91000003",
-      "name": "Pomegranate Juice (seasonal)",
+      "id": "80300134",
+      "name": "Pomegranate Juice",
       "price": 105,
-      "description": "Rich, antioxidant-rich fresh pomegranate juice.",
+      "description": "",
       "image_url": ""
     },
     {
-      "id": "91000004",
+      "id": "80300135",
       "name": "Mosambi Juice",
       "price": 105,
       "description": "Refreshing and mild sweet lime juice.",
       "image_url": ""
     },
     {
-      "id": "91000005",
+      "id": "80300136",
       "name": "Pineapple Juice",
       "price": 105,
       "description": "Tropical sweet and tangy pineapple juice.",
       "image_url": ""
     },
     {
-      "id": "91000006",
-      "name": "Watermelon Juice (seasonal)",
+      "id": "80300137",
+      "name": "Watermelon Juice",
       "price": 105,
-      "description": "Cooling watermelon juice, perfect for hydration.",
+      "description": "",
       "image_url": ""
     },
     {
-      "id": "91000007",
+      "id": "80300138",
       "name": "Mix Fruit Juice",
       "price": 110,
       "description": "A delightful blend of seasonal fresh fruits squeezed to perfection.",
       "image_url": ""
     }
   ],
-  "Desserts": [
+  "DESSERTS": [
     {
-      "id": "92000001",
+      "id": "80300139",
       "name": "Gulab Jamun",
       "price": 70,
       "description": "Warm, soft milk-solid dumplings soaked in delicate rose and cardamom sugar syrup.",
       "image_url": ""
     },
     {
-      "id": "92000002",
+      "id": "80300140",
       "name": "Vanilla Ice Cream Scoop",
       "price": 55,
       "description": "Classic creamy vanilla bean ice cream.",
       "image_url": ""
     },
     {
-      "id": "92000003",
+      "id": "80300141",
       "name": "Chocolate Ice Cream Scoop",
       "price": 55,
       "description": "Rich and velvety chocolate ice cream.",
       "image_url": ""
     },
     {
-      "id": "92000004",
+      "id": "80300142",
       "name": "Butterscotch Ice Cream Scoop",
       "price": 55,
       "description": "Sweet butterscotch ice cream with crunchy praline bits.",
       "image_url": ""
     },
     {
-      "id": "92000005",
+      "id": "80300143",
       "name": "Kesar Pista Ice Cream Scoop",
       "price": 70,
       "description": "Royal saffron and pistachio flavored rich ice cream.",
       "image_url": ""
     },
     {
-      "id": "92000006",
+      "id": "80300144",
       "name": "Green Pista",
       "price": 55,
       "description": "Creamy pistachio ice cream.",
       "image_url": ""
     },
     {
-      "id": "92000007",
+      "id": "80300145",
       "name": "Choco Chips",
       "price": 70,
       "description": "Smooth ice cream loaded with crunchy chocolate chips.",
       "image_url": ""
     },
     {
-      "id": "92000008",
+      "id": "80300146",
       "name": "Strawberry Ice Cream Scoop",
       "price": 55,
       "description": "Delightful pink strawberry ice cream.",
       "image_url": ""
     },
     {
-      "id": "92000009",
+      "id": "80300147",
       "name": "Mango Ice Cream Scoop",
       "price": 55,
       "description": "Tropical alphonso mango flavored ice cream.",
       "image_url": ""
     },
     {
-      "id": "92000010",
+      "id": "80300148",
       "name": "Triple Sundae",
       "price": 230,
       "description": "Three scoops of assorted ice creams topped with sauces, nuts, and cherries.",
       "image_url": ""
     },
     {
-      "id": "92000011",
+      "id": "80300149",
       "name": "Fruit Salad",
       "price": 140,
       "description": "A refreshing medley of fresh cut seasonal fruits.",
       "image_url": ""
     },
     {
-      "id": "92000012",
+      "id": "80300150",
       "name": "Sizzling Brownie",
       "price": 190,
       "description": "Warm walnut brownie served on a hot sizzler plate with vanilla ice cream and rich chocolate sauce.",
       "image_url": ""
     }
   ],
-  "Beverages": [
+  "BEVERAGES": [
     {
-      "id": "93000001",
+      "id": "80300151",
       "name": "Mineral Water",
       "price": 20,
       "description": "Packaged drinking water.",
       "image_url": ""
     },
     {
-      "id": "93000002",
+      "id": "80300152",
       "name": "Tea",
       "price": 20,
       "description": "Traditional Indian brewed tea with milk.",
       "image_url": ""
     },
     {
-      "id": "93000003",
+      "id": "80300153",
       "name": "Black Tea",
       "price": 15,
       "description": "Freshly brewed clear black tea.",
       "image_url": ""
     },
     {
-      "id": "93000004",
+      "id": "80300154",
       "name": "Masala Tea",
       "price": 26,
       "description": "Aromatic tea brewed with warming Indian spices like cardamom, ginger, and cloves.",
       "image_url": ""
     },
     {
-      "id": "93000005",
+      "id": "80300155",
       "name": "Coffee",
       "price": 30,
       "description": "Hot milk coffee.",
       "image_url": ""
     },
     {
-      "id": "93000006",
+      "id": "80300156",
       "name": "Black Coffee",
       "price": 25,
       "description": "Strong brewed black coffee.",
       "image_url": ""
     },
     {
-      "id": "93000007",
+      "id": "80300157",
       "name": "Cold Coffee",
       "price": 60,
       "description": "Chilled, blended creamy coffee.",
       "image_url": ""
     },
     {
-      "id": "93000008",
+      "id": "80300158",
       "name": "Cold Coffee W/ Ice Cream",
       "price": 90,
       "description": "Rich cold coffee topped with a scoop of vanilla ice cream.",
       "image_url": ""
     },
     {
-      "id": "93000009",
+      "id": "80300159",
       "name": "Plain Buttermilk",
       "price": 50,
       "description": "Cooling and refreshing churned yogurt drink.",
       "image_url": ""
     },
     {
-      "id": "93000010",
+      "id": "80300160",
       "name": "Masala Buttermilk",
       "price": 70,
       "description": "Traditional chaas spiced with roasted cumin, coriander, and green chilli.",
       "image_url": ""
     },
     {
-      "id": "93000011",
+      "id": "80300161",
       "name": "Lassi",
       "price": 80,
       "description": "Sweet, thick, and creamy Punjabi yogurt drink.",
       "image_url": ""
     },
     {
-      "id": "93000012",
+      "id": "80300162",
       "name": "Mango Lassi",
       "price": 95,
       "description": "Rich yogurt blended with sweet mango pulp.",
       "image_url": ""
     },
     {
-      "id": "93000013",
+      "id": "80300163",
       "name": "Rose Lassi",
       "price": 95,
       "description": "Creamy lassi flavored with fragrant rose syrup.",
       "image_url": ""
     },
     {
-      "id": "93000014",
+      "id": "80300164",
       "name": "Dry Fruit Lassi",
       "price": 110,
       "description": "Indulgent lassi loaded with chopped almonds, cashews, and pistachios.",
       "image_url": ""
     },
     {
-      "id": "93000015",
-      "name": "Soft Drink (Thumbs Up, Sprite, Fanta, Limca)",
+      "id": "80300165",
+      "name": "Soft Drink",
       "price": 20,
-      "description": "Chilled carbonated beverage.",
+      "description": "",
       "image_url": ""
     },
     {
-      "id": "93000016",
+      "id": "80300166",
       "name": "Fresh Lime Water",
       "price": 35,
       "description": "Refreshing squeezed lime in chilled water (sweet or salted).",
       "image_url": ""
     },
     {
-      "id": "93000017",
+      "id": "80300167",
       "name": "Fresh Lime Soda",
       "price": 50,
       "description": "Zesty lime squeezed into sparkling soda (sweet or salted).",
       "image_url": ""
     }
   ],
-  "Salad And Raita": [
+  "SOUTH INDIAN": [
     {
-      "id": "9411",
+      "id": "80300168",
+      "name": "Steam Idli Sambar",
+      "price": 50,
+      "description": "A healthy breakfast option made from fermented rice and urad dal batter served with some sambar and",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/013/426/493/original/thumb_2023_10_14_23_53_46_Steam_Idli_Sambar.JPG?w=250&h=250&image_name=thumb_2023_10_14_23_53_46_Steam_Idli_Sambar.JPG"
+    },
+    {
+      "id": "80300169",
+      "name": "Medu Vada Sambar",
+      "price": 65,
+      "description": "Deep fried until golden crisp,made from urad dal batter mixed with chopped green chilly and some coc",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/013/426/491/original/thumb_2023_10_14_23_54_09_Medu_Vada_sambar.JPG?w=250&h=250&image_name=thumb_2023_10_14_23_54_09_Medu_Vada_sambar.JPG"
+    },
+    {
+      "id": "80300170",
+      "name": "Idli Vada Sambar",
+      "price": 60,
+      "description": "Combination of soft steamed idli and crispy medu vada with sambar.",
+      "image_url": ""
+    },
+    {
+      "id": "80300171",
+      "name": "Batata Vada Sambar",
+      "price": 60,
+      "description": "Spiced potato dumplings fried in batter, served with sambar.",
+      "image_url": ""
+    },
+    {
+      "id": "80300172",
+      "name": "Dahi Vada",
+      "price": 80,
+      "description": "Deep fried vada made from urad dal batter soaked in thick creamy dahi served with sambar and coconut",
+      "image_url": ""
+    },
+    {
+      "id": "80300173",
+      "name": "Upma",
+      "price": 55,
+      "description": "Traditional savory semolina breakfast dish cooked with spices and herbs.",
+      "image_url": ""
+    },
+    {
+      "id": "80300174",
+      "name": "Shira",
+      "price": 50,
+      "description": "Sweet semolina dessert cooked with ghee, sugar, and cardamom.",
+      "image_url": ""
+    },
+    {
+      "id": "80300175",
+      "name": "Puri Bhaji (5 puri)",
+      "price": 100,
+      "description": "Five hot puffed fried puris served with spiced potato bhaji.",
+      "image_url": ""
+    },
+    {
+      "id": "80300176",
+      "name": "Poha",
+      "price": 50,
+      "description": "Flattned rice tempered with mustard seeds, curry leaves, onions, and peanuts.",
+      "image_url": ""
+    },
+    {
+      "id": "80300177",
+      "name": "Tomato Omlette",
+      "price": 100,
+      "description": "Savory vegetarian gram flour pancake made with juicy tomatoes.",
+      "image_url": ""
+    },
+    {
+      "id": "80300178",
+      "name": "Cheese Omlette",
+      "price": 110,
+      "description": "Savory vegetarian pancake topped with generous melted cheese.",
+      "image_url": ""
+    },
+    {
+      "id": "80300179",
+      "name": "Sada Dosa",
+      "price": 65,
+      "description": "Plain dosa served with sambar and coconut chutney (1pc)",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/254/197/original/thumb_2023_10_14_23_59_25_sada_dosa.JPG?w=250&h=250&image_name=thumb_2023_10_14_23_59_25_sada_dosa.JPG"
+    },
+    {
+      "id": "80300180",
+      "name": "Cheese Dosa",
+      "price": 75,
+      "description": "Crispy plain dosa with Cheese grated all over surface served with sambar and coconut chutney (1pc)",
+      "image_url": ""
+    },
+    {
+      "id": "80300181",
+      "name": "Masala Dosa",
+      "price": 75,
+      "description": "Spiced potato mash enclaved in a crisp brown Dosa served with sambar and coconut chutney (1pc)",
+      "image_url": ""
+    },
+    {
+      "id": "80300182",
+      "name": "Cheese Masala Dosa",
+      "price": 80,
+      "description": "Spiced potato mash with cheese grated over the surface of a crispy brown dosa served with sambar and",
+      "image_url": ""
+    },
+    {
+      "id": "80300183",
+      "name": "Sponge Dosa",
+      "price": 85,
+      "description": "Pan cake sized thick fluffy dosa served with sambar and coconut chutney (3pc)",
+      "image_url": ""
+    },
+    {
+      "id": "80300184",
+      "name": "Cut Dosa",
+      "price": 75,
+      "description": "Onion and tomato masala with spiced potato mash rolled up in a dosa, cut in pieces to be enjoyed wit",
+      "image_url": ""
+    },
+    {
+      "id": "80300185",
+      "name": "Cheese Cut Dosa",
+      "price": 85,
+      "description": "Onion and tomato masala with spiced potato mash,with cheese grated over the surface rolled up in a d",
+      "image_url": ""
+    },
+    {
+      "id": "80300186",
+      "name": "Mysore Sada Dosa",
+      "price": 75,
+      "description": "Plain dosa with mysore chutney spread over the surface served with sambar and coconut chutney (1pc)",
+      "image_url": ""
+    },
+    {
+      "id": "80300187",
+      "name": "Mysore Masala Dosa",
+      "price": 85,
+      "description": "Spiced potato mash enclaved in dosa with mysore chutney spread over the surface served with sambar a",
+      "image_url": ""
+    },
+    {
+      "id": "80300188",
+      "name": "Mysore Cheese Sada Dosa",
+      "price": 85,
+      "description": "Plain dosa with mysore chutney and Cheese grated over the surface served with sambar and coconut chu",
+      "image_url": ""
+    },
+    {
+      "id": "80300189",
+      "name": "Mysore Cheese Masala Dosa",
+      "price": 90,
+      "description": "Spiced potato mash enclaved in dosa with mysore chutney and Cheese grated over the surface served wi",
+      "image_url": ""
+    },
+    {
+      "id": "80300190",
+      "name": "Paper Sada Dosa",
+      "price": 85,
+      "description": "Nearly doubled in size crispy brown dosa served with sambar and chutney (1pc)",
+      "image_url": ""
+    },
+    {
+      "id": "80300191",
+      "name": "Paper Masala Dosa",
+      "price": 95,
+      "description": "Nearly doubled in size with spiced potato mash enclaved in crispy brown dosa served with sambar and",
+      "image_url": ""
+    },
+    {
+      "id": "80300192",
+      "name": "Paper Cheese Masala Dosa",
+      "price": 110,
+      "description": "Nearly doubled in size with spiced potato mash enclaved in crispy brown dosa with Cheese grated over",
+      "image_url": ""
+    },
+    {
+      "id": "80300193",
+      "name": "Rawa Sada Dosa",
+      "price": 70,
+      "description": "Crispy semolina crepe tempered with cumin and green chillies.",
+      "image_url": ""
+    },
+    {
+      "id": "80300194",
+      "name": "Rawa Masala Dosa",
+      "price": 80,
+      "description": "Crispy semolina dosa stuffed with spiced potato masala.",
+      "image_url": ""
+    },
+    {
+      "id": "80300195",
+      "name": "Plain Uttapam",
+      "price": 75,
+      "description": "Plain Uttapam",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/254/198/original/thumb_2023_01_18_12_11_25_Uttapam.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_11_25_Uttapam.jpg"
+    },
+    {
+      "id": "80300196",
+      "name": "Onion Uttapam",
+      "price": 85,
+      "description": "Onion Uttapam",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/254/194/original/thumb_2023_10_15_00_00_23_onion_uttapam.JPG?w=250&h=250&image_name=thumb_2023_10_15_00_00_23_onion_uttapam.JPG"
+    },
+    {
+      "id": "80300197",
+      "name": "Tomato Onion Uttapam",
+      "price": 95,
+      "description": "Tomato Onion Uttapam",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/254/190/original/thumb_2023_10_15_00_00_41_onion_tomato_uttapam.JPG?w=250&h=250&image_name=thumb_2023_10_15_00_00_41_onion_tomato_uttapam.JPG"
+    },
+    {
+      "id": "80300198",
+      "name": "Cheese Plain Uttapam",
+      "price": 85,
+      "description": "Cheese Plain Uttapam",
+      "image_url": ""
+    },
+    {
+      "id": "80300199",
+      "name": "Cheese Onion Uttapam",
+      "price": 95,
+      "description": "Cheese Onion Uttapam",
+      "image_url": ""
+    },
+    {
+      "id": "80300200",
+      "name": "Cheese Onion Tomato Uttapam",
+      "price": 105,
+      "description": "Cheese Onion Tomato Uttapam",
+      "image_url": ""
+    }
+  ],
+  "SANDWICH": [
+    {
+      "id": "80300201",
+      "name": "Bread Butter",
+      "price": 45,
+      "description": "Bread Butter",
+      "image_url": ""
+    },
+    {
+      "id": "80300202",
+      "name": "Toast Butter",
+      "price": 55,
+      "description": "Toast Butter",
+      "image_url": ""
+    },
+    {
+      "id": "80300203",
+      "name": "Veg Sandwich",
+      "price": 65,
+      "description": "Spread made up of coriender and mint chutney on one side and butter on other while using freshly sli",
+      "image_url": ""
+    },
+    {
+      "id": "80300204",
+      "name": "Plain Cheese Sandwich",
+      "price": 75,
+      "description": "Pleanty of cheese grated in between 3 slices of bread with spread of butter (1pc)",
+      "image_url": ""
+    },
+    {
+      "id": "80300205",
+      "name": "Veg Cheese Sandwich",
+      "price": 80,
+      "description": "Freshly sliced tomato & cucumber and cheese grated within 3 slices of bread (1pc)",
+      "image_url": ""
+    },
+    {
+      "id": "80300206",
+      "name": "Veg Sandwich Toast",
+      "price": 80,
+      "description": "Spread made up of coriender and mint chutney on one side and butter on other while using freshly sli",
+      "image_url": ""
+    },
+    {
+      "id": "80300207",
+      "name": "Veg Sandwich Grilled",
+      "price": 90,
+      "description": "Spread made up of coriender and mint chutney on one side and butter on other while using freshly sli",
+      "image_url": ""
+    },
+    {
+      "id": "80300208",
+      "name": "Plain Cheese Sandwich Toast",
+      "price": 90,
+      "description": "Pleanty of cheese grated in between 3 toasted slices of bread with spread of butter (1pc)",
+      "image_url": ""
+    },
+    {
+      "id": "80300209",
+      "name": "Plain Cheese Sandwich Grilled",
+      "price": 100,
+      "description": "Pleanty of cheese grated in between 3 grilled slices of bread with spread of butter (1pc)",
+      "image_url": ""
+    },
+    {
+      "id": "80300210",
+      "name": "Veg Cheese Sandwich Toast",
+      "price": 95,
+      "description": "Freshly sliced tomato,cucumber and cheese grated within 3 toasted slices of bread (1pc)",
+      "image_url": ""
+    },
+    {
+      "id": "80300211",
+      "name": "Veg Cheese Sandwich Grilled",
+      "price": 105,
+      "description": "Freshly sliced tomato,cucumber, and cheese grated within 3 grilled slices of bread (1pc)",
+      "image_url": ""
+    },
+    {
+      "id": "80300212",
+      "name": "Veg Club Sandwich",
+      "price": 115,
+      "description": "Veg Club Sandwich",
+      "image_url": ""
+    },
+    {
+      "id": "80300213",
+      "name": "Veg Club Sandwich Grilled",
+      "price": 125,
+      "description": "Veg Club Sandwich Grilled",
+      "image_url": ""
+    }
+  ],
+  "PAV BHAJI": [
+    {
+      "id": "80300214",
+      "name": "Pav Bhaji",
+      "price": 110,
+      "description": "Spiced mashed vegetable curry cooked in butter, served with soft toasted pav.",
+      "image_url": ""
+    },
+    {
+      "id": "80300215",
+      "name": "Cheese Pav Bhaji",
+      "price": 120,
+      "description": "A spiced mixture of mashed vegetables consisting of Cauliflower,Capsicum,Carrot,Beetroot,Onion,Tomat",
+      "image_url": ""
+    },
+    {
+      "id": "80300216",
+      "name": "Paneer Pav Bhaji",
+      "price": 120,
+      "description": "A spiced mixture of Paneer & mashed vegetables consisting of Cauliflower,Capsicum,Carrot,Beetroot,On",
+      "image_url": ""
+    },
+    {
+      "id": "80300217",
+      "name": "Cheese Paneer Pav Bhaji",
+      "price": 130,
+      "description": "A spiced mixture of Paneer & mashed vegetables consisting of Cauliflower,Capsicum,Carrot,Beetroot,On",
+      "image_url": ""
+    },
+    {
+      "id": "80300218",
+      "name": "Mushroom Pav Bhaji",
+      "price": 120,
+      "description": "A spiced mixture of Mushroom & mashed vegetables consisting of Cauliflower,Capsicum,Carrot,Beetroot,",
+      "image_url": ""
+    },
+    {
+      "id": "80300219",
+      "name": "Jain Pav Bhaji",
+      "price": 110,
+      "description": "A spiced mixture of mashed vegetables consisting of Cauliflower,Capsicum,Tomato & Green Peas in a th",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/295/original/thumb_2023_01_18_11_58_49_Jain_Pavbhaji.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_58_49_Jain_Pavbhaji.jpeg"
+    },
+    {
+      "id": "80300220",
+      "name": "Jain Cheese Pav Bhaji",
+      "price": 120,
+      "description": "A spiced mixture of mashed vegetables consisting of Cauliflower,Capsicum,Tomato & Green Peas in a th",
+      "image_url": ""
+    },
+    {
+      "id": "80300221",
+      "name": "Maurya Special Pav Bhaji",
+      "price": 140,
+      "description": "A spiced mixture of Paneer,Mushroom & mashed vegetables consisting of Cauliflower,Capsicum,Carrot,Be",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/277/original/thumb_2023_01_18_12_09_27_Special_Cheese.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_09_27_Special_Cheese.jpg"
+    },
+    {
+      "id": "80300222",
+      "name": "Pav Jodi",
+      "price": 20,
+      "description": "2 Pieces of bread roasted in Amul butter",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/367/original/thumb_2023_01_18_12_06_10_Pav_Jodi.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_06_10_Pav_Jodi.jpg"
+    },
+    {
+      "id": "80300223",
+      "name": "Masala Pav Jodi",
+      "price": 60,
+      "description": "2 pieces of bread roasted in Pav Bhaji masala along with chopped onions,tomato,capsicum which is stu",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/348/original/thumb_2023_01_18_12_03_13_Masala_Pavbhaji.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_03_13_Masala_Pavbhaji.jpeg"
+    },
+    {
+      "id": "80300224",
+      "name": "Tawa Pulao",
+      "price": 190,
+      "description": "Pre cooked basmati rice sauted on tawa with Onions,Tomatos,Capsicum,Green peas along with Pav Bhaji",
+      "image_url": ""
+    },
+    {
+      "id": "80300225",
+      "name": "Paneer Tawa Pulao",
+      "price": 220,
+      "description": "Pre cooked basmati rice sauted on tawa with Paneer,Onions,,Capsicum, along with Pav Bhaji Masala & C",
+      "image_url": ""
+    },
+    {
+      "id": "80300226",
+      "name": "Mushroom Tawa Pulao",
+      "price": 220,
+      "description": "Pre cooked basmati rice sauted on tawa with Mushroom,Onions,,Capsicum, along with Pav Bhaji Masala &",
+      "image_url": ""
+    }
+  ],
+  "SALAD AND RAITA": [
+    {
+      "id": "80300227",
       "name": "Green Salad",
       "price": 95,
       "description": "Fresh sliced cucumber, tomatoes, onions, carrots, and beetroot.",
       "image_url": ""
     },
     {
-      "id": "9412",
+      "id": "80300228",
       "name": "Onion Tomato Salad",
       "price": 105,
       "description": "Freshly sliced onions and juicy tomatoes with lemon and chat masala.",
       "image_url": ""
     },
     {
-      "id": "9413",
+      "id": "80300229",
       "name": "Curd",
       "price": 85,
       "description": "Bowl of fresh, cool set plain yogurt.",
       "image_url": ""
     },
     {
-      "id": "9414",
+      "id": "80300230",
       "name": "Veg Raita",
       "price": 90,
       "description": "Cool yogurt mixed with chopped cucumber, onions, and tomatoes, spiced with roasted cumin.",
       "image_url": ""
     },
     {
-      "id": "9415",
+      "id": "80300231",
       "name": "Pineapple Raita",
       "price": 90,
       "description": "Sweet and savory yogurt mixed with juicy pineapple chunks.",
       "image_url": ""
     },
     {
-      "id": "9416",
+      "id": "80300232",
       "name": "Boondi Raita",
       "price": 90,
       "description": "Cool spiced yogurt topped with crispy gram flour boondi pearls.",
       "image_url": ""
     }
   ],
-  "Chatpata & Pakoda": [
+  "CHATPATA & PAKODA": [
     {
-      "id": "9417",
+      "id": "80300233",
       "name": "Roasted Papad",
       "price": 30,
       "description": "Crispy roasted lentil cracker.",
       "image_url": ""
     },
     {
-      "id": "9418",
+      "id": "80300234",
       "name": "Fried Papad",
       "price": 40,
       "description": "Crispy deep-fried lentil cracker.",
       "image_url": ""
     },
     {
-      "id": "9419",
+      "id": "80300235",
       "name": "Roasted Masala Papad",
       "price": 40,
       "description": "Roasted papad topped with spicy chopped onions, tomatoes, coriander, and chaat masala.",
       "image_url": ""
     },
     {
-      "id": "9420",
+      "id": "80300236",
       "name": "Fried Masala Papad",
       "price": 50,
       "description": "Fried papad loaded with spicy onion-tomato masala topping.",
       "image_url": ""
     },
     {
-      "id": "9421",
+      "id": "80300237",
       "name": "Sabudana Vada",
       "price": 90,
       "description": "Crispy deep-fried tapioca pearl and potato patties served with chutney.",
       "image_url": ""
     },
     {
-      "id": "9422",
+      "id": "80300238",
       "name": "Sabudana Khichadi",
       "price": 90,
       "description": "Traditional fasting dish made of tapioca pearls tossed with peanuts and potatoes.",
       "image_url": ""
     },
     {
-      "id": "9423",
+      "id": "80300239",
       "name": "French Fries",
       "price": 100,
       "description": "Classic crispy golden salted potato fries.",
       "image_url": ""
     },
     {
-      "id": "9424",
+      "id": "80300240",
       "name": "French Fries With Peri Peri",
       "price": 155,
       "description": "Crispy potato fries tossed in spicy and tangy peri peri seasoning.",
       "image_url": ""
     },
     {
-      "id": "9425",
+      "id": "80300241",
       "name": "Onion Pakoda",
       "price": 110,
       "description": "Crispy spiced onion fritters deep fried in gram flour batter.",
       "image_url": ""
     },
     {
-      "id": "9426",
+      "id": "80300242",
       "name": "Potato Pakoda",
       "price": 110,
       "description": "Crispy spiced potato slice fritters.",
       "image_url": ""
     },
     {
-      "id": "9427",
+      "id": "80300243",
       "name": "Mix Pakoda",
       "price": 120,
       "description": "Assorted vegetable fritters deep-fried to golden perfection.",
       "image_url": ""
     },
     {
-      "id": "9428",
+      "id": "80300244",
       "name": "Paneer Pakoda",
       "price": 130,
       "description": "Soft paneer cubes dipped in spiced batter and deep fried.",
       "image_url": ""
     }
   ],
-  "Thali": [
+  "SOUP": [
     {
-      "id": "9462",
-      "name": "Veg Thali",
+      "id": "80300245",
+      "name": "Veg Manchow Soup",
+      "price": 115,
+      "description": "?Chinese vegetarian soup made with?mixed vegetables, garlic, ginger, soya sauce, ground pepper & a f",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/339/original/thumb_2023_01_18_12_15_59_Veg_Manchow_Soup.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_15_59_Veg_Manchow_Soup.jpg"
+    },
+    {
+      "id": "80300246",
+      "name": "Veg Hot And Sour Soup",
+      "price": 115,
+      "description": "Hot and Sour soup?is a spicy and hot soup made with mixed fresh vegetables, mushrooms, spices and so",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/334/original/thumb_2023_01_18_11_58_10_Hot_And_Sour_Soup.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_58_10_Hot_And_Sour_Soup.jpeg"
+    },
+    {
+      "id": "80300247",
+      "name": "Veg Clear Soup",
+      "price": 115,
+      "description": "Loaded with vegetables this?vegetable soup?is light, healthy and nutritious.",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/340/original/thumb_2023_01_18_12_12_42_Veg_Clear_Soup.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_12_42_Veg_Clear_Soup.jpg"
+    },
+    {
+      "id": "80300248",
+      "name": "Lemon Coriander Soup",
+      "price": 115,
+      "description": "?It is a clear vegetable soup flavored with lemon and coriander leaves. Lemon adds to the tangy tast",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/337/original/thumb_2023_01_18_12_02_25_Lemon_Coriander_Soup.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_02_25_Lemon_Coriander_Soup.jpeg"
+    },
+    {
+      "id": "80300249",
+      "name": "Veg Sweet Corn Soup",
+      "price": 115,
+      "description": "Sweet Corn Soup is a classic Indian-Chinese soup with sweet corn and vegetables. Warm, sweet, and sp",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/335/original/thumb_2023_01_18_12_10_11_Sweet_Corn_Soup.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_10_11_Sweet_Corn_Soup.jpg"
+    },
+    {
+      "id": "80300250",
+      "name": "Cream Of Tomato",
+      "price": 120,
+      "description": "The?soup?has a?creamy, smooth consistency with a light tanginess from the tomatoes. The creaminess i",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/317/original/thumb_2023_01_18_11_56_47_Cream_Of_Tomato_Soup.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_56_47_Cream_Of_Tomato_Soup.jpeg"
+    },
+    {
+      "id": "80300251",
+      "name": "Tomato Basil Soup",
+      "price": 120,
+      "description": "The?soup?has a?creamy, smooth consistency,fresh basil with a light tanginess from the tomatoes. The",
+      "image_url": ""
+    },
+    {
+      "id": "80300252",
+      "name": "Cream Of Mushroom",
+      "price": 120,
+      "description": "A warm bowl of soup so deliciously creamy with tender bites of mushroom pieces. Full flavoured with",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/331/original/thumb_2023_01_18_11_56_36_Cream_Of_Mushroom_Soup.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_56_36_Cream_Of_Mushroom_Soup.jpeg"
+    },
+    {
+      "id": "80300253",
+      "name": "Palak Soup",
+      "price": 115,
+      "description": "?Flavorful aromatics are saut?ed with fresh spinach, then made faintly thick and mildly sweet with c",
+      "image_url": ""
+    },
+    {
+      "id": "80300254",
+      "name": "Minestrone Soup",
+      "price": 120,
+      "description": "Minestrone is a thick soup of Italian origin packed with vegetables, pasta and beans in a tomato-y b",
+      "image_url": ""
+    },
+    {
+      "id": "80300255",
+      "name": "Talumin Soup",
+      "price": 120,
+      "description": "Featuring healthy?veggies?like carrots, mushroom, cabbage and broccoli along with? noodles",
+      "image_url": ""
+    },
+    {
+      "id": "80300256",
+      "name": "Cream Of Veg",
+      "price": 120,
+      "description": "Cream of Vegetable soup?is exactly as it sounds, a delicious,?creamy?soup full of healthy veggies an",
+      "image_url": ""
+    },
+    {
+      "id": "80300257",
+      "name": "Noodle Soup",
+      "price": 120,
+      "description": "Noodle Soup",
+      "image_url": ""
+    }
+  ],
+  "SIZZLERS": [
+    {
+      "id": "80300258",
+      "name": "Veg Hot Pan",
+      "price": 225,
+      "description": "Veg Hot Pan",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/249/original/thumb_2023_01_18_12_13_36_Veg_Hot_Pan.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_13_36_Veg_Hot_Pan.jpg"
+    },
+    {
+      "id": "80300259",
+      "name": "Paneer Hot Pan",
+      "price": 245,
+      "description": "Paneer Hot Pan",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/218/original/thumb_2023_01_18_12_17_33_Paneer_Hot_Pan.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_17_33_Paneer_Hot_Pan.jpg"
+    },
+    {
+      "id": "80300260",
+      "name": "Veg Chinese Sizzler",
+      "price": 335,
+      "description": "Combination of Chinese fried rice, noodles, and manchurian served on a sizzling cast iron plate.",
+      "image_url": ""
+    },
+    {
+      "id": "80300261",
+      "name": "Paneer Chinese Sizzler",
+      "price": 420,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300262",
+      "name": "Chef Special Sizzler",
+      "price": 545,
+      "description": "Our grand signature sizzler platter loaded with gourmet delicacies and sauces.",
+      "image_url": ""
+    }
+  ],
+  "CHOICE OF CHINESE RICE AND NOODLES": [
+    {
+      "id": "80300263",
+      "name": "Veg Fried Rice",
+      "price": 190,
+      "description": "This classic Veg Fried Rice is made with a hearty mix of fresh vegetables, green onions, seasonings",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/272/original/thumb_2023_01_18_12_13_01_Veg_Fried_Rice.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_13_01_Veg_Fried_Rice.jpg"
+    },
+    {
+      "id": "80300264",
+      "name": "Schezwan Fried Rice",
+      "price": 205,
+      "description": "Schezwan fried rice is a zesty vegetarian stir-fried rice variant that features a bold and spicy hom",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/225/original/thumb_2023_01_18_12_07_41_Schezwan_Fried_Rice.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_07_41_Schezwan_Fried_Rice.jpg"
+    },
+    {
+      "id": "80300265",
+      "name": "Manchurian Fried Rice",
+      "price": 220,
+      "description": "a classical fusion recipe made by tossing the long grain rice in a manchurian sauce. basically a com",
+      "image_url": ""
+    },
+    {
+      "id": "80300266",
+      "name": "Mushroom Fried Rice",
+      "price": 220,
+      "description": "Fragrant wok-tossed rice loaded with sliced button mushrooms and vegetables.",
+      "image_url": ""
+    },
+    {
+      "id": "80300267",
+      "name": "Triple Schezwan Fried Rice",
+      "price": 245,
+      "description": "Triple schezwan rice is complete meal with combination of rice and fried noodles which is served wit",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/187/original/thumb_2023_01_18_12_11_05_Triple_Schezwan_Fried_Rice.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_11_05_Triple_Schezwan_Fried_Rice.jpg"
+    },
+    {
+      "id": "80300268",
+      "name": "Triple Schezwan Noodles",
+      "price": 245,
+      "description": "Triple schezwan noodles is complete meal with combination of noodles and fried noodles which is serv",
+      "image_url": ""
+    },
+    {
+      "id": "80300269",
+      "name": "Veg Singapore Rice",
+      "price": 205,
+      "description": "?Singapore Fried Rice?is a Chinese?fried rice?variation made with?rice,?vegetables,peanuts, soya sau",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/242/original/thumb_2023_01_18_12_08_50_Singapore_Fried_Rice.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_08_50_Singapore_Fried_Rice.jpg"
+    },
+    {
+      "id": "80300270",
+      "name": "Veg Hakka Noodles",
+      "price": 210,
+      "description": "Veg Hakka Noodles is a famous Chinese recipe. Made with fresh noodles, it has a strong flavour of so",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/243/original/thumb_2023_01_18_12_13_16_Veg_Hakka_Noodles.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_13_16_Veg_Hakka_Noodles.jpg"
+    },
+    {
+      "id": "80300271",
+      "name": "Veg Schezwan Noodles",
+      "price": 230,
+      "description": "Veg Schezwan Noodles is a famous Chinese recipe. Made with fresh noodles, it has a strong flavour of",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/244/original/thumb_2023_01_18_12_07_51_Schezwan_Noodles.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_07_51_Schezwan_Noodles.jpg"
+    },
+    {
+      "id": "80300272",
+      "name": "Veg Hong Kong Noodles",
+      "price": 235,
+      "description": "Hong Kong noodles are pan-fried to achieve a crispy and chewy texture, and they boast a?smoky, savor",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/245/original/thumb_2023_01_18_11_57_58_Hong_Kong_Noodles.jpeg?w=250&h=250&image_name=thumb_2023_01_18_11_57_58_Hong_Kong_Noodles.jpeg"
+    },
+    {
+      "id": "80300273",
+      "name": "Veg Singapore Noodles",
+      "price": 230,
+      "description": "Singapore Fried noodles?is a Chinese?fried noodles?variation made with?noodles,?vegetables,peanuts,",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/246/original/thumb_2023_01_18_12_09_00_Singapore_Noodles.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_09_00_Singapore_Noodles.jpg"
+    },
+    {
+      "id": "80300274",
+      "name": "Veg Chow Mein",
+      "price": 225,
+      "description": "Loaded with veggies and spices, this dish boasts of glossy noodles tossed with vegetables like onion",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/247/original/thumb_2023_01_18_12_12_21_Veg_Chowmein.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_12_21_Veg_Chowmein.jpg"
+    },
+    {
+      "id": "80300275",
+      "name": "Chinese Bhel",
+      "price": 210,
+      "description": "Made using tasty, spicy & tangy Schezwan sauce with some cucumber, fried chopsuey, chopped cabbage,s",
+      "image_url": ""
+    },
+    {
+      "id": "80300276",
+      "name": "American Chopsuey",
+      "price": 220,
+      "description": "a tasty and crispy deep fried noodle recipe served with vegetable gravy. the gravy has the combinati",
+      "image_url": ""
+    }
+  ],
+  "TANDOORI STARTERS": [
+    {
+      "id": "80300277",
+      "name": "Roomali Khakra",
+      "price": 170,
+      "description": "Crispy thin roomali roti roasted like a cracker with spices.",
+      "image_url": ""
+    },
+    {
+      "id": "80300278",
+      "name": "Cheese Roomali Khakra",
+      "price": 195,
+      "description": "Crispy roomali khakra topped with generous melted cheese.",
+      "image_url": ""
+    },
+    {
+      "id": "80300279",
+      "name": "Soya Chap Tikka",
+      "price": 230,
+      "description": "Tender soya chaap marinated in yogurt and tandoori spices, roasted in clay oven.",
+      "image_url": ""
+    },
+    {
+      "id": "80300280",
+      "name": "Soya Chap Banjara",
+      "price": 230,
+      "description": "Spiced herbal marinated soya chaap roasted over charcoals.",
+      "image_url": ""
+    },
+    {
+      "id": "80300281",
+      "name": "Paneer Tikka",
+      "price": 235,
+      "description": "Paneer Tikka",
+      "image_url": ""
+    },
+    {
+      "id": "80300282",
+      "name": "Paneer Malai Tikka",
+      "price": 235,
+      "description": "Paneer Malai Tikka",
+      "image_url": ""
+    },
+    {
+      "id": "80300283",
+      "name": "Paneer Chat Patta Tikka",
+      "price": 235,
+      "description": "Paneer Chat Patta Tikka",
+      "image_url": ""
+    },
+    {
+      "id": "80300284",
+      "name": "Paneer Adraki Tikka",
+      "price": 235,
+      "description": "Paneer Adraki Tikka",
+      "image_url": ""
+    },
+    {
+      "id": "80300285",
+      "name": "Paneer Pahadi Tikka",
+      "price": 235,
+      "description": "Paneer Pahadi Tikka",
+      "image_url": ""
+    },
+    {
+      "id": "80300286",
+      "name": "Paneer Kasturi Tikka",
+      "price": 235,
+      "description": "Paneer Kasturi Tikka",
+      "image_url": ""
+    },
+    {
+      "id": "80300287",
+      "name": "Paneer Achari Tikka",
+      "price": 235,
+      "description": "Paneer Achari Tikka",
+      "image_url": ""
+    },
+    {
+      "id": "80300288",
+      "name": "Paneer Banjara Kebab",
+      "price": 235,
+      "description": "Paneer Banjara Kebab",
+      "image_url": ""
+    },
+    {
+      "id": "80300289",
+      "name": "Babycorn Tikka",
+      "price": 240,
+      "description": "Babycorn Tikka",
+      "image_url": ""
+    },
+    {
+      "id": "80300290",
+      "name": "Mushroom Tikka",
+      "price": 245,
+      "description": "Mushroom Tikka",
+      "image_url": ""
+    },
+    {
+      "id": "80300291",
+      "name": "Paneer Hill Top",
+      "price": 260,
+      "description": "Chef special stuffed paneer delicacy roasted with aromatic spices.",
+      "image_url": ""
+    },
+    {
+      "id": "80300292",
+      "name": "Paneer Akbari Tikka",
+      "price": 260,
+      "description": "Royal Mughlai style rich and creamy marinated paneer kebab.",
+      "image_url": ""
+    },
+    {
+      "id": "80300293",
+      "name": "Babycorn Mushroom Kebab",
+      "price": 240,
+      "description": "Babycorn Mushroom Kebab",
+      "image_url": ""
+    },
+    {
+      "id": "80300294",
+      "name": "Mushroom Multani",
+      "price": 250,
+      "description": "Stuffed button mushrooms coated in aromatic marinade and grilled in clay oven.",
+      "image_url": ""
+    },
+    {
+      "id": "80300295",
+      "name": "Mushroom Nazakat",
+      "price": 250,
+      "description": "Delicate and juicy stuffed mushrooms roasted to smoky perfection.",
+      "image_url": ""
+    },
+    {
+      "id": "80300296",
+      "name": "Hara Bara Kebab",
+      "price": 230,
+      "description": "Hara Bara Kebab",
+      "image_url": ""
+    },
+    {
+      "id": "80300297",
+      "name": "Veg Seekh Kebab",
+      "price": 220,
+      "description": "Veg Seekh Kebab",
+      "image_url": ""
+    },
+    {
+      "id": "80300298",
+      "name": "Paneer Seekh Kebab",
+      "price": 240,
+      "description": "Succulent skewers of spiced minced paneer roasted in tandoor.",
+      "image_url": ""
+    },
+    {
+      "id": "80300299",
+      "name": "Stuffed Mushroom",
+      "price": 250,
+      "description": "Stuffed Mushroom",
+      "image_url": ""
+    },
+    {
+      "id": "80300300",
+      "name": "Paneer Angara Kebab",
+      "price": 240,
+      "description": "Paneer Angara Kebab",
+      "image_url": ""
+    }
+  ],
+  "CHINESE STARTER": [
+    {
+      "id": "80300301",
+      "name": "Potato Wrapped Paneer",
+      "price": 240,
+      "description": "Succulent paneer cubes wrapped in crispy potato threads and deep fried.",
+      "image_url": ""
+    },
+    {
+      "id": "80300302",
+      "name": "Crunchy Masala Paneer",
+      "price": 240,
+      "description": "Crispy battered paneer tossed in special masala spices.",
+      "image_url": ""
+    },
+    {
+      "id": "80300303",
+      "name": "Bbq Paneer Cheese Roll",
+      "price": 265,
+      "description": "Smoky barbecue flavored paneer and cheese stuffed rolls.",
+      "image_url": ""
+    },
+    {
+      "id": "80300304",
+      "name": "Honey Chilli Potato",
+      "price": 220,
+      "description": "Crispy fried potato fingers tossed in sweet honey and spicy chili sauce.",
+      "image_url": ""
+    },
+    {
+      "id": "80300305",
+      "name": "Potato Crispy",
+      "price": 220,
+      "description": "Crispy fried potato strips tossed in oriental sauces and green onions.",
+      "image_url": ""
+    },
+    {
+      "id": "80300306",
+      "name": "Tangara Chilli Paneer",
+      "price": 240,
+      "description": "Tangy and spicy oriental style tossed paneer.",
+      "image_url": ""
+    },
+    {
+      "id": "80300307",
+      "name": "Soya 65",
+      "price": 230,
+      "description": "Crispy fried soya chunks tossed in South Indian style 65 spices and curry leaves.",
+      "image_url": ""
+    },
+    {
+      "id": "80300308",
+      "name": "Paneer Satay",
+      "price": 280,
+      "description": "Grilled skewers of marinated paneer served with peanut satay sauce.",
+      "image_url": ""
+    },
+    {
+      "id": "80300309",
+      "name": "Veg Lollipop",
+      "price": 230,
+      "description": "Crispy vegetable balls on skewers tossed in spicy sauce.",
+      "image_url": ""
+    },
+    {
+      "id": "80300310",
+      "name": "Mushroom Crispy",
+      "price": 240,
+      "description": "Crispy battered button mushrooms tossed in garlic chili sauce.",
+      "image_url": ""
+    },
+    {
+      "id": "80300311",
+      "name": "Cheese Ball Manchurian",
+      "price": 260,
+      "description": "Crispy cheese balls simmered in savory oriental manchurian sauce.",
+      "image_url": ""
+    },
+    {
+      "id": "80300312",
+      "name": "Cheese Ball 65",
+      "price": 260,
+      "description": "Crispy cheese balls tossed in spicy 65 masala with curry leaves.",
+      "image_url": ""
+    },
+    {
+      "id": "80300313",
+      "name": "Veg Manchurian (Dry)",
+      "price": 210,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300314",
+      "name": "Veg Manchurian (Gravy)",
+      "price": 220,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300315",
+      "name": "Gobi Manchurian (Dry)",
+      "price": 210,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300316",
+      "name": "Gobi Manchurian (Gravy)",
+      "price": 220,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300317",
+      "name": "Paneer Manchurian (Dry)",
+      "price": 240,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300318",
+      "name": "Paneer Manchurian (Gravy)",
+      "price": 250,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300319",
+      "name": "Paneer Chilli (Dry)",
+      "price": 240,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300320",
+      "name": "Paneer Chilli (Gravy)",
+      "price": 250,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300321",
+      "name": "Mushroom Chilli (Dry)",
+      "price": 210,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300322",
+      "name": "Mushroom Chilli (Gravy)",
+      "price": 220,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300323",
+      "name": "Baby Corn Chilli (Dry)",
+      "price": 210,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300324",
+      "name": "Baby Corn Chilli (Gravy)",
+      "price": 220,
+      "description": "",
+      "image_url": ""
+    },
+    {
+      "id": "80300325",
+      "name": "Veg 65",
+      "price": 220,
+      "description": "Veg 65 is a wonderful Chinese Starter, made with Mixed Vegetables and flavored with Vinegar, Soy Sau",
+      "image_url": ""
+    },
+    {
+      "id": "80300326",
+      "name": "Paneer 65",
+      "price": 240,
+      "description": "A spicy and lip-smacking starter made with deep fried paneer fritters tossed in spicy curry sauce.(1",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/232/original/thumb_2023_01_18_12_04_58_Paneer_65.jpeg?w=250&h=250&image_name=thumb_2023_01_18_12_04_58_Paneer_65.jpeg"
+    },
+    {
+      "id": "80300327",
+      "name": "Veg Crispy",
+      "price": 220,
+      "description": "Veg crispy is an Indo-Chinese dish, assorted vegetables are battered and fried until crispy and then",
+      "image_url": ""
+    },
+    {
+      "id": "80300328",
+      "name": "Paneer Crispy",
+      "price": 240,
+      "description": "Paneer crispy is an Indo-Chinese dish,of crispy fried paneer tossed in Schezwan flavour sauce,spicy",
+      "image_url": ""
+    },
+    {
+      "id": "80300329",
+      "name": "Thai Paneer Crispy",
+      "price": 260,
+      "description": "Thai Paneer crispy is a dish of crispy fried paneer tossed in Thai & Schezwan flavour sauce,spicy &",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/178/original/thumb_2023_01_18_12_10_48_Thai_Paneer_Crispy.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_10_48_Thai_Paneer_Crispy.jpg"
+    },
+    {
+      "id": "80300330",
+      "name": "Paneer Junglee",
+      "price": 240,
+      "description": "Paneer Junglee is a dish that brings some green to the platter, paneer dipped in batter & deep fried",
+      "image_url": ""
+    },
+    {
+      "id": "80300331",
+      "name": "Veg Spring Roll",
+      "price": 220,
+      "description": "Veg spring roll is a savory snack where a pastry sheet is filled with vegetables,rolled and fried.Sp",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/250/original/thumb_2023_01_18_12_19_39_Veg_Spring_Roll.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_19_39_Veg_Spring_Roll.jpg"
+    },
+    {
+      "id": "80300332",
+      "name": "Paneer Spring Roll",
+      "price": 240,
+      "description": "Paneer spring roll is a savory snack where a pastry sheet is filled with grated paneer,rolled and fr",
+      "image_url": "https://cdn.hashtagloyalty.com/items/images/012/147/228/original/thumb_2023_01_18_12_05_01_Paneer_Spring_Roll.jpg?w=250&h=250&image_name=thumb_2023_01_18_12_05_01_Paneer_Spring_Roll.jpg"
+    },
+    {
+      "id": "80300333",
+      "name": "Paneer Karare",
+      "price": 260,
+      "description": "Paneer is sliced into thin slices were in between a stuffing of grated cheese with some spices is di",
+      "image_url": ""
+    },
+    {
+      "id": "80300334",
+      "name": "Dragon Roll",
+      "price": 230,
+      "description": "A bit similar to veg spring roll but it has noodles wrapped around the roll and it is deep fried unt",
+      "image_url": ""
+    },
+    {
+      "id": "80300335",
+      "name": "Paneer Spider",
+      "price": 250,
+      "description": "Paneer cubes are rolled with noodles. These are then dipped in batter and fries until crispy. The sa",
+      "image_url": ""
+    },
+    {
+      "id": "80300336",
+      "name": "Cheese Balls",
+      "price": 245,
+      "description": "Delicious cheese balls made from cheese mixed with chopped capsicum and spices, rolled into bread cr",
+      "image_url": ""
+    },
+    {
+      "id": "80300337",
+      "name": "Cheese Corn Balls",
+      "price": 260,
+      "description": "The stuffing is made from sweet corn grated cheese, chopped capsicum and spices. Fried till golden b",
+      "image_url": ""
+    }
+  ],
+  "CHEF SPECIAL STARTER": [
+    {
+      "id": "80300338",
+      "name": "Paneer Kurkure",
+      "price": 230,
+      "description": "Paneer Kurkure",
+      "image_url": ""
+    },
+    {
+      "id": "80300339",
+      "name": "Bhindi Kurkure",
+      "price": 200,
+      "description": "Thinly sliced okra deep fried until ultra crispy and seasoned with chaat masala.",
+      "image_url": ""
+    },
+    {
+      "id": "80300340",
+      "name": "Babycorn Kurkure",
+      "price": 200,
+      "description": "Crispy coated tender babycorn fingers fried to perfection.",
+      "image_url": ""
+    }
+  ],
+  "THALI": [
+    {
+      "id": "80300341",
+      "name": "VEG THALI",
       "price": 210,
       "description": "2 Gravy Sabji, 2 Roti /3 Chapati /1 Naan, 1 Dal, 1 Rice, 1 Papad, 1 Pickle, 1 Sweet.",
       "image_url": ""
     },
     {
-      "id": "9463",
-      "name": "Maurya Special Thali",
+      "id": "80300342",
+      "name": "MAURYA SPECIAL THALI",
       "price": 260,
       "description": "3 Gravy Sabji, 2 Roti / 3 Chapati / 1 Naan, Dal, 1 Rice, 2 Papad, 1 Pickle, 1 Sweet, 1 Butter Milk.",
       "image_url": ""

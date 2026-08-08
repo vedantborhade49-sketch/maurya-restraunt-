@@ -6,9 +6,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 
 const FEATURED_DISHES = [
-  { id: "paneer-tikka", category: "Starters", name: "Paneer Tikka Ajwaini", desc: "Cottage cheese marinated in carom seeds, yogurt & ground spices, roasted in clay oven.", price: 395, img: "/dish-paneer-butter-masala.webp" },
-  { id: "kung-pao", category: "Chinese", name: "Kung Pao Paneer", desc: "Crispy paneer tossed with peanuts, dry red chillies, and classic kung pao sauce.", price: 375, img: "/dish-manchurian.webp" },
-  { id: "dal-makhani", category: "Punjabi", name: "Dal Makhani", desc: "Our signature black lentils simmered overnight with tomatoes, butter and cream.", price: 345, img: "/editorial-table-feast.webp" },
+  { id: "80288421", category: "North Indian", name: "Paneer Tikka Masala", desc: "Classic Paneer Tikka Masala made with marinating onion, capsicum, tomato and paneer in spices & yogurt.", price: 240, img: "/dish-paneer-tikka-masala-new.png" },
+  { id: "80288412", category: "Maharashtrian", name: "Veg Maratha", desc: "Classic Maharashtrian dish consisting of 6 vegetable koftas deep fried in spicy gravy.", price: 215, img: "/dish-veg-maratha-new.png" },
+  { id: "80288372", category: "Dal", name: "Dal Tadka", desc: "Comforting and flavorful yellow dal tempered with aromatic Indian spices.", price: 150, img: "/dish-dal-tadka-new.png" },
 ];
 
 export default function MobileMenu() {
